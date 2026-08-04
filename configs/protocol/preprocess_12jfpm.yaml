@@ -1,0 +1,21 @@
+seed: 42
+
+data:
+  raw_data_root: null
+  subjects:
+    - s1
+    - s2
+    - s3
+    - s4
+    - s5
+    - s6
+    - s7
+    - s8
+    - s9
+    - s10
+  output_dir: null
+
+preprocess:
+  onset_sample_0: 38
+  window_length: 512
+  normalize: channel_zscore

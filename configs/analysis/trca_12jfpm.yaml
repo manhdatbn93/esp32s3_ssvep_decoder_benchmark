@@ -1,0 +1,20 @@
+method: trca
+processed_npz: data/processed/12JFPM/processed.npz
+
+loso:
+  subjects: ["s1", "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10"]
+
+trca:
+  sampling_rate_hz: 256.0
+  n_bands: 10
+  ensemble: true
+  passband_hz: [6.0, 14.0, 22.0, 30.0, 38.0, 46.0, 54.0, 62.0, 70.0, 78.0]
+  stopband_hz: [4.0, 10.0, 16.0, 24.0, 32.0, 40.0, 48.0, 56.0, 64.0, 72.0]
+  highcut_pass_hz: 80.0
+  highcut_stop_hz: 90.0
+  gpass_db: 3.0
+  gstop_db: 40.0
+  cheby_ripple_db: 0.5
+
+output:
+  run_dir: runs/classical_loso_12jfpm

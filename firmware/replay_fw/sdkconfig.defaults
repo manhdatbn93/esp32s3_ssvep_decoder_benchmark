@@ -1,0 +1,35 @@
+# ESP32-S3 target (fixed for this smoke project)
+CONFIG_IDF_TARGET="esp32s3"
+
+# Large app partition (see partitions.csv)
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+CONFIG_PARTITION_TABLE_OFFSET=0x8000
+
+# PSRAM — enable for boards with OPI PSRAM (e.g. N8R8).
+# Required for DL backends that need large tensor arenas.
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_SPEED_80M=y
+CONFIG_SPIRAM_BOOT_INIT=y
+CONFIG_SPIRAM_USE_MALLOC=y
+
+CONFIG_ESP_CONSOLE_UART_DEFAULT=y
+
+# Flash size: 32 MB module (partitions.csv needs ~15 MB).
+CONFIG_ESPTOOLPY_FLASHSIZE_32MB=y
+
+# Disable task WDT during long smoke tests (CCA forward can take >5s).
+CONFIG_ESP_TASK_WDT_INIT=n
+
+# Main task stack: CCA/FBCCA/MSI forward and boot smoke (smoke_dispatch) run on
+# app_main before Wi-Fi. 16 KB was marginal for MSI Jacobi + margins; 32 KB is
+# safer and avoids stack smash into heap metadata (TLSF malloc crash after smoke).
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=32768
+
+# UART lines: RES_PROFILE ... (see docs/results/on_device_resource_profile.md)
+CONFIG_REPLAY_RESOURCE_PROFILE=y
+
+# Skip ~5s embedded vector smoke at boot; go straight to Wi-Fi + TCP replay.
+# Re-enable via menuconfig: Replay WiFi TCP -> "Run embedded smoke tests at boot"
+CONFIG_REPLAY_BOOT_SMOKE=n

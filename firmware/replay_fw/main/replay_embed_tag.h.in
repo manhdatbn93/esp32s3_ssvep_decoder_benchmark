@@ -1,0 +1,8 @@
+/* Auto-generated at configure time — do not edit.
+ * Must match CMake TARGET_FOLD_SUBJECT_TAG (e.g. fold05_val_s5) and the
+ * export/12jfpm_*_{tag}/ trees embedded in this image.
+ */
+#ifndef REPLAY_EMBED_TAG_H
+#define REPLAY_EMBED_TAG_H
+#define REPLAY_EMBED_TARGET_TAG "@EMBED_TAG@"
+#endif

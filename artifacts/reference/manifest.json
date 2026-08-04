@@ -1,0 +1,5792 @@
+[
+  {
+    "artifact_id": "cca_bundle_fold01_cca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/analytical/cca/fold01/cca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 1043,
+    "sha256": "c7405cda2695d7204afd90d9455e345d2d50a31422b8681d51b389d885f58359",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold01_cca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/analytical/cca/fold01/cca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "2088076186a2d8fc7698344850e722bddaf81fe9e432fbb26ad5a6efd1a24a05",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold02_cca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/analytical/cca/fold02/cca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 1043,
+    "sha256": "c7405cda2695d7204afd90d9455e345d2d50a31422b8681d51b389d885f58359",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold02_cca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/analytical/cca/fold02/cca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "2088076186a2d8fc7698344850e722bddaf81fe9e432fbb26ad5a6efd1a24a05",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold03_cca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/analytical/cca/fold03/cca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 1043,
+    "sha256": "c7405cda2695d7204afd90d9455e345d2d50a31422b8681d51b389d885f58359",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold03_cca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/analytical/cca/fold03/cca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "2088076186a2d8fc7698344850e722bddaf81fe9e432fbb26ad5a6efd1a24a05",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold04_cca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/analytical/cca/fold04/cca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 1043,
+    "sha256": "c7405cda2695d7204afd90d9455e345d2d50a31422b8681d51b389d885f58359",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold04_cca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/analytical/cca/fold04/cca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "2088076186a2d8fc7698344850e722bddaf81fe9e432fbb26ad5a6efd1a24a05",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold05_cca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/analytical/cca/fold05/cca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 1043,
+    "sha256": "c7405cda2695d7204afd90d9455e345d2d50a31422b8681d51b389d885f58359",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold05_cca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/analytical/cca/fold05/cca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "2088076186a2d8fc7698344850e722bddaf81fe9e432fbb26ad5a6efd1a24a05",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold06_cca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/analytical/cca/fold06/cca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 1043,
+    "sha256": "c7405cda2695d7204afd90d9455e345d2d50a31422b8681d51b389d885f58359",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold06_cca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/analytical/cca/fold06/cca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "2088076186a2d8fc7698344850e722bddaf81fe9e432fbb26ad5a6efd1a24a05",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold07_cca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/analytical/cca/fold07/cca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 1043,
+    "sha256": "c7405cda2695d7204afd90d9455e345d2d50a31422b8681d51b389d885f58359",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold07_cca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/analytical/cca/fold07/cca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "2088076186a2d8fc7698344850e722bddaf81fe9e432fbb26ad5a6efd1a24a05",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold08_cca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/analytical/cca/fold08/cca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 1043,
+    "sha256": "c7405cda2695d7204afd90d9455e345d2d50a31422b8681d51b389d885f58359",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold08_cca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/analytical/cca/fold08/cca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "2088076186a2d8fc7698344850e722bddaf81fe9e432fbb26ad5a6efd1a24a05",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold09_cca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/analytical/cca/fold09/cca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 1043,
+    "sha256": "c7405cda2695d7204afd90d9455e345d2d50a31422b8681d51b389d885f58359",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold09_cca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/analytical/cca/fold09/cca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "2088076186a2d8fc7698344850e722bddaf81fe9e432fbb26ad5a6efd1a24a05",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold10_cca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/analytical/cca/fold10/cca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 1043,
+    "sha256": "c7405cda2695d7204afd90d9455e345d2d50a31422b8681d51b389d885f58359",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "cca_bundle_fold10_cca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "cca",
+    "model": "cca",
+    "precision": "analytical",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/analytical/cca/fold10/cca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "2088076186a2d8fc7698344850e722bddaf81fe9e432fbb26ad5a6efd1a24a05",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold01_fbcca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold01/fbcca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7939,
+    "sha256": "ba913d30a80343c6d7bd2fd3907b28b4ca43772c2f06f06d2fc52ceca7dc5b9f",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold01_fbcca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold01/fbcca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498839,
+    "sha256": "e99495d3ff283618433056a101f569e08571229f9f9f7d5974e42a325d64fe03",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold02_fbcca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold02/fbcca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7939,
+    "sha256": "ba913d30a80343c6d7bd2fd3907b28b4ca43772c2f06f06d2fc52ceca7dc5b9f",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold02_fbcca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold02/fbcca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498839,
+    "sha256": "e99495d3ff283618433056a101f569e08571229f9f9f7d5974e42a325d64fe03",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold03_fbcca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold03/fbcca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7939,
+    "sha256": "ba913d30a80343c6d7bd2fd3907b28b4ca43772c2f06f06d2fc52ceca7dc5b9f",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold03_fbcca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold03/fbcca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498839,
+    "sha256": "e99495d3ff283618433056a101f569e08571229f9f9f7d5974e42a325d64fe03",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold04_fbcca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold04/fbcca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7939,
+    "sha256": "ba913d30a80343c6d7bd2fd3907b28b4ca43772c2f06f06d2fc52ceca7dc5b9f",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold04_fbcca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold04/fbcca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498839,
+    "sha256": "e99495d3ff283618433056a101f569e08571229f9f9f7d5974e42a325d64fe03",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold05_fbcca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold05/fbcca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7939,
+    "sha256": "ba913d30a80343c6d7bd2fd3907b28b4ca43772c2f06f06d2fc52ceca7dc5b9f",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold05_fbcca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold05/fbcca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498839,
+    "sha256": "e99495d3ff283618433056a101f569e08571229f9f9f7d5974e42a325d64fe03",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold06_fbcca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold06/fbcca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7939,
+    "sha256": "ba913d30a80343c6d7bd2fd3907b28b4ca43772c2f06f06d2fc52ceca7dc5b9f",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold06_fbcca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold06/fbcca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498839,
+    "sha256": "e99495d3ff283618433056a101f569e08571229f9f9f7d5974e42a325d64fe03",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold07_fbcca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold07/fbcca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7939,
+    "sha256": "ba913d30a80343c6d7bd2fd3907b28b4ca43772c2f06f06d2fc52ceca7dc5b9f",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold07_fbcca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold07/fbcca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498839,
+    "sha256": "e99495d3ff283618433056a101f569e08571229f9f9f7d5974e42a325d64fe03",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold08_fbcca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold08/fbcca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7939,
+    "sha256": "ba913d30a80343c6d7bd2fd3907b28b4ca43772c2f06f06d2fc52ceca7dc5b9f",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold08_fbcca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold08/fbcca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498839,
+    "sha256": "e99495d3ff283618433056a101f569e08571229f9f9f7d5974e42a325d64fe03",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold09_fbcca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold09/fbcca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7939,
+    "sha256": "ba913d30a80343c6d7bd2fd3907b28b4ca43772c2f06f06d2fc52ceca7dc5b9f",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold09_fbcca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold09/fbcca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498839,
+    "sha256": "e99495d3ff283618433056a101f569e08571229f9f9f7d5974e42a325d64fe03",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold10_fbcca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold10/fbcca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7939,
+    "sha256": "ba913d30a80343c6d7bd2fd3907b28b4ca43772c2f06f06d2fc52ceca7dc5b9f",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbcca_bundle_fold10_fbcca_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "fbcca",
+    "model": "fbcca",
+    "precision": "analytical",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/analytical/fbcca/fold10/fbcca_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498839,
+    "sha256": "e99495d3ff283618433056a101f569e08571229f9f9f7d5974e42a325d64fe03",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold01_msi_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/analytical/msi/fold01/msi_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 411,
+    "sha256": "805d731e56afdbe97a7d243c3d846323394806c91c87dfca24d55f9190650850",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold01_msi_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/analytical/msi/fold01/msi_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "18eba5ac022ce8d24c5b8c4b8326b199133e0f720fefecac36a708c48315ad34",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold02_msi_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/analytical/msi/fold02/msi_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 411,
+    "sha256": "805d731e56afdbe97a7d243c3d846323394806c91c87dfca24d55f9190650850",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold02_msi_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/analytical/msi/fold02/msi_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "18eba5ac022ce8d24c5b8c4b8326b199133e0f720fefecac36a708c48315ad34",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold03_msi_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/analytical/msi/fold03/msi_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 411,
+    "sha256": "805d731e56afdbe97a7d243c3d846323394806c91c87dfca24d55f9190650850",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold03_msi_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/analytical/msi/fold03/msi_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "18eba5ac022ce8d24c5b8c4b8326b199133e0f720fefecac36a708c48315ad34",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold04_msi_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/analytical/msi/fold04/msi_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 411,
+    "sha256": "805d731e56afdbe97a7d243c3d846323394806c91c87dfca24d55f9190650850",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold04_msi_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/analytical/msi/fold04/msi_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "18eba5ac022ce8d24c5b8c4b8326b199133e0f720fefecac36a708c48315ad34",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold05_msi_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/analytical/msi/fold05/msi_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 411,
+    "sha256": "805d731e56afdbe97a7d243c3d846323394806c91c87dfca24d55f9190650850",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold05_msi_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/analytical/msi/fold05/msi_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "18eba5ac022ce8d24c5b8c4b8326b199133e0f720fefecac36a708c48315ad34",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold06_msi_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/analytical/msi/fold06/msi_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 411,
+    "sha256": "805d731e56afdbe97a7d243c3d846323394806c91c87dfca24d55f9190650850",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold06_msi_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/analytical/msi/fold06/msi_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "18eba5ac022ce8d24c5b8c4b8326b199133e0f720fefecac36a708c48315ad34",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold07_msi_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/analytical/msi/fold07/msi_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 411,
+    "sha256": "805d731e56afdbe97a7d243c3d846323394806c91c87dfca24d55f9190650850",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold07_msi_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/analytical/msi/fold07/msi_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "18eba5ac022ce8d24c5b8c4b8326b199133e0f720fefecac36a708c48315ad34",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold08_msi_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/analytical/msi/fold08/msi_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 411,
+    "sha256": "805d731e56afdbe97a7d243c3d846323394806c91c87dfca24d55f9190650850",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold08_msi_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/analytical/msi/fold08/msi_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "18eba5ac022ce8d24c5b8c4b8326b199133e0f720fefecac36a708c48315ad34",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold09_msi_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/analytical/msi/fold09/msi_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 411,
+    "sha256": "805d731e56afdbe97a7d243c3d846323394806c91c87dfca24d55f9190650850",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold09_msi_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/analytical/msi/fold09/msi_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "18eba5ac022ce8d24c5b8c4b8326b199133e0f720fefecac36a708c48315ad34",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold10_msi_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/analytical/msi/fold10/msi_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 411,
+    "sha256": "805d731e56afdbe97a7d243c3d846323394806c91c87dfca24d55f9190650850",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "msi_bundle_fold10_msi_ref_lut_generated_h",
+    "artifact_type": "analytical",
+    "backend": "msi",
+    "model": "msi",
+    "precision": "analytical",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/analytical/msi/fold10/msi_ref_lut_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 498831,
+    "sha256": "18eba5ac022ce8d24c5b8c4b8326b199133e0f720fefecac36a708c48315ad34",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold01_replay_reference_npz",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/analytical/trca/fold01/replay_reference.npz",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10031,
+    "sha256": "7976119355e1728901967fe6c7d4cc43c394966e03d444c91b7665ea1297790b",
+    "firmware_role": "host_trca_reference",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "trca_bundle_fold01_trca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/analytical/trca/fold01/trca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7759,
+    "sha256": "ad2545ea8c1856a31e8ea5f729f297745d8cec73771aa1e4987370595f154d73",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold01_trca_spatial_filters_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/analytical/trca/fold01/trca_spatial_filters_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 14473,
+    "sha256": "0d21b7ce2825a7806878a31d05e39a4c3591049674fa1503b1f2cd091f17a958",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold01_trca_templates_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/analytical/trca/fold01/trca_templates_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6646306,
+    "sha256": "b532aeff9f4665226fda319da5c61c536616824f99e5ab8e69c4f57aa1614110",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold02_replay_reference_npz",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/analytical/trca/fold02/replay_reference.npz",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10032,
+    "sha256": "a5c80467cfe30710452fbb533addbd57bc3eaeca98a7f678a5ec99395c319f98",
+    "firmware_role": "host_trca_reference",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "trca_bundle_fold02_trca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/analytical/trca/fold02/trca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7759,
+    "sha256": "ad2545ea8c1856a31e8ea5f729f297745d8cec73771aa1e4987370595f154d73",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold02_trca_spatial_filters_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/analytical/trca/fold02/trca_spatial_filters_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 14475,
+    "sha256": "0d971c7b79fab02d982cb5bfbf19227ec193ed7889491f821aac784e7ebff10d",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold02_trca_templates_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/analytical/trca/fold02/trca_templates_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6645965,
+    "sha256": "d8dc1c76d536eb42bd8f610c1b68b301ebbda1f9be58d0d0cc3c5fba84c4b091",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold03_replay_reference_npz",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/analytical/trca/fold03/replay_reference.npz",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10000,
+    "sha256": "f5a5330d890fb5e9613313183e3b10a3c6309aaab71a41b59723ae430bec3c69",
+    "firmware_role": "host_trca_reference",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "trca_bundle_fold03_trca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/analytical/trca/fold03/trca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7759,
+    "sha256": "ad2545ea8c1856a31e8ea5f729f297745d8cec73771aa1e4987370595f154d73",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold03_trca_spatial_filters_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/analytical/trca/fold03/trca_spatial_filters_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 14462,
+    "sha256": "24e7d0ae917f0da1965e03726e0132a53642e27283c4b3a6b3128208de4a49f7",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold03_trca_templates_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/analytical/trca/fold03/trca_templates_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6646351,
+    "sha256": "9db6ca09dd5666e635ebc5e64717754ab29d9743b31da84bf978dfc34526c9d0",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold04_replay_reference_npz",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/analytical/trca/fold04/replay_reference.npz",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 9979,
+    "sha256": "6a09da7e17921ef79a7f5b4e25d0b46370db8ad33c3a5d1bba5b5568c1680ede",
+    "firmware_role": "host_trca_reference",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "trca_bundle_fold04_trca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/analytical/trca/fold04/trca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7759,
+    "sha256": "ad2545ea8c1856a31e8ea5f729f297745d8cec73771aa1e4987370595f154d73",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold04_trca_spatial_filters_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/analytical/trca/fold04/trca_spatial_filters_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 14460,
+    "sha256": "3d9459d76f0dfd9c49d81eeeaa07b8c03ac0a6c0e7281d1fd2156e63cf67d098",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold04_trca_templates_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/analytical/trca/fold04/trca_templates_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6646048,
+    "sha256": "a457d1e174e79a8b9267764e419b84b6842a9f16318e22551c97299c60e07dae",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold05_replay_reference_npz",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/analytical/trca/fold05/replay_reference.npz",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 9957,
+    "sha256": "6bbcd2fec60635811dd039eb7909a78c6e036530000e4ce71b2dbca9c4a78916",
+    "firmware_role": "host_trca_reference",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "trca_bundle_fold05_trca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/analytical/trca/fold05/trca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7759,
+    "sha256": "ad2545ea8c1856a31e8ea5f729f297745d8cec73771aa1e4987370595f154d73",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold05_trca_spatial_filters_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/analytical/trca/fold05/trca_spatial_filters_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 14450,
+    "sha256": "f26f7330a857be1588c3b7903af46fb51fbd5d117d711a9deb4e4b17f44c198e",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold05_trca_templates_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/analytical/trca/fold05/trca_templates_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6646443,
+    "sha256": "5de79af01076eccaac821eb86ac1e20220ce3583f93c89eeaf1556fc266fcf88",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold06_replay_reference_npz",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/analytical/trca/fold06/replay_reference.npz",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 9962,
+    "sha256": "25b60c610a6deb700c9a4e78ce00fd375354d7020075ec692fbe442e10ee0cfb",
+    "firmware_role": "host_trca_reference",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "trca_bundle_fold06_trca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/analytical/trca/fold06/trca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7759,
+    "sha256": "ad2545ea8c1856a31e8ea5f729f297745d8cec73771aa1e4987370595f154d73",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold06_trca_spatial_filters_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/analytical/trca/fold06/trca_spatial_filters_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 14453,
+    "sha256": "e59c0c8f41956fbfd3594a1a4d3e982772b04bf3e7fe9c975726ffc146a1e544",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold06_trca_templates_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/analytical/trca/fold06/trca_templates_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6646692,
+    "sha256": "0cc2f7c00e5bb5ed985d078bebb1dbd91c840f76ecf501b76f2045442a5228d4",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold07_replay_reference_npz",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/analytical/trca/fold07/replay_reference.npz",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 9938,
+    "sha256": "aae4df49bf0f7e58ed37567fad16ab62cfafa19397dd1674e2112e0dec440fe7",
+    "firmware_role": "host_trca_reference",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "trca_bundle_fold07_trca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/analytical/trca/fold07/trca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7759,
+    "sha256": "ad2545ea8c1856a31e8ea5f729f297745d8cec73771aa1e4987370595f154d73",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold07_trca_spatial_filters_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/analytical/trca/fold07/trca_spatial_filters_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 14457,
+    "sha256": "69bcdc2bfced03e7021b71144bfff152970aa9cfd5be77cf39ab017c792519a3",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold07_trca_templates_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/analytical/trca/fold07/trca_templates_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6647383,
+    "sha256": "8eb82477460054dbed1932fee459276baff9b2ff83cf17d9f3f160849d257a7a",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold08_replay_reference_npz",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/analytical/trca/fold08/replay_reference.npz",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 9968,
+    "sha256": "7ab10abad570ec912fa268e0bc244bb52189c4202faed0df4495f82d79425e01",
+    "firmware_role": "host_trca_reference",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "trca_bundle_fold08_trca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/analytical/trca/fold08/trca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7759,
+    "sha256": "ad2545ea8c1856a31e8ea5f729f297745d8cec73771aa1e4987370595f154d73",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold08_trca_spatial_filters_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/analytical/trca/fold08/trca_spatial_filters_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 14475,
+    "sha256": "1fc4b06bb755af1aed86a3f6340d9ebf282d018b979a4946758920e16ad67e76",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold08_trca_templates_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/analytical/trca/fold08/trca_templates_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6645927,
+    "sha256": "16189eab3b132e80d868cb95599d84cd8123f758e02441d1f884bb0a202a23f0",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold09_replay_reference_npz",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/analytical/trca/fold09/replay_reference.npz",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 9938,
+    "sha256": "eb57c68b59aa96b528ac2d7f624cddf0308b0fb967d0917e081f80a1b32d9f41",
+    "firmware_role": "host_trca_reference",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "trca_bundle_fold09_trca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/analytical/trca/fold09/trca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7759,
+    "sha256": "ad2545ea8c1856a31e8ea5f729f297745d8cec73771aa1e4987370595f154d73",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold09_trca_spatial_filters_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/analytical/trca/fold09/trca_spatial_filters_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 14469,
+    "sha256": "610817df8fcfa2791079fdf0efb007daecf39e1e9928a5243dd15a2c4a45709a",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold09_trca_templates_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/analytical/trca/fold09/trca_templates_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6646405,
+    "sha256": "6ed07c74d84e5635fa775c2d3b3e711f1cb55c817d23ea8fbb4f1d1c9fdb1aa3",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold10_replay_reference_npz",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/analytical/trca/fold10/replay_reference.npz",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 9963,
+    "sha256": "abfe226da2d2958557aac017c55fde5403ce786a3acedeefe6300a0227badf7a",
+    "firmware_role": "host_trca_reference",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "trca_bundle_fold10_trca_config_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/analytical/trca/fold10/trca_config_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 7759,
+    "sha256": "ad2545ea8c1856a31e8ea5f729f297745d8cec73771aa1e4987370595f154d73",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold10_trca_spatial_filters_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/analytical/trca/fold10/trca_spatial_filters_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 14477,
+    "sha256": "d03732cf654d5cf25f24b433dc0bdbc17ba34477e4fc592f588652bf67f05247",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "trca_bundle_fold10_trca_templates_generated_h",
+    "artifact_type": "analytical",
+    "backend": "trca",
+    "model": "trca",
+    "precision": "analytical",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/analytical/trca/fold10/trca_templates_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      512,
+      8
+    ],
+    "output_shape": [
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6646051,
+    "sha256": "4822645a4261c24cdff5c36ed35f20cde0a6a0e5cbb9a1b6185cbeb686143d9b",
+    "firmware_role": "firmware_generated_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_checkpoint_fold01",
+    "artifact_type": "checkpoint",
+    "backend": "ccnn",
+    "model": "ccnn",
+    "precision": "f32_weights",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/checkpoints/ccnn/fold01/fold01_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 179723,
+    "sha256": "c76444b27687950c1e3a3aaf67fdc9dded4c167cf5b2cc3344326e544d48f654",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "ccnn_checkpoint_fold02",
+    "artifact_type": "checkpoint",
+    "backend": "ccnn",
+    "model": "ccnn",
+    "precision": "f32_weights",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/checkpoints/ccnn/fold02/fold02_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 179723,
+    "sha256": "4eb58bc2ac6ed4fe4cc3239f10bfc4f07f8815a501303615f7b21ce03edeb2c6",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "ccnn_checkpoint_fold03",
+    "artifact_type": "checkpoint",
+    "backend": "ccnn",
+    "model": "ccnn",
+    "precision": "f32_weights",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/checkpoints/ccnn/fold03/fold03_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 179723,
+    "sha256": "c7fd790ee1964b838ba53178ecfc7f63679a7760d8d20ab92633331e4b9358b7",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "ccnn_checkpoint_fold04",
+    "artifact_type": "checkpoint",
+    "backend": "ccnn",
+    "model": "ccnn",
+    "precision": "f32_weights",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/checkpoints/ccnn/fold04/fold04_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 179723,
+    "sha256": "386f88ff83224099919b05107cff862ddf4e56b040abb35ea535d4e8c50a6e70",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "ccnn_checkpoint_fold05",
+    "artifact_type": "checkpoint",
+    "backend": "ccnn",
+    "model": "ccnn",
+    "precision": "f32_weights",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/checkpoints/ccnn/fold05/fold05_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 179723,
+    "sha256": "7734f9ca16f617e08818e1e299eff5d582550e58f99a60684e539f2ab4458588",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "ccnn_checkpoint_fold06",
+    "artifact_type": "checkpoint",
+    "backend": "ccnn",
+    "model": "ccnn",
+    "precision": "f32_weights",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/checkpoints/ccnn/fold06/fold06_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 179723,
+    "sha256": "c885d1b7bc26928fb4aceb5812d56fcde8d7e7404a2ccb58995fdbf9b526659c",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "ccnn_checkpoint_fold07",
+    "artifact_type": "checkpoint",
+    "backend": "ccnn",
+    "model": "ccnn",
+    "precision": "f32_weights",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/checkpoints/ccnn/fold07/fold07_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 179723,
+    "sha256": "df3b5439e54e233962be13f7533e9f4bd98b93bb444931b456ad86eaf268e066",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "ccnn_checkpoint_fold08",
+    "artifact_type": "checkpoint",
+    "backend": "ccnn",
+    "model": "ccnn",
+    "precision": "f32_weights",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/checkpoints/ccnn/fold08/fold08_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 179723,
+    "sha256": "7f8fe7e0a5188e69e8ebba1c3f18efda9e23e8a4aec75a8d6cbc8a55409d4b6f",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "ccnn_checkpoint_fold09",
+    "artifact_type": "checkpoint",
+    "backend": "ccnn",
+    "model": "ccnn",
+    "precision": "f32_weights",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/checkpoints/ccnn/fold09/fold09_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 179723,
+    "sha256": "91ccf7591735ba0dcd4963cb238a33be7b43b2a26eb6cc03853140409800e29b",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "ccnn_checkpoint_fold10",
+    "artifact_type": "checkpoint",
+    "backend": "ccnn",
+    "model": "ccnn",
+    "precision": "f32_weights",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/checkpoints/ccnn/fold10/fold10_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 179723,
+    "sha256": "6db843c21dc1e946eb2c23326301130799e8e14eefee7e03acd21ebb507b0cec",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "convca_checkpoint_fold01",
+    "artifact_type": "checkpoint",
+    "backend": "convca",
+    "model": "convca",
+    "precision": "f32_weights",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/checkpoints/convca/fold01/fold01_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 23943,
+    "sha256": "98666750c6c00ee68483db502795afe25ec50a9beecccd9ca312dd297297ff96",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "convca_checkpoint_fold02",
+    "artifact_type": "checkpoint",
+    "backend": "convca",
+    "model": "convca",
+    "precision": "f32_weights",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/checkpoints/convca/fold02/fold02_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 23943,
+    "sha256": "9527c87f598416e2b6a9442f47ec99a160771f5664772d0c7423805f68b0cfe0",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "convca_checkpoint_fold03",
+    "artifact_type": "checkpoint",
+    "backend": "convca",
+    "model": "convca",
+    "precision": "f32_weights",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/checkpoints/convca/fold03/fold03_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 23943,
+    "sha256": "5b1abe6d2909cc7b562c1740e32368fac33acd42c424655ab025758552477be7",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "convca_checkpoint_fold04",
+    "artifact_type": "checkpoint",
+    "backend": "convca",
+    "model": "convca",
+    "precision": "f32_weights",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/checkpoints/convca/fold04/fold04_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 23943,
+    "sha256": "d95eb26da9aeb66061130e6257dc1491cb4071dd28387098a8943eb92f15255d",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "convca_checkpoint_fold05",
+    "artifact_type": "checkpoint",
+    "backend": "convca",
+    "model": "convca",
+    "precision": "f32_weights",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/checkpoints/convca/fold05/fold05_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 23943,
+    "sha256": "f7c8a4c0e2de59a7cc9dec8eee03bf4b120ca12dc7adaf56b9cbfa2f0e591b43",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "convca_checkpoint_fold06",
+    "artifact_type": "checkpoint",
+    "backend": "convca",
+    "model": "convca",
+    "precision": "f32_weights",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/checkpoints/convca/fold06/fold06_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 23943,
+    "sha256": "62593681fcac7fc471e2beb40133e7c131d20a37a98ee001d64208def174321b",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "convca_checkpoint_fold07",
+    "artifact_type": "checkpoint",
+    "backend": "convca",
+    "model": "convca",
+    "precision": "f32_weights",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/checkpoints/convca/fold07/fold07_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 23943,
+    "sha256": "6b2afb03e34dc6a57676788ed165614233c0682cac33316429672df69b5e752e",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "convca_checkpoint_fold08",
+    "artifact_type": "checkpoint",
+    "backend": "convca",
+    "model": "convca",
+    "precision": "f32_weights",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/checkpoints/convca/fold08/fold08_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 23943,
+    "sha256": "7cd403ad041a0584715ee2419e41df5aa4747cf6f2bd9cff42905a5796ae5d02",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "convca_checkpoint_fold09",
+    "artifact_type": "checkpoint",
+    "backend": "convca",
+    "model": "convca",
+    "precision": "f32_weights",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/checkpoints/convca/fold09/fold09_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 23943,
+    "sha256": "9b2f485832d4e7cfe42888eee2490415155d8994fd7deee67424cb3475365648",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "convca_checkpoint_fold10",
+    "artifact_type": "checkpoint",
+    "backend": "convca",
+    "model": "convca",
+    "precision": "f32_weights",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/checkpoints/convca/fold10/fold10_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 23943,
+    "sha256": "f6cc200481cb739bd0b1ba76edddb745c7f2dd800264b95376c128c91ca8d8c0",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "eegnet_checkpoint_fold01",
+    "artifact_type": "checkpoint",
+    "backend": "eegnet",
+    "model": "eegnet",
+    "precision": "f32_weights",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/checkpoints/eegnet/fold01/fold01_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 13648,
+    "sha256": "12bb674cbca133dc617b2466a2ea3e9177caa365aa8c549afdb5ec38bbd323a8",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "eegnet_checkpoint_fold02",
+    "artifact_type": "checkpoint",
+    "backend": "eegnet",
+    "model": "eegnet",
+    "precision": "f32_weights",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/checkpoints/eegnet/fold02/fold02_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 13648,
+    "sha256": "b5be130ce495790fd19cfca7db87016fdfd83c318782649984c4cdd56eb5cb68",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "eegnet_checkpoint_fold03",
+    "artifact_type": "checkpoint",
+    "backend": "eegnet",
+    "model": "eegnet",
+    "precision": "f32_weights",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/checkpoints/eegnet/fold03/fold03_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 13648,
+    "sha256": "7c8501946c7903021610277db50f7fcc2a84e305cb9e308c95ae5a75ee27189b",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "eegnet_checkpoint_fold04",
+    "artifact_type": "checkpoint",
+    "backend": "eegnet",
+    "model": "eegnet",
+    "precision": "f32_weights",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/checkpoints/eegnet/fold04/fold04_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 13648,
+    "sha256": "144a2d07ecfd136b6b1d26a11a2be952134625753e2e03045540c04b9d027f61",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "eegnet_checkpoint_fold05",
+    "artifact_type": "checkpoint",
+    "backend": "eegnet",
+    "model": "eegnet",
+    "precision": "f32_weights",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/checkpoints/eegnet/fold05/fold05_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 13648,
+    "sha256": "b04e7f9f0ccaeccdc9e1a7e36cf42d6bca8f42d6220823e72988b253455d0b4b",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "eegnet_checkpoint_fold06",
+    "artifact_type": "checkpoint",
+    "backend": "eegnet",
+    "model": "eegnet",
+    "precision": "f32_weights",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/checkpoints/eegnet/fold06/fold06_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 13648,
+    "sha256": "d14693cd6cdebcdb7e10a477999c9269ae7b9dd52068545750fae4aac93f9679",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "eegnet_checkpoint_fold07",
+    "artifact_type": "checkpoint",
+    "backend": "eegnet",
+    "model": "eegnet",
+    "precision": "f32_weights",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/checkpoints/eegnet/fold07/fold07_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 13648,
+    "sha256": "cfcc9f70e42ae56fe2524a1a265b2b3e02a81c37e0758858b86797904ec2192f",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "eegnet_checkpoint_fold08",
+    "artifact_type": "checkpoint",
+    "backend": "eegnet",
+    "model": "eegnet",
+    "precision": "f32_weights",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/checkpoints/eegnet/fold08/fold08_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 13648,
+    "sha256": "f6e6874a7c831cdf480a2209dba4e4ef2f86e0d5ed47c8fc66d208dcfdc0619d",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "eegnet_checkpoint_fold09",
+    "artifact_type": "checkpoint",
+    "backend": "eegnet",
+    "model": "eegnet",
+    "precision": "f32_weights",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/checkpoints/eegnet/fold09/fold09_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 13648,
+    "sha256": "d1bbff97b2388fbda8ad1d53443c64442a48adde87525928357bd1edd6a55814",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "eegnet_checkpoint_fold10",
+    "artifact_type": "checkpoint",
+    "backend": "eegnet",
+    "model": "eegnet",
+    "precision": "f32_weights",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/checkpoints/eegnet/fold10/fold10_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 13648,
+    "sha256": "4ba2f219055dc842df527406e4efa17e73f904c284e2467714ed32a85d464e0b",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_checkpoint_fold01",
+    "artifact_type": "checkpoint",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "f32_weights",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/checkpoints/fbtcnn/fold01/fold01_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 744473,
+    "sha256": "7c6ad98a59d232c8fb05a48dcc0f327b7fdd9beeff465c3144eef385132d45bc",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_checkpoint_fold02",
+    "artifact_type": "checkpoint",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "f32_weights",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/checkpoints/fbtcnn/fold02/fold02_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 744473,
+    "sha256": "7327def7cab92c4ba45f81aa226747538a3c7aecbab224cea36fe7e583b5654d",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_checkpoint_fold03",
+    "artifact_type": "checkpoint",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "f32_weights",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/checkpoints/fbtcnn/fold03/fold03_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 744473,
+    "sha256": "99e638a5d7e08608519cfca23ff01023b1d6d9aa31bae10286596867cca63e49",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_checkpoint_fold04",
+    "artifact_type": "checkpoint",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "f32_weights",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/checkpoints/fbtcnn/fold04/fold04_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 744473,
+    "sha256": "ed02ace5f4b11e6bca33ef629a41b7007c75f44b77c00504bb2c6076aedd029b",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_checkpoint_fold05",
+    "artifact_type": "checkpoint",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "f32_weights",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/checkpoints/fbtcnn/fold05/fold05_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 744473,
+    "sha256": "b1ebd1caf06f3225e8f3babf3bfb992d7a6cd92581e5ef47da38bce54ec066df",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_checkpoint_fold06",
+    "artifact_type": "checkpoint",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "f32_weights",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/checkpoints/fbtcnn/fold06/fold06_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 744473,
+    "sha256": "9b0dcc8359f39e88b92cd6de368975b0a9cd5bba3200d82a4311b270f9ace2eb",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_checkpoint_fold07",
+    "artifact_type": "checkpoint",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "f32_weights",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/checkpoints/fbtcnn/fold07/fold07_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 744473,
+    "sha256": "1455bc73ac6944f5cb735c0870356e43f2d188a44f689c597c5de8e01a97167a",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_checkpoint_fold08",
+    "artifact_type": "checkpoint",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "f32_weights",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/checkpoints/fbtcnn/fold08/fold08_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 744473,
+    "sha256": "b35645c9ae21f9886bed42db5c1a662734bc85adcf840e262aff412b244b0ad4",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_checkpoint_fold09",
+    "artifact_type": "checkpoint",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "f32_weights",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/checkpoints/fbtcnn/fold09/fold09_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 744473,
+    "sha256": "6c089b1072d9f258c0e80213e4cc758e0cfee357de74c5a4f42604a0d3c972ae",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_checkpoint_fold10",
+    "artifact_type": "checkpoint",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "f32_weights",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/checkpoints/fbtcnn/fold10/fold10_best.pt",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 744473,
+    "sha256": "dc96f58660f690226bb08a844065b5b828e92f7329cceeefa6be132c01331745",
+    "firmware_role": "host_pytorch_evaluation",
+    "required_for_reference_replay": false
+  },
+  {
+    "artifact_id": "fbtcnn_filter_fold01",
+    "artifact_type": "preprocessing",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "filter_coefficients",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/preprocessing/fbtcnn/fold01/fbtcnn_filter_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6142,
+    "sha256": "c764db39b6d7b223726791e7c8867387b4f6814e989a4b56d894ca7bd0cc6e6e",
+    "firmware_role": "firmware_fbtcnn_filter_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_filter_fold02",
+    "artifact_type": "preprocessing",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "filter_coefficients",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/preprocessing/fbtcnn/fold02/fbtcnn_filter_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6142,
+    "sha256": "c764db39b6d7b223726791e7c8867387b4f6814e989a4b56d894ca7bd0cc6e6e",
+    "firmware_role": "firmware_fbtcnn_filter_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_filter_fold03",
+    "artifact_type": "preprocessing",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "filter_coefficients",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/preprocessing/fbtcnn/fold03/fbtcnn_filter_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6142,
+    "sha256": "c764db39b6d7b223726791e7c8867387b4f6814e989a4b56d894ca7bd0cc6e6e",
+    "firmware_role": "firmware_fbtcnn_filter_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_filter_fold04",
+    "artifact_type": "preprocessing",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "filter_coefficients",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/preprocessing/fbtcnn/fold04/fbtcnn_filter_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6142,
+    "sha256": "c764db39b6d7b223726791e7c8867387b4f6814e989a4b56d894ca7bd0cc6e6e",
+    "firmware_role": "firmware_fbtcnn_filter_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_filter_fold05",
+    "artifact_type": "preprocessing",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "filter_coefficients",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/preprocessing/fbtcnn/fold05/fbtcnn_filter_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6142,
+    "sha256": "c764db39b6d7b223726791e7c8867387b4f6814e989a4b56d894ca7bd0cc6e6e",
+    "firmware_role": "firmware_fbtcnn_filter_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_filter_fold06",
+    "artifact_type": "preprocessing",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "filter_coefficients",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/preprocessing/fbtcnn/fold06/fbtcnn_filter_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6142,
+    "sha256": "c764db39b6d7b223726791e7c8867387b4f6814e989a4b56d894ca7bd0cc6e6e",
+    "firmware_role": "firmware_fbtcnn_filter_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_filter_fold07",
+    "artifact_type": "preprocessing",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "filter_coefficients",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/preprocessing/fbtcnn/fold07/fbtcnn_filter_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6142,
+    "sha256": "c764db39b6d7b223726791e7c8867387b4f6814e989a4b56d894ca7bd0cc6e6e",
+    "firmware_role": "firmware_fbtcnn_filter_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_filter_fold08",
+    "artifact_type": "preprocessing",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "filter_coefficients",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/preprocessing/fbtcnn/fold08/fbtcnn_filter_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6142,
+    "sha256": "c764db39b6d7b223726791e7c8867387b4f6814e989a4b56d894ca7bd0cc6e6e",
+    "firmware_role": "firmware_fbtcnn_filter_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_filter_fold09",
+    "artifact_type": "preprocessing",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "filter_coefficients",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/preprocessing/fbtcnn/fold09/fbtcnn_filter_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6142,
+    "sha256": "c764db39b6d7b223726791e7c8867387b4f6814e989a4b56d894ca7bd0cc6e6e",
+    "firmware_role": "firmware_fbtcnn_filter_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_filter_fold10",
+    "artifact_type": "preprocessing",
+    "backend": "fbtcnn",
+    "model": "fbtcnn",
+    "precision": "filter_coefficients",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/preprocessing/fbtcnn/fold10/fbtcnn_filter_generated.h",
+    "checkpoint_artifact_id": null,
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 6142,
+    "sha256": "c764db39b6d7b223726791e7c8867387b4f6814e989a4b56d894ca7bd0cc6e6e",
+    "firmware_role": "firmware_fbtcnn_filter_header",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_f32_tflite_fold01",
+    "artifact_type": "tflite",
+    "backend": "ccnn-f32",
+    "model": "ccnn",
+    "precision": "f32",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/tflite/ccnn_f32/fold01/ccnn_float32.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold01",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 175532,
+    "sha256": "1808e3646fc38d7ee29d446ffaa6d1c84bea469c6950d59ea66a51651d1488e7",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_f32_tflite_fold02",
+    "artifact_type": "tflite",
+    "backend": "ccnn-f32",
+    "model": "ccnn",
+    "precision": "f32",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/tflite/ccnn_f32/fold02/ccnn_float32.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold02",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 175532,
+    "sha256": "25067c811d3854bab5727a7a2b91ba2aebd4c7a39c2eda7f232dcc979180d600",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_f32_tflite_fold03",
+    "artifact_type": "tflite",
+    "backend": "ccnn-f32",
+    "model": "ccnn",
+    "precision": "f32",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/tflite/ccnn_f32/fold03/ccnn_float32.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold03",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 175532,
+    "sha256": "a472c075bfd07f0dc4e03543df042ed72f010d6d1bd1175b97ba625dbb72eace",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_f32_tflite_fold04",
+    "artifact_type": "tflite",
+    "backend": "ccnn-f32",
+    "model": "ccnn",
+    "precision": "f32",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/tflite/ccnn_f32/fold04/ccnn_float32.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold04",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 175532,
+    "sha256": "e62d5c85557f4a13ad840012d56c81416e27ad8512f5016d7b13deebb876904b",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_f32_tflite_fold05",
+    "artifact_type": "tflite",
+    "backend": "ccnn-f32",
+    "model": "ccnn",
+    "precision": "f32",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/tflite/ccnn_f32/fold05/ccnn_float32.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold05",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 175532,
+    "sha256": "4effc1d35fb6e04e491fce4a6661dd98b2676373a9b66c835bcadcfb5ab2d695",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_f32_tflite_fold06",
+    "artifact_type": "tflite",
+    "backend": "ccnn-f32",
+    "model": "ccnn",
+    "precision": "f32",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/tflite/ccnn_f32/fold06/ccnn_float32.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold06",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 175532,
+    "sha256": "5c1d52e268c1411333920d8588341abd92af9c830a25899caaff9a7f416a1d38",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_f32_tflite_fold07",
+    "artifact_type": "tflite",
+    "backend": "ccnn-f32",
+    "model": "ccnn",
+    "precision": "f32",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/tflite/ccnn_f32/fold07/ccnn_float32.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold07",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 175532,
+    "sha256": "09fe4d1cc01d8ec7aed66e85c416d9694f334c336ccc6b7099a2ce48529c45c5",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_f32_tflite_fold08",
+    "artifact_type": "tflite",
+    "backend": "ccnn-f32",
+    "model": "ccnn",
+    "precision": "f32",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/tflite/ccnn_f32/fold08/ccnn_float32.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold08",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 175532,
+    "sha256": "ea9155cecf10188fefbf00f5cbef30f5c2f5b0df08f356806c9985e93b2843a2",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_f32_tflite_fold09",
+    "artifact_type": "tflite",
+    "backend": "ccnn-f32",
+    "model": "ccnn",
+    "precision": "f32",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/tflite/ccnn_f32/fold09/ccnn_float32.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold09",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 175532,
+    "sha256": "7879286038de56f352b799238be3c98a5798948f275b9594d46ec2a456d9c55d",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_f32_tflite_fold10",
+    "artifact_type": "tflite",
+    "backend": "ccnn-f32",
+    "model": "ccnn",
+    "precision": "f32",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/tflite/ccnn_f32/fold10/ccnn_float32.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold10",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 175532,
+    "sha256": "7b915bebd07af2973abbd6dbc4568bb3a0c513e6fd674b89fff3ed821c7deb73",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_int8_tflite_fold01",
+    "artifact_type": "tflite",
+    "backend": "ccnn-int8",
+    "model": "ccnn",
+    "precision": "int8",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/tflite/ccnn_int8/fold01/ccnn_int8.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold01",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 47696,
+    "sha256": "ded80c00e0cb9c89a708604cdb19f6c11f9bf7b431b97ada92446bebece8300b",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_int8_tflite_fold02",
+    "artifact_type": "tflite",
+    "backend": "ccnn-int8",
+    "model": "ccnn",
+    "precision": "int8",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/tflite/ccnn_int8/fold02/ccnn_int8.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold02",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 47696,
+    "sha256": "d831b8fea62f6d9f63c9b75ef6fb8afb851c0cd7556154cb469f23db1d47fd9c",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_int8_tflite_fold03",
+    "artifact_type": "tflite",
+    "backend": "ccnn-int8",
+    "model": "ccnn",
+    "precision": "int8",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/tflite/ccnn_int8/fold03/ccnn_int8.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold03",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 47696,
+    "sha256": "975776d827071c3d167fbdc0e06a9ef648ca4a187bb2176edcfd31ca9f9b7f0e",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_int8_tflite_fold04",
+    "artifact_type": "tflite",
+    "backend": "ccnn-int8",
+    "model": "ccnn",
+    "precision": "int8",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/tflite/ccnn_int8/fold04/ccnn_int8.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold04",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 47696,
+    "sha256": "75c745c7b6aa508a991fd1237ee3f0dd1a43cc4690597309aa467c389acacacb",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_int8_tflite_fold05",
+    "artifact_type": "tflite",
+    "backend": "ccnn-int8",
+    "model": "ccnn",
+    "precision": "int8",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/tflite/ccnn_int8/fold05/ccnn_int8.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold05",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 47696,
+    "sha256": "9e9844aaa90e8b09f15f0219c48d1f0121c48ddfcb7be330166917f0ee631adf",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_int8_tflite_fold06",
+    "artifact_type": "tflite",
+    "backend": "ccnn-int8",
+    "model": "ccnn",
+    "precision": "int8",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/tflite/ccnn_int8/fold06/ccnn_int8.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold06",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 47696,
+    "sha256": "fe230fa376487694e4fd3be9042594a2642dd33507f0c798cd10c1dfd1706505",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_int8_tflite_fold07",
+    "artifact_type": "tflite",
+    "backend": "ccnn-int8",
+    "model": "ccnn",
+    "precision": "int8",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/tflite/ccnn_int8/fold07/ccnn_int8.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold07",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 47696,
+    "sha256": "1047475f801f892f709e6a013c2cbe9da8b739f81b8f213ea62cbee99ebcd54f",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_int8_tflite_fold08",
+    "artifact_type": "tflite",
+    "backend": "ccnn-int8",
+    "model": "ccnn",
+    "precision": "int8",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/tflite/ccnn_int8/fold08/ccnn_int8.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold08",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 47696,
+    "sha256": "cb2f046e946b2b2d3d2c312a8660a2a3cf145dd20b16850440a68b1f62efc4fe",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_int8_tflite_fold09",
+    "artifact_type": "tflite",
+    "backend": "ccnn-int8",
+    "model": "ccnn",
+    "precision": "int8",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/tflite/ccnn_int8/fold09/ccnn_int8.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold09",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 47696,
+    "sha256": "53c09b62963efcdf566b3377ef68f11e49af9221346817247a8d581da6d2c5e4",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "ccnn_int8_tflite_fold10",
+    "artifact_type": "tflite",
+    "backend": "ccnn-int8",
+    "model": "ccnn",
+    "precision": "int8",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/tflite/ccnn_int8/fold10/ccnn_int8.tflite",
+    "checkpoint_artifact_id": "ccnn_checkpoint_fold10",
+    "input_shape": [
+      1,
+      1,
+      8,
+      220
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 47696,
+    "sha256": "edb51213bd00024661827444acf4fa206da619d28cea1a7afc1715e99cba20fb",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "convca_f32_tflite_fold01",
+    "artifact_type": "tflite",
+    "backend": "convca-f32",
+    "model": "convca",
+    "precision": "f32",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/tflite/convca_f32/fold01/convca_float32.tflite",
+    "checkpoint_artifact_id": "convca_checkpoint_fold01",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 35164,
+    "sha256": "bca9936527e32cdd4493c64c6972c6c2d0708c2040aa0dfdc228dd4b5880a67e",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "convca_f32_tflite_fold02",
+    "artifact_type": "tflite",
+    "backend": "convca-f32",
+    "model": "convca",
+    "precision": "f32",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/tflite/convca_f32/fold02/convca_float32.tflite",
+    "checkpoint_artifact_id": "convca_checkpoint_fold02",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 35164,
+    "sha256": "59feb4129c67154e53466c69146ab961a547c6e01864878ea11ecda83ed5f175",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "convca_f32_tflite_fold03",
+    "artifact_type": "tflite",
+    "backend": "convca-f32",
+    "model": "convca",
+    "precision": "f32",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/tflite/convca_f32/fold03/convca_float32.tflite",
+    "checkpoint_artifact_id": "convca_checkpoint_fold03",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 35164,
+    "sha256": "3070dd444c4f8040b6b6f158cace109964a82f8ca0e5a2c78ae08852e92fa7b2",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "convca_f32_tflite_fold04",
+    "artifact_type": "tflite",
+    "backend": "convca-f32",
+    "model": "convca",
+    "precision": "f32",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/tflite/convca_f32/fold04/convca_float32.tflite",
+    "checkpoint_artifact_id": "convca_checkpoint_fold04",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 35164,
+    "sha256": "0032dc8ae8ccac9cd31442f3d458784dbbb60f55bda8b43bf33f70983b51f3ba",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "convca_f32_tflite_fold05",
+    "artifact_type": "tflite",
+    "backend": "convca-f32",
+    "model": "convca",
+    "precision": "f32",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/tflite/convca_f32/fold05/convca_float32.tflite",
+    "checkpoint_artifact_id": "convca_checkpoint_fold05",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 35164,
+    "sha256": "4f9b1e6892134cb6b0d2820936c48ccd58469e2c877c1f0c904cf09b84f21a8e",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "convca_f32_tflite_fold06",
+    "artifact_type": "tflite",
+    "backend": "convca-f32",
+    "model": "convca",
+    "precision": "f32",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/tflite/convca_f32/fold06/convca_float32.tflite",
+    "checkpoint_artifact_id": "convca_checkpoint_fold06",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 35164,
+    "sha256": "6214c8e5aa36ffda443667b4cd1d49865f8a277aab16add9d35143855a94e75f",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "convca_f32_tflite_fold07",
+    "artifact_type": "tflite",
+    "backend": "convca-f32",
+    "model": "convca",
+    "precision": "f32",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/tflite/convca_f32/fold07/convca_float32.tflite",
+    "checkpoint_artifact_id": "convca_checkpoint_fold07",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 35164,
+    "sha256": "2b18e6d2d5b24de9331a8fe7fd987f7ece8f2ab3cf24353743ab9c30873d899c",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "convca_f32_tflite_fold08",
+    "artifact_type": "tflite",
+    "backend": "convca-f32",
+    "model": "convca",
+    "precision": "f32",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/tflite/convca_f32/fold08/convca_float32.tflite",
+    "checkpoint_artifact_id": "convca_checkpoint_fold08",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 35164,
+    "sha256": "ff1e6ae83f99346b575a548e0cc7fc88f2c77e4432cd4e460fc7fa5a69cfd766",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "convca_f32_tflite_fold09",
+    "artifact_type": "tflite",
+    "backend": "convca-f32",
+    "model": "convca",
+    "precision": "f32",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/tflite/convca_f32/fold09/convca_float32.tflite",
+    "checkpoint_artifact_id": "convca_checkpoint_fold09",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 35164,
+    "sha256": "c5b5f21733633074d5a1b48d97e908aa2d9248ee7f3a8e9ae6064f73768f5d47",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "convca_f32_tflite_fold10",
+    "artifact_type": "tflite",
+    "backend": "convca-f32",
+    "model": "convca",
+    "precision": "f32",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/tflite/convca_f32/fold10/convca_float32.tflite",
+    "checkpoint_artifact_id": "convca_checkpoint_fold10",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 35164,
+    "sha256": "1f4be98b0879991ac989332c711edaf694f8e4d6e93cf294ae859a22c8da88ab",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_f32_tflite_fold01",
+    "artifact_type": "tflite",
+    "backend": "eegnet-f32",
+    "model": "eegnet",
+    "precision": "f32",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/tflite/eegnet_f32/fold01/eegnet_float32.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold01",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 11792,
+    "sha256": "76eab2c93e15bb5f05eba277ae1f7d22a1474e69c3e229dd530dec6f2da4c63a",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_f32_tflite_fold02",
+    "artifact_type": "tflite",
+    "backend": "eegnet-f32",
+    "model": "eegnet",
+    "precision": "f32",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/tflite/eegnet_f32/fold02/eegnet_float32.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold02",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 11792,
+    "sha256": "2625a1b08e69ca7405b8a584ed4ecab440c72a4537eff3f331996fd7bcaf70d2",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_f32_tflite_fold03",
+    "artifact_type": "tflite",
+    "backend": "eegnet-f32",
+    "model": "eegnet",
+    "precision": "f32",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/tflite/eegnet_f32/fold03/eegnet_float32.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold03",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 11792,
+    "sha256": "abe884597a97686ed97ffe19ad3ecc66d2527a31591988c6f9de11b59cb8b209",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_f32_tflite_fold04",
+    "artifact_type": "tflite",
+    "backend": "eegnet-f32",
+    "model": "eegnet",
+    "precision": "f32",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/tflite/eegnet_f32/fold04/eegnet_float32.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold04",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 11792,
+    "sha256": "6f7c069bd58b8848bf603db4e42e1888119193307d121441d50e177e35fdad8a",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_f32_tflite_fold05",
+    "artifact_type": "tflite",
+    "backend": "eegnet-f32",
+    "model": "eegnet",
+    "precision": "f32",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/tflite/eegnet_f32/fold05/eegnet_float32.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold05",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 11792,
+    "sha256": "992a7e677342d6b97a0bc121f668647e4eaa5ba33ac4d27f177edb0d490ad0e6",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_f32_tflite_fold06",
+    "artifact_type": "tflite",
+    "backend": "eegnet-f32",
+    "model": "eegnet",
+    "precision": "f32",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/tflite/eegnet_f32/fold06/eegnet_float32.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold06",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 11792,
+    "sha256": "655dd574310f39c32c9c7006a58bc1e03d2a223e6195d9cad64bd15659c8ebda",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_f32_tflite_fold07",
+    "artifact_type": "tflite",
+    "backend": "eegnet-f32",
+    "model": "eegnet",
+    "precision": "f32",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/tflite/eegnet_f32/fold07/eegnet_float32.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold07",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 11792,
+    "sha256": "f23dd9143f1a645b32025c20ab902c4d0a8c88d8080b5fdf170423ed0e9eb09c",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_f32_tflite_fold08",
+    "artifact_type": "tflite",
+    "backend": "eegnet-f32",
+    "model": "eegnet",
+    "precision": "f32",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/tflite/eegnet_f32/fold08/eegnet_float32.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold08",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 11792,
+    "sha256": "2d69eeb019aa421c812139abdb4f796626b0cf2499a51d915d54dc5a39eda0d7",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_f32_tflite_fold09",
+    "artifact_type": "tflite",
+    "backend": "eegnet-f32",
+    "model": "eegnet",
+    "precision": "f32",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/tflite/eegnet_f32/fold09/eegnet_float32.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold09",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 11792,
+    "sha256": "2d60180684ce886419cabd4b027ced756c257c40584d2064058e009e5654205d",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_f32_tflite_fold10",
+    "artifact_type": "tflite",
+    "backend": "eegnet-f32",
+    "model": "eegnet",
+    "precision": "f32",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/tflite/eegnet_f32/fold10/eegnet_float32.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold10",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 11792,
+    "sha256": "13c7d4583e97c1941c595e271f92ffc77ba38143447c19f9bf641d4f3e156c82",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_int8_tflite_fold01",
+    "artifact_type": "tflite",
+    "backend": "eegnet-int8",
+    "model": "eegnet",
+    "precision": "int8",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/tflite/eegnet_int8/fold01/eegnet_int8.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold01",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10984,
+    "sha256": "895e85ea4ecd0b91666d18a42917a420ef50d52f5686db170e56dc6c072070df",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_int8_tflite_fold02",
+    "artifact_type": "tflite",
+    "backend": "eegnet-int8",
+    "model": "eegnet",
+    "precision": "int8",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/tflite/eegnet_int8/fold02/eegnet_int8.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold02",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10984,
+    "sha256": "919598710936d09cc7ddae79d6e37bbd856197baf0bd69009e617c5c0de7034a",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_int8_tflite_fold03",
+    "artifact_type": "tflite",
+    "backend": "eegnet-int8",
+    "model": "eegnet",
+    "precision": "int8",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/tflite/eegnet_int8/fold03/eegnet_int8.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold03",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10984,
+    "sha256": "ec4c465b877d4a362ac85c75bc81b9a0053db65a085bb861541373b325e315dd",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_int8_tflite_fold04",
+    "artifact_type": "tflite",
+    "backend": "eegnet-int8",
+    "model": "eegnet",
+    "precision": "int8",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/tflite/eegnet_int8/fold04/eegnet_int8.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold04",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10984,
+    "sha256": "b92d6e026ddca8c2898cda125120e0ad7cd719eeddf713df3c2b2de161cb6bb2",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_int8_tflite_fold05",
+    "artifact_type": "tflite",
+    "backend": "eegnet-int8",
+    "model": "eegnet",
+    "precision": "int8",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/tflite/eegnet_int8/fold05/eegnet_int8.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold05",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10984,
+    "sha256": "5a5459374f601aec17e8d1d257cd6c71880bb09035d19b21d445eb56d5b14729",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_int8_tflite_fold06",
+    "artifact_type": "tflite",
+    "backend": "eegnet-int8",
+    "model": "eegnet",
+    "precision": "int8",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/tflite/eegnet_int8/fold06/eegnet_int8.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold06",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10984,
+    "sha256": "ca7fd7e729d062d12b4b5ba1ea5e13f440b69126e3125cb6a7315cf9d5e89353",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_int8_tflite_fold07",
+    "artifact_type": "tflite",
+    "backend": "eegnet-int8",
+    "model": "eegnet",
+    "precision": "int8",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/tflite/eegnet_int8/fold07/eegnet_int8.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold07",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10984,
+    "sha256": "b60096d90aae334a663f3a8fad54df12a98d9ff37ae51908b33868c06a69e9c2",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_int8_tflite_fold08",
+    "artifact_type": "tflite",
+    "backend": "eegnet-int8",
+    "model": "eegnet",
+    "precision": "int8",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/tflite/eegnet_int8/fold08/eegnet_int8.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold08",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10984,
+    "sha256": "3b1349c2b11918dd60c3bea3e1e7244f8b12464b7a62b046564bf1db5c78cb9c",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_int8_tflite_fold09",
+    "artifact_type": "tflite",
+    "backend": "eegnet-int8",
+    "model": "eegnet",
+    "precision": "int8",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/tflite/eegnet_int8/fold09/eegnet_int8.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold09",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10984,
+    "sha256": "d0158d0ecd7aa0f899b0b1eaa8cf5ec8eb4ff8e80ba048e156e3eeada3263348",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "eegnet_int8_tflite_fold10",
+    "artifact_type": "tflite",
+    "backend": "eegnet-int8",
+    "model": "eegnet",
+    "precision": "int8",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/tflite/eegnet_int8/fold10/eegnet_int8.tflite",
+    "checkpoint_artifact_id": "eegnet_checkpoint_fold10",
+    "input_shape": [
+      1,
+      512,
+      8
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 10984,
+    "sha256": "18ead858ff4cfcdbdf136d0f1693834e4af75c35ea88be822ba9b84d02b76fdb",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_f32_tflite_fold01",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-f32",
+    "model": "fbtcnn",
+    "precision": "f32",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold01/fbtcnn_float32.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold01",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 737752,
+    "sha256": "b3936e141717b8f3a7114f8c4b5df80d80cfa778e04fdaba3926758ebef2e6ab",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_f32_tflite_fold02",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-f32",
+    "model": "fbtcnn",
+    "precision": "f32",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold02/fbtcnn_float32.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold02",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 737752,
+    "sha256": "1d1344489c1c56bbea2b642f9ac17f087d30810fce5a5037bda18313ff2016e9",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_f32_tflite_fold03",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-f32",
+    "model": "fbtcnn",
+    "precision": "f32",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold03/fbtcnn_float32.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold03",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 737752,
+    "sha256": "b9dc5a6accf7a1f5a0c4a69a47ba7a727b3ade5e2957d8717c93a25c6f9cecab",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_f32_tflite_fold04",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-f32",
+    "model": "fbtcnn",
+    "precision": "f32",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold04/fbtcnn_float32.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold04",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 737752,
+    "sha256": "fbc4c4e740afa7c930d87a9392ed7c6fb66a7f43e352da9769c6eb1b8fd32c97",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_f32_tflite_fold05",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-f32",
+    "model": "fbtcnn",
+    "precision": "f32",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold05/fbtcnn_float32.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold05",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 737752,
+    "sha256": "001e434a82463f0cade1369f3d201acc19c5b542ca7facebdb4c1e8ca9858c6c",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_f32_tflite_fold06",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-f32",
+    "model": "fbtcnn",
+    "precision": "f32",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold06/fbtcnn_float32.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold06",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 737752,
+    "sha256": "3b9f5986794b318d2d623e7c4a739b9abe4be6891ebaa0a8df5e0da635b57676",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_f32_tflite_fold07",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-f32",
+    "model": "fbtcnn",
+    "precision": "f32",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold07/fbtcnn_float32.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold07",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 737752,
+    "sha256": "2d19834025833b3e4aa416234767f6585603ecf6758174551b29d1d9160e4b9b",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_f32_tflite_fold08",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-f32",
+    "model": "fbtcnn",
+    "precision": "f32",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold08/fbtcnn_float32.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold08",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 737752,
+    "sha256": "90ef90360935d1a6f6f1a0ac2554464f01c27e879d274cd3b52d58e2ebf224b7",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_f32_tflite_fold09",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-f32",
+    "model": "fbtcnn",
+    "precision": "f32",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold09/fbtcnn_float32.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold09",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 737752,
+    "sha256": "af352f5b77f6a5a47d3d9a983d188da0cbe958287501645926f1badb8648e34d",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_f32_tflite_fold10",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-f32",
+    "model": "fbtcnn",
+    "precision": "f32",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold10/fbtcnn_float32.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold10",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 737752,
+    "sha256": "8da25a654dcf13d4281a74a3e45afbf8a53ee82c43af9b5d247a4fd591f2b93e",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_int8_tflite_fold01",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-int8",
+    "model": "fbtcnn",
+    "precision": "int8",
+    "fold": 1,
+    "held_out_subject": "s1",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold01/fbtcnn_int8.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold01",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 192776,
+    "sha256": "56420a9fa98e2a57d9f2f0c3a67f889bae94e70bf308de403f29ea0115cced51",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_int8_tflite_fold02",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-int8",
+    "model": "fbtcnn",
+    "precision": "int8",
+    "fold": 2,
+    "held_out_subject": "s2",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold02/fbtcnn_int8.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold02",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 192776,
+    "sha256": "c331dcf13c7b903671d6b74df32b26f0642ba8b5d993b869b9aa539690f68919",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_int8_tflite_fold03",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-int8",
+    "model": "fbtcnn",
+    "precision": "int8",
+    "fold": 3,
+    "held_out_subject": "s3",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold03/fbtcnn_int8.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold03",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 192776,
+    "sha256": "64b2a233dead5f379ea1cf0bec853f8ebf915ad15596debc6be9d8d4524707a8",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_int8_tflite_fold04",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-int8",
+    "model": "fbtcnn",
+    "precision": "int8",
+    "fold": 4,
+    "held_out_subject": "s4",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold04/fbtcnn_int8.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold04",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 192776,
+    "sha256": "028ec9d4c2ec1c43d7cd53985784e3664f5c36881502b13f18918a423cfb71d0",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_int8_tflite_fold05",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-int8",
+    "model": "fbtcnn",
+    "precision": "int8",
+    "fold": 5,
+    "held_out_subject": "s5",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold05/fbtcnn_int8.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold05",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 192776,
+    "sha256": "228534c102d5021d7a163449e63b2b6d6da8c39da5764e06279a3c2286e5d672",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_int8_tflite_fold06",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-int8",
+    "model": "fbtcnn",
+    "precision": "int8",
+    "fold": 6,
+    "held_out_subject": "s6",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold06/fbtcnn_int8.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold06",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 192776,
+    "sha256": "47c042fb2c577b025b77a6704d46fa96caf352aad4bae71d4e901782fcd2c0e3",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_int8_tflite_fold07",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-int8",
+    "model": "fbtcnn",
+    "precision": "int8",
+    "fold": 7,
+    "held_out_subject": "s7",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold07/fbtcnn_int8.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold07",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 192776,
+    "sha256": "8ee66f0ae72796c0363650f1867130b74c89c5b7c6827aed01d2f866701e32e8",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_int8_tflite_fold08",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-int8",
+    "model": "fbtcnn",
+    "precision": "int8",
+    "fold": 8,
+    "held_out_subject": "s8",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold08/fbtcnn_int8.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold08",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 192776,
+    "sha256": "9f3130b45edf9963631b8bf0284da08a1e71ecaedb22da49d395d852e2bc2700",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_int8_tflite_fold09",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-int8",
+    "model": "fbtcnn",
+    "precision": "int8",
+    "fold": 9,
+    "held_out_subject": "s9",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold09/fbtcnn_int8.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold09",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 192776,
+    "sha256": "9f3378a025d22aea5ba00af0878f1b18a79c35112bd9c8412ccacad8a9687e1f",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  },
+  {
+    "artifact_id": "fbtcnn_int8_tflite_fold10",
+    "artifact_type": "tflite",
+    "backend": "fbtcnn-int8",
+    "model": "fbtcnn",
+    "precision": "int8",
+    "fold": 10,
+    "held_out_subject": "s10",
+    "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold10/fbtcnn_int8.tflite",
+    "checkpoint_artifact_id": "fbtcnn_checkpoint_fold10",
+    "input_shape": [
+      1,
+      4,
+      8,
+      512
+    ],
+    "output_shape": [
+      1,
+      12
+    ],
+    "input_dtype": "float32",
+    "output_dtype": "float32",
+    "class_count": 12,
+    "file_size_bytes": 192776,
+    "sha256": "b856c99021c53c6c38ce0e0a051f801b28dfc69a13734b60237adb83c2980f24",
+    "firmware_role": "firmware_tflite_embed",
+    "required_for_reference_replay": true
+  }
+]

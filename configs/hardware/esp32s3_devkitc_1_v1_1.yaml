@@ -1,0 +1,4 @@
+target_chip: esp32s3
+dev_board: esp32s3_devkitc_1_v1_1
+dev_board_display: ESP32-S3-DevKitC-1 v1.1
+idf_board: esp32s3-devkitc-1

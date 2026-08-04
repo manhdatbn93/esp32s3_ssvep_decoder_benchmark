@@ -1,0 +1,40 @@
+menu "Replay WiFi TCP"
+
+    config REPLAY_WIFI_SSID
+        string "WiFi SSID"
+        default "YOUR_WIFI_SSID"
+        # default "YOUR_WIFI_SSID"
+        help
+            STA SSID for ESP32-S3 to join (same LAN as PC client).
+
+    config REPLAY_WIFI_PASSWORD
+        string "WiFi password"
+        default "YOUR_WIFI_PASSWORD"
+        # default "YOUR_WIFI_PASSWORD"
+        help
+            WPA2 passphrase.
+
+    config REPLAY_TCP_PORT
+        int "TCP listen port (board is server)"     
+        default 3333
+        range 1024 65535
+
+    config REPLAY_BOOT_SMOKE
+        bool "Run embedded smoke tests at boot (before Wi-Fi)"
+        default n
+        help
+            Runs the optional per-backend boot self-check (embedded vectors,
+            argmax + max_abs_diff vs reference) on UART before joining Wi-Fi.
+            Useful to validate the replay image without TCP. Disable for faster
+            boot when many classical backends (e.g. FBCCA/TRCA) are enabled.
+
+    config REPLAY_RESOURCE_PROFILE
+        bool "Log RES_PROFILE heap/stack lines during TCP replay sessions"
+        default y
+        help
+            Emits tagged UART lines (RES_PROFILE) at backend init, first inference,
+            and session end: free heap (internal / SPIRAM), estimated session
+            internal drop, stack high-water for the replay_tcp task, and
+            boot-time minimum free (see docs/results/on_device_resource_profile.md).
+
+endmenu

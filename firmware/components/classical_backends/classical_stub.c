@@ -1,0 +1,1 @@
+/* Empty stub compiled when no classical backend is selected. */

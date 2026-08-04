@@ -1,0 +1,6 @@
+artifacts/reference/**/*.pt filter=lfs diff=lfs merge=lfs -text
+artifacts/reference/**/*.pth filter=lfs diff=lfs merge=lfs -text
+artifacts/reference/**/*.tflite filter=lfs diff=lfs merge=lfs -text
+artifacts/reference/**/*.npz filter=lfs diff=lfs merge=lfs -text
+artifacts/reference/**/*.npz filter=lfs diff=lfs merge=lfs -text
+artifacts/reference/analytical/trca/**/trca_templates_generated.h filter=lfs diff=lfs merge=lfs -text

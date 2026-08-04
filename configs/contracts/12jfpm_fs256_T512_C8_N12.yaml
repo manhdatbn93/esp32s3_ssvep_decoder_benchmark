@@ -1,0 +1,17 @@
+dataset_name: 12jfpm
+display_name: 12JFPM
+contract_name: T512_FS256_C8_N12
+
+fs_hz: 256
+window_samples: 512
+channels: 8
+n_classes: 12
+
+crop_start: 38
+crop_end: 550
+onset_sample_0: 38
+
+electrode: null
+resampled: false
+
+processed_path: data/processed/12JFPM/processed.npz

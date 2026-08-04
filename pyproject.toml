@@ -1,0 +1,9 @@
+[project]
+name = "esp32s3-ssvep-decoder-benchmark"
+version = "0.1.0"
+description = "Host training, export, and ESP32-S3 replay for 12JFPM SSVEP decoders"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

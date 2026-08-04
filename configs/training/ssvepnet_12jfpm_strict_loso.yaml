@@ -1,0 +1,24 @@
+seed: 42
+
+data:
+  processed_npz: data/processed/12JFPM/processed.npz
+
+model:
+  seq_len: 512
+  embed_dim: 8
+  num_classes: 12
+  dropout: 0.5
+
+train:
+  batch_size: 32
+  epochs: 200
+  lr: 0.001
+  weight_decay: 0.0001
+  num_workers: 0
+  early_stopping_patience: 20
+
+eval:
+  batch_size: 64
+
+loso:
+  inner_val_fraction: 0.10

@@ -1,0 +1,12 @@
+## dl_backends component: TFLite Micro wrappers for DL smoke backends.
+##
+## The dependency on esp-tflite-micro is declared here so the component
+## manager resolves it and makes its include dirs available to this
+## component (as PRIV_REQUIRES).  The actual source files are compiled
+## only when SMOKE_ENABLE_DL is ON (see CMakeLists.txt); when OFF,
+## only dl_stub.c is built.
+dependencies:
+  idf:
+    version: '>=5.0'
+  espressif/esp-tflite-micro:
+    version: '*'

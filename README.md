@@ -29,7 +29,7 @@ Retraining or re-exporting may produce different weights or TFLite binaries. Exa
 ## Supported decoders
 
 | Decoder or backend | Train | Classical host | PyTorch host | TFLite export | Retained reference artifact | TFLite host | Firmware staging |
-|---|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 | CCA | No | Yes | No | No | Yes (analytical) | No | Yes | 
 | FBCCA | No | Yes | No | No | Yes (analytical) | No | Yes | 
 | MSI | No | Yes | No | No | Yes (analytical) | No | Yes | 

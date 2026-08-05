@@ -6,8 +6,10 @@ artifacts/generated/
 firmware/generated/
 firmware/build/
 firmware/replay_fw/build/
+firmware/replay_fw/.cache/
 firmware/replay_fw/sdkconfig
 firmware/replay_fw/sdkconfig.old
+**/.cache/
 build/
 dist/
 *.pt

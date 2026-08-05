@@ -1,5 +1,5 @@
 """
-FBtCNN — Filter-Bank Temporal CNN for SSVEP (Pan et al., 2024).
+FBtCNN — Filter-Bank Temporal CNN for SSVEP (Ding et al., 2021).
 
 Architecture: 4 sub-band filter banks -> parallel CNN paths
 (spatial conv -> temporal conv -> temporal conv) -> sum fusion

@@ -1,5 +1,5 @@
 """
-ConvCA — Convolutional Correlation Analysis network (Pan et al., 2024).
+ConvCA — Convolutional Correlation Analysis network (Li et al., 2020).
 
 ConvCA is a two-input model: it takes a single trial and a
 per-class template (mean of training trials for that class).

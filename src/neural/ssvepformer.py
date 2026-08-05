@@ -1,5 +1,5 @@
 """
-SSVEPformer — Transformer-based SSVEP decoder (Pan et al., 2024).
+SSVEPformer — Transformer-based SSVEP decoder (Chen et al., 2023).
 
 Operates on FFT spectrum features (same extraction as CCNN but with
 different frequency range: 8-64 Hz, resolution=0.2 Hz).

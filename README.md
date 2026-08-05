@@ -28,21 +28,21 @@ Retraining or re-exporting may produce different weights or TFLite binaries. Exa
 
 ## Supported decoders
 
-| Decoder or backend | Train | Classical host | PyTorch host | TFLite export | Retained reference artifact | TFLite host | Firmware staging | Clean ESP-IDF build | Physical replay |
+| Decoder or backend | Train | Classical host | PyTorch host | TFLite export | Retained reference artifact | TFLite host | Firmware staging |
 |---|---|---|---|---|---|---|---|---|---|
-| CCA | No | Yes | No | No | Yes (analytical) | No | Yes | Yes (fold 1) | Not revalidated |
-| FBCCA | No | Yes | No | No | Yes (analytical) | No | Yes | Yes (fold 1) | Not revalidated |
-| MSI | No | Yes | No | No | Yes (analytical) | No | Yes | Yes (fold 1) | Not revalidated |
-| TRCA | No | Yes | No | No | Yes (analytical) | No | Yes | Yes (fold 1) | Not revalidated |
-| CCNN-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | Yes (fold 1) | Not revalidated |
-| CCNN-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | Yes (fold 1) | Not revalidated |
-| ConvCA-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | Yes (fold 1) | Not revalidated |
-| EEGNet-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | Yes (fold 1) | Not revalidated |
-| EEGNet-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | Yes (fold 1) | Not revalidated |
-| FBtCNN-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | Yes (fold 1) | Not revalidated |
-| FBtCNN-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | Yes (fold 1) | Not revalidated |
-| SSVEPformer | Yes | No | Yes | Yes (f32) | Not supplied | Host only | No | No | No |
-| SSVEPNet | Yes | No | Yes | Yes (f32) | Not supplied | Host only | No | No | No |
+| CCA | No | Yes | No | No | Yes (analytical) | No | Yes | 
+| FBCCA | No | Yes | No | No | Yes (analytical) | No | Yes | 
+| MSI | No | Yes | No | No | Yes (analytical) | No | Yes | 
+| TRCA | No | Yes | No | No | Yes (analytical) | No | Yes | 
+| CCNN-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
+| CCNN-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
+| ConvCA-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
+| EEGNet-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
+| EEGNet-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
+| FBtCNN-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
+| FBtCNN-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
+| SSVEPformer | Yes | No | Yes | Yes (f32) | Not supplied | Host only | No |
+| SSVEPNet | Yes | No | Yes | Yes (f32) | Not supplied | Host only | No |
 
 Canonical PyTorch implementations live under `src/neural/`. SSVEPformer and SSVEPNet are host-side only in this package.
 

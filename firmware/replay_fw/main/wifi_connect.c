@@ -25,7 +25,9 @@ static void event_handler(void *arg, esp_event_base_t base, int32_t id,
   if (base == WIFI_EVENT && id == WIFI_EVENT_STA_START) {
     esp_wifi_connect();
   } else if (base == WIFI_EVENT && id == WIFI_EVENT_STA_DISCONNECTED) {
-    ESP_LOGW(TAG, "disconnected, retry");
+    wifi_event_sta_disconnected_t *e = (wifi_event_sta_disconnected_t *)data;
+    ESP_LOGW(TAG, "disconnected reason=%u ssid=%.*s, retry",
+             (unsigned)e->reason, e->ssid_len, (const char *)e->ssid);
     esp_wifi_connect();
   } else if (base == IP_EVENT && id == IP_EVENT_STA_GOT_IP) {
     ip_event_got_ip_t *e = (ip_event_got_ip_t *)data;
@@ -56,7 +58,11 @@ esp_err_t replay_wifi_init_and_connect(void) {
           sizeof(wifi_config.sta.ssid) - 1);
   strncpy((char *)wifi_config.sta.password, CONFIG_REPLAY_WIFI_PASSWORD,
           sizeof(wifi_config.sta.password) - 1);
-  wifi_config.sta.threshold.authmode = WIFI_AUTH_WPA2_PSK;
+  /* Accept WPA/WPA2/WPA3 mixed APs. A hard WPA2-only threshold can fail on
+   * some home routers even when the SSID is visible and auth briefly succeeds. */
+  wifi_config.sta.threshold.authmode = WIFI_AUTH_WPA_PSK;
+  wifi_config.sta.pmf_cfg.capable = true;
+  wifi_config.sta.pmf_cfg.required = false;
 
   ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
   ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));

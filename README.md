@@ -159,9 +159,21 @@ idf.py build
 idf.py -p <PORT> flash monitor
 ```
 
-After a successful build, the image can be flashed with the standard ESP-IDF flash command. Physical flashing and end-to-end device replay were not part of the clean-build validation described here.
+If you previously built another backend, clear the stale CMake cache before building (`idf.py fullclean`) or pass the matching backend once (`idf.py -DTARGET_BACKEND=msi build`). Staging metadata in `firmware/generated/selected_backend.cmake` is the source of truth.
 
-Details: `docs/firmware-and-replay.md` and `firmware/README.md`.
+After flash, the board joins Wi-Fi and listens on TCP port `3333`. Live trial replay uses `src/replay/replay_client.py` (not serial). Shortest MSI check:
+
+```powershell
+python src\replay\replay_client.py `
+  --backend msi `
+  --host <BOARD_IP> `
+  --mat <RAW_DATA_ROOT>\s2.mat `
+  --max-trials 5 `
+  --no-save `
+  --no-aggregate
+```
+
+Use the held-out subject for the staged fold (fold 2 → `s2.mat`). Healthy smoke shows 100% device-vs-host parity. Full steps: `docs/firmware-and-replay.md` and `firmware/README.md`.
 
 ## Output directories
 

@@ -32,8 +32,10 @@ from pathlib import Path
 import numpy as np
 
 _REPO = Path(__file__).resolve().parents[2]
-if str(_REPO) not in sys.path:
-    sys.path.insert(0, str(_REPO))
+_SRC = _REPO / "src"
+for _p in (_REPO, _SRC):
+    if str(_p) not in sys.path:
+        sys.path.insert(0, str(_p))
 
 from export.protocol_cli import DEFAULT_PROTOCOL, warn_if_subject_as_val  # noqa: E402
 from export.subject_paths import (  # noqa: E402

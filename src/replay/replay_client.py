@@ -11,24 +11,24 @@ Saves structured per-trial and per-run artifacts for analysis-ready analysis.
 
 Usage (from repo root):
   # Replay with parity comparison (default --compare is ON):
-  python tools/replay/replay_client.py --backend cca --host BOARD_IP_PLACEHOLDER --mat path/to/s1.mat
+  python src/replay/replay_client.py --backend msi --host <BOARD_IP> --mat path/to/s2.mat
 
-  Example of mat path:
-  --mat "<PRIVATE_REPO_ROOT>\existing_work\data\raw\12JFPM\extracted\12JFPM_SSVEP-master\data\s1.mat"
+  Example of mat path (12JFPM held-out subject for fold 2):
+  --mat path/to/12JFPM_SSVEP-master/data/s2.mat
 
   # Quick smoke (5 trials, no disk artifacts):
-  python tools/replay/replay_client.py --backend cca --host BOARD_IP_PLACEHOLDER --max-trials 5 --no-save
+  python src/replay/replay_client.py --backend msi --host <BOARD_IP> --mat path/to/s2.mat --max-trials 5 --no-save --no-aggregate
 
   # Skip host comparison (accuracy only, no parity):
-  python tools/replay/replay_client.py --backend cca --host ... --mat ... --no-compare
+  python src/replay/replay_client.py --backend msi --host <BOARD_IP> --mat path/to/s2.mat --no-compare
 
   # Aggregate only (no board):
-  python tools/replay/aggregate_replay_results.py
+  python src/replay/aggregate_replay_results.py
 
 Environment variables:
   REPLAY_WIFI_HOST  — board IP  (default BOARD_IP_PLACEHOLDER)
   REPLAY_WIFI_PORT  — TCP port  (default 3333)
-  REPLAY_MAT        — path to s1.mat
+  REPLAY_MAT        — path to subject .mat
 """
 from __future__ import annotations
 
@@ -46,8 +46,9 @@ from pathlib import Path
 import numpy as np
 
 _REPO = Path(__file__).resolve().parents[2]
+_SRC = _REPO / "src"
 _TOOLS_REPLAY = Path(__file__).resolve().parent
-for _p in (_REPO, _TOOLS_REPLAY):
+for _p in (_REPO, _SRC, _TOOLS_REPLAY):
     if str(_p) not in sys.path:
         sys.path.insert(0, str(_p))
 
@@ -443,9 +444,9 @@ def main() -> int:
     ap.add_argument("--port", type=int, default=_DEFAULT_PORT,
                     help="TCP port")
     ap.add_argument("--mat", type=Path, default=None,
-                    help="Path to s1.mat (or set REPLAY_MAT env)")
+                    help="Path to held-out subject .mat (fold N → sN.mat), or set REPLAY_MAT")
     ap.add_argument("--backend", required=True,
-                    help="Backend name (e.g. cca, eegnet_f32, ccnn_int8)")
+                    help="Backend name (e.g. msi, cca, eegnet_f32, ccnn_int8)")
     ap.add_argument("--norm", type=int, default=int(NormMode.CHANNEL_ZSCORE),
                     help="0=none, 1=channel_zscore, 2=minmax")
     ap.add_argument("--max-trials", type=int, default=None,

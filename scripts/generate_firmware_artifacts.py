@@ -6,10 +6,14 @@ import argparse
 import hashlib
 import json
 import shutil
+import sys
 import zlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 GEN = ROOT / "firmware" / "generated"
 REF = ROOT / "artifacts" / "reference"
 

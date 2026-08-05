@@ -199,4 +199,6 @@ Generated runtime directories are ignored by Git where appropriate. Do not edit 
 
 ## License
 
-This repository has not yet been released under an open-source license.
+This project is released under the MIT License. See [`LICENSE`](LICENSE) for the full text.
+
+Third-party ESP-IDF components under `firmware/replay_fw/managed_components/` retain their own licenses (typically Apache 2.0).

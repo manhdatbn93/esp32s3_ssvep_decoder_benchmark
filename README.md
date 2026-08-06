@@ -41,8 +41,8 @@ Retraining or re-exporting may produce different weights or TFLite binaries. Exa
 | EEGNet-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
 | FBtCNN-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
 | FBtCNN-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
-| SSVEPformer | Yes | No | Yes | Yes (f32) | Not supplied | Host only | No |
-| SSVEPNet | Yes | No | Yes | Yes (f32) | Not supplied | Host only | No |
+| SSVEPformer | Yes | No | Yes | No | Not supplied | Host only | No |
+| SSVEPNet | Yes | No | Yes | No | Not supplied | Host only | No |
 
 Canonical PyTorch implementations live under `src/neural/`. SSVEPformer and SSVEPNet are host-side only in this package.
 

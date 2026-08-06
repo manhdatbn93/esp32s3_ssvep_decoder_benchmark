@@ -134,9 +134,10 @@ def _pytorch_run(args: argparse.Namespace) -> int:
         config=args.config,
         output_dir=out,
     )
+    acc = summary.get("accuracy", summary.get("outer_test_accuracy"))
     print(
-        f"pytorch {model}: accuracy={summary['accuracy']} "
-        f"n_trials={summary['n_trials']} out={out}"
+        f"pytorch {model}: accuracy={acc} "
+        f"n_trials={summary.get('n_trials')} out={out}"
     )
     return 0
 

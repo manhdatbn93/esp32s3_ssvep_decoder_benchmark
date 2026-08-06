@@ -214,6 +214,9 @@ def evaluate_pytorch(
         "npz": str(npz),
         **result,
     }
+    # Alias for scripts/evaluate_host.py and TFLite summary parity.
+    if "accuracy" not in summary and "outer_test_accuracy" in summary:
+        summary["accuracy"] = summary["outer_test_accuracy"]
     if output_dir is not None:
         _write_summary(output_dir, summary)
     return summary

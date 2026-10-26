@@ -12,7 +12,7 @@
   {
    "check": "frozen evidence matches MANIFEST.sha256",
    "passed": true,
-   "n_listed": 408,
+   "n_listed": 407,
    "mismatched_or_missing": [],
    "unlisted": []
   },

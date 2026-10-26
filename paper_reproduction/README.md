@@ -33,7 +33,7 @@ inspection without running anything.
 Every regenerated value is compared at its printed precision with
 `expected/submitted_values.json`, which is transcribed from the submitted LaTeX source.
 Values are also compared at full precision with the analysis outputs archived at
-submission (`evidence/r21_analysis_outputs/`, `evidence/fidelity/`). The code computes
+submission (`evidence/submission_analysis/`, `evidence/fidelity/`). The code computes
 everything from the trial records and never reads the expected values to produce a
 result.
 
@@ -52,10 +52,10 @@ result.
 | Evidence | Campaign | Firmware and models |
 |---|---|---|
 | `evidence/replay/<neural backend>/` (70 runs) | Strict LOSO replay, 23-24 May 2026 | `replay_fw` at commit 31fb64b, configuration `firmware/replay_fw/sdkconfig.measurement`; strict LOSO fold models (`artifacts/reference/`) |
-| `evidence/replay/<CCA, FBCCA, MSI, TRCA>/` (40 runs) | Analytical replay, 13-21 Apr 2026 | `replay_fw` at commits 24bbad9, 49f0c55 and 6d808e3; firmware configuration not archived. The runs were filed under the strict-protocol tree later (marked `version_a_device_replay_migrated` in each `summary.json`) |
+| `evidence/replay/<CCA, FBCCA, MSI, TRCA>/s1` … `s10` (40 runs) | Analytical replay, 13-21 Apr 2026 | `replay_fw` at commits 24bbad9, 49f0c55 and 6d808e3; firmware configuration not archived. The runs were filed under the strict-protocol tree later (marked `version_a_device_replay_migrated` in each `summary.json`). Public folders are named by held-out subject only |
 | `evidence/table5/` | Representative pre-release resource snapshot, 16-26 Apr 2026 | Single-backend builds of uncommitted pre-release firmware, earlier-protocol fold-1 models; see `evidence/table5/PROVENANCE.md` |
 | `evidence/fidelity/` | Host-side fidelity records frozen at submission | - |
-| `evidence/r21_analysis_outputs/` | Analysis outputs used for Tables 4 and S13 and Figure 2 at submission | - |
+| `evidence/submission_analysis/` | Analysis outputs used for Tables 4 and S13 and Figure 2 at submission | - |
 
 Each replay run folder holds `summary.json`, `trial_results.jsonl` (one record per
 trial, with the full host and device output vectors) and `trial_results.csv`, as
@@ -91,12 +91,26 @@ verifies it first.
 
 ## Notes for readers of the manuscript
 
-- **Policy objectives.** The analysis code used at submission also included the P95
-  relative L2 error among the Pareto objectives of P1, P3, P4 and P5 and as a P3
-  priority key; the manuscript states that relative L2 is not used for selection.
-  `reproduce.py` evaluates both variants (`as_described`, `as_executed`) and checks
-  that they produce identical gates, admissible sets, Pareto sets, selections and
-  sensitivity grid.
+- **Policy objectives.** The canonical objective list is the one used by the
+  submission-time analysis (`as_executed` in `repro/policies.py`). It minimizes
+  the empirical 95th percentile of relative L2 error among the Pareto objectives
+  of P1, P3, P4 and P5, and uses that percentile as the second P3 priority. The
+  objective list printed in the manuscript omits that term (`as_described`).
+  That shorter list is retained as a sensitivity check. On these measurements
+  the two lists produce identical gates, admissible sets, Pareto sets, selections
+  and the 5×5 sensitivity grid. Reported backend selections are not changed.
+- **Archived filenames.** `evidence/submission_analysis/margin_quartile_figure_source.csv`
+  is the source of manuscript Figure 2 (margin quartiles). Its filename at
+  submission was `figure3_margin_quartile_source_r21.csv`. The contents are unchanged.
+- **Frozen development paths.** `evidence/fidelity/fidelity_report.md` still cites
+  `results/replay/strict_loso_inner_val/...`. That sentence is part of the frozen
+  record and is not rewritten. The public replay files are under `evidence/replay/`.
+- **Subject order in `evidence/replay/aggregate.csv`.** Rows are stored in lexical
+  subject order (`s1`, `s10`, `s2`, …). Analysis code addresses subjects by id,
+  not by row position.
+- **Maintainer-only rebuild.** `tools/build_public_evidence.py` copies the private
+  archive into `evidence/`. It is not part of Workflow A. A reviewer regenerates
+  the tables with `reproduce.py` and does not need the private archive.
 - **Cosine distance precision.** For f32 backends, 1 - cosine similarity is about
   1e-14. The third significant figure then depends on how the dot product and norms
   are summed. The code uses exactly rounded summation (`math.fsum`), which reproduces

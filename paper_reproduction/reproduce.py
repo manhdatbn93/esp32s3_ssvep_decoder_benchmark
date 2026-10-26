@@ -200,19 +200,19 @@ def main(argv: list[str] | None = None) -> int:
     for f in flip_records:
         f["prediction_flip_recomputed"] = flip_q[(f["backend"], f["subject"], f["trial_num"])]["prediction_flip"]
 
-    r21 = EVIDENCE / "r21_analysis_outputs"
-    ref_fig = {(r["backend"], r["host_margin_quartile"]): r for r in evidence.read_csv(r21 / "figure3_margin_quartile_source_r21.csv")}
+    archived = EVIDENCE / "submission_analysis"
+    ref_fig = {(r["backend"], r["host_margin_quartile"]): r for r in evidence.read_csv(archived / "margin_quartile_figure_source.csv")}
     fig_diffs = [
         {"group": f"{b}/{q}", "field": k, "regenerated": q_by[(b, q)][k], "archived": float(ref_fig[(b, q)][k])}
         for b in INT8_BACKENDS for q in QUARTILES
         for k in ("n_trials", "n_flips", "subject_mean_flip_rate", "bootstrap_ci_lo", "bootstrap_ci_hi")
         if not math.isclose(float(q_by[(b, q)][k]), float(ref_fig[(b, q)][k]), rel_tol=1e-12, abs_tol=1e-15)
     ]
-    report.add("Figure 2 source (rates and 10,000-sample bootstrap CIs) equals archived r21 figure source",
+    report.add("Figure 2 source (rates and 10,000-sample bootstrap CIs) equals archived submission-analysis figure source",
                not fig_diffs, differences=fig_diffs)
 
     norm = analysis.normalized_summary(vectors)
-    ref_norm = {r["backend"]: r for r in evidence.read_csv(r21 / "normalized_output_error_summary_r21.csv")}
+    ref_norm = {r["backend"]: r for r in evidence.read_csv(archived / "normalized_output_error_summary.csv")}
     s13 = expected["table_s13_normalized_output_error"]
     s13_fmt = {}
     for r in norm:
@@ -230,7 +230,7 @@ def main(argv: list[str] | None = None) -> int:
                   "mean_cosine_distance", "median_cosine_distance", "p95_cosine_distance")
         if not math.isclose(r[k], float(ref_norm[r["backend"]][k]), rel_tol=1e-9, abs_tol=0.0)
     ]
-    report.add("normalized output error equals archived r21 summary (relative tolerance 1e-9)",
+    report.add("normalized output error equals archived submission-analysis summary (relative tolerance 1e-9)",
                not norm_diffs, differences=norm_diffs)
 
     # ------------------------------------------------------------ Table 5
@@ -278,18 +278,18 @@ def main(argv: list[str] | None = None) -> int:
     same = all(a[k] == b[k] for a, b in zip(results["as_described"], results["as_executed"])
                for k in ("admissible", "pareto", "selected"))
     report.add("policy outcomes identical with and without P95 relative L2 in the objectives", same)
-    ref_sel = evidence.read_csv(r21 / "deployment_policy_selection_r21.csv")
+    ref_sel = evidence.read_csv(archived / "deployment_policy_selection.csv")
     sel_ok = all(
         next(r for r in results["as_executed"] if r["policy_id"] == row["policy_id"])["selected"][row["priority_id"]]
         == row["selected_backend"] for row in ref_sel)
-    report.add("selections equal archived r21 deployment_policy_selection", sel_ok and len(ref_sel) == 6)
+    report.add("selections equal archived submission-analysis deployment_policy_selection", sel_ok and len(ref_sel) == 6)
     grid = policies.sensitivity_grid(backends)
-    ref_grid = evidence.read_csv(r21 / "deployment_policy_sensitivity_r21.csv")
+    ref_grid = evidence.read_csv(archived / "deployment_policy_sensitivity.csv")
     grid_diffs = [(g["min_agreement_pct"], g["max_latency_ms"], g["selected_backend"], r["selected_backend"])
                   for g, r in zip(grid, ref_grid)
                   if (g["selected_backend"], g["admissible_backends"]) != (r["selected_backend"], r["admissible_backends"])
                   or float(r["min_agreement_pct"]) != g["min_agreement_pct"] or float(r["max_latency_ms"]) != g["max_latency_ms"]]
-    report.add("5x5 policy sensitivity grid equals archived r21 grid", not grid_diffs and len(ref_grid) == 25,
+    report.add("5x5 policy sensitivity grid equals archived submission-analysis grid", not grid_diffs and len(ref_grid) == 25,
                differences=grid_diffs)
 
     # ------------------------------------------------------------ outputs

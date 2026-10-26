@@ -28,15 +28,14 @@ Validated clean builds used ESP-IDF 5.4.0 and Xtensa GCC 14.2.0. Keep `firmware/
 | FreeRTOS tick | 1000 Hz |
 | Replay options | TCP port 3333, boot smoke test and `RES_PROFILE` resource logging enabled |
 
-To build with this profile, replace the generated configuration before the first configure step and then enter local Wi-Fi credentials:
+To build with this profile, copy it to `sdkconfig` and build. The file already selects ESP32-S3. `idf.py set-target` replaces an existing `sdkconfig` with a new default configuration, so do not run it after this copy. Enter local Wi-Fi credentials only if you will flash a board; the placeholders compile.
 
 ```powershell
 cd firmware\replay_fw
 Remove-Item build -Recurse -Force -ErrorAction SilentlyContinue
 Copy-Item sdkconfig.measurement sdkconfig -Force
-idf.py set-target esp32s3   # keeps the existing sdkconfig values for the same target
-idf.py menuconfig           # set Wi-Fi SSID / password locally; do not commit them
 idf.py build
+idf.py menuconfig           # optional, before flashing: set Wi-Fi SSID / password locally; do not commit them
 ```
 
 Scope and limits:
@@ -44,7 +43,7 @@ Scope and limits:
 - The file documents the configuration of the seven neural device replays (70 runs) reported in the paper. The original and public SHA-256 values are recorded in `paper_reproduction/README.md`.
 - The four analytical device replays (CCA, FBCCA, MSI, TRCA; 40 runs) were recorded on 13–21 April 2026 with earlier firmware commits (`24bbad9`, `49f0c55`, `6d808e3`) and later filed under the strict LOSO evidence tree. Their build configuration was not archived, so this file is not claimed to describe them. See `paper_reproduction/README.md`.
 - The firmware-footprint and runtime-memory values in the paper's resource table come from an earlier per-backend profiling snapshot (16–26 April 2026, legacy fold-1 models). The configuration of those April builds was not archived. It is not claimed that the April builds used this file. See `paper_reproduction/evidence/table5/PROVENANCE.md`.
-- A build with this profile has not been re-run for the public release. The clean-build sizes below were produced with `sdkconfig.defaults` only and must not be read as the paper's resource-table values.
+- A clean compile with this profile was confirmed on the public tree for MSI fold 1 and EEGNet-f32 fold 1. Those images are compile checks only. They are not Table 5 measurements and were not flashed. The clean-build sizes listed later in this document were produced with `sdkconfig.defaults` only and must not be read as the paper's resource-table values.
 
 ## Architecture
 

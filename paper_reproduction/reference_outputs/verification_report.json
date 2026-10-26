@@ -151,7 +151,7 @@
    "groups_with_unequal_quartiles_due_to_ties": 15
   },
   {
-   "check": "Figure 2 source (rates and 10,000-sample bootstrap CIs) equals archived r21 figure source",
+   "check": "Figure 2 source (rates and 10,000-sample bootstrap CIs) equals archived submission-analysis figure source",
    "passed": true,
    "differences": []
   },
@@ -162,7 +162,7 @@
    "differences": []
   },
   {
-   "check": "normalized output error equals archived r21 summary (relative tolerance 1e-9)",
+   "check": "normalized output error equals archived submission-analysis summary (relative tolerance 1e-9)",
    "passed": true,
    "differences": []
   },
@@ -247,11 +247,11 @@
    "passed": true
   },
   {
-   "check": "selections equal archived r21 deployment_policy_selection",
+   "check": "selections equal archived submission-analysis deployment_policy_selection",
    "passed": true
   },
   {
-   "check": "5x5 policy sensitivity grid equals archived r21 grid",
+   "check": "5x5 policy sensitivity grid equals archived submission-analysis grid",
    "passed": true,
    "differences": []
   },

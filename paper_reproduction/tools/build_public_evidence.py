@@ -48,6 +48,36 @@ RESIDUAL_ABS_PATH = re.compile(rb"\b[A-Za-z]:(?:\\\\|\\|/)(?:[^\\/\s\"',|]+)")
 STRICT_REPLAY_PREFIX = "results/replay/strict_loso_inner_val/"
 FIDELITY_PREFIX = "results/fidelity/strict_loso_inner_val/"
 
+ANALYTICAL_REPLAY = {"CCA", "FBCCA", "MSI", "TRCA"}
+ANALYSIS_PUBLIC_NAMES = {
+    "figure3_margin_quartile_source_r21.csv": "margin_quartile_figure_source.csv",
+    "margin_quartile_integrity_r21.csv": "margin_quartile_integrity.csv",
+    "normalized_output_error_summary_r21.csv": "normalized_output_error_summary.csv",
+    "normalized_output_error_by_subject_r21.csv": "normalized_output_error_by_subject.csv",
+    "raw_output_error_summary_r21.csv": "raw_output_error_summary.csv",
+    "deployment_policy_definitions_r21.csv": "deployment_policy_definitions.csv",
+    "deployment_policy_admissible_sets_r21.csv": "deployment_policy_admissible_sets.csv",
+    "deployment_policy_pareto_sets_r21.csv": "deployment_policy_pareto_sets.csv",
+    "deployment_policy_selection_r21.csv": "deployment_policy_selection.csv",
+    "deployment_policy_exclusions_r21.csv": "deployment_policy_exclusions.csv",
+    "deployment_policy_sensitivity_r21.csv": "deployment_policy_sensitivity.csv",
+}
+
+
+def public_replay_rel(rel: str) -> str:
+    """Map a private replay path to its public path.
+
+    Analytical subject folders drop the historical ``_strict_migrated`` suffix.
+    Neural run folders keep their date stamps. The private source path is unchanged.
+    """
+    public_rel = "replay/" + rel[len(STRICT_REPLAY_PREFIX):]
+    parts = public_rel.split("/")
+    if len(parts) >= 3 and parts[1] in ANALYTICAL_REPLAY and parts[2].endswith("_strict_migrated"):
+        parts[2] = parts[2][: -len("_strict_migrated")]
+        public_rel = "/".join(parts)
+    return public_rel
+
+
 R21_OUTPUTS = (
     "review_support/figure3_margin_quartile_source_r21.csv",
     "review_support/margin_quartile_integrity_r21.csv",
@@ -253,7 +283,7 @@ class Builder:
     def build(self) -> None:
         for rel, item in sorted(self.freeze.items()):
             if item["class"] == "raw_device_evidence" and rel.startswith(STRICT_REPLAY_PREFIX):
-                public_rel = "replay/" + rel[len(STRICT_REPLAY_PREFIX):]
+                public_rel = public_replay_rel(rel)
             elif item["class"] == "derived_fidelity" and rel.startswith(FIDELITY_PREFIX):
                 public_rel = "fidelity/" + rel[len(FIDELITY_PREFIX):]
             else:
@@ -262,7 +292,10 @@ class Builder:
 
         for rel in R21_OUTPUTS:
             name = rel.split("/")[-1]
-            self.copy_text(self.dev_root / rel, "<DEV_REPO>/" + rel, "r21_analysis_outputs/" + name, frozen_rel=None)
+            self.copy_text(
+                self.dev_root / rel, "<DEV_REPO>/" + rel,
+                "submission_analysis/" + ANALYSIS_PUBLIC_NAMES[name], frozen_rel=None,
+            )
 
         self.copy_text(self.dev_root / LAB_NOTE, "<DEV_REPO>/" + LAB_NOTE,
                        "table5/lab_note/on_device_resource_profile.md", frozen_rel=None)
@@ -322,7 +355,7 @@ def main(argv: list[str] | None = None) -> int:
         if out == root or root in out.parents:
             parser.error("--out must not be inside a private source folder")
     if args.clean:
-        for sub in ("replay", "fidelity", "r21_analysis_outputs", "table5/idf_size_screenshots",
+        for sub in ("replay", "fidelity", "submission_analysis", "table5/idf_size_screenshots",
                     "table5/uart_replay_sessions", "table5/smoke_arena", "table5/lab_note"):
             shutil.rmtree(out / sub, ignore_errors=True)
     builder = Builder(args.dev_root.resolve(), args.resource_root.resolve(), out)

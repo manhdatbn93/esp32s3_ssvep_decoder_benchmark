@@ -1,14 +1,16 @@
 """Deployment-policy admissibility, Pareto sets, and lexicographic selection (Table 4, Tables S15-S16).
 
-Two objective variants are evaluated on the same measured inputs:
+Two objective variants are evaluated on the same measured inputs. Reported
+backend selections are the same for both.
 
-* ``as_described``: the objectives stated in the manuscript (accuracy, agreement,
-  latency, application image, used tensor arena; no output-error metric).
-* ``as_executed``: the original analysis implementation, which additionally
-  listed P95 relative L2 among the Pareto objectives of P1, P3, P4, and P5 and in
-  the P3 selection priority.
+* ``as_executed``: the submission-time analysis. This is the canonical objective
+  list. It minimizes the empirical 95th percentile of relative L2 error among
+  the Pareto objectives of P1, P3, P4, and P5, and uses that percentile as the
+  second P3 priority.
+* ``as_described``: a sensitivity check that omits the P95 relative L2 term.
+  That shorter list is the one printed in the manuscript.
 
-Both must give identical admissible sets, Pareto sets, and selections.
+Both give identical admissible sets, Pareto sets, and selections.
 """
 
 from __future__ import annotations

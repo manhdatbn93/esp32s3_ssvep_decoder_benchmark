@@ -2,6 +2,9 @@
 *.o
 *.i
 *.s
+# ESP32-S3 source assembly uses the .S suffix. On a case-insensitive
+# checkout the pattern above also matches those sources, so keep them visible.
+!*.S
 *.orig
 *.pyc
 

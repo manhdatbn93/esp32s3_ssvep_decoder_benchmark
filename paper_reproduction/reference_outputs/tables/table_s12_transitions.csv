@@ -1,0 +1,8 @@
+backend,preserved,export_created_retained,device_created,checkpoint_restored,third_class
+CCNN-f32,1800,0,0,0,0
+CCNN-int8,1720,13,52,11,4
+ConvCA-f32,1800,0,0,0,0
+EEGNet-f32,1800,0,0,0,0
+EEGNet-int8,1608,158,14,19,1
+FBtCNN-f32,1800,0,0,0,0
+FBtCNN-int8,1784,10,2,4,0

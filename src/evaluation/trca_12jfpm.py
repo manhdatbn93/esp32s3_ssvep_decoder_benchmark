@@ -9,7 +9,9 @@ class templates.
 This implements ensemble TRCA (eTRCA) by default, where spatial
 filters from all classes are concatenated for richer projection.
 
-Uses the same 10-band Chebyshev filter bank as FBCCA for consistency.
+The published evaluation uses the deployed second-order-section filter bank
+(``deployed_sos``). The historical transfer-function candidate
+(``screening_ba``) is a separate realization of the same band specification.
 
 Data contract: trial shape (T, C), T=512, C=8, fs=256 Hz.
 Requires train/test split per LOSO fold.
@@ -29,7 +31,13 @@ __all__ = [
     "TRCAConfig",
     "TRCAModel",
     "trca_predict_fold",
+    "TRCA_REALIZATIONS",
 ]
+
+# deployed_sos is the filter-bank realization exported to the ESP32-S3 and
+# used by the published host reference. screening_ba is the earlier
+# transfer-function candidate and is not that reference.
+TRCA_REALIZATIONS = ("deployed_sos", "screening_ba")
 
 N_CLASSES = len(TARGET_FREQUENCIES_HZ)
 
@@ -159,12 +167,61 @@ class TRCAModel:
         return preds
 
 
+def _cheby_bank_params(cfg: TRCAConfig) -> dict:
+    return {
+        "passband_hz": list(cfg.passband_hz),
+        "stopband_hz": list(cfg.stopband_hz),
+        "highcut_pass_hz": cfg.highcut_pass_hz,
+        "highcut_stop_hz": cfg.highcut_stop_hz,
+        "gpass_db": cfg.gpass_db,
+        "gstop_db": cfg.gstop_db,
+        "cheby_ripple_db": cfg.cheby_ripple_db,
+    }
+
+
+def _predict_deployed_sos(
+    X_train: np.ndarray,
+    y_train: np.ndarray,
+    X_test: np.ndarray,
+    cfg: TRCAConfig,
+) -> np.ndarray:
+    """Score with the SOS fit/predict used to export the deployed TRCA constants."""
+    import sys
+    from pathlib import Path
+
+    src_dir = str(Path(__file__).resolve().parents[1])
+    if src_dir not in sys.path:
+        sys.path.insert(0, src_dir)
+    from export.common import compute_cheby_filter_bank
+    from export.export_trca_constants import _trca_fit_sos, _trca_predict_sos
+
+    banks = compute_cheby_filter_bank(_cheby_bank_params(cfg))
+    templates, spatial_filters = _trca_fit_sos(X_train, y_train, cfg, banks)
+    predictions, _scores = _trca_predict_sos(X_test, templates, spatial_filters, cfg, banks)
+    return predictions
+
+
 def trca_predict_fold(
     X_train: np.ndarray, y_train: np.ndarray,
     X_test: np.ndarray,
     cfg: TRCAConfig | None = None,
+    *,
+    realization: str = "deployed_sos",
 ) -> np.ndarray:
-    """Convenience: fit on train, predict on test, return predictions."""
-    model = TRCAModel(cfg)
-    model.fit(X_train, y_train)
-    return model.predict(X_test)
+    """Fit on the training trials and return test labels.
+
+    ``deployed_sos`` reuses the second-order-section filter bank in
+    ``export_trca_constants`` (the published host and firmware contract).
+    ``screening_ba`` keeps the historical transfer-function ``filtfilt``
+    candidate. Other classical backends are unaffected.
+    """
+    if realization not in TRCA_REALIZATIONS:
+        raise ValueError(
+            f"Unknown TRCA realization {realization!r}; expected one of {TRCA_REALIZATIONS}"
+        )
+    cfg = cfg or TRCAConfig()
+    if realization == "screening_ba":
+        model = TRCAModel(cfg)
+        model.fit(X_train, y_train)
+        return model.predict(X_test)
+    return _predict_deployed_sos(X_train, y_train, X_test, cfg)

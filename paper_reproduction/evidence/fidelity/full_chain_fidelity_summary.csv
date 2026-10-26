@@ -1,0 +1,8 @@
+backend,model,precision_type,n_export_trials,n_device_joined,export_argmax_agreement,export_flip_rate,device_argmax_agreement,device_flip_rate,end_to_end_pytorch_device_agreement,export_only_prediction_flips,device_only_prediction_flips,both_stage_prediction_flips,dominant_flip_stage,export_logit_mae_mean
+CCNN-f32,ccnn,f32,1800,1800,1,0,1,0,1,0,0,0,none,6.5583574e-06
+CCNN-int8,ccnn,int8,1800,1800,0.98444444,0.015555556,0.96277778,0.037222222,0.96166667,13,52,15,device_realization,0.27412014
+ConvCA-f32,convca,f32,1800,1800,1,0,1,0,1,0,0,0,none,2.7154794e-07
+EEGNet-f32,eegnet,f32,1800,1800,1,0,1,0,1,0,0,0,none,8.1313215e-07
+EEGNet-int8,eegnet,int8,1800,1800,0.90111111,0.098888889,0.98111111,0.018888889,0.90388889,158,14,20,export_quantization,0.21089181
+FBtCNN-f32,fbtcnn,f32,1800,1800,1,0,1,0,1,0,0,0,none,0.00027750322
+FBtCNN-int8,fbtcnn,int8,1800,1800,0.99222222,0.0077777778,0.99666667,0.0033333333,0.99333333,10,2,4,export_quantization,0.10058114

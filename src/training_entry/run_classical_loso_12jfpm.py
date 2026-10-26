@@ -129,12 +129,16 @@ def run_msi_loso(X, y, subjects, doc: dict) -> LOSOResult:
     )
 
 
-def run_trca_loso(X, y, subjects, doc: dict) -> LOSOResult:
+def run_trca_loso(
+    X, y, subjects, doc: dict, realization: str = "deployed_sos",
+) -> LOSOResult:
     cfg = _trca_config(doc)
     return run_loso_trainable(
         X, y, subjects,
         method_name="trca",
-        fit_predict_fn=lambda Xtr, ytr, Xte: trca_predict_fold(Xtr, ytr, Xte, cfg),
+        fit_predict_fn=lambda Xtr, ytr, Xte: trca_predict_fold(
+            Xtr, ytr, Xte, cfg, realization=realization,
+        ),
         subject_order=SUBJECTS,
     )
 
@@ -157,6 +161,15 @@ def main() -> None:
     ap.add_argument("--output-dir", type=Path, default=Path("runs/classical_loso_12jfpm"))
     ap.add_argument("--dry-run", action="store_true",
                     help="Load configs and construct method objects only")
+    ap.add_argument(
+        "--trca-realization",
+        choices=["deployed_sos", "screening_ba"],
+        default="deployed_sos",
+        help=(
+            "TRCA only. deployed_sos is the published SOS filter-bank reference. "
+            "screening_ba is the historical transfer-function candidate."
+        ),
+    )
     args = ap.parse_args()
 
     methods = ["cca", "fbcca", "msi", "trca"] if args.method == "all" else [args.method]
@@ -189,7 +202,16 @@ def main() -> None:
     for name in methods:
         path = args.config if (args.config and len(methods) == 1) else _CONFIG_MAP[name]
         doc = _load_yaml(path)
-        result = runners[name](X, y, subjects, doc)
+        if name == "trca":
+            label = (
+                "published SOS filter bank"
+                if args.trca_realization == "deployed_sos"
+                else "historical transfer-function screening candidate"
+            )
+            print(f"TRCA realization: {args.trca_realization} ({label})")
+            result = run_trca_loso(X, y, subjects, doc, realization=args.trca_realization)
+        else:
+            result = runners[name](X, y, subjects, doc)
         print_result(result)
         out = Path(doc.get("output", {}).get("run_dir", args.output_dir))
         save_results(result, out)

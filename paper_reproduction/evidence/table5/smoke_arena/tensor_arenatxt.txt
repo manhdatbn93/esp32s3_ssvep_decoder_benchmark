@@ -1,0 +1,175 @@
+(856) smoke: --- Backend: EEGNet-f32 (5 vectors, scores_check=1) ---
+I (856) tflm: arena: raw=0x3c0709a0 aligned=0x3c0709a0 size=262144 align_ok=1 resolver_was_ready=0
+I (866) tflm: TFLM_ARENA cap=262144 used=167608 headroom=94536 raw=0x3c0709a0 aligned=0x3c0709a0 region=PSRAM alloc_path=SPIRAM int_before=357527 int_after=357527 spiram_before=8386148 spiram_after=8115808 used_avail=1
+I (886) tflm: ctx_create OK: interp=0x3fca8e60
+I (886) eegnet: TFLM_ARENA backend=EEGNet-f32 cap=262144 used=167608 headroom=94536 region=PSRAM path=SPIRAM raw=0x3c0709a0 aligned=0x3c0709a0 int_before=357527 int_after=357527 spiram_before=8386148 spiram_after=8115808 used_avail=1
+I (906) tflm: invoke#1: in_type=1 out_type=1 in_len=4096 out_len=12
+I (916) tflm: invoke#1: input[0..3] = -0.359343 0.376181 0.701181 1.840389
+I (1986) tflm: invoke#1: out[0..3] = -0.771980 -1.055545 0.040100 -1.578977
+I (1986) smoke:   vec[0]: pred=11 exp=11 PASS  max_diff=0.000002  1077.6 ms
+I (3056) smoke:   vec[1]: pred= 0 exp= 0 PASS  max_diff=0.000001  1065.5 ms
+I (4126) smoke:   vec[2]: pred= 0 exp= 0 PASS  max_diff=0.000001  1065.6 ms
+I (5186) smoke:   vec[3]: pred=10 exp=10 PASS  max_diff=0.000002  1065.2 ms
+I (6256) smoke:   vec[4]: pred= 1 exp= 1 PASS  max_diff=0.000003  1065.2 ms
+I (6256) smoke:   Result: 5/5 passed, worst_max_diff=0.000003, total=5339.1 ms
+I (6256) smoke: ========================================
+I (6256) smoke:   FINAL SUMMARY
+I (6266) smoke: ========================================
+I (6266) smoke:   EEGNet-f32           PASS (5/5, max_diff=0.000003, 5339.1 ms)
+I (6276) smoke:   1/1 backends clean
+I (6276) smoke: ========================================
+I (6286) main_task: Returned from app_main()
+
+I (836) smoke: ========================================
+I (846) smoke:   SSVEP SMOKE TEST — 1 backends
+I (846) smoke: ========================================
+I (856) smoke: --- Backend: EEGNet-int8 (5 vectors, scores_check=1) ---
+I (856) eegnet: int8 init: model=10984 bytes, arena=393216 bytes
+I (866) tflm: arena: raw=0x3c0709a0 aligned=0x3c0709a0 size=393216 align_ok=1 resolver_was_ready=0
+I (876) tflm: TFLM_ARENA cap=393216 used=77896 headroom=315320 raw=0x3c0709a0 aligned=0x3c0709a0 region=PSRAM alloc_path=SPIRAM int_before=357527 int_after=357527 spiram_before=8386148 spiram_after=7984736 used_avail=1
+I (896) tflm: ctx_create OK: interp=0x3fca8e60
+I (896) tflm: [EEGNet-i8] input  type=f32(1) bytes=16384 scale=0.00000000 zp=0
+I (906) tflm: [EEGNet-i8] output type=f32(1) bytes=48 scale=0.00000000 zp=0
+I (906) tflm: [EEGNet-i8] arena raw=0x3c0709a0 aligned=0x3c0709a0 align_ok=1
+I (916) eegnet: TFLM_ARENA backend=EEGNet-int8 cap=393216 used=77896 headroom=315320 region=PSRAM path=SPIRAM raw=0x3c0709a0 aligned=0x3c0709a0 int_before=357527 int_after=357527 spiram_before=8386148 spiram_after=7984736 used_avail=1
+I (936) tflm: invoke#1: in_type=1 out_type=1 in_len=4096 out_len=12
+I (946) tflm: invoke#1: input[0..3] = -0.359343 0.376181 0.701181 1.840389
+I (996) tflm: invoke#1: out[0..3] = -0.712196 -1.068293 -0.050871 -1.475262
+I (996) smoke:   vec[0]: pred=11 exp=11 PASS  max_diff=0.135983  60.6 ms
+I (1046) smoke:   vec[1]: pred= 0 exp= 0 PASS  max_diff=0.191752  48.3 ms
+I (1096) smoke:   vec[2]: pred= 0 exp= 0 PASS  max_diff=0.068090  48.4 ms
+I (1146) smoke:   vec[3]: pred=10 exp=10 PASS  max_diff=0.058723  48.1 ms
+I (1196) smoke:   vec[4]: pred= 1 exp= 1 PASS  max_diff=0.137638  48.2 ms
+I (1196) smoke:   Result: 5/5 passed, worst_max_diff=0.191752, total=253.5 ms
+I (1196) smoke: ========================================
+I (1206) smoke:   FINAL SUMMARY
+I (1206) smoke: ========================================
+I (1206) smoke:   EEGNet-int8          PASS (5/5, max_diff=0.191752, 253.5 ms)
+I (1216) smoke:   1/1 backends clean
+I (1216) smoke: ========================================
+I (1226) main_task: Returned from app_main()
+
+I (880) smoke: ========================================
+I (890) smoke:   SSVEP SMOKE TEST — 1 backends
+I (890) smoke: ========================================
+I (900) smoke: --- Backend: CCNN-f32 (5 vectors, scores_check=1) ---
+I (900) tflm: arena: raw=0x3c0909a0 aligned=0x3c0909a0 size=524288 align_ok=1 resolver_was_ready=0
+I (910) tflm: TFLM_ARENA cap=524288 used=41624 headroom=482664 raw=0x3c0909a0 aligned=0x3c0909a0 region=PSRAM alloc_path=SPIRAM int_before=365543 int_after=365543 spiram_before=8386148 spiram_after=7845472 used_avail=1
+I (930) tflm: ctx_create OK: interp=0x3fca6f10
+I (930) ccnn: TFLM_ARENA backend=CCNN-f32 cap=524288 used=41624 headroom=482664 region=PSRAM path=SPIRAM raw=0x3c0909a0 aligned=0x3c0909a0 int_before=365543 int_after=365543 spiram_before=8386148 spiram_after=7845472 used_avail=1
+I (1000) tflm: invoke#1: in_type=1 out_type=1 in_len=1760 out_len=12
+I (1000) tflm: invoke#1: input[0..3] = -0.079396 -0.039534 -0.058586 0.101650
+I (1090) tflm: invoke#1: out[0..3] = -8.438072 -13.019881 -7.285902 -11.031401
+I (1090) smoke:   vec[0]: pred=10 exp=10 PASS  max_diff=0.000378  138.5 ms
+I (1230) smoke:   vec[1]: pred= 4 exp= 4 PASS  max_diff=0.000276  136.1 ms
+I (1370) smoke:   vec[2]: pred= 0 exp= 0 PASS  max_diff=0.000244  136.1 ms
+I (1500) smoke:   vec[3]: pred=11 exp=11 PASS  max_diff=0.000406  136.1 ms
+I (1640) smoke:   vec[4]: pred= 9 exp= 9 PASS  max_diff=0.000489  136.1 ms
+I (1640) smoke:   Result: 5/5 passed, worst_max_diff=0.000489, total=682.8 ms
+I (1640) smoke: ========================================
+I (1650) smoke:   FINAL SUMMARY
+I (1650) smoke: ========================================
+I (1660) smoke:   CCNN-f32             PASS (5/5, max_diff=0.000489, 682.8 ms)
+I (1660) smoke:   1/1 backends clean
+I (1670) smoke: ========================================
+I (1670) main_task: Returned from app_main()
+
+I (849) smoke: ========================================
+I (859) smoke:   SSVEP SMOKE TEST — 1 backends
+I (859) smoke: ========================================
+I (869) smoke: --- Backend: CCNN-int8 (5 vectors, scores_check=1) ---
+I (869) tflm: arena: raw=0x3c0709a0 aligned=0x3c0709a0 size=524288 align_ok=1 resolver_was_ready=0
+I (879) tflm: TFLM_ARENA cap=524288 used=15752 headroom=508536 raw=0x3c0709a0 aligned=0x3c0709a0 region=PSRAM alloc_path=SPIRAM int_before=365543 int_after=365543 spiram_before=8386148 spiram_after=7845472 used_avail=1
+I (899) tflm: ctx_create OK: interp=0x3fca6f10
+I (899) ccnn: TFLM_ARENA backend=CCNN-int8 cap=524288 used=15752 headroom=508536 region=PSRAM path=SPIRAM raw=0x3c0709a0 aligned=0x3c0709a0 int_before=365543 int_after=365543 spiram_before=8386148 spiram_after=7845472 used_avail=1
+I (969) tflm: invoke#1: in_type=1 out_type=1 in_len=1760 out_len=12
+I (969) tflm: invoke#1: input[0..3] = -0.079396 -0.039534 -0.058586 0.101650
+I (979) tflm: invoke#1: out[0..3] = -9.056343 -12.980758 -7.848830 -11.471368
+I (979) smoke:   vec[0]: pred= 9 exp=10 FAIL  max_diff=0.848751  56.1 ms
+I (1039) smoke:   vec[1]: pred= 4 exp= 4 PASS  max_diff=0.809493  53.9 ms
+I (1089) smoke:   vec[2]: pred= 0 exp= 0 PASS  max_diff=0.714282  53.9 ms
+I (1149) smoke:   vec[3]: pred=11 exp=11 PASS  max_diff=1.007054  53.9 ms
+I (1199) smoke:   vec[4]: pred= 9 exp= 9 PASS  max_diff=0.668576  53.9 ms
+I (1199) smoke:   Result: 4/5 passed, worst_max_diff=1.007054, total=271.7 ms
+I (1199) smoke: ========================================
+I (1209) smoke:   FINAL SUMMARY
+I (1209) smoke: ========================================
+E (1219) smoke:   CCNN-int8            FAIL (4/5)
+I (1219) smoke:   0/1 backends clean
+I (1219) smoke: ========================================
+I (1229) main_task: Returned from app_main()
+
+I (848) smoke: ========================================
+I (858) smoke:   SSVEP SMOKE TEST — 1 backends
+I (858) smoke: ========================================
+I (868) smoke: --- Backend: ConvCA-f32 (5 vectors, scores_check=1) ---
+I (868) tflm: arena: raw=0x3c0709a0 aligned=0x3c0709a0 size=524288 align_ok=1 resolver_was_ready=0
+I (878) tflm: TFLM_ARENA cap=524288 used=282472 headroom=241816 raw=0x3c0709a0 aligned=0x3c0709a0 region=PSRAM alloc_path=SPIRAM int_before=373911 int_after=373911 spiram_before=8386148 spiram_after=7845472 used_avail=1
+I (898) tflm: ctx_create OK: interp=0x3fca4e60
+I (898) convca: TFLM_ARENA backend=ConvCA-f32 cap=524288 used=282472 headroom=241816 region=PSRAM path=SPIRAM raw=0x3c0709a0 aligned=0x3c0709a0 int_before=373911 int_after=373911 spiram_before=8386148 spiram_after=7845472 used_avail=1
+I (918) tflm: invoke#1: in_type=1 out_type=1 in_len=4096 out_len=12
+I (928) tflm: invoke#1: input[0..3] = -0.359343 -2.831090 -1.499475 -0.545377
+I (2998) tflm: invoke#1: out[0..3] = 1.051147 0.376979 1.124198 1.597488
+I (2998) smoke:   vec[0]: pred= 3 exp= 3 PASS  max_diff=0.000001  2078.6 ms
+I (5068) smoke:   vec[1]: pred= 7 exp= 7 PASS  max_diff=0.000001  2065.3 ms
+I (7138) smoke:   vec[2]: pred= 0 exp= 0 PASS  max_diff=0.000001  2065.4 ms
+I (9198) smoke:   vec[3]: pred=11 exp=11 PASS  max_diff=0.000001  2065.4 ms
+I (11268) smoke:   vec[4]: pred= 4 exp= 4 PASS  max_diff=0.000001  2065.4 ms
+I (11268) smoke:   Result: 5/5 passed, worst_max_diff=0.000001, total=10340.1 ms
+I (11268) smoke: ========================================
+I (11278) smoke:   FINAL SUMMARY
+I (11278) smoke: ========================================
+I (11278) smoke:   ConvCA-f32           PASS (5/5, max_diff=0.000001, 10340.1 ms)
+I (11288) smoke:   1/1 backends clean
+I (11288) smoke: ========================================
+I (11298) main_task: Returned from app_main()
+
+I (883) smoke: ========================================
+I (893) smoke:   SSVEP SMOKE TEST — 1 backends
+I (893) smoke: ========================================
+I (903) smoke: --- Backend: FBtCNN-int8 (5 vectors, scores_check=1) ---
+I (903) tflm: arena: raw=0x3c0b09a4 aligned=0x3c0b09b0 size=786432 align_ok=1 resolver_was_ready=0
+I (913) tflm: TFLM_ARENA cap=786432 used=354424 headroom=432008 raw=0x3c0b09a4 aligned=0x3c0b09b0 region=PSRAM alloc_path=SPIRAM int_before=365087 int_after=365087 spiram_before=8320608 spiram_after=7517788 used_avail=1
+I (933) tflm: ctx_create OK: interp=0x3fca70d8
+I (933) fbtcnn: TFLM_ARENA backend=FBtCNN-int8 cap=786432 used=354424 headroom=432008 region=PSRAM path=SPIRAM raw=0x3c0b09a4 aligned=0x3c0b09b0 int_before=365087 int_after=365087 spiram_before=8320608 spiram_after=7517788 used_avail=1
+I (1733) tflm: invoke#1: in_type=1 out_type=1 in_len=16384 out_len=12
+I (1733) tflm: invoke#1: input[0..3] = -0.071712 -0.025239 0.006443 0.008710
+I (3063) tflm: invoke#1: out[0..3] = 0.405732 -1.541782 0.973757 -1.785222
+I (3063) smoke:   vec[0]: pred= 6 exp= 6 PASS  max_diff=0.078389  2110.0 ms
+I (5173) smoke:   vec[1]: pred=10 exp=10 PASS  max_diff=0.092985  2104.0 ms
+I (7273) smoke:   vec[2]: pred= 0 exp= 0 PASS  max_diff=0.082219  2103.2 ms
+I (9383) smoke:   vec[3]: pred=11 exp=11 PASS  max_diff=0.133911  2106.6 ms
+I (11493) smoke:   vec[4]: pred= 9 exp= 9 PASS  max_diff=0.127237  2106.6 ms
+I (11493) smoke:   Result: 5/5 passed, worst_max_diff=0.133911, total=10530.4 ms
+I (11493) smoke: ========================================
+I (11503) smoke:   FINAL SUMMARY
+I (11503) smoke: ========================================
+I (11503) smoke:   FBtCNN-int8          PASS (5/5, max_diff=0.133911, 10530.4 ms)
+I (11513) smoke:   1/1 backends clean
+I (11523) smoke: ========================================
+I (11523) main_task: Returned from app_main()
+
+I (1013) smoke: ========================================
+I (1023) smoke:   SSVEP SMOKE TEST — 1 backends
+I (1023) smoke: ========================================
+I (1033) smoke: --- Backend: FBtCNN-f32 (5 vectors, scores_check=1) ---
+I (1033) tflm: arena: raw=0x3c1309a4 aligned=0x3c1309b0 size=786432 align_ok=1 resolver_was_ready=0
+I (1043) tflm: TFLM_ARENA cap=786432 used=394776 headroom=391656 raw=0x3c1309a4 aligned=0x3c1309b0 region=PSRAM alloc_path=SPIRAM int_before=365087 int_after=365087 spiram_before=8320608 spiram_after=7517788 used_avail=1
+I (1063) tflm: ctx_create OK: interp=0x3fca70d8
+I (1063) fbtcnn: TFLM_ARENA backend=FBtCNN-f32 cap=786432 used=394776 headroom=391656 region=PSRAM path=SPIRAM raw=0x3c1309a4 aligned=0x3c1309b0 int_before=365087 int_after=365087 spiram_before=8320608 spiram_after=7517788 used_avail=1
+I (1863) tflm: invoke#1: in_type=1 out_type=1 in_len=16384 out_len=12
+I (1863) tflm: invoke#1: input[0..3] = -0.071712 -0.025239 0.006443 0.008710
+I (14563) tflm: invoke#1: out[0..3] = 0.445542 -1.609082 0.995161 -1.763272
+I (14563) smoke:   vec[0]: pred= 6 exp= 6 PASS  max_diff=0.000147  13472.7 ms
+I (28033) smoke:   vec[1]: pred=10 exp=10 PASS  max_diff=0.000250  13467.5 ms
+I (41503) smoke:   vec[2]: pred= 0 exp= 0 PASS  max_diff=0.000278  13466.8 ms
+I (54973) smoke:   vec[3]: pred=11 exp=11 PASS  max_diff=0.000504  13469.5 ms
+I (68443) smoke:   vec[4]: pred= 9 exp= 9 PASS  max_diff=0.000206  13469.6 ms
+I (68443) smoke:   Result: 5/5 passed, worst_max_diff=0.000504, total=67346.1 ms
+I (68443) smoke: ========================================
+I (68443) smoke:   FINAL SUMMARY
+I (68453) smoke: ========================================
+I (68453) smoke:   FBtCNN-f32           PASS (5/5, max_diff=0.000504, 67346.1 ms)
+I (68463) smoke:   1/1 backends clean
+I (68463) smoke: ========================================
+I (68473) main_task: Returned from app_main()

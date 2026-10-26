@@ -1,0 +1,199 @@
+I (7394) main_task: Returned from app_main()
+I (29313) replay: ──────────────────────────────────────
+I (29313) replay: client connected from <REDACTED_IP>:63399
+I (29336) replay: init decoder 2 (MSI)
+I (29337) replay: RES_PROFILE phase=pre_backend_init backend=MSI total_free=8433152 int_free=144815 spiram_free=8320368 int_largest=45056 int_min_ever_boot=139047 spiram_min_ever_boot=8317032
+I (29346) replay: RES_PROFILE phase=post_backend_init backend=MSI total_free=8433152 int_free=144815 spiram_free=8320368 int_largest=45056 int_min_ever_boot=139047 spiram_min_ever_boot=8317032
+I (29362) replay: ──── SESSION START ────────────────────
+I (29372) replay:   backend : MSI (id=2)
+I (29375) replay:   norm=1  onset=38  window=512  fs=256  ch=8
+I (29477) replay: RES_PROFILE phase=pre_first_infer backend=MSI total_free=8397328 int_free=144815 spiram_free=8284544 int_largest=45056 int_min_ever_boot=139047 spiram_min_ever_boot=8279080
+I (30491) replay: RES_PROFILE phase=post_first_infer backend=MSI total_free=8397364 int_free=144851 spiram_free=8284544 int_largest=45056 int_min_ever_boot=139047 spiram_min_ever_boot=8279080
+I (30498) replay:   [  1] MSI c= 0 t= 0 argmax= 0 OK  1038.8 ms
+I (31619) replay:   [  2] MSI c= 0 t= 1 argmax= 3 MISS  1016.8 ms
+I (32740) replay:   [  3] MSI c= 0 t= 2 argmax= 0 OK  1017.4 ms
+I (33854) replay:   [  4] MSI c= 0 t= 3 argmax= 0 OK  1020.5 ms
+I (34967) replay:   [  5] MSI c= 0 t= 4 argmax= 0 OK  1012.1 ms
+I (36246) replay:   [  6] MSI c= 0 t= 5 argmax= 3 MISS  1041.9 ms
+I (37396) replay:   [  7] MSI c= 0 t= 6 argmax= 9 MISS  1051.9 ms
+I (38592) replay:   [  8] MSI c= 0 t= 7 argmax= 0 OK  1044.1 ms
+I (39753) replay:   [  9] MSI c= 0 t= 8 argmax= 0 OK  1022.7 ms
+I (40947) replay:   [ 10] MSI c= 0 t= 9 argmax= 0 OK  1031.1 ms
+I (42164) replay:   [ 11] MSI c= 0 t=10 argmax= 4 MISS  1035.4 ms
+I (43400) replay:   [ 12] MSI c= 0 t=11 argmax= 0 OK  1026.7 ms
+I (44529) replay:   [ 13] MSI c= 0 t=12 argmax= 0 OK  1028.8 ms
+I (45653) replay:   [ 14] MSI c= 0 t=13 argmax= 0 OK  1026.9 ms
+I (46875) replay:   [ 15] MSI c= 0 t=14 argmax= 4 MISS  1035.8 ms
+I (48096) replay:   [ 16] MSI c= 1 t= 0 argmax= 6 MISS  1025.1 ms
+I (49402) replay:   [ 17] MSI c= 1 t= 1 argmax= 6 MISS  1018.5 ms
+I (50728) replay:   [ 18] MSI c= 1 t= 2 argmax= 9 MISS  1038.7 ms
+I (52019) replay:   [ 19] MSI c= 1 t= 3 argmax= 1 OK  1013.3 ms
+I (53218) replay:   [ 20] MSI c= 1 t= 4 argmax= 7 MISS  1028.5 ms
+I (54459) replay:   [ 21] MSI c= 1 t= 5 argmax= 9 MISS  1040.0 ms
+I (55598) replay:   [ 22] MSI c= 1 t= 6 argmax= 0 MISS  1038.5 ms
+I (56718) replay:   [ 23] MSI c= 1 t= 7 argmax=11 MISS  1024.5 ms
+I (57927) replay:   [ 24] MSI c= 1 t= 8 argmax= 3 MISS  1028.1 ms
+I (59153) replay:   [ 25] MSI c= 1 t= 9 argmax= 1 OK  1024.2 ms
+I (60376) replay:   [ 26] MSI c= 1 t=10 argmax= 1 OK  1025.7 ms
+I (61515) replay:   [ 27] MSI c= 1 t=11 argmax= 6 MISS  1050.1 ms
+I (62613) replay:   [ 28] MSI c= 1 t=12 argmax= 0 MISS  1007.9 ms
+I (63867) replay:   [ 29] MSI c= 1 t=13 argmax= 3 MISS  1034.1 ms
+I (65085) replay:   [ 30] MSI c= 1 t=14 argmax= 6 MISS  1015.8 ms
+I (66325) replay:   [ 31] MSI c= 2 t= 0 argmax= 3 MISS  1031.7 ms
+I (67560) replay:   [ 32] MSI c= 2 t= 1 argmax= 3 MISS  1033.3 ms
+I (68784) replay:   [ 33] MSI c= 2 t= 2 argmax= 6 MISS  1033.2 ms
+I (69997) replay:   [ 34] MSI c= 2 t= 3 argmax= 6 MISS  1003.2 ms
+I (71126) replay:   [ 35] MSI c= 2 t= 4 argmax= 1 MISS  1018.5 ms
+I (72363) replay:   [ 36] MSI c= 2 t= 5 argmax= 0 MISS  1035.4 ms
+I (73595) replay:   [ 37] MSI c= 2 t= 6 argmax= 6 MISS  1030.4 ms
+I (74807) replay:   [ 38] MSI c= 2 t= 7 argmax= 2 OK  1021.6 ms
+I (75949) replay:   [ 39] MSI c= 2 t= 8 argmax= 2 OK  1037.6 ms
+I (77068) replay:   [ 40] MSI c= 2 t= 9 argmax= 9 MISS  1022.4 ms
+I (78311) replay:   [ 41] MSI c= 2 t=10 argmax= 1 MISS  1043.6 ms
+I (79531) replay:   [ 42] MSI c= 2 t=11 argmax= 1 MISS  1027.7 ms
+I (80642) replay:   [ 43] MSI c= 2 t=12 argmax= 4 MISS  1007.9 ms
+I (81891) replay:   [ 44] MSI c= 2 t=13 argmax= 3 MISS  1037.6 ms
+I (83120) replay:   [ 45] MSI c= 2 t=14 argmax= 1 MISS  1007.6 ms
+I (84323) replay:   [ 46] MSI c= 3 t= 0 argmax= 4 MISS  1009.7 ms
+I (85445) replay:   [ 47] MSI c= 3 t= 1 argmax= 3 OK  1011.1 ms
+I (86563) replay:   [ 48] MSI c= 3 t= 2 argmax= 3 OK  1015.2 ms
+I (87692) replay:   [ 49] MSI c= 3 t= 3 argmax= 3 OK  1023.3 ms
+I (88833) replay:   [ 50] MSI c= 3 t= 4 argmax= 3 OK  1017.8 ms
+I (89965) replay:   [ 51] MSI c= 3 t= 5 argmax= 3 OK  1024.9 ms
+I (91108) replay:   [ 52] MSI c= 3 t= 6 argmax= 3 OK  1026.0 ms
+I (92316) replay:   [ 53] MSI c= 3 t= 7 argmax= 3 OK  1015.6 ms
+I (93562) replay:   [ 54] MSI c= 3 t= 8 argmax= 3 OK  1021.0 ms
+I (94810) replay:   [ 55] MSI c= 3 t= 9 argmax= 3 OK  1044.1 ms
+I (95915) replay:   [ 56] MSI c= 3 t=10 argmax= 3 OK  1000.9 ms
+I (97045) replay:   [ 57] MSI c= 3 t=11 argmax= 3 OK  1037.0 ms
+I (98248) replay:   [ 58] MSI c= 3 t=12 argmax= 3 OK  1014.7 ms
+I (99496) replay:   [ 59] MSI c= 3 t=13 argmax= 3 OK  1026.8 ms
+I (100724) replay:   [ 60] MSI c= 3 t=14 argmax= 3 OK  1027.1 ms
+I (101837) replay:   [ 61] MSI c= 4 t= 0 argmax= 6 MISS  1007.2 ms
+I (103092) replay:   [ 62] MSI c= 4 t= 1 argmax= 6 MISS  1038.8 ms
+I (104314) replay:   [ 63] MSI c= 4 t= 2 argmax= 3 MISS  1029.8 ms
+I (105545) replay:   [ 64] MSI c= 4 t= 3 argmax= 7 MISS  1029.0 ms
+I (106669) replay:   [ 65] MSI c= 4 t= 4 argmax= 4 OK  1030.1 ms
+I (107906) replay:   [ 66] MSI c= 4 t= 5 argmax= 0 MISS  1023.0 ms
+I (108999) replay:   [ 67] MSI c= 4 t= 6 argmax= 3 MISS  1011.5 ms
+I (110126) replay:   [ 68] MSI c= 4 t= 7 argmax= 4 OK  1007.7 ms
+I (111359) replay:   [ 69] MSI c= 4 t= 8 argmax= 4 OK  1006.1 ms
+I (112610) replay:   [ 70] MSI c= 4 t= 9 argmax= 4 OK  1031.2 ms
+I (113721) replay:   [ 71] MSI c= 4 t=10 argmax= 4 OK  1017.0 ms
+I (114989) replay:   [ 72] MSI c= 4 t=11 argmax= 6 MISS  1046.7 ms
+I (116201) replay:   [ 73] MSI c= 4 t=12 argmax= 4 OK  1024.0 ms
+I (117390) replay:   [ 74] MSI c= 4 t=13 argmax= 6 MISS  1004.0 ms
+I (118506) replay:   [ 75] MSI c= 4 t=14 argmax= 9 MISS  1011.3 ms
+I (119608) replay:   [ 76] MSI c= 5 t= 0 argmax= 5 OK  1003.6 ms
+I (120781) replay:   [ 77] MSI c= 5 t= 1 argmax= 0 MISS  1016.7 ms
+I (121911) replay:   [ 78] MSI c= 5 t= 2 argmax= 6 MISS  1033.2 ms
+I (123173) replay:   [ 79] MSI c= 5 t= 3 argmax= 0 MISS  1027.9 ms
+I (124270) replay:   [ 80] MSI c= 5 t= 4 argmax= 9 MISS  1010.9 ms
+I (125388) replay:   [ 81] MSI c= 5 t= 5 argmax= 9 MISS  1007.2 ms
+I (126631) replay:   [ 82] MSI c= 5 t= 6 argmax= 0 MISS  1019.7 ms
+I (127834) replay:   [ 83] MSI c= 5 t= 7 argmax= 5 OK  1005.1 ms
+I (128975) replay:   [ 84] MSI c= 5 t= 8 argmax= 0 MISS  1044.7 ms
+I (130134) replay:   [ 85] MSI c= 5 t= 9 argmax= 5 OK  1011.9 ms
+I (131256) replay:   [ 86] MSI c= 5 t=10 argmax= 9 MISS  1025.4 ms
+I (132458) replay:   [ 87] MSI c= 5 t=11 argmax= 3 MISS  1007.9 ms
+I (133691) replay:   [ 88] MSI c= 5 t=12 argmax= 9 MISS  1021.5 ms
+I (134934) replay:   [ 89] MSI c= 5 t=13 argmax= 0 MISS  1009.4 ms
+I (136073) replay:   [ 90] MSI c= 5 t=14 argmax= 1 MISS  1031.1 ms
+I (137207) replay:   [ 91] MSI c= 6 t= 0 argmax= 0 MISS  1029.7 ms
+I (138382) replay:   [ 92] MSI c= 6 t= 1 argmax= 6 OK  1004.1 ms
+I (139537) replay:   [ 93] MSI c= 6 t= 2 argmax= 6 OK  1027.0 ms
+I (140773) replay:   [ 94] MSI c= 6 t= 3 argmax= 6 OK  1035.8 ms
+I (141901) replay:   [ 95] MSI c= 6 t= 4 argmax= 3 MISS  1030.8 ms
+I (142998) replay:   [ 96] MSI c= 6 t= 5 argmax= 6 OK  1001.2 ms
+I (144129) replay:   [ 97] MSI c= 6 t= 6 argmax= 7 MISS  1022.3 ms
+I (145385) replay:   [ 98] MSI c= 6 t= 7 argmax= 6 OK  1034.1 ms
+I (146632) replay:   [ 99] MSI c= 6 t= 8 argmax= 6 OK  1051.7 ms
+I (147755) replay:   [100] MSI c= 6 t= 9 argmax= 6 OK  1028.3 ms
+I (148965) replay:   [101] MSI c= 6 t=10 argmax= 6 OK  1015.6 ms
+I (150094) replay:   [102] MSI c= 6 t=11 argmax= 6 OK  1012.7 ms
+I (151322) replay:   [103] MSI c= 6 t=12 argmax= 6 OK  1035.7 ms
+I (152413) replay:   [104] MSI c= 6 t=13 argmax= 0 MISS  996.7 ms
+I (153576) replay:   [105] MSI c= 6 t=14 argmax= 6 OK  1035.9 ms
+I (154693) replay:   [106] MSI c= 7 t= 0 argmax= 9 MISS  1014.6 ms
+I (155902) replay:   [107] MSI c= 7 t= 1 argmax= 1 MISS  1008.9 ms
+I (157044) replay:   [108] MSI c= 7 t= 2 argmax= 3 MISS  1019.6 ms
+I (158285) replay:   [109] MSI c= 7 t= 3 argmax= 9 MISS  1036.5 ms
+I (159511) replay:   [110] MSI c= 7 t= 4 argmax= 9 MISS  1032.0 ms
+I (160660) replay:   [111] MSI c= 7 t= 5 argmax= 0 MISS  1050.3 ms
+I (161794) replay:   [112] MSI c= 7 t= 6 argmax= 1 MISS  1038.3 ms
+I (162999) replay:   [113] MSI c= 7 t= 7 argmax= 6 MISS  1042.9 ms
+I (164181) replay:   [114] MSI c= 7 t= 8 argmax= 6 MISS  992.8 ms
+I (165343) replay:   [115] MSI c= 7 t= 9 argmax= 0 MISS  1030.1 ms
+I (166466) replay:   [116] MSI c= 7 t=10 argmax= 9 MISS  1022.0 ms
+I (167593) replay:   [117] MSI c= 7 t=11 argmax= 6 MISS  1035.3 ms
+I (168832) replay:   [118] MSI c= 7 t=12 argmax= 7 OK  1015.0 ms
+I (169952) replay:   [119] MSI c= 7 t=13 argmax= 3 MISS  1022.5 ms
+I (171194) replay:   [120] MSI c= 7 t=14 argmax= 0 MISS  1017.2 ms
+I (172336) replay:   [121] MSI c= 8 t= 0 argmax= 0 MISS  1049.7 ms
+I (173460) replay:   [122] MSI c= 8 t= 1 argmax= 9 MISS  1030.5 ms
+I (174571) replay:   [123] MSI c= 8 t= 2 argmax= 3 MISS  1011.7 ms
+I (175752) replay:   [124] MSI c= 8 t= 3 argmax= 6 MISS  1040.0 ms
+I (176884) replay:   [125] MSI c= 8 t= 4 argmax= 3 MISS  1016.0 ms
+I (178039) replay:   [126] MSI c= 8 t= 5 argmax=11 MISS  1029.3 ms
+I (179285) replay:   [127] MSI c= 8 t= 6 argmax= 6 MISS  1026.6 ms
+I (180413) replay:   [128] MSI c= 8 t= 7 argmax= 0 MISS  1043.2 ms
+I (181604) replay:   [129] MSI c= 8 t= 8 argmax= 0 MISS  1004.4 ms
+I (182756) replay:   [130] MSI c= 8 t= 9 argmax= 3 MISS  1030.0 ms
+I (183990) replay:   [131] MSI c= 8 t=10 argmax= 8 OK  1020.8 ms
+I (185204) replay:   [132] MSI c= 8 t=11 argmax= 0 MISS  1020.3 ms
+I (186420) replay:   [133] MSI c= 8 t=12 argmax= 3 MISS  1010.5 ms
+I (187562) replay:   [134] MSI c= 8 t=13 argmax= 6 MISS  1022.0 ms
+I (188799) replay:   [135] MSI c= 8 t=14 argmax= 4 MISS  1028.4 ms
+I (190016) replay:   [136] MSI c= 9 t= 0 argmax= 9 OK  1015.4 ms
+I (191235) replay:   [137] MSI c= 9 t= 1 argmax= 9 OK  1004.3 ms
+I (192477) replay:   [138] MSI c= 9 t= 2 argmax= 9 OK  1029.2 ms
+I (193719) replay:   [139] MSI c= 9 t= 3 argmax= 9 OK  1034.9 ms
+I (194925) replay:   [140] MSI c= 9 t= 4 argmax= 9 OK  1017.9 ms
+I (196158) replay:   [141] MSI c= 9 t= 5 argmax= 9 OK  1015.5 ms
+I (197326) replay:   [142] MSI c= 9 t= 6 argmax= 6 MISS  1054.9 ms
+I (198515) replay:   [143] MSI c= 9 t= 7 argmax= 3 MISS  1025.3 ms
+I (199638) replay:   [144] MSI c= 9 t= 8 argmax= 9 OK  1032.9 ms
+I (200874) replay:   [145] MSI c= 9 t= 9 argmax= 9 OK  1024.0 ms
+I (202001) replay:   [146] MSI c= 9 t=10 argmax= 9 OK  1029.8 ms
+I (203227) replay:   [147] MSI c= 9 t=11 argmax= 3 MISS  1025.9 ms
+I (204378) replay:   [148] MSI c= 9 t=12 argmax= 9 OK  1029.1 ms
+I (205595) replay:   [149] MSI c= 9 t=13 argmax= 9 OK  1038.1 ms
+I (206715) replay:   [150] MSI c= 9 t=14 argmax= 6 MISS  1020.2 ms
+I (207807) replay:   [151] MSI c=10 t= 0 argmax= 6 MISS  998.8 ms
+I (208941) replay:   [152] MSI c=10 t= 1 argmax= 9 MISS  1004.9 ms
+I (210067) replay:   [153] MSI c=10 t= 2 argmax= 6 MISS  1001.7 ms
+I (211221) replay:   [154] MSI c=10 t= 3 argmax= 9 MISS  1030.5 ms
+I (212434) replay:   [155] MSI c=10 t= 4 argmax= 9 MISS  1008.8 ms
+I (213560) replay:   [156] MSI c=10 t= 5 argmax= 3 MISS  1027.4 ms
+I (214803) replay:   [157] MSI c=10 t= 6 argmax= 9 MISS  1021.6 ms
+I (215929) replay:   [158] MSI c=10 t= 7 argmax=10 OK  1032.6 ms
+I (217153) replay:   [159] MSI c=10 t= 8 argmax= 3 MISS  1021.7 ms
+I (218357) replay:   [160] MSI c=10 t= 9 argmax= 6 MISS  998.5 ms
+I (219515) replay:   [161] MSI c=10 t=10 argmax= 9 MISS  1022.7 ms
+I (220745) replay:   [162] MSI c=10 t=11 argmax= 6 MISS  1023.1 ms
+I (222002) replay:   [163] MSI c=10 t=12 argmax= 6 MISS  1044.9 ms
+I (223176) replay:   [164] MSI c=10 t=13 argmax=10 OK  1003.2 ms
+I (224333) replay:   [165] MSI c=10 t=14 argmax= 3 MISS  1028.8 ms
+I (225556) replay:   [166] MSI c=11 t= 0 argmax=11 OK  1028.2 ms
+I (226781) replay:   [167] MSI c=11 t= 1 argmax= 9 MISS  1027.5 ms
+I (227912) replay:   [168] MSI c=11 t= 2 argmax= 6 MISS  1035.5 ms
+I (229007) replay:   [169] MSI c=11 t= 3 argmax= 6 MISS  996.2 ms
+I (230137) replay:   [170] MSI c=11 t= 4 argmax= 9 MISS  1001.4 ms
+I (231287) replay:   [171] MSI c=11 t= 5 argmax= 3 MISS  1027.3 ms
+I (232424) replay:   [172] MSI c=11 t= 6 argmax= 0 MISS  1042.4 ms
+I (233545) replay:   [173] MSI c=11 t= 7 argmax= 0 MISS  1021.0 ms
+I (234766) replay:   [174] MSI c=11 t= 8 argmax=11 OK  1022.5 ms
+I (235883) replay:   [175] MSI c=11 t= 9 argmax= 6 MISS  1015.3 ms
+I (237043) replay:   [176] MSI c=11 t=10 argmax=11 OK  1051.7 ms
+I (238236) replay:   [177] MSI c=11 t=11 argmax=11 OK  1011.8 ms
+I (239352) replay:   [178] MSI c=11 t=12 argmax=11 OK  1010.8 ms
+I (240487) replay:   [179] MSI c=11 t=13 argmax= 7 MISS  1008.9 ms
+I (241722) replay:   [180] MSI c=11 t=14 argmax= 6 MISS  993.6 ms
+I (241783) replay: ──── SESSION END ──────────────────────
+I (241783) replay: RES_PROFILE phase=session_summary backend=MSI int_free_now=144595 spiram_free_now=8320408 sess_baseline_int=144815 sess_min_int=144595 sess_est_peak_drop_int=220 sess_min_spiram=8284544 stack_hwm_words=13952 int_min_ever_boot=139047 note=see_docs
+I (241805) replay:   backend : MSI
+I (241808) replay:   trials  : 180 total, 180 ok, 0 err
+I (241813) replay:   latency : avg 1023.6 ms, min 992.8 ms, max 1054.9 ms
+I (241819) replay: ──────────────────────────────────────
+I (241831) replay: cleanup decoder 2 (MSI)
+I (241836) replay: client disconnected, waiting for next

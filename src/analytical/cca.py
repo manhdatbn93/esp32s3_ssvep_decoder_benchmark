@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from src.classical.filters import bandpass_filter, ensure_trials_time_channels
+from src.analytical.filters import bandpass_filter, ensure_trials_time_channels
 
 
 def first_canonical_correlation(X: np.ndarray, Y: np.ndarray, *, reg: float = 1e-4) -> float:

@@ -1,0 +1,220 @@
+I (1740) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (1748) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (1756) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (2409) wifi:<ba-add>idx:0 (ifx:0, <REDACTED_MAC>), tid:0, ssn:3, winSize:64
+I (4741) esp_netif_handlers: sta ip: <REDACTED_IP>, mask: 255.255.255.0, gw: <REDACTED_IP>
+I (4741) replay_wifi: got ip: <REDACTED_IP>
+I (4742) replay: listening on port 3333
+I (4745) replay: Available backends:
+I (4748) replay:   [ 5] EEGNet-int8
+I (4752) replay:   1 backend(s) ready
+I (4755) replay: Waiting for client connection...
+I (4759) replay_app: replay_tcp_server_task started (internal stack 16384 B, core 0)
+I (4767) main_task: Returned from app_main()
+I (314282) replay: ──────────────────────────────────────
+I (314282) replay: client connected from <REDACTED_IP>:55002
+I (314293) replay: init decoder 5 (EEGNet-int8)
+I (314293) replay: RES_PROFILE phase=pre_backend_init backend=EEGNet-int8 total_free=8487028 int_free=198667 spiram_free=8320392 int_largest=98304 int_min_ever_boot=192971 spiram_min_ever_boot=7984736
+I (314310) eegnet: int8 init: model=10984 bytes, arena=393216 bytes
+I (314316) tflm: arena: raw=0x3c10113c aligned=0x3c101140 size=393216 align_ok=1 resolver_was_ready=1
+I (314327) tflm: ctx_create OK: interp=0x3fcb5b38
+I (314329) tflm: [EEGNet-i8] input  type=f32(1) bytes=16384 scale=0.00000000 zp=0
+I (314336) tflm: [EEGNet-i8] output type=f32(1) bytes=48 scale=0.00000000 zp=0
+I (314343) tflm: [EEGNet-i8] arena raw=0x3c10113c aligned=0x3c101140 align_ok=1
+I (314350) replay: RES_PROFILE phase=post_backend_init backend=EEGNet-int8 total_free=8085356 int_free=198411 spiram_free=7918976 int_largest=98304 int_min_ever_boot=192971 spiram_min_ever_boot=7918904
+I (314368) replay: ──── SESSION START ────────────────────
+I (314377) replay:   backend : EEGNet-int8 (id=5)
+I (314381) replay:   norm=1  onset=38  window=512  fs=256  ch=8
+I (314583) replay: RES_PROFILE phase=pre_first_infer backend=EEGNet-int8 total_free=8049532 int_free=198411 spiram_free=7883152 int_largest=98304 int_min_ever_boot=192971 spiram_min_ever_boot=7875960
+I (314590) tflm: invoke#1: in_type=1 out_type=1 in_len=4096 out_len=12
+I (314596) tflm: invoke#1: input[0..3] = -0.359343 0.376181 0.701181 1.840389
+I (314651) tflm: invoke#1: out[0..3] = -0.712196 -1.068293 -0.050871 -1.475262
+I (314651) replay: RES_PROFILE phase=post_first_infer backend=EEGNet-int8 total_free=8049332 int_free=198207 spiram_free=7883156 int_largest=98304 int_min_ever_boot=192971 spiram_min_ever_boot=7875960
+I (314666) replay:   [  1] EEGNet-int8 c= 0 t= 0 argmax=11 MISS  100.8 ms
+I (316716) replay:   [  2] EEGNet-int8 c= 0 t= 1 argmax= 0 OK  68.5 ms
+I (317018) replay:   [  3] EEGNet-int8 c= 0 t= 2 argmax= 0 OK  68.2 ms
+I (317394) replay:   [  4] EEGNet-int8 c= 0 t= 3 argmax=10 MISS  68.8 ms
+I (317764) replay:   [  5] EEGNet-int8 c= 0 t= 4 argmax= 1 MISS  68.4 ms
+I (318246) replay:   [  6] EEGNet-int8 c= 0 t= 5 argmax= 0 OK  68.7 ms
+I (318528) replay:   [  7] EEGNet-int8 c= 0 t= 6 argmax= 0 OK  69.5 ms
+I (320129) replay:   [  8] EEGNet-int8 c= 0 t= 7 argmax= 0 OK  69.4 ms
+I (320525) replay:   [  9] EEGNet-int8 c= 0 t= 8 argmax= 4 MISS  70.1 ms
+I (320844) replay:   [ 10] EEGNet-int8 c= 0 t= 9 argmax= 0 OK  68.9 ms
+I (321162) replay:   [ 11] EEGNet-int8 c= 0 t=10 argmax= 4 MISS  68.4 ms
+I (321532) replay:   [ 12] EEGNet-int8 c= 0 t=11 argmax= 0 OK  68.4 ms
+I (321839) replay:   [ 13] EEGNet-int8 c= 0 t=12 argmax=10 MISS  68.4 ms
+I (322168) replay:   [ 14] EEGNet-int8 c= 0 t=13 argmax= 6 MISS  68.3 ms
+I (323522) replay:   [ 15] EEGNet-int8 c= 0 t=14 argmax= 0 OK  69.1 ms
+I (323751) replay:   [ 16] EEGNet-int8 c= 1 t= 0 argmax= 0 MISS  68.8 ms
+I (324515) replay:   [ 17] EEGNet-int8 c= 1 t= 1 argmax= 0 MISS  69.0 ms
+I (325813) replay:   [ 18] EEGNet-int8 c= 1 t= 2 argmax= 1 OK  68.3 ms
+I (327101) replay:   [ 19] EEGNet-int8 c= 1 t= 3 argmax= 1 OK  68.7 ms
+I (327441) replay:   [ 20] EEGNet-int8 c= 1 t= 4 argmax= 0 MISS  69.4 ms
+I (327829) replay:   [ 21] EEGNet-int8 c= 1 t= 5 argmax= 1 OK  68.5 ms
+I (328182) replay:   [ 22] EEGNet-int8 c= 1 t= 6 argmax= 9 MISS  68.2 ms
+I (328468) replay:   [ 23] EEGNet-int8 c= 1 t= 7 argmax=11 MISS  68.5 ms
+I (328758) replay:   [ 24] EEGNet-int8 c= 1 t= 8 argmax= 0 MISS  68.7 ms
+I (328955) replay:   [ 25] EEGNet-int8 c= 1 t= 9 argmax=10 MISS  68.6 ms
+I (329308) replay:   [ 26] EEGNet-int8 c= 1 t=10 argmax= 4 MISS  68.2 ms
+I (329624) replay:   [ 27] EEGNet-int8 c= 1 t=11 argmax= 9 MISS  68.7 ms
+I (329893) replay:   [ 28] EEGNet-int8 c= 1 t=12 argmax= 1 OK  68.5 ms
+I (330092) replay:   [ 29] EEGNet-int8 c= 1 t=13 argmax= 9 MISS  69.0 ms
+I (330296) replay:   [ 30] EEGNet-int8 c= 1 t=14 argmax= 0 MISS  68.7 ms
+I (330609) replay:   [ 31] EEGNet-int8 c= 2 t= 0 argmax= 2 OK  68.2 ms
+I (330896) replay:   [ 32] EEGNet-int8 c= 2 t= 1 argmax=10 MISS  69.0 ms
+I (331113) replay:   [ 33] EEGNet-int8 c= 2 t= 2 argmax= 9 MISS  68.7 ms
+I (331300) replay:   [ 34] EEGNet-int8 c= 2 t= 3 argmax= 1 MISS  68.4 ms
+I (331541) replay:   [ 35] EEGNet-int8 c= 2 t= 4 argmax= 4 MISS  69.1 ms
+I (331817) replay:   [ 36] EEGNet-int8 c= 2 t= 5 argmax= 0 MISS  68.9 ms
+I (332027) replay:   [ 37] EEGNet-int8 c= 2 t= 6 argmax= 0 MISS  68.8 ms
+I (332263) replay:   [ 38] EEGNet-int8 c= 2 t= 7 argmax= 2 OK  68.1 ms
+I (333473) replay:   [ 39] EEGNet-int8 c= 2 t= 8 argmax= 2 OK  68.8 ms
+I (333674) replay:   [ 40] EEGNet-int8 c= 2 t= 9 argmax= 2 OK  68.4 ms
+I (333941) replay:   [ 41] EEGNet-int8 c= 2 t=10 argmax= 2 OK  68.4 ms
+I (334165) replay:   [ 42] EEGNet-int8 c= 2 t=11 argmax= 1 MISS  68.6 ms
+I (334397) replay:   [ 43] EEGNet-int8 c= 2 t=12 argmax= 0 MISS  68.7 ms
+I (336447) replay:   [ 44] EEGNet-int8 c= 2 t=13 argmax= 5 MISS  68.8 ms
+I (336631) replay:   [ 45] EEGNet-int8 c= 2 t=14 argmax= 4 MISS  69.0 ms
+I (336859) replay:   [ 46] EEGNet-int8 c= 3 t= 0 argmax= 3 OK  68.7 ms
+I (337036) replay:   [ 47] EEGNet-int8 c= 3 t= 1 argmax= 0 MISS  68.6 ms
+I (337415) replay:   [ 48] EEGNet-int8 c= 3 t= 2 argmax= 0 MISS  68.4 ms
+I (337661) replay:   [ 49] EEGNet-int8 c= 3 t= 3 argmax= 3 OK  69.0 ms
+I (337862) replay:   [ 50] EEGNet-int8 c= 3 t= 4 argmax= 0 MISS  68.3 ms
+I (338095) replay:   [ 51] EEGNet-int8 c= 3 t= 5 argmax= 0 MISS  69.4 ms
+I (338378) replay:   [ 52] EEGNet-int8 c= 3 t= 6 argmax= 3 OK  69.0 ms
+I (338596) replay:   [ 53] EEGNet-int8 c= 3 t= 7 argmax= 0 MISS  69.8 ms
+I (338889) replay:   [ 54] EEGNet-int8 c= 3 t= 8 argmax= 3 OK  68.9 ms
+I (339095) replay:   [ 55] EEGNet-int8 c= 3 t= 9 argmax= 3 OK  69.1 ms
+I (339366) replay:   [ 56] EEGNet-int8 c= 3 t=10 argmax= 0 MISS  68.7 ms
+I (339631) replay:   [ 57] EEGNet-int8 c= 3 t=11 argmax= 3 OK  68.0 ms
+I (341022) replay:   [ 58] EEGNet-int8 c= 3 t=12 argmax= 3 OK  68.5 ms
+I (341234) replay:   [ 59] EEGNet-int8 c= 3 t=13 argmax= 0 MISS  68.6 ms
+I (341541) replay:   [ 60] EEGNet-int8 c= 3 t=14 argmax=10 MISS  68.6 ms
+I (341857) replay:   [ 61] EEGNet-int8 c= 4 t= 0 argmax= 3 MISS  68.4 ms
+I (342065) replay:   [ 62] EEGNet-int8 c= 4 t= 1 argmax= 2 MISS  68.9 ms
+I (342289) replay:   [ 63] EEGNet-int8 c= 4 t= 2 argmax= 1 MISS  68.2 ms
+I (342566) replay:   [ 64] EEGNet-int8 c= 4 t= 3 argmax= 8 MISS  69.1 ms
+I (342789) replay:   [ 65] EEGNet-int8 c= 4 t= 4 argmax= 2 MISS  68.7 ms
+I (342977) replay:   [ 66] EEGNet-int8 c= 4 t= 5 argmax= 0 MISS  68.6 ms
+I (343295) replay:   [ 67] EEGNet-int8 c= 4 t= 6 argmax=10 MISS  68.9 ms
+I (343480) replay:   [ 68] EEGNet-int8 c= 4 t= 7 argmax= 4 OK  68.4 ms
+I (343690) replay:   [ 69] EEGNet-int8 c= 4 t= 8 argmax= 4 OK  68.7 ms
+I (343957) replay:   [ 70] EEGNet-int8 c= 4 t= 9 argmax= 1 MISS  68.1 ms
+I (344161) replay:   [ 71] EEGNet-int8 c= 4 t=10 argmax= 1 MISS  68.0 ms
+I (344410) replay:   [ 72] EEGNet-int8 c= 4 t=11 argmax= 1 MISS  68.8 ms
+I (345657) replay:   [ 73] EEGNet-int8 c= 4 t=12 argmax= 4 OK  68.6 ms
+I (347098) replay:   [ 74] EEGNet-int8 c= 4 t=13 argmax= 1 MISS  68.7 ms
+I (347372) replay:   [ 75] EEGNet-int8 c= 4 t=14 argmax= 4 OK  68.9 ms
+I (347710) replay:   [ 76] EEGNet-int8 c= 5 t= 0 argmax= 2 MISS  68.6 ms
+I (348352) replay:   [ 77] EEGNet-int8 c= 5 t= 1 argmax=10 MISS  68.2 ms
+I (348642) replay:   [ 78] EEGNet-int8 c= 5 t= 2 argmax= 8 MISS  68.3 ms
+I (348924) replay:   [ 79] EEGNet-int8 c= 5 t= 3 argmax=11 MISS  68.7 ms
+I (349649) replay:   [ 80] EEGNet-int8 c= 5 t= 4 argmax= 8 MISS  68.4 ms
+I (349877) replay:   [ 81] EEGNet-int8 c= 5 t= 5 argmax= 8 MISS  67.9 ms
+I (350168) replay:   [ 82] EEGNet-int8 c= 5 t= 6 argmax= 0 MISS  68.5 ms
+I (350517) replay:   [ 83] EEGNet-int8 c= 5 t= 7 argmax= 8 MISS  68.4 ms
+I (350852) replay:   [ 84] EEGNet-int8 c= 5 t= 8 argmax= 0 MISS  68.8 ms
+I (351106) replay:   [ 85] EEGNet-int8 c= 5 t= 9 argmax= 2 MISS  68.2 ms
+I (351294) replay:   [ 86] EEGNet-int8 c= 5 t=10 argmax= 5 OK  68.5 ms
+I (351584) replay:   [ 87] EEGNet-int8 c= 5 t=11 argmax= 8 MISS  68.5 ms
+I (353486) replay:   [ 88] EEGNet-int8 c= 5 t=12 argmax=10 MISS  68.0 ms
+I (353782) replay:   [ 89] EEGNet-int8 c= 5 t=13 argmax= 5 OK  68.2 ms
+I (354216) replay:   [ 90] EEGNet-int8 c= 5 t=14 argmax= 2 MISS  68.2 ms
+I (354477) replay:   [ 91] EEGNet-int8 c= 6 t= 0 argmax= 1 MISS  68.2 ms
+I (354888) replay:   [ 92] EEGNet-int8 c= 6 t= 1 argmax= 0 MISS  68.7 ms
+I (355082) replay:   [ 93] EEGNet-int8 c= 6 t= 2 argmax= 6 OK  68.6 ms
+I (355394) replay:   [ 94] EEGNet-int8 c= 6 t= 3 argmax= 6 OK  68.6 ms
+I (355832) replay:   [ 95] EEGNet-int8 c= 6 t= 4 argmax= 3 MISS  67.8 ms
+I (356092) replay:   [ 96] EEGNet-int8 c= 6 t= 5 argmax= 3 MISS  68.0 ms
+I (356408) replay:   [ 97] EEGNet-int8 c= 6 t= 6 argmax= 0 MISS  67.8 ms
+I (356621) replay:   [ 98] EEGNet-int8 c= 6 t= 7 argmax= 6 OK  68.9 ms
+I (356815) replay:   [ 99] EEGNet-int8 c= 6 t= 8 argmax= 3 MISS  69.0 ms
+I (357006) replay:   [100] EEGNet-int8 c= 6 t= 9 argmax= 3 MISS  68.6 ms
+I (357269) replay:   [101] EEGNet-int8 c= 6 t=10 argmax= 6 OK  68.2 ms
+I (357516) replay:   [102] EEGNet-int8 c= 6 t=11 argmax= 6 OK  68.8 ms
+I (357774) replay:   [103] EEGNet-int8 c= 6 t=12 argmax= 6 OK  67.9 ms
+I (358033) replay:   [104] EEGNet-int8 c= 6 t=13 argmax= 6 OK  68.6 ms
+I (358332) replay:   [105] EEGNet-int8 c= 6 t=14 argmax= 9 MISS  68.8 ms
+I (358592) replay:   [106] EEGNet-int8 c= 7 t= 0 argmax= 4 MISS  69.1 ms
+I (358779) replay:   [107] EEGNet-int8 c= 7 t= 1 argmax= 1 MISS  68.5 ms
+I (359075) replay:   [108] EEGNet-int8 c= 7 t= 2 argmax= 4 MISS  68.5 ms
+I (359371) replay:   [109] EEGNet-int8 c= 7 t= 3 argmax= 3 MISS  68.9 ms
+I (359573) replay:   [110] EEGNet-int8 c= 7 t= 4 argmax=10 MISS  68.6 ms
+I (359760) replay:   [111] EEGNet-int8 c= 7 t= 5 argmax= 2 MISS  68.6 ms
+I (359979) replay:   [112] EEGNet-int8 c= 7 t= 6 argmax= 0 MISS  69.1 ms
+I (360237) replay:   [113] EEGNet-int8 c= 7 t= 7 argmax= 9 MISS  68.2 ms
+I (360616) replay:   [114] EEGNet-int8 c= 7 t= 8 argmax=10 MISS  68.9 ms
+I (360890) replay:   [115] EEGNet-int8 c= 7 t= 9 argmax= 1 MISS  68.9 ms
+I (361148) replay:   [116] EEGNet-int8 c= 7 t=10 argmax= 0 MISS  68.5 ms
+I (361339) replay:   [117] EEGNet-int8 c= 7 t=11 argmax= 2 MISS  68.9 ms
+I (361619) replay:   [118] EEGNet-int8 c= 7 t=12 argmax= 7 OK  68.2 ms
+I (361882) replay:   [119] EEGNet-int8 c= 7 t=13 argmax=10 MISS  67.7 ms
+I (363509) replay:   [120] EEGNet-int8 c= 7 t=14 argmax=10 MISS  68.0 ms
+I (363768) replay:   [121] EEGNet-int8 c= 8 t= 0 argmax=10 MISS  68.1 ms
+I (364047) replay:   [122] EEGNet-int8 c= 8 t= 1 argmax= 6 MISS  68.6 ms
+I (364274) replay:   [123] EEGNet-int8 c= 8 t= 2 argmax= 9 MISS  68.3 ms
+I (364579) replay:   [124] EEGNet-int8 c= 8 t= 3 argmax=11 MISS  68.8 ms
+I (364899) replay:   [125] EEGNet-int8 c= 8 t= 4 argmax= 8 OK  69.2 ms
+I (365112) replay:   [126] EEGNet-int8 c= 8 t= 5 argmax= 0 MISS  69.2 ms
+I (365444) replay:   [127] EEGNet-int8 c= 8 t= 6 argmax=11 MISS  68.6 ms
+I (365651) replay:   [128] EEGNet-int8 c= 8 t= 7 argmax= 0 MISS  69.0 ms
+I (365946) replay:   [129] EEGNet-int8 c= 8 t= 8 argmax=11 MISS  68.4 ms
+I (366234) replay:   [130] EEGNet-int8 c= 8 t= 9 argmax=11 MISS  68.5 ms
+I (366492) replay:   [131] EEGNet-int8 c= 8 t=10 argmax= 0 MISS  68.4 ms
+I (366760) replay:   [132] EEGNet-int8 c= 8 t=11 argmax=11 MISS  68.6 ms
+I (367167) replay:   [133] EEGNet-int8 c= 8 t=12 argmax=11 MISS  68.5 ms
+I (367559) replay:   [134] EEGNet-int8 c= 8 t=13 argmax= 5 MISS  67.9 ms
+I (367775) replay:   [135] EEGNet-int8 c= 8 t=14 argmax=10 MISS  68.8 ms
+I (368073) replay:   [136] EEGNet-int8 c= 9 t= 0 argmax= 1 MISS  68.5 ms
+I (368272) replay:   [137] EEGNet-int8 c= 9 t= 1 argmax= 4 MISS  68.5 ms
+I (368602) replay:   [138] EEGNet-int8 c= 9 t= 2 argmax= 0 MISS  69.5 ms
+I (368981) replay:   [139] EEGNet-int8 c= 9 t= 3 argmax=10 MISS  68.6 ms
+I (369199) replay:   [140] EEGNet-int8 c= 9 t= 4 argmax=10 MISS  68.8 ms
+I (369440) replay:   [141] EEGNet-int8 c= 9 t= 5 argmax= 3 MISS  68.5 ms
+I (369695) replay:   [142] EEGNet-int8 c= 9 t= 6 argmax= 9 OK  68.8 ms
+I (369931) replay:   [143] EEGNet-int8 c= 9 t= 7 argmax= 3 MISS  68.8 ms
+I (370216) replay:   [144] EEGNet-int8 c= 9 t= 8 argmax= 0 MISS  69.3 ms
+I (370434) replay:   [145] EEGNet-int8 c= 9 t= 9 argmax= 0 MISS  68.9 ms
+I (370721) replay:   [146] EEGNet-int8 c= 9 t=10 argmax= 6 MISS  68.4 ms
+I (370957) replay:   [147] EEGNet-int8 c= 9 t=11 argmax= 1 MISS  68.5 ms
+I (371248) replay:   [148] EEGNet-int8 c= 9 t=12 argmax= 1 MISS  69.0 ms
+I (371447) replay:   [149] EEGNet-int8 c= 9 t=13 argmax= 9 OK  68.5 ms
+I (371641) replay:   [150] EEGNet-int8 c= 9 t=14 argmax= 0 MISS  68.8 ms
+I (371918) replay:   [151] EEGNet-int8 c=10 t= 0 argmax= 2 MISS  68.2 ms
+I (372153) replay:   [152] EEGNet-int8 c=10 t= 1 argmax=10 OK  68.5 ms
+I (372344) replay:   [153] EEGNet-int8 c=10 t= 2 argmax= 9 MISS  69.4 ms
+I (372550) replay:   [154] EEGNet-int8 c=10 t= 3 argmax=10 OK  68.8 ms
+I (372835) replay:   [155] EEGNet-int8 c=10 t= 4 argmax=10 OK  68.2 ms
+I (373134) replay:   [156] EEGNet-int8 c=10 t= 5 argmax= 4 MISS  68.7 ms
+I (373334) replay:   [157] EEGNet-int8 c=10 t= 6 argmax= 9 MISS  68.3 ms
+I (373560) replay:   [158] EEGNet-int8 c=10 t= 7 argmax=10 OK  68.4 ms
+I (373801) replay:   [159] EEGNet-int8 c=10 t= 8 argmax= 0 MISS  68.5 ms
+I (374007) replay:   [160] EEGNet-int8 c=10 t= 9 argmax= 3 MISS  69.6 ms
+I (374493) replay:   [161] EEGNet-int8 c=10 t=10 argmax=10 OK  68.7 ms
+I (374736) replay:   [162] EEGNet-int8 c=10 t=11 argmax=10 OK  67.9 ms
+I (374918) replay:   [163] EEGNet-int8 c=10 t=12 argmax= 9 MISS  69.2 ms
+I (375505) replay:   [164] EEGNet-int8 c=10 t=13 argmax= 2 MISS  68.2 ms
+I (375847) replay:   [165] EEGNet-int8 c=10 t=14 argmax=10 OK  68.8 ms
+I (376356) replay:   [166] EEGNet-int8 c=11 t= 0 argmax=11 OK  69.1 ms
+I (376783) replay:   [167] EEGNet-int8 c=11 t= 1 argmax=11 OK  68.5 ms
+I (377010) replay:   [168] EEGNet-int8 c=11 t= 2 argmax= 3 MISS  67.7 ms
+I (377566) replay:   [169] EEGNet-int8 c=11 t= 3 argmax= 3 MISS  68.0 ms
+I (378214) replay:   [170] EEGNet-int8 c=11 t= 4 argmax=11 OK  68.2 ms
+I (378659) replay:   [171] EEGNet-int8 c=11 t= 5 argmax=11 OK  67.9 ms
+I (380473) replay:   [172] EEGNet-int8 c=11 t= 6 argmax=11 OK  68.6 ms
+I (380855) replay:   [173] EEGNet-int8 c=11 t= 7 argmax= 0 MISS  68.6 ms
+I (381126) replay:   [174] EEGNet-int8 c=11 t= 8 argmax=11 OK  68.3 ms
+I (381398) replay:   [175] EEGNet-int8 c=11 t= 9 argmax=11 OK  69.4 ms
+I (382162) replay:   [176] EEGNet-int8 c=11 t=10 argmax=11 OK  68.1 ms
+I (382414) replay:   [177] EEGNet-int8 c=11 t=11 argmax=11 OK  69.0 ms
+I (382827) replay:   [178] EEGNet-int8 c=11 t=12 argmax=11 OK  68.6 ms
+I (383114) replay:   [179] EEGNet-int8 c=11 t=13 argmax=11 OK  68.7 ms
+I (383324) replay:   [180] EEGNet-int8 c=11 t=14 argmax= 9 MISS  68.4 ms
+I (383449) replay: ──── SESSION END ──────────────────────
+I (383449) replay: RES_PROFILE phase=session_summary backend=EEGNet-int8 int_free_now=198143 spiram_free_now=7919000 sess_baseline_int=198667 sess_min_int=198015 sess_est_peak_drop_int=652 sess_min_spiram=7883156 stack_hwm_words=13456 int_min_ever_boot=192971 note=see_docs
+I (383471) replay:   backend : EEGNet-int8
+I (383475) replay:   trials  : 180 total, 180 ok, 0 err
+I (383480) replay:   latency : avg 68.8 ms, min 67.7 ms, max 100.8 ms
+I (383486) replay: ──────────────────────────────────────
+I (383498) replay: cleanup decoder 5 (EEGNet-int8)
+I (383503) replay: client disconnected, waiting for next

@@ -98,6 +98,10 @@ def main() -> None:
         help="YAML config file",
     )
     ap.add_argument(
+        "--raw-data-root", type=Path, default=None,
+        help="Folder containing s1.mat .. s10.mat (overrides data.raw_data_root)",
+    )
+    ap.add_argument(
         "--output-dir", type=Path, default=None,
         help="Override output directory",
     )
@@ -113,6 +117,8 @@ def main() -> None:
         print(f"[WARN] Config not found: {args.config}; using defaults")
         cfg = PreprocessConfig()
 
+    if args.raw_data_root:
+        cfg.raw_data_root = args.raw_data_root
     if args.output_dir:
         cfg.output_dir = args.output_dir
 

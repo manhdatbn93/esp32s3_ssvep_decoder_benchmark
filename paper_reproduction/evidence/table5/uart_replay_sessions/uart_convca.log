@@ -1,0 +1,216 @@
+I (11727) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (11735) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (11763) wifi:<ba-add>idx:0 (ifx:0, <REDACTED_MAC>), tid:0, ssn:1, winSize:64
+I (11793) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (12783) esp_netif_handlers: sta ip: <REDACTED_IP>, mask: 255.255.255.0, gw: <REDACTED_IP>
+I (12783) replay_wifi: got ip: <REDACTED_IP>
+I (12784) replay: listening on port 3333
+I (12787) replay: Available backends:
+I (12791) replay:   [ 8] ConvCA-f32
+I (12794) replay:   1 backend(s) ready
+I (12797) replay: Waiting for client connection...
+I (12802) replay_app: replay_tcp_server_task started (internal stack 16384 B, core 0)
+I (12809) main_task: Returned from app_main()
+I (69780) replay: ──────────────────────────────────────
+I (69780) replay: client connected from <REDACTED_IP>:55905
+I (69796) replay: init decoder 8 (ConvCA-f32)
+I (69796) replay: RES_PROFILE phase=pre_backend_init backend=ConvCA-f32 total_free=8503520 int_free=215183 spiram_free=8320368 int_largest=114688 int_min_ever_boot=209487 spiram_min_ever_boot=7845472
+I (69807) tflm: arena: raw=0x3c10113c aligned=0x3c101140 size=524288 align_ok=1 resolver_was_ready=1
+I (69817) tflm: ctx_create OK: interp=0x3fcb1b38
+I (69820) replay: RES_PROFILE phase=post_backend_init backend=ConvCA-f32 total_free=7962620 int_free=214959 spiram_free=7779692 int_largest=114688 int_min_ever_boot=209487 spiram_min_ever_boot=7779692
+I (69838) replay: ──── SESSION START ────────────────────
+I (69847) replay:   backend : ConvCA-f32 (id=8)
+I (69851) replay:   norm=1  onset=38  window=512  fs=256  ch=8
+I (69936) replay: RES_PROFILE phase=pre_first_infer backend=ConvCA-f32 total_free=7926796 int_free=214959 spiram_free=7743868 int_largest=114688 int_min_ever_boot=209487 spiram_min_ever_boot=7736672
+I (69942) tflm: invoke#1: in_type=1 out_type=1 in_len=4096 out_len=12
+I (69948) tflm: invoke#1: input[0..3] = -0.359343 -2.831090 -1.499475 -0.545377
+I (72042) tflm: invoke#1: out[0..3] = 1.051147 0.376979 1.124198 1.597488
+I (72042) replay: RES_PROFILE phase=post_first_infer backend=ConvCA-f32 total_free=7926596 int_free=214759 spiram_free=7743868 int_largest=114688 int_min_ever_boot=209487 spiram_min_ever_boot=7736672
+I (72056) replay:   [  1] ConvCA-f32 c= 0 t= 0 argmax= 3 MISS  2138.0 ms
+I (74400) replay:   [  2] ConvCA-f32 c= 0 t= 1 argmax= 7 MISS  2104.6 ms
+I (76631) replay:   [  3] ConvCA-f32 c= 0 t= 2 argmax= 0 OK  2104.6 ms
+I (78893) replay:   [  4] ConvCA-f32 c= 0 t= 3 argmax=11 MISS  2104.8 ms
+I (81386) replay:   [  5] ConvCA-f32 c= 0 t= 4 argmax= 4 MISS  2104.3 ms
+I (85073) replay:   [  6] ConvCA-f32 c= 0 t= 5 argmax= 0 OK  2106.9 ms
+I (87298) replay:   [  7] ConvCA-f32 c= 0 t= 6 argmax= 0 OK  2111.2 ms
+I (89508) replay:   [  8] ConvCA-f32 c= 0 t= 7 argmax= 0 OK  2106.1 ms
+I (91887) replay:   [  9] ConvCA-f32 c= 0 t= 8 argmax= 0 OK  2106.4 ms
+I (94093) replay:   [ 10] ConvCA-f32 c= 0 t= 9 argmax= 0 OK  2105.2 ms
+I (96313) replay:   [ 11] ConvCA-f32 c= 0 t=10 argmax= 0 OK  2104.8 ms
+I (98732) replay:   [ 12] ConvCA-f32 c= 0 t=11 argmax= 0 OK  2104.9 ms
+I (101002) replay:   [ 13] ConvCA-f32 c= 0 t=12 argmax= 3 MISS  2106.0 ms
+I (103217) replay:   [ 14] ConvCA-f32 c= 0 t=13 argmax= 0 OK  2104.9 ms
+I (105429) replay:   [ 15] ConvCA-f32 c= 0 t=14 argmax= 0 OK  2106.3 ms
+I (107821) replay:   [ 16] ConvCA-f32 c= 1 t= 0 argmax= 5 MISS  2105.1 ms
+I (110048) replay:   [ 17] ConvCA-f32 c= 1 t= 1 argmax= 9 MISS  2105.0 ms
+I (112268) replay:   [ 18] ConvCA-f32 c= 1 t= 2 argmax= 3 MISS  2105.1 ms
+I (114523) replay:   [ 19] ConvCA-f32 c= 1 t= 3 argmax= 1 OK  2106.5 ms
+I (116736) replay:   [ 20] ConvCA-f32 c= 1 t= 4 argmax= 1 OK  2106.9 ms
+I (119341) replay:   [ 21] ConvCA-f32 c= 1 t= 5 argmax= 1 OK  2108.7 ms
+I (122801) replay:   [ 22] ConvCA-f32 c= 1 t= 6 argmax= 1 OK  2110.2 ms
+I (125019) replay:   [ 23] ConvCA-f32 c= 1 t= 7 argmax= 1 OK  2108.1 ms
+I (127342) replay:   [ 24] ConvCA-f32 c= 1 t= 8 argmax= 1 OK  2105.1 ms
+I (129582) replay:   [ 25] ConvCA-f32 c= 1 t= 9 argmax= 1 OK  2106.6 ms
+I (131823) replay:   [ 26] ConvCA-f32 c= 1 t=10 argmax= 4 MISS  2106.9 ms
+I (134031) replay:   [ 27] ConvCA-f32 c= 1 t=11 argmax= 4 MISS  2106.7 ms
+I (136322) replay:   [ 28] ConvCA-f32 c= 1 t=12 argmax= 1 OK  2105.1 ms
+I (138547) replay:   [ 29] ConvCA-f32 c= 1 t=13 argmax= 1 OK  2109.1 ms
+I (140827) replay:   [ 30] ConvCA-f32 c= 1 t=14 argmax= 1 OK  2105.8 ms
+I (143107) replay:   [ 31] ConvCA-f32 c= 2 t= 0 argmax= 2 OK  2107.4 ms
+I (145329) replay:   [ 32] ConvCA-f32 c= 2 t= 1 argmax= 2 OK  2105.3 ms
+I (147521) replay:   [ 33] ConvCA-f32 c= 2 t= 2 argmax= 2 OK  2106.1 ms
+I (149855) replay:   [ 34] ConvCA-f32 c= 2 t= 3 argmax= 2 OK  2105.1 ms
+I (152059) replay:   [ 35] ConvCA-f32 c= 2 t= 4 argmax= 2 OK  2105.7 ms
+I (154264) replay:   [ 36] ConvCA-f32 c= 2 t= 5 argmax= 2 OK  2109.4 ms
+I (156500) replay:   [ 37] ConvCA-f32 c= 2 t= 6 argmax= 8 MISS  2111.0 ms
+I (158748) replay:   [ 38] ConvCA-f32 c= 2 t= 7 argmax= 2 OK  2105.1 ms
+I (160943) replay:   [ 39] ConvCA-f32 c= 2 t= 8 argmax= 2 OK  2105.5 ms
+I (163150) replay:   [ 40] ConvCA-f32 c= 2 t= 9 argmax= 2 OK  2104.3 ms
+I (165340) replay:   [ 41] ConvCA-f32 c= 2 t=10 argmax= 2 OK  2105.2 ms
+I (167539) replay:   [ 42] ConvCA-f32 c= 2 t=11 argmax= 0 MISS  2105.0 ms
+I (169805) replay:   [ 43] ConvCA-f32 c= 2 t=12 argmax= 2 OK  2105.7 ms
+I (172059) replay:   [ 44] ConvCA-f32 c= 2 t=13 argmax= 2 OK  2105.4 ms
+I (174318) replay:   [ 45] ConvCA-f32 c= 2 t=14 argmax= 2 OK  2105.2 ms
+I (176561) replay:   [ 46] ConvCA-f32 c= 3 t= 0 argmax= 3 OK  2106.1 ms
+I (178757) replay:   [ 47] ConvCA-f32 c= 3 t= 1 argmax= 3 OK  2105.3 ms
+I (181072) replay:   [ 48] ConvCA-f32 c= 3 t= 2 argmax= 3 OK  2105.3 ms
+I (183666) replay:   [ 49] ConvCA-f32 c= 3 t= 3 argmax= 3 OK  2105.4 ms
+I (186721) replay:   [ 50] ConvCA-f32 c= 3 t= 4 argmax= 3 OK  2105.8 ms
+I (188949) replay:   [ 51] ConvCA-f32 c= 3 t= 5 argmax= 3 OK  2109.4 ms
+I (191224) replay:   [ 52] ConvCA-f32 c= 3 t= 6 argmax= 3 OK  2111.2 ms
+I (193594) replay:   [ 53] ConvCA-f32 c= 3 t= 7 argmax= 3 OK  2107.2 ms
+I (195800) replay:   [ 54] ConvCA-f32 c= 3 t= 8 argmax= 3 OK  2105.3 ms
+I (198085) replay:   [ 55] ConvCA-f32 c= 3 t= 9 argmax= 3 OK  2106.8 ms
+I (200294) replay:   [ 56] ConvCA-f32 c= 3 t=10 argmax= 3 OK  2105.2 ms
+I (202497) replay:   [ 57] ConvCA-f32 c= 3 t=11 argmax= 3 OK  2105.4 ms
+I (204705) replay:   [ 58] ConvCA-f32 c= 3 t=12 argmax= 3 OK  2105.1 ms
+I (206910) replay:   [ 59] ConvCA-f32 c= 3 t=13 argmax= 3 OK  2105.9 ms
+I (209257) replay:   [ 60] ConvCA-f32 c= 3 t=14 argmax= 3 OK  2105.6 ms
+I (211489) replay:   [ 61] ConvCA-f32 c= 4 t= 0 argmax= 0 MISS  2105.4 ms
+I (213853) replay:   [ 62] ConvCA-f32 c= 4 t= 1 argmax= 4 OK  2105.5 ms
+I (216063) replay:   [ 63] ConvCA-f32 c= 4 t= 2 argmax= 4 OK  2104.7 ms
+I (218356) replay:   [ 64] ConvCA-f32 c= 4 t= 3 argmax= 7 MISS  2105.5 ms
+I (220606) replay:   [ 65] ConvCA-f32 c= 4 t= 4 argmax= 9 MISS  2106.6 ms
+I (222833) replay:   [ 66] ConvCA-f32 c= 4 t= 5 argmax= 4 OK  2106.3 ms
+I (225047) replay:   [ 67] ConvCA-f32 c= 4 t= 6 argmax= 4 OK  2111.3 ms
+I (227267) replay:   [ 68] ConvCA-f32 c= 4 t= 7 argmax= 4 OK  2110.1 ms
+I (229491) replay:   [ 69] ConvCA-f32 c= 4 t= 8 argmax= 4 OK  2107.4 ms
+I (231689) replay:   [ 70] ConvCA-f32 c= 4 t= 9 argmax= 4 OK  2105.0 ms
+I (233909) replay:   [ 71] ConvCA-f32 c= 4 t=10 argmax= 4 OK  2106.1 ms
+I (236169) replay:   [ 72] ConvCA-f32 c= 4 t=11 argmax= 4 OK  2107.7 ms
+I (239803) replay:   [ 73] ConvCA-f32 c= 4 t=12 argmax= 4 OK  2106.7 ms
+I (242324) replay:   [ 74] ConvCA-f32 c= 4 t=13 argmax= 4 OK  2105.2 ms
+I (244641) replay:   [ 75] ConvCA-f32 c= 4 t=14 argmax= 4 OK  2105.0 ms
+I (246866) replay:   [ 76] ConvCA-f32 c= 5 t= 0 argmax= 5 OK  2104.9 ms
+I (249167) replay:   [ 77] ConvCA-f32 c= 5 t= 1 argmax= 5 OK  2105.7 ms
+I (251426) replay:   [ 78] ConvCA-f32 c= 5 t= 2 argmax= 8 MISS  2106.8 ms
+I (253678) replay:   [ 79] ConvCA-f32 c= 5 t= 3 argmax= 5 OK  2106.8 ms
+I (255935) replay:   [ 80] ConvCA-f32 c= 5 t= 4 argmax= 5 OK  2105.4 ms
+I (258143) replay:   [ 81] ConvCA-f32 c= 5 t= 5 argmax= 5 OK  2111.4 ms
+I (260355) replay:   [ 82] ConvCA-f32 c= 5 t= 6 argmax= 5 OK  2110.7 ms
+I (262584) replay:   [ 83] ConvCA-f32 c= 5 t= 7 argmax= 5 OK  2105.3 ms
+I (264842) replay:   [ 84] ConvCA-f32 c= 5 t= 8 argmax= 5 OK  2105.3 ms
+I (267085) replay:   [ 85] ConvCA-f32 c= 5 t= 9 argmax= 5 OK  2105.0 ms
+I (269343) replay:   [ 86] ConvCA-f32 c= 5 t=10 argmax= 5 OK  2105.3 ms
+I (271605) replay:   [ 87] ConvCA-f32 c= 5 t=11 argmax= 5 OK  2105.2 ms
+I (273794) replay:   [ 88] ConvCA-f32 c= 5 t=12 argmax= 5 OK  2106.0 ms
+I (276001) replay:   [ 89] ConvCA-f32 c= 5 t=13 argmax= 5 OK  2105.4 ms
+I (278194) replay:   [ 90] ConvCA-f32 c= 5 t=14 argmax= 5 OK  2105.7 ms
+I (280502) replay:   [ 91] ConvCA-f32 c= 6 t= 0 argmax= 9 MISS  2104.6 ms
+I (282752) replay:   [ 92] ConvCA-f32 c= 6 t= 1 argmax= 6 OK  2104.6 ms
+I (285000) replay:   [ 93] ConvCA-f32 c= 6 t= 2 argmax= 6 OK  2104.5 ms
+I (287263) replay:   [ 94] ConvCA-f32 c= 6 t= 3 argmax= 6 OK  2103.8 ms
+I (289465) replay:   [ 95] ConvCA-f32 c= 6 t= 4 argmax= 6 OK  2103.5 ms
+I (291681) replay:   [ 96] ConvCA-f32 c= 6 t= 5 argmax= 6 OK  2107.0 ms
+I (293901) replay:   [ 97] ConvCA-f32 c= 6 t= 6 argmax= 6 OK  2109.4 ms
+I (296109) replay:   [ 98] ConvCA-f32 c= 6 t= 7 argmax= 6 OK  2106.3 ms
+I (298332) replay:   [ 99] ConvCA-f32 c= 6 t= 8 argmax= 6 OK  2104.2 ms
+I (300535) replay:   [100] ConvCA-f32 c= 6 t= 9 argmax= 6 OK  2103.7 ms
+I (302833) replay:   [101] ConvCA-f32 c= 6 t=10 argmax= 6 OK  2104.2 ms
+I (305025) replay:   [102] ConvCA-f32 c= 6 t=11 argmax= 6 OK  2104.0 ms
+I (307347) replay:   [103] ConvCA-f32 c= 6 t=12 argmax= 6 OK  2104.3 ms
+I (309532) replay:   [104] ConvCA-f32 c= 6 t=13 argmax= 6 OK  2103.8 ms
+I (311759) replay:   [105] ConvCA-f32 c= 6 t=14 argmax= 6 OK  2105.7 ms
+I (314010) replay:   [106] ConvCA-f32 c= 7 t= 0 argmax= 7 OK  2103.9 ms
+I (316260) replay:   [107] ConvCA-f32 c= 7 t= 1 argmax= 6 MISS  2103.7 ms
+I (318478) replay:   [108] ConvCA-f32 c= 7 t= 2 argmax= 7 OK  2106.6 ms
+I (320746) replay:   [109] ConvCA-f32 c= 7 t= 3 argmax= 7 OK  2104.1 ms
+I (322938) replay:   [110] ConvCA-f32 c= 7 t= 4 argmax= 9 MISS  2104.2 ms
+I (325143) replay:   [111] ConvCA-f32 c= 7 t= 5 argmax= 7 OK  2105.2 ms
+I (327348) replay:   [112] ConvCA-f32 c= 7 t= 6 argmax= 7 OK  2109.1 ms
+I (329673) replay:   [113] ConvCA-f32 c= 7 t= 7 argmax= 7 OK  2109.5 ms
+I (331868) replay:   [114] ConvCA-f32 c= 7 t= 8 argmax= 7 OK  2105.1 ms
+I (334064) replay:   [115] ConvCA-f32 c= 7 t= 9 argmax= 7 OK  2103.8 ms
+I (336249) replay:   [116] ConvCA-f32 c= 7 t=10 argmax= 9 MISS  2103.9 ms
+I (338590) replay:   [117] ConvCA-f32 c= 7 t=11 argmax= 7 OK  2104.1 ms
+I (340820) replay:   [118] ConvCA-f32 c= 7 t=12 argmax= 7 OK  2103.8 ms
+I (343034) replay:   [119] ConvCA-f32 c= 7 t=13 argmax= 7 OK  2104.5 ms
+I (345240) replay:   [120] ConvCA-f32 c= 7 t=14 argmax= 0 MISS  2103.9 ms
+I (347470) replay:   [121] ConvCA-f32 c= 8 t= 0 argmax= 8 OK  2103.8 ms
+I (349670) replay:   [122] ConvCA-f32 c= 8 t= 1 argmax= 5 MISS  2104.4 ms
+I (351976) replay:   [123] ConvCA-f32 c= 8 t= 2 argmax= 8 OK  2104.8 ms
+I (354341) replay:   [124] ConvCA-f32 c= 8 t= 3 argmax= 8 OK  2104.5 ms
+I (357361) replay:   [125] ConvCA-f32 c= 8 t= 4 argmax= 8 OK  2106.7 ms
+I (359668) replay:   [126] ConvCA-f32 c= 8 t= 5 argmax= 8 OK  2104.4 ms
+I (361920) replay:   [127] ConvCA-f32 c= 8 t= 6 argmax= 8 OK  2109.8 ms
+I (364125) replay:   [128] ConvCA-f32 c= 8 t= 7 argmax= 8 OK  2110.6 ms
+I (366423) replay:   [129] ConvCA-f32 c= 8 t= 8 argmax= 8 OK  2103.7 ms
+I (368673) replay:   [130] ConvCA-f32 c= 8 t= 9 argmax= 8 OK  2104.7 ms
+I (370923) replay:   [131] ConvCA-f32 c= 8 t=10 argmax= 6 MISS  2104.9 ms
+I (373117) replay:   [132] ConvCA-f32 c= 8 t=11 argmax= 8 OK  2107.3 ms
+I (375431) replay:   [133] ConvCA-f32 c= 8 t=12 argmax= 8 OK  2105.5 ms
+I (377630) replay:   [134] ConvCA-f32 c= 8 t=13 argmax= 8 OK  2108.5 ms
+I (379965) replay:   [135] ConvCA-f32 c= 8 t=14 argmax= 8 OK  2104.8 ms
+I (382182) replay:   [136] ConvCA-f32 c= 9 t= 0 argmax= 6 MISS  2105.5 ms
+I (384417) replay:   [137] ConvCA-f32 c= 9 t= 1 argmax= 5 MISS  2104.7 ms
+I (386696) replay:   [138] ConvCA-f32 c= 9 t= 2 argmax= 9 OK  2103.7 ms
+I (388893) replay:   [139] ConvCA-f32 c= 9 t= 3 argmax= 9 OK  2104.6 ms
+I (391210) replay:   [140] ConvCA-f32 c= 9 t= 4 argmax= 9 OK  2104.9 ms
+I (393457) replay:   [141] ConvCA-f32 c= 9 t= 5 argmax= 9 OK  2103.8 ms
+I (395648) replay:   [142] ConvCA-f32 c= 9 t= 6 argmax= 9 OK  2107.2 ms
+I (397970) replay:   [143] ConvCA-f32 c= 9 t= 7 argmax= 9 OK  2109.7 ms
+I (400172) replay:   [144] ConvCA-f32 c= 9 t= 8 argmax= 9 OK  2106.8 ms
+I (402470) replay:   [145] ConvCA-f32 c= 9 t= 9 argmax= 9 OK  2103.7 ms
+I (404745) replay:   [146] ConvCA-f32 c= 9 t=10 argmax= 3 MISS  2104.7 ms
+I (407014) replay:   [147] ConvCA-f32 c= 9 t=11 argmax=10 MISS  2103.7 ms
+I (409340) replay:   [148] ConvCA-f32 c= 9 t=12 argmax= 9 OK  2104.1 ms
+I (411586) replay:   [149] ConvCA-f32 c= 9 t=13 argmax= 9 OK  2103.9 ms
+I (413831) replay:   [150] ConvCA-f32 c= 9 t=14 argmax= 3 MISS  2103.9 ms
+I (416018) replay:   [151] ConvCA-f32 c=10 t= 0 argmax= 6 MISS  2104.2 ms
+I (418339) replay:   [152] ConvCA-f32 c=10 t= 1 argmax=10 OK  2104.2 ms
+I (420535) replay:   [153] ConvCA-f32 c=10 t= 2 argmax=10 OK  2104.6 ms
+I (422858) replay:   [154] ConvCA-f32 c=10 t= 3 argmax=10 OK  2104.7 ms
+I (425049) replay:   [155] ConvCA-f32 c=10 t= 4 argmax= 2 MISS  2105.3 ms
+I (427249) replay:   [156] ConvCA-f32 c=10 t= 5 argmax=11 MISS  2103.9 ms
+I (429519) replay:   [157] ConvCA-f32 c=10 t= 6 argmax=10 OK  2105.3 ms
+I (431757) replay:   [158] ConvCA-f32 c=10 t= 7 argmax=10 OK  2110.7 ms
+I (434111) replay:   [159] ConvCA-f32 c=10 t= 8 argmax=10 OK  2107.4 ms
+I (437466) replay:   [160] ConvCA-f32 c=10 t= 9 argmax=10 OK  2105.7 ms
+I (439679) replay:   [161] ConvCA-f32 c=10 t=10 argmax=10 OK  2103.8 ms
+I (441984) replay:   [162] ConvCA-f32 c=10 t=11 argmax=10 OK  2104.2 ms
+I (444181) replay:   [163] ConvCA-f32 c=10 t=12 argmax=10 OK  2104.0 ms
+I (446377) replay:   [164] ConvCA-f32 c=10 t=13 argmax=10 OK  2105.0 ms
+I (448654) replay:   [165] ConvCA-f32 c=10 t=14 argmax=10 OK  2104.6 ms
+I (450901) replay:   [166] ConvCA-f32 c=11 t= 0 argmax= 4 MISS  2103.8 ms
+I (453109) replay:   [167] ConvCA-f32 c=11 t= 1 argmax= 8 MISS  2103.6 ms
+I (455313) replay:   [168] ConvCA-f32 c=11 t= 2 argmax=11 OK  2104.1 ms
+I (457520) replay:   [169] ConvCA-f32 c=11 t= 3 argmax=11 OK  2103.7 ms
+I (459884) replay:   [170] ConvCA-f32 c=11 t= 4 argmax=11 OK  2105.0 ms
+I (462172) replay:   [171] ConvCA-f32 c=11 t= 5 argmax=11 OK  2104.4 ms
+I (464429) replay:   [172] ConvCA-f32 c=11 t= 6 argmax=11 OK  2105.3 ms
+I (466634) replay:   [173] ConvCA-f32 c=11 t= 7 argmax=11 OK  2111.7 ms
+I (468844) replay:   [174] ConvCA-f32 c=11 t= 8 argmax=11 OK  2109.4 ms
+I (471180) replay:   [175] ConvCA-f32 c=11 t= 9 argmax=11 OK  2105.6 ms
+I (473423) replay:   [176] ConvCA-f32 c=11 t=10 argmax=11 OK  2104.6 ms
+I (475703) replay:   [177] ConvCA-f32 c=11 t=11 argmax=11 OK  2106.0 ms
+I (477912) replay:   [178] ConvCA-f32 c=11 t=12 argmax= 8 MISS  2105.2 ms
+I (480195) replay:   [179] ConvCA-f32 c=11 t=13 argmax=11 OK  2103.7 ms
+I (482452) replay:   [180] ConvCA-f32 c=11 t=14 argmax=11 OK  2105.6 ms
+I (482546) replay: ──── SESSION END ──────────────────────
+I (482547) replay: RES_PROFILE phase=session_summary backend=ConvCA-f32 int_free_now=214723 spiram_free_now=7779732 sess_baseline_int=215183 sess_min_int=214723 sess_est_peak_drop_int=460 sess_min_spiram=7743868 stack_hwm_words=13840 int_min_ever_boot=209487 note=see_docs
+I (482568) replay:   backend : ConvCA-f32
+I (482572) replay:   trials  : 180 total, 180 ok, 0 err
+I (482577) replay:   latency : avg 2106.0 ms, min 2103.5 ms, max 2138.0 ms
+I (482584) replay: ──────────────────────────────────────
+I (482595) replay: cleanup decoder 8 (ConvCA-f32)
+I (482601) replay: client disconnected, waiting for next

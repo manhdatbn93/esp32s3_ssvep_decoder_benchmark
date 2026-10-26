@@ -1,6 +1,10 @@
 # Dataset setup
 
-The raw 12JFPM dataset is not distributed in this repository. Obtain it from the dataset authors cited in the original 12JFPM publication and provide a local path.
+The raw 12JFPM dataset is not distributed in this repository. Obtain it from the original release:
+
+M. Nakanishi, Y. Wang, Y.-T. Wang, Y. Mitsukura, and T.-P. Jung, "A comparison study of canonical correlation analysis based methods for detecting steady-state visual evoked potentials," PLOS ONE, vol. 10, no. 10, e0140703, 2015. doi:10.1371/journal.pone.0140703.
+
+Provide a local path to that release. Do not commit the raw files.
 
 ## Expected raw layout
 
@@ -16,7 +20,7 @@ Place subject files in one directory:
 
 Each file exposes an `eeg` array with shape `[12, 8, 1114, 15]` (classes × channels × samples × trials per class) at a released epoch sampling rate of 256 Hz.
 
-Set `data.raw_data_root` in `configs/protocol/preprocess_12jfpm.yaml`, or pass an output directory and configure the preparer for your local raw root before running preparation.
+Pass the raw folder with `--raw-data-root`, or set `data.raw_data_root` in `configs/protocol/preprocess_12jfpm.yaml`.
 
 ## Processed contract
 
@@ -46,11 +50,13 @@ PowerShell:
 ```powershell
 python scripts\prepare_12jfpm.py `
   --config configs\protocol\preprocess_12jfpm.yaml `
+  --raw-data-root <RAW_DATA_ROOT> `
   --output-dir <DATASET_ROOT>
 ```
 
 Optional:
 
+- `--raw-data-root` — folder containing `s1.mat` … `s10.mat` (overrides `data.raw_data_root`)
 - `--output-dir` — processed output directory (writes `processed.npz` and metadata)
 - `--verify-ref` — optional reference NPZ path for preparer verification
 
@@ -59,10 +65,11 @@ POSIX:
 ```bash
 python scripts/prepare_12jfpm.py \
   --config configs/protocol/preprocess_12jfpm.yaml \
+  --raw-data-root <RAW_DATA_ROOT> \
   --output-dir <DATASET_ROOT>
 ```
 
-Preparation requires the user-supplied raw dataset.
+Preparation requires the user-supplied raw dataset. Regenerating the paper's tables and figures from the archived device evidence does not; see `paper_reproduction/README.md`.
 
 ## Validate
 

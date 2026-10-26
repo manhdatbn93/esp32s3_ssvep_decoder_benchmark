@@ -1,0 +1,6 @@
+policy_id,policy_name,n_candidates,candidate_backends,n_admissible,admissible_backends,n_excluded,excluded_backends
+P1,Interactive high-fidelity neural,7,CCNN-f32 | CCNN-int8 | ConvCA-f32 | EEGNet-f32 | EEGNet-int8 | FBtCNN-f32 | FBtCNN-int8,1,CCNN-f32,6,CCNN-int8 | ConvCA-f32 | EEGNet-f32 | EEGNet-int8 | FBtCNN-f32 | FBtCNN-int8
+P2,Aggressive sub-100-ms neural,7,CCNN-f32 | CCNN-int8 | ConvCA-f32 | EEGNet-f32 | EEGNet-int8 | FBtCNN-f32 | FBtCNN-int8,1,CCNN-int8,6,CCNN-f32 | ConvCA-f32 | EEGNet-f32 | EEGNet-int8 | FBtCNN-f32 | FBtCNN-int8
+P3,Fidelity-first int8 trade-off,3,CCNN-int8 | EEGNet-int8 | FBtCNN-int8,2,CCNN-int8 | FBtCNN-int8,1,EEGNet-int8
+P4,Throughput-relaxed analytical no-TFLM,4,CCA | FBCCA | MSI | TRCA,3,CCA | FBCCA | TRCA,1,MSI
+P5,High-fidelity f32 trade-off,4,CCNN-f32 | ConvCA-f32 | EEGNet-f32 | FBtCNN-f32,2,CCNN-f32 | ConvCA-f32,2,EEGNet-f32 | FBtCNN-f32

@@ -1,0 +1,12 @@
+backend,screenshot,flash_code_bytes,flash_data_bytes,diram_used_bytes,total_image_size_bytes
+CCA,idf_size_screenshots/cca.png,538828,334844,236880,983950
+CCNN-f32,idf_size_screenshots/ccnn_f32.png,697732,384268,168680,1192278
+CCNN-int8,idf_size_screenshots/ccnn_int8.png,697732,256428,168680,1064438
+ConvCA-f32,idf_size_screenshots/convca.png,694312,242924,160312,1047514
+EEGNet-f32,idf_size_screenshots/eegnet_f32.png,694372,219548,176696,1024198
+EEGNet-int8,idf_size_screenshots/eegnet_int8.png,694728,219244,176696,1024250
+FBCCA,idf_size_screenshots/fbcca.png,539028,339180,269792,988486
+FBtCNN-f32,idf_size_screenshots/fbtcnn_f32.png,695352,947052,169136,1752682
+FBtCNN-int8,idf_size_screenshots/fbtcnn_int8.png,695352,402076,169136,1207706
+MSI,idf_size_screenshots/msi.png,539848,334588,230624,984714
+TRCA,idf_size_screenshots/trca.png,536960,2161644,233184,2808898

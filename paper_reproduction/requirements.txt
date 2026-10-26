@@ -1,0 +1,3 @@
+# Python 3.10+. Everything except figure rendering uses the standard library only
+# (run reproduce.py with --no-figures to skip matplotlib).
+matplotlib==3.10.9

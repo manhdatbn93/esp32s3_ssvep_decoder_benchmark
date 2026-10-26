@@ -37,15 +37,14 @@ def _preprocess_zscore(tc: np.ndarray) -> np.ndarray:
 
 
 def run_tflite(path: str, feed: np.ndarray, *, use_xnnpack: bool = True) -> np.ndarray:
-    import tensorflow as tf
+    from src.replay.host_interpreter import (
+        HOST_REFERENCE_OP_RESOLVER,
+        NO_DEFAULT_DELEGATES_OP_RESOLVER,
+        make_interpreter,
+    )
 
-    if use_xnnpack:
-        interp = tf.lite.Interpreter(model_path=path)
-    else:
-        interp = tf.lite.Interpreter(
-            model_path=path,
-            experimental_delegates=[],
-        )
+    resolver = HOST_REFERENCE_OP_RESOLVER if use_xnnpack else NO_DEFAULT_DELEGATES_OP_RESOLVER
+    interp = make_interpreter(path, resolver)
     interp.allocate_tensors()
     inp = interp.get_input_details()[0]
     out = interp.get_output_details()[0]
@@ -86,8 +85,8 @@ def run_tflite(path: str, feed: np.ndarray, *, use_xnnpack: bool = True) -> np.n
 def main():
     os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
-    f32_path = str(REPO / "export" / "12jfpm_eegnet_fold01_val_s1" / "eegnet_float32.tflite")
-    i8_path = str(REPO / "export" / "12jfpm_eegnet_fold01_val_s1_int8" / "eegnet_int8.tflite")
+    f32_path = str(REPO / "artifacts" / "reference" / "tflite" / "eegnet_f32" / "fold01" / "eegnet_float32.tflite")
+    i8_path = str(REPO / "artifacts" / "reference" / "tflite" / "eegnet_int8" / "fold01" / "eegnet_int8.tflite")
 
     print("=" * 60)
     print("EEGNet parity diagnostic (host-only, no device)")
@@ -95,10 +94,8 @@ def main():
     print(f"f32 model: {f32_path}")
     print(f"i8  model: {i8_path}")
 
-    mat_dir = REPO / "existing_work" / "data" / "raw" / "12JFPM" / "extracted" / "12JFPM_SSVEP-master" / "data"
-    if not mat_dir.is_dir():
-        mat_dir = REPO / "data" / "raw" / "12JFPM" / "extracted" / "12JFPM_SSVEP-master" / "data"
-    rec = read_subject("s1", data_root=mat_dir)
+    mat_dir = os.environ.get("SSVEP_RAW_DATA_ROOT")
+    rec = read_subject("s1", data_root=Path(mat_dir) if mat_dir else None)
     eeg = np.asarray(rec["eeg"])
 
     for trial_label, c, t in [("c=0,t=0", 0, 0), ("c=5,t=3", 5, 3)]:

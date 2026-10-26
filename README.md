@@ -1,46 +1,85 @@
 # ESP32-S3 SSVEP Decoder Benchmark
 
-## Overview
+This repository accompanies the OJ-CS paper on deploying 12JFPM SSVEP decoders on an ESP32-S3. Three workflows are independent. Workflow A regenerates the published tables and figures. Workflow B evaluates decoders on a host from a locally prepared dataset. Workflow C builds the replay firmware. None of them requires editing the retained reference artifacts.
 
-This repository provides practical tools for 12JFPM SSVEP decoder work on host and ESP32-S3:
+## Workflow A — published results
 
-- dataset preparation and validation
-- analytical and neural host evaluation
-- neural model training
-- TensorFlow Lite export and post-training quantization (PTQ)
-- retained fold-specific reference artifacts
-- ESP32-S3 artifact staging
-- clean ESP-IDF firmware builds
-- host-side replay helpers and device evaluation entry points
+Regenerate the manuscript tables and figures from the archived trial-level evidence. This does not need the raw EEG and does not need a board.
 
-Retraining or re-exporting may produce different weights or TFLite binaries. Exact reference firmware builds use the retained artifacts under `artifacts/reference/`.
+```powershell
+python -m pip install -r paper_reproduction/requirements.txt
+python paper_reproduction/reproduce.py
+```
 
-## Supported workflows
+A passing run reports 24/24 checks. `--no-figures` skips matplotlib and reports 23/23. Outputs go to `paper_reproduction/outputs/` (ignored by Git). `paper_reproduction/reference_outputs/` is a saved passing run.
 
-- Prepare and validate the processed 12JFPM NPZ
-- Train six PyTorch models under strict outer LOSO
-- Evaluate classical methods and neural models on host
-- Export float32 TFLite and run int8 PTQ for supported models
-- Verify retained reference artifacts (220 checksum entries)
-- Stage one backend and fold into `firmware/generated/`
-- Configure and build `firmware/replay_fw` with ESP-IDF
-- Resolve matching replay inputs and write device outputs under `outputs/device/`
+The published TRCA accuracy, 83.44% (1,502/1,800), is read from the archived host and device trial records. Those two records agree on all 1,800 trials. Workflow A does not refit TRCA.
+
+See `paper_reproduction/README.md` for provenance, the measurement profile, and the policy-objective note.
+
+## Workflow B — independent host evaluation
+
+Prepare the 12JFPM release locally (it is not redistributed; see `docs/dataset.md`), then evaluate a decoder on the host. The published TRCA command is:
+
+```powershell
+python -m pip install -r environment/requirements-analysis.txt
+python scripts\prepare_12jfpm.py --config configs\protocol\preprocess_12jfpm.yaml --raw-data-root <RAW_DATA_ROOT> --output-dir <DATASET_ROOT>
+python scripts\validate_dataset.py --processed-npz <DATASET_ROOT>\processed.npz
+python scripts\evaluate_host.py --runtime classical --method trca --dataset-root <DATASET_ROOT> --output-dir outputs\host\trca
+```
+
+That command uses `deployed_sos`, the second-order-section filter bank shared with the deployed host reference and the ESP32-S3 firmware. On the ten held-out subjects it scores 1,502/1,800 (83.44%).
+
+The historical transfer-function candidate is a different realization. It is not the published result:
+
+```powershell
+python scripts\evaluate_host.py --runtime classical --method trca --trca-realization screening_ba --dataset-root <DATASET_ROOT> --output-dir outputs\host\trca_screening
+```
+
+`screening_ba` scores 1,510/1,800 (83.89%) and disagrees with `deployed_sos` on 45 trials. CCA, FBCCA, and MSI have no such switch. Their host commands are the same pattern with `--method cca`, `fbcca`, or `msi`.
+
+Other host commands:
+
+```powershell
+python scripts\verify_reference_artifacts.py
+python scripts\evaluate_host.py --runtime pytorch --backend eegnet --fold 1 --artifact-set reference --dataset-root <DATASET_ROOT> --output outputs\host\eegnet\fold01
+python scripts\evaluate_host.py --runtime tflite --backend eegnet --precision int8 --fold 1 --artifact-set reference --dataset-root <DATASET_ROOT> --output outputs\host\eegnet_int8\fold01
+```
+
+`verify_reference_artifacts.py` checks 220 retained checksum entries. Host outputs belong under `outputs/host/`. Training and export of a new run are documented in `docs/training-and-export.md` and write under `runs/` and `artifacts/generated/`, not into `artifacts/reference/`.
+
+## Workflow C — firmware build and replay
+
+Build one staged backend with ESP-IDF 5.4.0. A fresh build confirms that the sources compile. It does not replace the April resource measurements in Table 5, and it is not flashed by the commands below.
+
+```powershell
+python scripts\generate_firmware_artifacts.py --backend msi --fold 1 --artifact-set reference
+cd firmware\replay_fw
+copy sdkconfig.measurement sdkconfig
+idf.py build
+```
+
+`sdkconfig.measurement` is the May neural-replay configuration with the Wi-Fi SSID and password replaced by placeholders. It already selects the ESP32-S3, 240 MHz, and performance optimization. Copy it to the gitignored `sdkconfig` and build. Do not run `idf.py set-target` after that copy: set-target replaces the file with a new default configuration (160 MHz). `sdkconfig.defaults` does not set CPU frequency or optimization. If another backend was configured in the same tree, delete `build/` before the next build. Staging writes only under `firmware/generated/`.
+
+Component versions are pinned in `firmware/replay_fw/dependencies.lock` (esp-nn 1.2.1, esp-tflite-micro 1.3.5, esp-dsp 1.8.0). Do not run `idf.py update-dependencies`.
+
+Flashing and live replay are optional and require a board. They are not needed to check the published numbers. See `docs/firmware-and-replay.md`.
 
 ## Supported decoders
 
 | Decoder or backend | Train | Classical host | PyTorch host | TFLite export | Retained reference artifact | TFLite host | Firmware staging |
 |---|---|---|---|---|---|---|---|
-| CCA | No | Yes | No | No | Yes (analytical) | No | Yes | 
-| FBCCA | No | Yes | No | No | Yes (analytical) | No | Yes | 
-| MSI | No | Yes | No | No | Yes (analytical) | No | Yes | 
-| TRCA | No | Yes | No | No | Yes (analytical) | No | Yes | 
-| CCNN-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
-| CCNN-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
-| ConvCA-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
-| EEGNet-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
-| EEGNet-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
-| FBtCNN-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
-| FBtCNN-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes | 
+| CCA | No | Yes | No | No | Yes (analytical) | No | Yes |
+| FBCCA | No | Yes | No | No | Yes (analytical) | No | Yes |
+| MSI | No | Yes | No | No | Yes (analytical) | No | Yes |
+| TRCA | No | Yes | No | No | Yes (analytical) | No | Yes |
+| CCNN-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes |
+| CCNN-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes |
+| ConvCA-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes |
+| EEGNet-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes |
+| EEGNet-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes |
+| FBtCNN-f32 | Yes | No | Yes | Yes | Yes | Yes | Yes |
+| FBtCNN-int8 | Yes | No | Yes | Yes | Yes | Yes | Yes |
 | SSVEPformer | Yes | No | Yes | No | Not supplied | Host only | No |
 | SSVEPNet | Yes | No | Yes | No | Not supplied | Host only | No |
 
@@ -59,6 +98,7 @@ Canonical PyTorch implementations live under `src/neural/`. SSVEPformer and SSVE
 | `artifacts/reference/` | Retained read-only checkpoints, TFLite, analytical bundles |
 | `artifacts/generated/` | User-created exports |
 | `manifests/loso/` | Ten LOSO fold manifests |
+| `paper_reproduction/` | Manuscript table and figure regeneration |
 | `runs/` | Training checkpoints and logs |
 | `outputs/host/` | Host evaluation outputs |
 | `outputs/device/` | Device replay outputs |
@@ -68,29 +108,12 @@ Canonical PyTorch implementations live under `src/neural/`. SSVEPformer and SSVE
 
 ## Requirements
 
-- Python 3.10+ with packages from `environment/requirements-*.txt`
-- ESP-IDF 5.4.0 for firmware builds (see `environment/firmware_versions.md`)
+- Python 3.10+ with packages from `environment/requirements-*.txt` for Workflow B
+- ESP-IDF 5.4.0 for Workflow C (`environment/firmware_versions.md`)
 - Git LFS when cloning retained binary reference artifacts
-- A local 12JFPM raw dataset for preparation, training, and evaluation paths that need data
+- A local 12JFPM dataset only for preparation, training, and evaluation paths that need EEG
 
-## Quick start
-
-Primary tested shell: Windows PowerShell.
-
-```powershell
-python -m pip install -r environment/requirements-analysis.txt
-python scripts\prepare_12jfpm.py --config configs\protocol\preprocess_12jfpm.yaml --output-dir <DATASET_ROOT>
-python scripts\validate_dataset.py --processed-npz <DATASET_ROOT>\processed.npz
-python scripts\verify_reference_artifacts.py
-python scripts\train_neural.py --model eegnet --dataset-root <DATASET_ROOT> --output-root runs --dry-run
-python scripts\evaluate_host.py --runtime classical --method cca --dry-run
-python scripts\generate_firmware_artifacts.py --backend eegnet-int8 --fold 1 --artifact-set reference
-cd firmware\replay_fw
-idf.py set-target esp32s3
-idf.py build
-```
-
-POSIX equivalents use the same flags with forward slashes.
+Primary tested shell: Windows PowerShell. POSIX equivalents use the same flags with forward slashes.
 
 ## Reference artifacts
 
@@ -102,98 +125,14 @@ POSIX equivalents use the same flags with forward slashes.
 - FBtCNN preprocessing headers for ten folds
 - 220 checksum entries in `artifacts/reference/checksums.sha256`
 
-```powershell
-python scripts\verify_reference_artifacts.py
-```
-
-Training, export, and firmware staging refuse to overwrite this tree. Staging writes only under `firmware/generated/`.
-
-## Host evaluation
-
-```powershell
-python scripts\evaluate_host.py --runtime classical --method cca --dataset-root <DATASET_ROOT> --output-dir outputs\host\cca
-python scripts\evaluate_host.py `
-  --runtime pytorch `
-  --backend eegnet `
-  --fold 1 `
-  --artifact-set reference `
-  --dataset-root <DATASET_ROOT> `
-  --output outputs\host\eegnet\fold01
-python scripts\evaluate_host.py `
-  --runtime tflite `
-  --backend eegnet `
-  --precision int8 `
-  --fold 1 `
-  --artifact-set reference `
-  --dataset-root <DATASET_ROOT> `
-  --output outputs\host\eegnet_int8\fold01
-```
-
-Host outputs belong under `outputs/host/`. See `docs/training-and-export.md`.
-
-## New training and export
-
-```powershell
-python scripts\train_neural.py --model eegnet --fold 1 --dataset-root <DATASET_ROOT> --output-root runs
-python scripts\export_tflite.py `
-  --model eegnet `
-  --fold 1 `
-  --checkpoint <CHECKPOINT_PATH> `
-  --dataset-root <DATASET_ROOT> `
-  --manifest manifests\loso\fold01.json `
-  --quantization f32 `
-  --output artifacts\generated\eegnet\fold01
-```
-
-New runs write under `runs/` and `artifacts/generated/`. They are not retained reference artifacts. See `docs/training-and-export.md`.
-
-## ESP32-S3 firmware
-
-Validated fold-1 clean builds cover all eleven retained MCU backends after independent staging into an empty `firmware/generated/` directory. Int8 staging is self-contained.
-
-```powershell
-python scripts\generate_firmware_artifacts.py --backend eegnet-int8 --fold 1 --artifact-set reference
-cd firmware\replay_fw
-idf.py set-target esp32s3
-idf.py build
-idf.py -p <PORT> flash monitor
-```
-
-If you previously built another backend, clear the stale CMake cache before building (`idf.py fullclean`) or pass the matching backend once (`idf.py -DTARGET_BACKEND=msi build`). Staging metadata in `firmware/generated/selected_backend.cmake` is the source of truth.
-
-After flash, the board joins Wi-Fi and listens on TCP port `3333`. Live trial replay uses `src/replay/replay_client.py` (not serial). Shortest MSI check:
-
-```powershell
-python src\replay\replay_client.py `
-  --backend msi `
-  --host <BOARD_IP> `
-  --mat <RAW_DATA_ROOT>\s2.mat `
-  --max-trials 5 `
-  --no-save `
-  --no-aggregate
-```
-
-Use the held-out subject for the staged fold (fold 2 → `s2.mat`). Healthy smoke shows 100% device-vs-host parity. Full steps: `docs/firmware-and-replay.md` and `firmware/README.md`.
-
-## Output directories
-
-| Directory | Role |
-|---|---|
-| `artifacts/reference/` | Retained read-only artifacts |
-| `artifacts/generated/` | New user exports |
-| `runs/` | Training checkpoints and logs |
-| `outputs/host/` | Host evaluation outputs |
-| `outputs/device/` | Device replay outputs |
-| `firmware/generated/` | Staged firmware build inputs |
-| `firmware/replay_fw/build/` | ESP-IDF build output |
-
-Generated runtime directories are ignored by Git where appropriate. Do not edit files under `artifacts/reference/`.
+Training, export, and firmware staging refuse to overwrite this tree.
 
 ## Documentation
 
-- `docs/dataset.md` — dataset preparation and LOSO manifests
-- `docs/training-and-export.md` — training, export, PTQ, host evaluation
-- `docs/firmware-and-replay.md` — staging, ESP-IDF build, flash, replay
+- `docs/dataset.md` — dataset preparation, citation, and LOSO manifests
+- `docs/training-and-export.md` — training, export, PTQ, host evaluation, TRCA realizations
+- `docs/firmware-and-replay.md` — staging, ESP-IDF build, flash, replay, measurement profile
+- `paper_reproduction/README.md` — regenerating the paper's tables and figures
 - `firmware/README.md` — firmware project entry point
 - `environment/firmware_versions.md` — toolchain pins
 

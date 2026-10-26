@@ -13,6 +13,38 @@ Validated clean builds used ESP-IDF 5.4.0 and Xtensa GCC 14.2.0. Keep `firmware/
 
 `sdkconfig.defaults` enables 32 MB flash and OPI PSRAM. It does not pin CPU frequency or `-O2`. Successful clean builds with those defaults used the ESP-IDF configure defaults of 160 MHz CPU and the default compiler optimization setting.
 
+## Measurement profile (`sdkconfig.measurement`)
+
+`firmware/replay_fw/sdkconfig.measurement` is the complete ESP-IDF configuration that was present in the replay firmware project at the start of the May 2026 neural strict LOSO replay campaign (configuration file dated 23 May 2026, neural replay runs 23–24 May 2026, firmware commit `31fb64b`). Only the Wi-Fi SSID and password were replaced by the Kconfig placeholders. Key settings:
+
+| Setting | Value |
+|---|---|
+| ESP-IDF (`CONFIG_IDF_INIT_VERSION`) | 5.4.0 |
+| CPU frequency | 240 MHz (`CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240`) |
+| Compiler optimization | performance (`CONFIG_COMPILER_OPTIMIZATION_PERF`, `-O2`) |
+| Power management | disabled (`CONFIG_PM_ENABLE` not set) |
+| Flash | 32 MB, OPI, 80 MHz |
+| PSRAM | octal, 80 MHz |
+| FreeRTOS tick | 1000 Hz |
+| Replay options | TCP port 3333, boot smoke test and `RES_PROFILE` resource logging enabled |
+
+To build with this profile, copy it to `sdkconfig` and build. The file already selects ESP32-S3. `idf.py set-target` replaces an existing `sdkconfig` with a new default configuration, so do not run it after this copy. Enter local Wi-Fi credentials only if you will flash a board; the placeholders compile.
+
+```powershell
+cd firmware\replay_fw
+Remove-Item build -Recurse -Force -ErrorAction SilentlyContinue
+Copy-Item sdkconfig.measurement sdkconfig -Force
+idf.py build
+idf.py menuconfig           # optional, before flashing: set Wi-Fi SSID / password locally; do not commit them
+```
+
+Scope and limits:
+
+- The file documents the configuration of the seven neural device replays (70 runs) reported in the paper. The original and public SHA-256 values are recorded in `paper_reproduction/README.md`.
+- The four analytical device replays (CCA, FBCCA, MSI, TRCA; 40 runs) were recorded on 13–21 April 2026 with earlier firmware commits (`24bbad9`, `49f0c55`, `6d808e3`) and later filed under the strict LOSO evidence tree. Their build configuration was not archived, so this file is not claimed to describe them. See `paper_reproduction/README.md`.
+- The firmware-footprint and runtime-memory values in the paper's resource table come from an earlier per-backend profiling snapshot (16–26 April 2026, legacy fold-1 models). The configuration of those April builds was not archived. It is not claimed that the April builds used this file. See `paper_reproduction/evidence/table5/PROVENANCE.md`.
+- A clean compile with this profile was confirmed on the public tree for MSI fold 1 and EEGNet-f32 fold 1. Those images are compile checks only. They are not Table 5 measurements and were not flashed. The clean-build sizes listed later in this document were produced with `sdkconfig.defaults` only and must not be read as the paper's resource-table values.
+
 ## Architecture
 
 ```text

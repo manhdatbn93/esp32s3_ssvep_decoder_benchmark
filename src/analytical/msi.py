@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import numpy as np
 
-from src.classical.filters import ensure_trials_time_channels
+from src.analytical.filters import ensure_trials_time_channels
 
 
 def _sync_index(X_ct: np.ndarray, Y_rt: np.ndarray) -> float:

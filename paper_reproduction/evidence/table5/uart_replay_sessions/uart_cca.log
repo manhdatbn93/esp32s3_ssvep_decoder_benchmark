@@ -1,0 +1,211 @@
+I (28104) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (28112) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (28147) wifi:<ba-add>idx:0 (ifx:0, <REDACTED_MAC>), tid:0, ssn:1, winSize:64
+I (28170) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (29274) esp_netif_handlers: sta ip: <REDACTED_IP>, mask: 255.255.255.0, gw: <REDACTED_IP>
+I (29274) replay_wifi: got ip: <REDACTED_IP>
+I (29275) replay: listening on port 3333
+I (29278) replay: Available backends:
+I (29282) replay:   [ 0] CCA
+I (29284) replay:   1 backend(s) ready
+I (29288) replay: Waiting for client connection...
+I (29292) replay_app: replay_tcp_server_task started (internal stack 16384 B, core 0)
+I (29300) main_task: Returned from app_main()
+I (141133) replay: ──────────────────────────────────────
+I (141134) replay: client connected from <REDACTED_IP>:57788
+I (141161) replay: init decoder 0 (CCA)
+I (141162) replay: RES_PROFILE phase=pre_backend_init backend=CCA total_free=8426980 int_free=138611 spiram_free=8320400 int_largest=38912 int_min_ever_boot=132907 spiram_min_ever_boot=8091232
+I (141374) replay: RES_PROFILE phase=post_backend_init backend=CCA total_free=8128596 int_free=135151 spiram_free=8025476 int_largest=38912 int_min_ever_boot=132907 spiram_min_ever_boot=8025408
+I (141380) replay: ──── SESSION START ────────────────────
+I (141389) replay:   backend : CCA (id=0)
+I (141393) replay:   norm=1  onset=38  window=512  fs=256  ch=8
+I (141476) replay: RES_PROFILE phase=pre_first_infer backend=CCA total_free=8092776 int_free=135151 spiram_free=7989656 int_largest=38912 int_min_ever_boot=132907 spiram_min_ever_boot=7982460
+I (142012) replay: RES_PROFILE phase=post_first_infer backend=CCA total_free=8092816 int_free=135187 spiram_free=7989660 int_largest=38912 int_min_ever_boot=132907 spiram_min_ever_boot=7982460
+I (142018) replay:   [  1] CCA c= 0 t= 0 argmax= 1 MISS  560.0 ms
+I (142674) replay:   [  2] CCA c= 0 t= 1 argmax= 9 MISS  551.8 ms
+I (143345) replay:   [  3] CCA c= 0 t= 2 argmax= 0 OK  550.4 ms
+I (143988) replay:   [  4] CCA c= 0 t= 3 argmax= 0 OK  550.5 ms
+I (144635) replay:   [  5] CCA c= 0 t= 4 argmax= 3 MISS  551.0 ms
+I (145305) replay:   [  6] CCA c= 0 t= 5 argmax= 6 MISS  551.3 ms
+I (145946) replay:   [  7] CCA c= 0 t= 6 argmax= 4 MISS  548.7 ms
+I (146613) replay:   [  8] CCA c= 0 t= 7 argmax= 0 OK  550.2 ms
+I (147265) replay:   [  9] CCA c= 0 t= 8 argmax= 0 OK  549.6 ms
+I (147972) replay:   [ 10] CCA c= 0 t= 9 argmax= 1 MISS  547.5 ms
+I (148615) replay:   [ 11] CCA c= 0 t=10 argmax= 7 MISS  552.0 ms
+I (149291) replay:   [ 12] CCA c= 0 t=11 argmax= 4 MISS  549.6 ms
+I (149942) replay:   [ 13] CCA c= 0 t=12 argmax= 6 MISS  552.3 ms
+I (150585) replay:   [ 14] CCA c= 0 t=13 argmax= 9 MISS  549.0 ms
+I (151238) replay:   [ 15] CCA c= 0 t=14 argmax= 9 MISS  549.6 ms
+I (151967) replay:   [ 16] CCA c= 1 t= 0 argmax= 4 MISS  548.5 ms
+I (152604) replay:   [ 17] CCA c= 1 t= 1 argmax= 6 MISS  550.0 ms
+I (153259) replay:   [ 18] CCA c= 1 t= 2 argmax= 1 OK  549.3 ms
+I (154022) replay:   [ 19] CCA c= 1 t= 3 argmax= 1 OK  548.5 ms
+I (154663) replay:   [ 20] CCA c= 1 t= 4 argmax= 1 OK  548.6 ms
+I (155319) replay:   [ 21] CCA c= 1 t= 5 argmax= 3 MISS  550.7 ms
+I (155965) replay:   [ 22] CCA c= 1 t= 6 argmax= 0 MISS  550.0 ms
+I (156606) replay:   [ 23] CCA c= 1 t= 7 argmax=11 MISS  549.4 ms
+I (157289) replay:   [ 24] CCA c= 1 t= 8 argmax= 3 MISS  549.3 ms
+I (157922) replay:   [ 25] CCA c= 1 t= 9 argmax= 1 OK  549.5 ms
+I (158625) replay:   [ 26] CCA c= 1 t=10 argmax= 1 OK  549.1 ms
+I (159265) replay:   [ 27] CCA c= 1 t=11 argmax= 1 OK  551.3 ms
+I (159921) replay:   [ 28] CCA c= 1 t=12 argmax= 0 MISS  550.6 ms
+I (160557) replay:   [ 29] CCA c= 1 t=13 argmax= 1 OK  548.6 ms
+I (161277) replay:   [ 30] CCA c= 1 t=14 argmax= 9 MISS  550.0 ms
+I (161989) replay:   [ 31] CCA c= 2 t= 0 argmax= 4 MISS  549.7 ms
+I (162631) replay:   [ 32] CCA c= 2 t= 1 argmax= 3 MISS  549.6 ms
+I (163269) replay:   [ 33] CCA c= 2 t= 2 argmax= 1 MISS  549.5 ms
+I (163943) replay:   [ 34] CCA c= 2 t= 3 argmax= 9 MISS  550.0 ms
+I (164654) replay:   [ 35] CCA c= 2 t= 4 argmax= 6 MISS  549.2 ms
+I (165285) replay:   [ 36] CCA c= 2 t= 5 argmax= 6 MISS  550.2 ms
+I (165992) replay:   [ 37] CCA c= 2 t= 6 argmax= 6 MISS  549.4 ms
+I (166628) replay:   [ 38] CCA c= 2 t= 7 argmax= 2 OK  549.4 ms
+I (167325) replay:   [ 39] CCA c= 2 t= 8 argmax= 2 OK  550.3 ms
+I (167962) replay:   [ 40] CCA c= 2 t= 9 argmax= 6 MISS  548.1 ms
+I (168648) replay:   [ 41] CCA c= 2 t=10 argmax= 1 MISS  547.9 ms
+I (169288) replay:   [ 42] CCA c= 2 t=11 argmax= 1 MISS  551.4 ms
+I (169939) replay:   [ 43] CCA c= 2 t=12 argmax= 4 MISS  551.6 ms
+I (170600) replay:   [ 44] CCA c= 2 t=13 argmax= 4 MISS  549.0 ms
+I (171327) replay:   [ 45] CCA c= 2 t=14 argmax= 1 MISS  550.9 ms
+I (172032) replay:   [ 46] CCA c= 3 t= 0 argmax= 4 MISS  549.8 ms
+I (172666) replay:   [ 47] CCA c= 3 t= 1 argmax= 3 OK  548.9 ms
+I (173296) replay:   [ 48] CCA c= 3 t= 2 argmax= 7 MISS  548.7 ms
+I (173977) replay:   [ 49] CCA c= 3 t= 3 argmax= 3 OK  550.1 ms
+I (174616) replay:   [ 50] CCA c= 3 t= 4 argmax= 6 MISS  547.8 ms
+I (175258) replay:   [ 51] CCA c= 3 t= 5 argmax=10 MISS  549.0 ms
+I (175918) replay:   [ 52] CCA c= 3 t= 6 argmax= 3 OK  548.2 ms
+I (176586) replay:   [ 53] CCA c= 3 t= 7 argmax= 3 OK  547.9 ms
+I (177238) replay:   [ 54] CCA c= 3 t= 8 argmax= 3 OK  549.4 ms
+I (177870) replay:   [ 55] CCA c= 3 t= 9 argmax= 3 OK  546.7 ms
+I (178584) replay:   [ 56] CCA c= 3 t=10 argmax= 3 OK  548.8 ms
+I (179227) replay:   [ 57] CCA c= 3 t=11 argmax= 3 OK  548.5 ms
+I (179933) replay:   [ 58] CCA c= 3 t=12 argmax= 3 OK  550.7 ms
+I (180637) replay:   [ 59] CCA c= 3 t=13 argmax= 3 OK  548.0 ms
+I (181281) replay:   [ 60] CCA c= 3 t=14 argmax= 3 OK  549.8 ms
+I (181965) replay:   [ 61] CCA c= 4 t= 0 argmax= 9 MISS  548.0 ms
+I (182603) replay:   [ 62] CCA c= 4 t= 1 argmax= 1 MISS  550.3 ms
+I (183301) replay:   [ 63] CCA c= 4 t= 2 argmax= 9 MISS  549.0 ms
+I (184016) replay:   [ 64] CCA c= 4 t= 3 argmax= 6 MISS  549.8 ms
+I (184661) replay:   [ 65] CCA c= 4 t= 4 argmax= 9 MISS  550.7 ms
+I (185350) replay:   [ 66] CCA c= 4 t= 5 argmax= 6 MISS  548.7 ms
+I (185988) replay:   [ 67] CCA c= 4 t= 6 argmax= 4 OK  548.6 ms
+I (186677) replay:   [ 68] CCA c= 4 t= 7 argmax= 3 MISS  549.5 ms
+I (187406) replay:   [ 69] CCA c= 4 t= 8 argmax=10 MISS  549.5 ms
+I (188110) replay:   [ 70] CCA c= 4 t= 9 argmax= 4 OK  547.9 ms
+I (188739) replay:   [ 71] CCA c= 4 t=10 argmax= 4 OK  548.7 ms
+I (189384) replay:   [ 72] CCA c= 4 t=11 argmax= 4 OK  548.7 ms
+I (190059) replay:   [ 73] CCA c= 4 t=12 argmax= 4 OK  548.0 ms
+I (190777) replay:   [ 74] CCA c= 4 t=13 argmax= 6 MISS  548.9 ms
+I (191414) replay:   [ 75] CCA c= 4 t=14 argmax= 9 MISS  549.1 ms
+I (192116) replay:   [ 76] CCA c= 5 t= 0 argmax= 9 MISS  549.0 ms
+I (192757) replay:   [ 77] CCA c= 5 t= 1 argmax= 0 MISS  549.1 ms
+I (193415) replay:   [ 78] CCA c= 5 t= 2 argmax= 6 MISS  547.8 ms
+I (194080) replay:   [ 79] CCA c= 5 t= 3 argmax= 0 MISS  548.6 ms
+I (194720) replay:   [ 80] CCA c= 5 t= 4 argmax= 4 MISS  549.3 ms
+I (195491) replay:   [ 81] CCA c= 5 t= 5 argmax= 9 MISS  548.2 ms
+I (196125) replay:   [ 82] CCA c= 5 t= 6 argmax= 0 MISS  549.0 ms
+I (196768) replay:   [ 83] CCA c= 5 t= 7 argmax= 5 OK  551.0 ms
+I (197431) replay:   [ 84] CCA c= 5 t= 8 argmax= 5 OK  549.9 ms
+I (198080) replay:   [ 85] CCA c= 5 t= 9 argmax= 5 OK  551.7 ms
+I (198751) replay:   [ 86] CCA c= 5 t=10 argmax= 9 MISS  550.4 ms
+I (199399) replay:   [ 87] CCA c= 5 t=11 argmax= 0 MISS  549.7 ms
+I (200109) replay:   [ 88] CCA c= 5 t=12 argmax= 9 MISS  549.4 ms
+I (200810) replay:   [ 89] CCA c= 5 t=13 argmax= 6 MISS  549.5 ms
+I (201523) replay:   [ 90] CCA c= 5 t=14 argmax= 1 MISS  548.6 ms
+I (202243) replay:   [ 91] CCA c= 6 t= 0 argmax= 9 MISS  548.4 ms
+I (202896) replay:   [ 92] CCA c= 6 t= 1 argmax= 3 MISS  550.3 ms
+I (203574) replay:   [ 93] CCA c= 6 t= 2 argmax= 9 MISS  549.6 ms
+I (204218) replay:   [ 94] CCA c= 6 t= 3 argmax= 6 OK  551.2 ms
+I (204864) replay:   [ 95] CCA c= 6 t= 4 argmax= 3 MISS  550.1 ms
+I (205519) replay:   [ 96] CCA c= 6 t= 5 argmax= 6 OK  549.2 ms
+I (206153) replay:   [ 97] CCA c= 6 t= 6 argmax= 0 MISS  549.8 ms
+I (206792) replay:   [ 98] CCA c= 6 t= 7 argmax= 6 OK  549.5 ms
+I (207440) replay:   [ 99] CCA c= 6 t= 8 argmax= 6 OK  547.9 ms
+I (208205) replay:   [100] CCA c= 6 t= 9 argmax= 9 MISS  551.6 ms
+I (208873) replay:   [101] CCA c= 6 t=10 argmax= 6 OK  551.3 ms
+I (209616) replay:   [102] CCA c= 6 t=11 argmax= 6 OK  548.6 ms
+I (210331) replay:   [103] CCA c= 6 t=12 argmax= 6 OK  550.2 ms
+I (211053) replay:   [104] CCA c= 6 t=13 argmax= 6 OK  548.2 ms
+I (211688) replay:   [105] CCA c= 6 t=14 argmax= 6 OK  549.7 ms
+I (212380) replay:   [106] CCA c= 7 t= 0 argmax= 9 MISS  548.9 ms
+I (213030) replay:   [107] CCA c= 7 t= 1 argmax= 1 MISS  549.5 ms
+I (213679) replay:   [108] CCA c= 7 t= 2 argmax= 3 MISS  550.5 ms
+I (214428) replay:   [109] CCA c= 7 t= 3 argmax= 3 MISS  548.1 ms
+I (215069) replay:   [110] CCA c= 7 t= 4 argmax= 9 MISS  550.6 ms
+I (215766) replay:   [111] CCA c= 7 t= 5 argmax= 6 MISS  549.4 ms
+I (216801) replay:   [112] CCA c= 7 t= 6 argmax= 9 MISS  548.2 ms
+I (217865) replay:   [113] CCA c= 7 t= 7 argmax= 7 OK  549.5 ms
+I (219907) replay:   [114] CCA c= 7 t= 8 argmax= 6 MISS  548.1 ms
+I (220992) replay:   [115] CCA c= 7 t= 9 argmax= 7 OK  549.1 ms
+I (221684) replay:   [116] CCA c= 7 t=10 argmax= 7 OK  548.1 ms
+I (222321) replay:   [117] CCA c= 7 t=11 argmax= 7 OK  550.5 ms
+I (222969) replay:   [118] CCA c= 7 t=12 argmax= 7 OK  550.0 ms
+I (223616) replay:   [119] CCA c= 7 t=13 argmax= 1 MISS  548.7 ms
+I (224264) replay:   [120] CCA c= 7 t=14 argmax=10 MISS  549.5 ms
+I (224898) replay:   [121] CCA c= 8 t= 0 argmax=11 MISS  548.3 ms
+I (225531) replay:   [122] CCA c= 8 t= 1 argmax= 9 MISS  549.6 ms
+I (226182) replay:   [123] CCA c= 8 t= 2 argmax= 9 MISS  549.5 ms
+I (226917) replay:   [124] CCA c= 8 t= 3 argmax= 6 MISS  547.5 ms
+I (227635) replay:   [125] CCA c= 8 t= 4 argmax= 3 MISS  549.1 ms
+I (228278) replay:   [126] CCA c= 8 t= 5 argmax= 0 MISS  549.2 ms
+I (228965) replay:   [127] CCA c= 8 t= 6 argmax= 8 OK  548.1 ms
+I (229701) replay:   [128] CCA c= 8 t= 7 argmax= 6 MISS  548.7 ms
+I (230343) replay:   [129] CCA c= 8 t= 8 argmax= 0 MISS  549.7 ms
+I (230991) replay:   [130] CCA c= 8 t= 9 argmax= 8 OK  547.9 ms
+I (231732) replay:   [131] CCA c= 8 t=10 argmax= 8 OK  550.1 ms
+I (232444) replay:   [132] CCA c= 8 t=11 argmax= 8 OK  548.4 ms
+I (233163) replay:   [133] CCA c= 8 t=12 argmax= 3 MISS  548.8 ms
+I (233798) replay:   [134] CCA c= 8 t=13 argmax= 8 OK  548.5 ms
+I (234437) replay:   [135] CCA c= 8 t=14 argmax= 1 MISS  550.1 ms
+I (235081) replay:   [136] CCA c= 9 t= 0 argmax= 9 OK  548.7 ms
+I (235826) replay:   [137] CCA c= 9 t= 1 argmax= 9 OK  549.0 ms
+I (236545) replay:   [138] CCA c= 9 t= 2 argmax= 9 OK  548.0 ms
+I (237258) replay:   [139] CCA c= 9 t= 3 argmax= 9 OK  548.5 ms
+I (237972) replay:   [140] CCA c= 9 t= 4 argmax= 9 OK  550.0 ms
+I (238615) replay:   [141] CCA c= 9 t= 5 argmax= 9 OK  550.7 ms
+I (239287) replay:   [142] CCA c= 9 t= 6 argmax= 6 MISS  549.5 ms
+I (239930) replay:   [143] CCA c= 9 t= 7 argmax= 9 OK  551.9 ms
+I (240648) replay:   [144] CCA c= 9 t= 8 argmax= 9 OK  549.1 ms
+I (241286) replay:   [145] CCA c= 9 t= 9 argmax= 9 OK  549.8 ms
+I (241977) replay:   [146] CCA c= 9 t=10 argmax= 9 OK  550.2 ms
+I (242615) replay:   [147] CCA c= 9 t=11 argmax= 3 MISS  549.7 ms
+I (243278) replay:   [148] CCA c= 9 t=12 argmax= 9 OK  549.4 ms
+I (244022) replay:   [149] CCA c= 9 t=13 argmax= 9 OK  550.5 ms
+I (244659) replay:   [150] CCA c= 9 t=14 argmax= 6 MISS  548.8 ms
+I (245322) replay:   [151] CCA c=10 t= 0 argmax= 7 MISS  549.1 ms
+I (245975) replay:   [152] CCA c=10 t= 1 argmax= 9 MISS  548.7 ms
+I (246621) replay:   [153] CCA c=10 t= 2 argmax= 6 MISS  549.5 ms
+I (247299) replay:   [154] CCA c=10 t= 3 argmax= 9 MISS  547.6 ms
+I (247936) replay:   [155] CCA c=10 t= 4 argmax= 9 MISS  549.1 ms
+I (248640) replay:   [156] CCA c=10 t= 5 argmax= 3 MISS  548.7 ms
+I (249345) replay:   [157] CCA c=10 t= 6 argmax= 9 MISS  548.2 ms
+I (250076) replay:   [158] CCA c=10 t= 7 argmax= 7 MISS  548.6 ms
+I (250711) replay:   [159] CCA c=10 t= 8 argmax= 3 MISS  548.5 ms
+I (251386) replay:   [160] CCA c=10 t= 9 argmax= 9 MISS  549.7 ms
+I (252027) replay:   [161] CCA c=10 t=10 argmax=10 OK  549.4 ms
+I (252663) replay:   [162] CCA c=10 t=11 argmax= 6 MISS  548.1 ms
+I (253316) replay:   [163] CCA c=10 t=12 argmax= 0 MISS  549.4 ms
+I (254054) replay:   [164] CCA c=10 t=13 argmax=10 OK  549.7 ms
+I (254685) replay:   [165] CCA c=10 t=14 argmax= 4 MISS  547.4 ms
+I (255323) replay:   [166] CCA c=11 t= 0 argmax=11 OK  550.9 ms
+I (256007) replay:   [167] CCA c=11 t= 1 argmax= 9 MISS  548.3 ms
+I (256652) replay:   [168] CCA c=11 t= 2 argmax= 6 MISS  548.5 ms
+I (257330) replay:   [169] CCA c=11 t= 3 argmax= 6 MISS  549.3 ms
+I (257967) replay:   [170] CCA c=11 t= 4 argmax= 9 MISS  550.5 ms
+I (258628) replay:   [171] CCA c=11 t= 5 argmax=11 OK  548.3 ms
+I (259373) replay:   [172] CCA c=11 t= 6 argmax= 7 MISS  549.5 ms
+I (260094) replay:   [173] CCA c=11 t= 7 argmax=11 OK  549.6 ms
+I (260728) replay:   [174] CCA c=11 t= 8 argmax=11 OK  548.9 ms
+I (261365) replay:   [175] CCA c=11 t= 9 argmax= 6 MISS  549.1 ms
+I (262015) replay:   [176] CCA c=11 t=10 argmax=11 OK  548.2 ms
+I (262654) replay:   [177] CCA c=11 t=11 argmax=11 OK  548.4 ms
+I (263370) replay:   [178] CCA c=11 t=12 argmax=11 OK  548.9 ms
+I (264006) replay:   [179] CCA c=11 t=13 argmax=11 OK  550.2 ms
+I (264710) replay:   [180] CCA c=11 t=14 argmax= 6 MISS  550.2 ms
+I (264762) replay: ──── SESSION END ──────────────────────
+I (264762) replay: RES_PROFILE phase=session_summary backend=CCA int_free_now=134931 spiram_free_now=8025504 sess_baseline_int=138611 sess_min_int=134931 sess_est_peak_drop_int=3680 sess_min_spiram=7989660 stack_hwm_words=13952 int_min_ever_boot=132907 note=see_docs
+I (264784) replay:   backend : CCA
+I (264787) replay:   trials  : 180 total, 180 ok, 0 err
+I (264792) replay:   latency : avg 549.4 ms, min 546.7 ms, max 560.0 ms
+I (264798) replay: ──────────────────────────────────────
+I (264810) replay: cleanup decoder 0 (CCA)
+I (264815) replay: client disconnected, waiting for next

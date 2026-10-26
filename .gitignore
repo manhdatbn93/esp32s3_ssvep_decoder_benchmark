@@ -1,7 +1,7 @@
-data/
-runs/
-outputs/
-results/
+/data/
+/runs/
+/outputs/
+/results/
 artifacts/generated/
 firmware/generated/
 firmware/build/
@@ -49,3 +49,7 @@ sdkconfig.old
 !artifacts/reference/**/*.h
 !artifacts/reference/**/*.json
 !artifacts/reference/**/*.sha256
+!paper_reproduction/
+!paper_reproduction/**
+paper_reproduction/outputs/
+paper_reproduction/**/__pycache__/

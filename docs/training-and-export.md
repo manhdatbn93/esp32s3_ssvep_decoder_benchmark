@@ -92,6 +92,24 @@ python scripts\evaluate_host.py `
 
 `--method` choices: `cca`, `fbcca`, `msi`, `trca`, `all`.
 
+TRCA has two filter-bank realizations. The default, `deployed_sos`, is the second-order-section filter bank used by the published host reference and by the ESP32-S3 firmware. On the ten held-out subjects it scores 1,502 of 1,800 trials (83.44%) and agrees with the retained device predictions on every trial. `screening_ba` is the historical transfer-function candidate used during method screening. It scores 1,510 of 1,800 trials (83.89%) and is not the result reported for the deployed system.
+
+```powershell
+python scripts\evaluate_host.py `
+  --runtime classical `
+  --method trca `
+  --dataset-root <DATASET_ROOT> `
+  --output-dir outputs\host\trca
+python scripts\evaluate_host.py `
+  --runtime classical `
+  --method trca `
+  --trca-realization screening_ba `
+  --dataset-root <DATASET_ROOT> `
+  --output-dir outputs\host\trca_screening
+```
+
+The first command is the published TRCA evaluation. The second is the historical screening candidate. CCA, FBCCA, and MSI are unchanged.
+
 ### PyTorch (retained checkpoint)
 
 ```powershell
@@ -127,6 +145,12 @@ python scripts\evaluate_host.py --runtime tflite --model eegnet --dry-run
 
 Outputs belong under `outputs/host/`. They are local evaluation outputs only.
 
+### TFLite host interpreter
+
+Exported-host references (TFLite on host, compared with device outputs) use TensorFlow 2.21.0 `tf.lite.Interpreter` with the default op resolver (`OpResolverType.AUTO`), which applies the XNNPACK delegate. `src/replay/host_interpreter.py` holds this setting; TFLite host evaluation and the replay host reference use it. With this configuration the retained int8 host outputs are reproduced bit-exactly.
+
+`OpResolverType.BUILTIN_WITHOUT_DEFAULT_DELEGATES` selects the reference kernels without XNNPACK. It changes some int8 host outputs (for EEGNet-int8, on 9 of 10 subjects), so it does not reproduce the retained references. Passing `experimental_delegates=[]` does not disable the default delegate. `python src\replay\diag_xnnpack.py` compares the two settings for the fold-1 EEGNet artifacts on seeded synthetic inputs.
+
 ## Export and PTQ
 
 ### Float32 export
@@ -143,6 +167,8 @@ python scripts\export_tflite.py `
 ```
 
 Generated exports must be written under `artifacts/generated/`. Export refuses to overwrite `artifacts/reference/`.
+
+Export runs in the pinned conversion environment (`environment/tflite_conversion_py310.txt`). Float32 export of CCNN, EEGNet and FBtCNN needs only the checkpoint. ConvCA float32 export and all int8 exports also need `--dataset-root`: ConvCA for its fold templates, int8 for the calibration trials. Each export writes `<model>_<quantization>_export_report.json` next to the `.tflite`, recording the checkpoint and output SHA-256 and the TFLite input and output shapes.
 
 `--dry-run` validates arguments without exporting weights.
 

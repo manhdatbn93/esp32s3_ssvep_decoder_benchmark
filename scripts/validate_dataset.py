@@ -12,7 +12,8 @@ def main() -> None:
     npz = np.load(args.processed_npz, allow_pickle=True)
     X = npz["X"]
     assert X.ndim == 3 and X.shape[1:] == (512, 8), X.shape
-    subjects = [str(s) for s in npz["subjects"]]
+    subject_key = "subject" if "subject" in npz.files else "subjects"
+    subjects = [str(s) for s in npz[subject_key]]
     assert len(set(subjects)) == 10
     y = npz["y"]
     assert len(np.unique(y)) == 12

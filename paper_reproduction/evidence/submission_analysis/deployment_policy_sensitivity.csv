@@ -1,0 +1,26 @@
+candidate_family,min_device_accuracy_pct,min_agreement_pct,max_latency_ms,tie_break_rule,n_admissible,admissible_backends,selected_backend,no_backend_admissible
+all executable neural backends,80.0,96.0,100.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,1,CCNN-int8,CCNN-int8,0
+all executable neural backends,80.0,96.0,250.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,2,CCNN-f32 | CCNN-int8,CCNN-f32,0
+all executable neural backends,80.0,96.0,1000.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,2,CCNN-f32 | CCNN-int8,CCNN-f32,0
+all executable neural backends,80.0,96.0,2500.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,4,CCNN-f32 | CCNN-int8 | ConvCA-f32 | FBtCNN-int8,ConvCA-f32,0
+all executable neural backends,80.0,96.0,15000.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,5,CCNN-f32 | CCNN-int8 | ConvCA-f32 | FBtCNN-f32 | FBtCNN-int8,ConvCA-f32,0
+all executable neural backends,80.0,98.0,100.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,0,,none,1
+all executable neural backends,80.0,98.0,250.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,1,CCNN-f32,CCNN-f32,0
+all executable neural backends,80.0,98.0,1000.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,1,CCNN-f32,CCNN-f32,0
+all executable neural backends,80.0,98.0,2500.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,3,CCNN-f32 | ConvCA-f32 | FBtCNN-int8,ConvCA-f32,0
+all executable neural backends,80.0,98.0,15000.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,4,CCNN-f32 | ConvCA-f32 | FBtCNN-f32 | FBtCNN-int8,ConvCA-f32,0
+all executable neural backends,80.0,99.0,100.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,0,,none,1
+all executable neural backends,80.0,99.0,250.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,1,CCNN-f32,CCNN-f32,0
+all executable neural backends,80.0,99.0,1000.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,1,CCNN-f32,CCNN-f32,0
+all executable neural backends,80.0,99.0,2500.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,3,CCNN-f32 | ConvCA-f32 | FBtCNN-int8,ConvCA-f32,0
+all executable neural backends,80.0,99.0,15000.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,4,CCNN-f32 | ConvCA-f32 | FBtCNN-f32 | FBtCNN-int8,ConvCA-f32,0
+all executable neural backends,80.0,99.5,100.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,0,,none,1
+all executable neural backends,80.0,99.5,250.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,1,CCNN-f32,CCNN-f32,0
+all executable neural backends,80.0,99.5,1000.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,1,CCNN-f32,CCNN-f32,0
+all executable neural backends,80.0,99.5,2500.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,3,CCNN-f32 | ConvCA-f32 | FBtCNN-int8,ConvCA-f32,0
+all executable neural backends,80.0,99.5,15000.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,4,CCNN-f32 | ConvCA-f32 | FBtCNN-f32 | FBtCNN-int8,ConvCA-f32,0
+all executable neural backends,80.0,100.0,100.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,0,,none,1
+all executable neural backends,80.0,100.0,250.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,1,CCNN-f32,CCNN-f32,0
+all executable neural backends,80.0,100.0,1000.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,1,CCNN-f32,CCNN-f32,0
+all executable neural backends,80.0,100.0,2500.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,2,CCNN-f32 | ConvCA-f32,ConvCA-f32,0
+all executable neural backends,80.0,100.0,15000.0,device_accuracy_pct:max | latency_ms:min | backend_name:ascending,3,CCNN-f32 | ConvCA-f32 | FBtCNN-f32,ConvCA-f32,0

@@ -1,0 +1,216 @@
+I (74798) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (74806) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (74829) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (74858) wifi:<ba-add>idx:0 (ifx:0, <REDACTED_MAC>), tid:0, ssn:1, winSize:64
+I (75899) esp_netif_handlers: sta ip: <REDACTED_IP>, mask: 255.255.255.0, gw: <REDACTED_IP>
+I (75899) replay_wifi: got ip: <REDACTED_IP>
+I (75900) replay: listening on port 3333
+I (75903) replay: Available backends:
+I (75907) replay:   [ 9] FBtCNN-f32
+I (75910) replay:   1 backend(s) ready
+I (75913) replay: Waiting for client connection...
+I (75918) replay_app: replay_tcp_server_task started (internal stack 16384 B, core 0)
+I (75925) main_task: Returned from app_main()
+I (113965) replay: ──────────────────────────────────────
+I (113966) replay: client connected from <REDACTED_IP>:60285
+I (114169) replay: init decoder 9 (FBtCNN-f32)
+I (114170) replay: RES_PROFILE phase=pre_backend_init backend=FBtCNN-f32 total_free=8494692 int_free=206359 spiram_free=8320364 int_largest=106496 int_min_ever_boot=200663 spiram_min_ever_boot=7517788
+I (114180) tflm: arena: raw=0x3c1c113c aligned=0x3c1c1140 size=786432 align_ok=1 resolver_was_ready=1
+I (114190) tflm: ctx_create OK: interp=0x3fcb3db0
+I (114194) replay: RES_PROFILE phase=post_backend_init backend=FBtCNN-f32 total_free=7626108 int_free=206135 spiram_free=7452004 int_largest=106496 int_min_ever_boot=200663 spiram_min_ever_boot=7452004
+I (114211) replay: ──── SESSION START ────────────────────
+I (114220) replay:   backend : FBtCNN-f32 (id=9)
+I (114225) replay:   norm=1  onset=38  window=512  fs=256  ch=8
+I (116036) replay: RES_PROFILE phase=pre_first_infer backend=FBtCNN-f32 total_free=7590284 int_free=206135 spiram_free=7416180 int_largest=106496 int_min_ever_boot=200663 spiram_min_ever_boot=7408956
+I (116819) tflm: invoke#1: in_type=1 out_type=1 in_len=16384 out_len=12
+I (116820) tflm: invoke#1: input[0..3] = -0.071712 -0.025239 0.006443 0.008710
+I (128973) tflm: invoke#1: out[0..3] = 0.445542 -1.609083 0.995161 -1.763273
+I (128973) replay: RES_PROFILE phase=post_first_infer backend=FBtCNN-f32 total_free=7590076 int_free=205927 spiram_free=7416180 int_largest=106496 int_min_ever_boot=200663 spiram_min_ever_boot=7408956
+I (128987) replay:   [  1] FBtCNN-f32 c= 0 t= 0 argmax= 6 MISS  12968.8 ms
+I (143805) replay:   [  2] FBtCNN-f32 c= 0 t= 1 argmax=10 MISS  12933.9 ms
+I (157737) replay:   [  3] FBtCNN-f32 c= 0 t= 2 argmax= 0 OK  12936.8 ms
+I (174105) replay:   [  4] FBtCNN-f32 c= 0 t= 3 argmax=11 MISS  12945.1 ms
+I (188057) replay:   [  5] FBtCNN-f32 c= 0 t= 4 argmax= 9 MISS  12941.8 ms
+I (202804) replay:   [  6] FBtCNN-f32 c= 0 t= 5 argmax= 0 OK  12952.2 ms
+I (217089) replay:   [  7] FBtCNN-f32 c= 0 t= 6 argmax= 0 OK  12935.4 ms
+I (232000) replay:   [  8] FBtCNN-f32 c= 0 t= 7 argmax= 0 OK  12948.3 ms
+I (246216) replay:   [  9] FBtCNN-f32 c= 0 t= 8 argmax= 3 MISS  12930.7 ms
+I (262185) replay:   [ 10] FBtCNN-f32 c= 0 t= 9 argmax= 0 OK  12940.0 ms
+I (277255) replay:   [ 11] FBtCNN-f32 c= 0 t=10 argmax= 0 OK  12941.8 ms
+I (291047) replay:   [ 12] FBtCNN-f32 c= 0 t=11 argmax= 0 OK  12937.6 ms
+I (305090) replay:   [ 13] FBtCNN-f32 c= 0 t=12 argmax= 6 MISS  12945.5 ms
+I (318623) replay:   [ 14] FBtCNN-f32 c= 0 t=13 argmax= 0 OK  12940.5 ms
+I (333646) replay:   [ 15] FBtCNN-f32 c= 0 t=14 argmax= 0 OK  12936.4 ms
+I (347702) replay:   [ 16] FBtCNN-f32 c= 1 t= 0 argmax= 4 MISS  12939.3 ms
+I (364672) replay:   [ 17] FBtCNN-f32 c= 1 t= 1 argmax= 8 MISS  12934.5 ms
+I (380868) replay:   [ 18] FBtCNN-f32 c= 1 t= 2 argmax= 9 MISS  12942.9 ms
+I (395213) replay:   [ 19] FBtCNN-f32 c= 1 t= 3 argmax= 1 OK  12939.5 ms
+I (409433) replay:   [ 20] FBtCNN-f32 c= 1 t= 4 argmax= 1 OK  12944.9 ms
+I (423644) replay:   [ 21] FBtCNN-f32 c= 1 t= 5 argmax= 8 MISS  12933.2 ms
+I (438126) replay:   [ 22] FBtCNN-f32 c= 1 t= 6 argmax= 1 OK  12946.3 ms
+I (453056) replay:   [ 23] FBtCNN-f32 c= 1 t= 7 argmax= 1 OK  12930.6 ms
+I (467476) replay:   [ 24] FBtCNN-f32 c= 1 t= 8 argmax= 1 OK  12937.7 ms
+I (482646) replay:   [ 25] FBtCNN-f32 c= 1 t= 9 argmax= 1 OK  12944.1 ms
+I (496299) replay:   [ 26] FBtCNN-f32 c= 1 t=10 argmax= 1 OK  12938.2 ms
+I (511137) replay:   [ 27] FBtCNN-f32 c= 1 t=11 argmax= 0 MISS  12949.1 ms
+I (526978) replay:   [ 28] FBtCNN-f32 c= 1 t=12 argmax= 6 MISS  12937.4 ms
+I (542356) replay:   [ 29] FBtCNN-f32 c= 1 t=13 argmax= 1 OK  12941.6 ms
+I (557682) replay:   [ 30] FBtCNN-f32 c= 1 t=14 argmax=11 MISS  12939.0 ms
+I (571319) replay:   [ 31] FBtCNN-f32 c= 2 t= 0 argmax= 5 MISS  12933.5 ms
+I (585150) replay:   [ 32] FBtCNN-f32 c= 2 t= 1 argmax= 2 OK  12950.1 ms
+I (599373) replay:   [ 33] FBtCNN-f32 c= 2 t= 2 argmax= 7 MISS  12933.6 ms
+I (613076) replay:   [ 34] FBtCNN-f32 c= 2 t= 3 argmax= 5 MISS  12945.4 ms
+I (627466) replay:   [ 35] FBtCNN-f32 c= 2 t= 4 argmax=11 MISS  12929.9 ms
+I (640794) replay:   [ 36] FBtCNN-f32 c= 2 t= 5 argmax= 2 OK  12937.8 ms
+I (655313) replay:   [ 37] FBtCNN-f32 c= 2 t= 6 argmax= 8 MISS  12943.3 ms
+I (669424) replay:   [ 38] FBtCNN-f32 c= 2 t= 7 argmax= 0 MISS  12933.6 ms
+I (683609) replay:   [ 39] FBtCNN-f32 c= 2 t= 8 argmax= 2 OK  12948.9 ms
+I (697307) replay:   [ 40] FBtCNN-f32 c= 2 t= 9 argmax= 2 OK  12931.8 ms
+I (713376) replay:   [ 41] FBtCNN-f32 c= 2 t=10 argmax= 2 OK  12936.0 ms
+I (727700) replay:   [ 42] FBtCNN-f32 c= 2 t=11 argmax= 0 MISS  12937.3 ms
+I (743556) replay:   [ 43] FBtCNN-f32 c= 2 t=12 argmax= 4 MISS  12933.9 ms
+I (757423) replay:   [ 44] FBtCNN-f32 c= 2 t=13 argmax= 2 OK  12945.9 ms
+I (772324) replay:   [ 45] FBtCNN-f32 c= 2 t=14 argmax= 7 MISS  12932.1 ms
+I (787414) replay:   [ 46] FBtCNN-f32 c= 3 t= 0 argmax= 3 OK  12948.6 ms
+I (803562) replay:   [ 47] FBtCNN-f32 c= 3 t= 1 argmax= 3 OK  12939.4 ms
+I (817397) replay:   [ 48] FBtCNN-f32 c= 3 t= 2 argmax= 3 OK  12938.8 ms
+I (832750) replay:   [ 49] FBtCNN-f32 c= 3 t= 3 argmax= 3 OK  12933.2 ms
+I (846490) replay:   [ 50] FBtCNN-f32 c= 3 t= 4 argmax= 3 OK  12933.2 ms
+I (860961) replay:   [ 51] FBtCNN-f32 c= 3 t= 5 argmax= 3 OK  12945.3 ms
+I (875363) replay:   [ 52] FBtCNN-f32 c= 3 t= 6 argmax= 3 OK  12932.4 ms
+I (890373) replay:   [ 53] FBtCNN-f32 c= 3 t= 7 argmax= 3 OK  12947.4 ms
+I (904759) replay:   [ 54] FBtCNN-f32 c= 3 t= 8 argmax= 3 OK  12932.6 ms
+I (919286) replay:   [ 55] FBtCNN-f32 c= 3 t= 9 argmax= 3 OK  12937.6 ms
+I (935382) replay:   [ 56] FBtCNN-f32 c= 3 t=10 argmax= 3 OK  12932.2 ms
+I (951147) replay:   [ 57] FBtCNN-f32 c= 3 t=11 argmax= 3 OK  12934.4 ms
+I (966211) replay:   [ 58] FBtCNN-f32 c= 3 t=12 argmax= 3 OK  12941.7 ms
+I (981145) replay:   [ 59] FBtCNN-f32 c= 3 t=13 argmax= 3 OK  12935.6 ms
+I (996414) replay:   [ 60] FBtCNN-f32 c= 3 t=14 argmax= 3 OK  12944.1 ms
+I (1010628) replay:   [ 61] FBtCNN-f32 c= 4 t= 0 argmax= 0 MISS  12939.8 ms
+I (1025350) replay:   [ 62] FBtCNN-f32 c= 4 t= 1 argmax= 4 OK  13006.3 ms
+I (1040423) replay:   [ 63] FBtCNN-f32 c= 4 t= 2 argmax= 4 OK  12940.3 ms
+I (1054262) replay:   [ 64] FBtCNN-f32 c= 4 t= 3 argmax=10 MISS  12933.8 ms
+I (1068313) replay:   [ 65] FBtCNN-f32 c= 4 t= 4 argmax= 0 MISS  12955.0 ms
+I (1082713) replay:   [ 66] FBtCNN-f32 c= 4 t= 5 argmax= 4 OK  12937.8 ms
+I (1096971) replay:   [ 67] FBtCNN-f32 c= 4 t= 6 argmax= 4 OK  12946.9 ms
+I (1110781) replay:   [ 68] FBtCNN-f32 c= 4 t= 7 argmax= 4 OK  12934.7 ms
+I (1125532) replay:   [ 69] FBtCNN-f32 c= 4 t= 8 argmax= 4 OK  12934.6 ms
+I (1140592) replay:   [ 70] FBtCNN-f32 c= 4 t= 9 argmax= 4 OK  12940.2 ms
+I (1155025) replay:   [ 71] FBtCNN-f32 c= 4 t=10 argmax= 4 OK  12940.5 ms
+I (1168957) replay:   [ 72] FBtCNN-f32 c= 4 t=11 argmax= 4 OK  12942.6 ms
+I (1184406) replay:   [ 73] FBtCNN-f32 c= 4 t=12 argmax= 4 OK  12936.9 ms
+I (1198161) replay:   [ 74] FBtCNN-f32 c= 4 t=13 argmax= 4 OK  12942.0 ms
+I (1212052) replay:   [ 75] FBtCNN-f32 c= 4 t=14 argmax= 4 OK  12932.9 ms
+I (1227008) replay:   [ 76] FBtCNN-f32 c= 5 t= 0 argmax= 5 OK  12934.6 ms
+I (1242594) replay:   [ 77] FBtCNN-f32 c= 5 t= 1 argmax=11 MISS  12948.5 ms
+I (1257732) replay:   [ 78] FBtCNN-f32 c= 5 t= 2 argmax= 8 MISS  12936.8 ms
+I (1271889) replay:   [ 79] FBtCNN-f32 c= 5 t= 3 argmax= 2 MISS  12949.7 ms
+I (1288746) replay:   [ 80] FBtCNN-f32 c= 5 t= 4 argmax= 5 OK  12933.6 ms
+I (1303815) replay:   [ 81] FBtCNN-f32 c= 5 t= 5 argmax= 5 OK  12955.0 ms
+I (1318053) replay:   [ 82] FBtCNN-f32 c= 5 t= 6 argmax= 5 OK  12934.8 ms
+I (1333508) replay:   [ 83] FBtCNN-f32 c= 5 t= 7 argmax= 5 OK  12941.6 ms
+I (1348875) replay:   [ 84] FBtCNN-f32 c= 5 t= 8 argmax= 5 OK  12943.3 ms
+I (1363398) replay:   [ 85] FBtCNN-f32 c= 5 t= 9 argmax= 5 OK  12939.5 ms
+I (1378588) replay:   [ 86] FBtCNN-f32 c= 5 t=10 argmax= 5 OK  12949.4 ms
+I (1393520) replay:   [ 87] FBtCNN-f32 c= 5 t=11 argmax= 5 OK  12945.5 ms
+I (1407667) replay:   [ 88] FBtCNN-f32 c= 5 t=12 argmax= 5 OK  12949.2 ms
+I (1422306) replay:   [ 89] FBtCNN-f32 c= 5 t=13 argmax= 8 MISS  12937.1 ms
+I (1436155) replay:   [ 90] FBtCNN-f32 c= 5 t=14 argmax=11 MISS  12931.7 ms
+I (1451272) replay:   [ 91] FBtCNN-f32 c= 6 t= 0 argmax= 9 MISS  12941.0 ms
+I (1464988) replay:   [ 92] FBtCNN-f32 c= 6 t= 1 argmax= 9 MISS  12936.5 ms
+I (1480369) replay:   [ 93] FBtCNN-f32 c= 6 t= 2 argmax= 9 MISS  12947.1 ms
+I (1495098) replay:   [ 94] FBtCNN-f32 c= 6 t= 3 argmax= 6 OK  12932.6 ms
+I (1508927) replay:   [ 95] FBtCNN-f32 c= 6 t= 4 argmax= 6 OK  12943.7 ms
+I (1523994) replay:   [ 96] FBtCNN-f32 c= 6 t= 5 argmax= 6 OK  12938.9 ms
+I (1539739) replay:   [ 97] FBtCNN-f32 c= 6 t= 6 argmax= 6 OK  12932.4 ms
+I (1555616) replay:   [ 98] FBtCNN-f32 c= 6 t= 7 argmax= 6 OK  12936.7 ms
+I (1572088) replay:   [ 99] FBtCNN-f32 c= 6 t= 8 argmax= 6 OK  12930.2 ms
+I (1587152) replay:   [100] FBtCNN-f32 c= 6 t= 9 argmax= 6 OK  12943.5 ms
+I (1603340) replay:   [101] FBtCNN-f32 c= 6 t=10 argmax= 6 OK  12935.5 ms
+I (1619221) replay:   [102] FBtCNN-f32 c= 6 t=11 argmax= 6 OK  12941.7 ms
+I (1634908) replay:   [103] FBtCNN-f32 c= 6 t=12 argmax= 6 OK  12941.4 ms
+I (1649651) replay:   [104] FBtCNN-f32 c= 6 t=13 argmax= 6 OK  12944.0 ms
+I (1663300) replay:   [105] FBtCNN-f32 c= 6 t=14 argmax= 6 OK  12937.2 ms
+I (1678997) replay:   [106] FBtCNN-f32 c= 7 t= 0 argmax= 7 OK  12932.8 ms
+I (1693150) replay:   [107] FBtCNN-f32 c= 7 t= 1 argmax= 8 MISS  12942.2 ms
+I (1707071) replay:   [108] FBtCNN-f32 c= 7 t= 2 argmax= 7 OK  12935.4 ms
+I (1722858) replay:   [109] FBtCNN-f32 c= 7 t= 3 argmax= 7 OK  12947.6 ms
+I (1736345) replay:   [110] FBtCNN-f32 c= 7 t= 4 argmax= 7 OK  12933.0 ms
+I (1751299) replay:   [111] FBtCNN-f32 c= 7 t= 5 argmax= 7 OK  12940.6 ms
+I (1765851) replay:   [112] FBtCNN-f32 c= 7 t= 6 argmax= 7 OK  12935.0 ms
+I (1781299) replay:   [113] FBtCNN-f32 c= 7 t= 7 argmax= 7 OK  12932.6 ms
+I (1796271) replay:   [114] FBtCNN-f32 c= 7 t= 8 argmax= 7 OK  12945.0 ms
+I (1810298) replay:   [115] FBtCNN-f32 c= 7 t= 9 argmax= 7 OK  12933.6 ms
+I (1823466) replay:   [116] FBtCNN-f32 c= 7 t=10 argmax= 5 MISS  12946.9 ms
+I (1838982) replay:   [117] FBtCNN-f32 c= 7 t=11 argmax= 7 OK  12932.0 ms
+I (1852119) replay:   [118] FBtCNN-f32 c= 7 t=12 argmax= 7 OK  12934.7 ms
+I (1865224) replay:   [119] FBtCNN-f32 c= 7 t=13 argmax= 7 OK  12942.8 ms
+I (1878334) replay:   [120] FBtCNN-f32 c= 7 t=14 argmax= 7 OK  12942.2 ms
+I (1891441) replay:   [121] FBtCNN-f32 c= 8 t= 0 argmax= 8 OK  12946.7 ms
+I (1904551) replay:   [122] FBtCNN-f32 c= 8 t= 1 argmax= 5 MISS  12937.6 ms
+I (1917590) replay:   [123] FBtCNN-f32 c= 8 t= 2 argmax= 8 OK  12934.5 ms
+I (1931379) replay:   [124] FBtCNN-f32 c= 8 t= 3 argmax= 8 OK  13001.0 ms
+I (1944474) replay:   [125] FBtCNN-f32 c= 8 t= 4 argmax= 8 OK  12933.5 ms
+I (1957542) replay:   [126] FBtCNN-f32 c= 8 t= 5 argmax= 8 OK  12933.2 ms
+I (1970593) replay:   [127] FBtCNN-f32 c= 8 t= 6 argmax=11 MISS  12940.5 ms
+I (1983725) replay:   [128] FBtCNN-f32 c= 8 t= 7 argmax= 8 OK  12937.8 ms
+I (1996789) replay:   [129] FBtCNN-f32 c= 8 t= 8 argmax= 8 OK  12954.5 ms
+I (2009919) replay:   [130] FBtCNN-f32 c= 8 t= 9 argmax= 8 OK  12936.6 ms
+I (2022970) replay:   [131] FBtCNN-f32 c= 8 t=10 argmax= 8 OK  12937.1 ms
+I (2036147) replay:   [132] FBtCNN-f32 c= 8 t=11 argmax= 8 OK  12944.3 ms
+I (2049187) replay:   [133] FBtCNN-f32 c= 8 t=12 argmax= 8 OK  12931.9 ms
+I (2062255) replay:   [134] FBtCNN-f32 c= 8 t=13 argmax= 8 OK  12942.3 ms
+I (2075320) replay:   [135] FBtCNN-f32 c= 8 t=14 argmax= 8 OK  12932.6 ms
+I (2088363) replay:   [136] FBtCNN-f32 c= 9 t= 0 argmax= 6 MISS  12935.9 ms
+I (2101472) replay:   [137] FBtCNN-f32 c= 9 t= 1 argmax=11 MISS  12944.2 ms
+I (2114571) replay:   [138] FBtCNN-f32 c= 9 t= 2 argmax= 9 OK  12936.3 ms
+I (2127602) replay:   [139] FBtCNN-f32 c= 9 t= 3 argmax= 9 OK  12933.3 ms
+I (2140988) replay:   [140] FBtCNN-f32 c= 9 t= 4 argmax=11 MISS  12945.8 ms
+I (2154024) replay:   [141] FBtCNN-f32 c= 9 t= 5 argmax= 9 OK  12933.7 ms
+I (2167096) replay:   [142] FBtCNN-f32 c= 9 t= 6 argmax= 9 OK  12939.9 ms
+I (2180162) replay:   [143] FBtCNN-f32 c= 9 t= 7 argmax= 9 OK  12934.5 ms
+I (2193200) replay:   [144] FBtCNN-f32 c= 9 t= 8 argmax= 9 OK  12927.7 ms
+I (2206339) replay:   [145] FBtCNN-f32 c= 9 t= 9 argmax= 9 OK  12948.6 ms
+I (2219384) replay:   [146] FBtCNN-f32 c= 9 t=10 argmax= 8 MISS  12932.0 ms
+I (2232591) replay:   [147] FBtCNN-f32 c= 9 t=11 argmax=10 MISS  12935.5 ms
+I (2245753) replay:   [148] FBtCNN-f32 c= 9 t=12 argmax= 9 OK  12945.2 ms
+I (2258856) replay:   [149] FBtCNN-f32 c= 9 t=13 argmax= 9 OK  12934.8 ms
+I (2271944) replay:   [150] FBtCNN-f32 c= 9 t=14 argmax= 8 MISS  12947.8 ms
+I (2285017) replay:   [151] FBtCNN-f32 c=10 t= 0 argmax= 8 MISS  12935.3 ms
+I (2298067) replay:   [152] FBtCNN-f32 c=10 t= 1 argmax= 5 MISS  12933.4 ms
+I (2311200) replay:   [153] FBtCNN-f32 c=10 t= 2 argmax= 8 MISS  12947.6 ms
+I (2324286) replay:   [154] FBtCNN-f32 c=10 t= 3 argmax=10 OK  12933.8 ms
+I (2337343) replay:   [155] FBtCNN-f32 c=10 t= 4 argmax= 5 MISS  12933.9 ms
+I (2350405) replay:   [156] FBtCNN-f32 c=10 t= 5 argmax=11 MISS  12939.7 ms
+I (2363515) replay:   [157] FBtCNN-f32 c=10 t= 6 argmax=11 MISS  12936.0 ms
+I (2376588) replay:   [158] FBtCNN-f32 c=10 t= 7 argmax=10 OK  12942.5 ms
+I (2389632) replay:   [159] FBtCNN-f32 c=10 t= 8 argmax=10 OK  12940.8 ms
+I (2402725) replay:   [160] FBtCNN-f32 c=10 t= 9 argmax= 5 MISS  12927.0 ms
+I (2415794) replay:   [161] FBtCNN-f32 c=10 t=10 argmax=10 OK  12945.0 ms
+I (2428948) replay:   [162] FBtCNN-f32 c=10 t=11 argmax=10 OK  12933.1 ms
+I (2442051) replay:   [163] FBtCNN-f32 c=10 t=12 argmax=10 OK  12931.7 ms
+I (2455121) replay:   [164] FBtCNN-f32 c=10 t=13 argmax= 5 MISS  12942.4 ms
+I (2468265) replay:   [165] FBtCNN-f32 c=10 t=14 argmax=10 OK  12931.2 ms
+I (2481330) replay:   [166] FBtCNN-f32 c=11 t= 0 argmax=11 OK  12952.8 ms
+I (2494362) replay:   [167] FBtCNN-f32 c=11 t= 1 argmax=10 MISS  12933.6 ms
+I (2507494) replay:   [168] FBtCNN-f32 c=11 t= 2 argmax= 9 MISS  12937.4 ms
+I (2520560) replay:   [169] FBtCNN-f32 c=11 t= 3 argmax= 8 MISS  12946.0 ms
+I (2533599) replay:   [170] FBtCNN-f32 c=11 t= 4 argmax= 8 MISS  12932.7 ms
+I (2546713) replay:   [171] FBtCNN-f32 c=11 t= 5 argmax= 5 MISS  12940.4 ms
+I (2559820) replay:   [172] FBtCNN-f32 c=11 t= 6 argmax=11 OK  12938.4 ms
+I (2572864) replay:   [173] FBtCNN-f32 c=11 t= 7 argmax= 8 MISS  12936.5 ms
+I (2585955) replay:   [174] FBtCNN-f32 c=11 t= 8 argmax=11 OK  12945.5 ms
+I (2599049) replay:   [175] FBtCNN-f32 c=11 t= 9 argmax=11 OK  12943.8 ms
+I (2612124) replay:   [176] FBtCNN-f32 c=11 t=10 argmax= 8 MISS  12932.9 ms
+I (2625298) replay:   [177] FBtCNN-f32 c=11 t=11 argmax= 8 MISS  12948.0 ms
+I (2638466) replay:   [178] FBtCNN-f32 c=11 t=12 argmax= 8 MISS  12935.4 ms
+I (2651676) replay:   [179] FBtCNN-f32 c=11 t=13 argmax=11 OK  12941.9 ms
+I (2664763) replay:   [180] FBtCNN-f32 c=11 t=14 argmax= 8 MISS  12934.3 ms
+I (2664913) replay: ──── SESSION END ──────────────────────
+I (2664914) replay: RES_PROFILE phase=session_summary backend=FBtCNN-f32 int_free_now=205891 spiram_free_now=7452056 sess_baseline_int=206359 sess_min_int=205891 sess_est_peak_drop_int=468 sess_min_spiram=7416180 stack_hwm_words=13840 int_min_ever_boot=200663 note=see_docs
+I (2664936) replay:   backend : FBtCNN-f32
+I (2664940) replay:   trials  : 180 total, 180 ok, 0 err
+I (2664945) replay:   latency : avg 12940.0 ms, min 12927.0 ms, max 13006.3 ms
+I (2664952) replay: ──────────────────────────────────────
+I (2664963) replay: cleanup decoder 9 (FBtCNN-f32)
+I (2664970) replay: client disconnected, waiting for next

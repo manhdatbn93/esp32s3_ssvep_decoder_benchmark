@@ -30,6 +30,8 @@ def _classical(args: argparse.Namespace) -> int:
         cmd.extend(["--npz", str(args.npz)])
     if args.dry_run:
         cmd.append("--dry-run")
+    if getattr(args, "trca_realization", None):
+        cmd.extend(["--trca-realization", args.trca_realization])
     return subprocess.call(cmd, cwd=str(ROOT))
 
 
@@ -228,6 +230,15 @@ def main() -> None:
     ap.add_argument("--output", type=Path, default=None)
     ap.add_argument("--skip-checksum", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument(
+        "--trca-realization",
+        choices=["deployed_sos", "screening_ba"],
+        default="deployed_sos",
+        help=(
+            "TRCA only. deployed_sos reproduces the published host reference. "
+            "screening_ba is the historical transfer-function candidate."
+        ),
+    )
     ap.add_argument(
         "--local-outputs-only",
         action="store_true",

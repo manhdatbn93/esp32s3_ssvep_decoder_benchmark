@@ -23,7 +23,7 @@ Validated clean builds used ESP-IDF 5.4.0 and Xtensa GCC 14.2.0. Keep `firmware/
 | CPU frequency | 240 MHz (`CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240`) |
 | Compiler optimization | performance (`CONFIG_COMPILER_OPTIMIZATION_PERF`, `-O2`) |
 | Power management | disabled (`CONFIG_PM_ENABLE` not set) |
-| Flash | 32 MB, OPI, 80 MHz |
+| Flash | 32 MB octal (`CONFIG_ESPTOOLPY_OCT_FLASH`, `CONFIG_ESPTOOLPY_FLASHMODE_OPI`), 80 MHz. The flasher mode string is `dout` because auto-detect is enabled |
 | PSRAM | octal, 80 MHz |
 | FreeRTOS tick | 1000 Hz |
 | Replay options | TCP port 3333, boot smoke test and `RES_PROFILE` resource logging enabled |
@@ -244,7 +244,7 @@ Replay covers 180 trials per held-out subject with deterministic class-by-trial 
 ### Replay validation status
 
 - Replay client availability: the helper, packet workflow, and TCP client sources are included.
-- Physical MSI smoke (fold 2 / `s2`, 5 trials): validated on-device with 100% device-vs-host argmax agreement and near-zero score differences.
+- Physical MSI smoke (fold 2 / `s2`, 5 trials): a development smoke with device-vs-host argmax agreement on those five trials. It is not the 180-trial strict replay reported in the paper.
 
 ## Device output evaluation
 

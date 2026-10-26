@@ -1,5 +1,6 @@
-# Custom table for ~7.4 MiB embedded weights + app code.
-# Requires flash image >= 16 MiB (typical ESP32-S3-WROOM-1/2 N16 variants).
+# Factory application partition: 0xF00000 bytes (15,728,640).
+# Published target: ESP32-S3-WROOM-2-N32R8V, 32 MB flash, 8 MB OPI PSRAM.
+# A module whose factory partition is smaller cannot hold the same image.
 # Name,   Type, SubType, Offset,  Size, Flags
 nvs,      data, nvs,     0x9000,  0x6000,
 phy_init, data, phy,     0xf000,  0x1000,

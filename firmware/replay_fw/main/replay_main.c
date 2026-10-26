@@ -6,21 +6,10 @@
  * and run through the selected decoder backend. Results (12 float
  * scores/logits) are returned over TCP for host-side comparison.
  *
- * Build example (CCA + EEGNet-f32):
- *   cd embedded/replay_fw
- *   idf.py build -DSMOKE_ENABLE_CCA=ON -DSMOKE_ENABLE_EEGNET_F32=ON
- *
- * All backends:
- *   idf.py build -DSMOKE_ENABLE_CCA=ON -DSMOKE_ENABLE_FBCCA=ON \
- *     -DSMOKE_ENABLE_MSI=ON -DSMOKE_ENABLE_TRCA=ON \
- *     -DSMOKE_ENABLE_EEGNET_F32=ON -DSMOKE_ENABLE_EEGNET_INT8=ON \
- *     -DSMOKE_ENABLE_CCNN_F32=ON -DSMOKE_ENABLE_CCNN_INT8=ON \
- *     -DSMOKE_ENABLE_CONVCA_F32=ON -DSMOKE_ENABLE_FBTCNN_F32=ON \
- *     -DSMOKE_ENABLE_FBTCNN_INT8=ON
- *
- * Subject-aligned embedded artifacts (LOSO val subject):
- *   idf.py build -DTARGET_FOLD_SUBJECT_TAG=fold05_val_s5 ...
- * Default tag is fold01_val_s1. Must match the host replay .mat / export tree.
+ * One image contains one staged backend and fold. Stage the frozen
+ * reference artifacts, copy sdkconfig.measurement to sdkconfig, then
+ * build with idf.py. Full commands are in docs/firmware-and-replay.md.
+ * Do not run idf.py set-target after that copy.
  */
 #include "esp_log.h"
 #include "replay_embed_tag.h"
@@ -50,8 +39,7 @@ void app_main(void) {
   ESP_LOGI(TAG, "  ESP32-S3 / 12JFPM Benchmark");
   ESP_LOGI(TAG, "========================================");
   ESP_LOGI(TAG, "Embedded export tag: %s", REPLAY_EMBED_TARGET_TAG);
-  ESP_LOGI(TAG, "(Use same tag for host: -DTARGET_FOLD_SUBJECT_TAG=%s)",
-           REPLAY_EMBED_TARGET_TAG);
+  ESP_LOGI(TAG, "Staged fold tag: %s", REPLAY_EMBED_TARGET_TAG);
 
   esp_err_t ret = nvs_flash_init();
   if (ret == ESP_ERR_NVS_NO_FREE_PAGES ||

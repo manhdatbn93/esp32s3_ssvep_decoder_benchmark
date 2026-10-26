@@ -55,7 +55,8 @@ def main() -> None:
             return
         print("Stage firmware inputs with scripts/generate_firmware_artifacts.py")
         print("Then build/flash firmware and use src/replay/replay_client.py")
-        print(f"Write device outputs under {args.output}")
+        print("Saved runs default to results/replay/strict_loso_inner_val/.")
+        print(f"Pass --outdir to write elsewhere, for example {args.output}")
         return
 
     print("See docs/firmware-and-replay.md and src/replay/replay_client.py")

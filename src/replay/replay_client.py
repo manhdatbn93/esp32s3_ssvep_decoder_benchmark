@@ -453,7 +453,8 @@ def main() -> int:
                     help="Max trials to replay (omit for all 180)")
     ap.add_argument("--outdir", type=Path, default=None,
                     help="Output directory for artifacts "
-                         "(default: results/replay/<backend>/<subject>_<timestamp>)")
+                         "(default: results/replay/strict_loso_inner_val/"
+                         "<decoder>/<subject>_<timestamp>)")
     ap.add_argument("--run-tag", default=None,
                     help="Custom run tag for output folder name")
     ap.add_argument("-v", "--verbose", action="store_true")

@@ -1,10 +1,15 @@
 # ESP-IDF project for SSVEP decoder TCP replay on ESP32-S3.
 #
-# Required workflow:
-#   python scripts/generate_firmware_artifacts.py --backend <name> --fold <n> --artifact-set reference
+# Measurement-profile build, from the repository root:
+#   python scripts/generate_firmware_artifacts.py --backend msi --fold 1 --artifact-set reference
 #   cd firmware/replay_fw
-#   idf.py set-target esp32s3
+#   Remove the build/ directory when switching backends.
+#   copy sdkconfig.measurement sdkconfig
 #   idf.py build
+# Do not run idf.py set-target after that copy. It replaces sdkconfig
+# with a 160 MHz default. sdkconfig.defaults does not set CPU frequency
+# or optimization and is not this profile.
+# Full instructions: docs/firmware-and-replay.md
 cmake_minimum_required(VERSION 3.16)
 
 get_filename_component(FIRMWARE_ROOT "${CMAKE_CURRENT_LIST_DIR}/.." ABSOLUTE)

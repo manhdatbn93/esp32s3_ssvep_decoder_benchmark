@@ -101,7 +101,7 @@ Canonical PyTorch implementations live under `src/neural/`. SSVEPformer and SSVE
 | `paper_reproduction/` | Manuscript table and figure regeneration |
 | `runs/` | Training checkpoints and logs |
 | `outputs/host/` | Host evaluation outputs |
-| `outputs/device/` | Device replay outputs |
+| `outputs/device/` | Device replay outputs when `--outdir` points here. The client default is `results/replay/strict_loso_inner_val/` |
 | `environment/` | Dependency pins |
 | `tests/` | Unit and contract tests |
 | `docs/` | Workflow documentation |

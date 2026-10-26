@@ -239,7 +239,7 @@ Device firmware and host replay must match on:
 - class order
 - preprocessing contract (default `--norm 1` = per-channel z-score)
 
-Replay covers 180 trials per held-out subject with deterministic class-by-trial order. Write device outputs under `outputs/device/` unless you pass `--outdir`. Reference artifacts are not modified.
+Replay covers 180 trials per held-out subject with deterministic class-by-trial order. If `--outdir` is omitted and results are saved, `replay_client.py` writes under `results/replay/strict_loso_inner_val/<decoder>/<subject>_<timestamp>`. Pass `--outdir`, as in the example above, to write under `outputs/device/` instead. Reference artifacts are not modified. The live byte-identity hard check runs only for EEGNet-int8. Other backends are identified by staging checksums and by host/device score comparison.
 
 ### Replay validation status
 
@@ -262,7 +262,8 @@ This entry point currently prints a placeholder message. It does not aggregate d
 | `artifacts/generated/` | New user exports |
 | `runs/` | Training checkpoints and logs |
 | `outputs/host/` | Host evaluation outputs |
-| `outputs/device/` | Device replay outputs |
+| `outputs/device/` | Device replay outputs when `replay_client.py --outdir` points here |
+| `results/replay/strict_loso_inner_val/` | Default directory when `replay_client.py` saves a run and `--outdir` is omitted |
 | `firmware/generated/` | Staged firmware build inputs |
 | `firmware/replay_fw/build/` | ESP-IDF build output |
 
@@ -337,11 +338,13 @@ Action:
    - `2` / `205`: auth/connection fail
 5. Move the board closer to the AP or try a phone hotspot as a control.
 
-### Backend or subject mismatch at identity check
+### EEGNet-int8 runtime identity mismatch
 
-Symptom: client exits with a model-identity or backend mismatch error.
+Symptom: `replay_client.py` exits with `MODEL_IDENTITY_MISMATCH`.
 
-Action: restage the intended backend/fold, rebuild and flash, then replay with the matching `--backend` and held-out `--mat`.
+That hard check compares host and firmware EEGNet-int8 size, CRC-32, and the first and last 16 bytes. It does not run for the other ten backends. Those backends are checked when artifacts are staged and by host/device score comparison.
+
+Action: restage EEGNet-int8 for the intended fold, rebuild, flash, and replay with the matching `--backend` and held-out `--mat`.
 
 ### Serial port failure
 

@@ -175,6 +175,17 @@ python src\replay\replay_client.py `
 
 Use the held-out subject for the staged fold (fold 2 → `s2.mat`). Healthy smoke shows 100% device-vs-host parity. Full steps: `docs/firmware-and-replay.md` and `firmware/README.md`.
 
+## Paper reproduction
+
+`paper_reproduction/` regenerates the results tables and figures of the accompanying OJ-CS manuscript from the archived trial-level device evidence. It requires no raw EEG and no board:
+
+```powershell
+python -m pip install -r paper_reproduction/requirements.txt
+python paper_reproduction/reproduce.py
+```
+
+See `paper_reproduction/README.md` for what is reproduced, the provenance of each evidence set, and the sanitization applied to the public copies.
+
 ## Output directories
 
 | Directory | Role |
@@ -193,7 +204,8 @@ Generated runtime directories are ignored by Git where appropriate. Do not edit 
 
 - `docs/dataset.md` — dataset preparation and LOSO manifests
 - `docs/training-and-export.md` — training, export, PTQ, host evaluation
-- `docs/firmware-and-replay.md` — staging, ESP-IDF build, flash, replay
+- `docs/firmware-and-replay.md` — staging, ESP-IDF build, flash, replay, measurement profile
+- `paper_reproduction/README.md` — regenerating the paper's tables and figures
 - `firmware/README.md` — firmware project entry point
 - `environment/firmware_versions.md` — toolchain pins
 

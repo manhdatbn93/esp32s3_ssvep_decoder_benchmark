@@ -1,0 +1,12 @@
+backend,n_trials,mean_raw_mae,mean_raw_rmse,maximum_absolute_raw_error,comparison_scope
+CCA,1800,0.0034094922453703704,0.004392590206706506,0.03059588999999996,within_backend_implementation_diagnostic_only
+FBCCA,1800,0.004300570396296296,0.005619287866894326,0.05593967,within_backend_implementation_diagnostic_only
+MSI,1800,1.1455833333333431e-07,1.5303095792856335e-07,0.00010479,within_backend_implementation_diagnostic_only
+TRCA,1800,3.1485578703705075e-06,4.195595978265005e-06,7.936999999996752e-05,within_backend_implementation_diagnostic_only
+CCNN-f32,1800,0.00021200169120370201,0.00026023841358758517,0.0020942699999997316,within_backend_implementation_diagnostic_only
+CCNN-int8,1800,0.644819311911574,0.7964686484082313,4.69529533,within_backend_implementation_diagnostic_only
+ConvCA-f32,1800,2.0751759259221417e-07,2.616183418955735e-07,2.3900000005738775e-06,within_backend_implementation_diagnostic_only
+EEGNet-f32,1800,2.751078703709746e-07,3.5780135021953475e-07,3.820000001653057e-06,within_backend_implementation_diagnostic_only
+EEGNet-int8,1800,0.017733339269907406,0.032797611263813996,0.15615296999999995,within_backend_implementation_diagnostic_only
+FBtCNN-f32,1800,1.8282750000012312e-06,2.2337145250134513e-06,1.9070000000454e-05,within_backend_implementation_diagnostic_only
+FBtCNN-int8,1800,0.04853340398009259,0.07972668397856338,0.4849357600000008,within_backend_implementation_diagnostic_only

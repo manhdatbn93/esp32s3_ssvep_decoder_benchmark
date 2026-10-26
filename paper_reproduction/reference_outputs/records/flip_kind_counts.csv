@@ -1,0 +1,4 @@
+backend,harmful,both_wrong,beneficial
+CCNN-int8,25,24,18
+EEGNet-int8,11,17,6
+FBtCNN-int8,2,2,2

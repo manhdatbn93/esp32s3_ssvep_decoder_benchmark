@@ -7,7 +7,7 @@ from dataclasses import dataclass, field
 import numpy as np
 from scipy import linalg
 
-from src.classical.filters import bandpass_filter, cheby1_filter_bank, ensure_trials_time_channels
+from src.analytical.filters import bandpass_filter, cheby1_filter_bank, ensure_trials_time_channels
 
 
 def _corr(a: np.ndarray, b: np.ndarray) -> float:

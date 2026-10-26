@@ -15,8 +15,14 @@ os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO))
 
-INT8_MODEL = str(REPO / "export/12jfpm_eegnet_fold01_val_s1_int8/eegnet_int8.tflite")
-F32_MODEL = str(REPO / "export/12jfpm_eegnet_fold01_val_s1/eegnet_float32.tflite")
+from src.replay.host_interpreter import (  # noqa: E402
+    HOST_REFERENCE_OP_RESOLVER,
+    NO_DEFAULT_DELEGATES_OP_RESOLVER,
+    make_interpreter,
+)
+
+INT8_MODEL = str(REPO / "artifacts/reference/tflite/eegnet_int8/fold01/eegnet_int8.tflite")
+F32_MODEL = str(REPO / "artifacts/reference/tflite/eegnet_f32/fold01/eegnet_float32.tflite")
 
 
 def load_trials(n=20):
@@ -35,14 +41,8 @@ def load_trials(n=20):
 
 def run_model(model_path, inputs, use_xnnpack=True):
     """Run inference on a list of inputs, return list of output arrays."""
-    import tensorflow as tf
-    if use_xnnpack:
-        interp = tf.lite.Interpreter(model_path=model_path)
-    else:
-        interp = tf.lite.Interpreter(
-            model_path=model_path,
-            experimental_delegates=[]  # no delegates
-        )
+    resolver = HOST_REFERENCE_OP_RESOLVER if use_xnnpack else NO_DEFAULT_DELEGATES_OP_RESOLVER
+    interp = make_interpreter(model_path, resolver)
     interp.allocate_tensors()
     inp_detail = interp.get_input_details()[0]
     out_detail = interp.get_output_details()[0]
@@ -70,8 +70,7 @@ def main():
     print("\n--- Int8 model (XNNPACK) ---")
     i8_xnn = run_model(INT8_MODEL, trials, use_xnnpack=True)
 
-    print("\n--- Int8 model (NO XNNPACK / reference kernels) ---")
-    os.environ["TFLITE_XNNPACK_DISABLED"] = "1"
+    print("\n--- Int8 model (BUILTIN_WITHOUT_DEFAULT_DELEGATES: no XNNPACK) ---")
     i8_ref = run_model(INT8_MODEL, trials, use_xnnpack=False)
 
     print(f"\n{'='*75}")

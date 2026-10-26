@@ -1,0 +1,12 @@
+backend,family,precision_type,n_trials,device_accuracy,argmax_agreement,flip_rate,logit_mae_mean,logit_rmse_mean,max_abs_logit_error_max,latency_ms_mean,latency_ms_std,artifact_provenance
+CCNN-f32,neural,f32,1800,0.87222222,1,0,0.00021200169,0.00026023841,0.00209427,161.22539,1.7521969,strict_device_replay
+CCNN-int8,neural,int8,1800,0.86777778,0.96277778,0.037222222,0.64481931,0.79646865,4.6952953,74.110208,1.714129,strict_device_replay
+ConvCA-f32,neural,f32,1800,0.88111111,1,0,2.0751759e-07,2.6161834e-07,2.39e-06,2118.0801,7.3010597,strict_device_replay
+EEGNet-f32,neural,f32,1800,0.53444444,1,0,2.7510787e-07,3.5780135e-07,3.82e-06,1118.8444,3.1065816,strict_device_replay
+EEGNet-int8,neural,int8,1800,0.50722222,0.98111111,0.018888889,0.017733339,0.032797611,0.15615297,69.155981,2.4832496,strict_device_replay
+FBtCNN-f32,neural,f32,1800,0.855,1,0,1.828275e-06,2.2337145e-06,1.907e-05,12970.047,46.770366,strict_device_replay
+FBtCNN-int8,neural,int8,1800,0.85277778,0.99666667,0.0033333333,0.048533404,0.079726684,0.48493576,2138.8878,7.9717456,strict_device_replay
+CCA,classical,classical,1800,0.80722222,0.98055556,0.019444444,0.0034094922,0.0043925902,0.03059589,553.47525,1.4291546,version_a_device_replay_migrated
+FBCCA,classical,classical,1800,0.83277778,0.98666667,0.013333333,0.0043005704,0.0056192879,0.05593967,8442.4112,28.969836,version_a_device_replay_migrated
+MSI,classical,classical,1800,0.75944444,1,0,1.1455833e-07,1.5303096e-07,0.00010479,1035.2268,20.48431,version_a_device_replay_migrated
+TRCA,classical,classical,1800,0.83444444,1,0,3.1485634e-06,4.1955885e-06,7.937e-05,13621.749,37.476182,version_a_device_replay_migrated

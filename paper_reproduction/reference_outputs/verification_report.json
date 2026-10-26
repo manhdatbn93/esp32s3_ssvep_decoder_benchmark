@@ -1,0 +1,271 @@
+{
+ "status": "PASS",
+ "n_checks": 24,
+ "n_failed": 0,
+ "environment": {
+  "python": "3.10.11",
+  "platform": "Windows",
+  "numpy": "1.26.4",
+  "matplotlib": "3.10.9"
+ },
+ "checks": [
+  {
+   "check": "frozen evidence matches MANIFEST.sha256",
+   "passed": true,
+   "n_listed": 408,
+   "mismatched_or_missing": [],
+   "unlisted": []
+  },
+  {
+   "check": "replay evidence: 110 runs x 180 unique trials, stored argmax and CSV mirror consistent",
+   "passed": true,
+   "n_trials": 19800,
+   "n_runs": 110,
+   "stored_vs_recomputed_argmax_errors": 0,
+   "jsonl_vs_csv_field_mismatches": 0,
+   "jsonl_vs_csv_max_abs_vector_diff": 0.0
+  },
+  {
+   "check": "run summaries agree with their trial records (count, correct, agreement, mean latency)",
+   "passed": true,
+   "mismatched_runs": []
+  },
+  {
+   "check": "classical vectors: replay records equal classical fidelity record",
+   "passed": true,
+   "missing": 0,
+   "max_abs_diff": 4.9999999918171056e-08
+  },
+  {
+   "check": "Table 2 (11 realized backends) equals submitted values",
+   "passed": true,
+   "n_cells": 66,
+   "differences": []
+  },
+  {
+   "check": "Stage 1 and Stage 2 records align (12,600 neural trials; export host = replay host top-1)",
+   "passed": true,
+   "stage1_rows": 12600,
+   "joined_rows": 12600,
+   "replay_rows_without_stage1": 0,
+   "stage1_rows_without_replay": 0,
+   "label_or_trial_number_mismatches": 0,
+   "export_host_vs_replay_host_prediction_mismatches": {}
+  },
+  {
+   "check": "frozen per_trial_fidelity.csv predictions equal the replay records",
+   "passed": true,
+   "rows": 12600,
+   "mismatches": 0
+  },
+  {
+   "check": "Table 3 (two-stage neural fidelity) equals submitted values",
+   "passed": true,
+   "n_cells": 35,
+   "differences": []
+  },
+  {
+   "check": "Table S12 (transition decomposition) equals submitted counts",
+   "passed": true,
+   "n_cells": 35,
+   "differences": []
+  },
+  {
+   "check": "int8 Stage 2 flips: 107 total (67/34/6), 104 distinct trials, none on all three",
+   "passed": true,
+   "total": 107,
+   "per_backend": {
+    "CCNN-int8": 67,
+    "EEGNet-int8": 34,
+    "FBtCNN-int8": 6
+   },
+   "distinct_trials": 104,
+   "pairwise_overlap": {
+    "CCNN-int8&EEGNet-int8": 1,
+    "CCNN-int8&FBtCNN-int8": 2,
+    "EEGNet-int8&FBtCNN-int8": 0
+   },
+   "all_three_overlap": 0,
+   "kind": {
+    "CCNN-int8": {
+     "harmful": 25,
+     "both_wrong": 24,
+     "beneficial": 18
+    },
+    "EEGNet-int8": {
+     "both_wrong": 17,
+     "harmful": 11,
+     "beneficial": 6
+    },
+    "FBtCNN-int8": {
+     "both_wrong": 2,
+     "harmful": 2,
+     "beneficial": 2
+    }
+   }
+  },
+  {
+   "check": "margin quartiles: Q1 shares 98.5/94.1/100.0 %, Q2 flips 1/2/0, no Q3/Q4 flips",
+   "passed": true,
+   "counts": {
+    "CCNN-int8": [
+     455,
+     445,
+     453,
+     447
+    ],
+    "EEGNet-int8": [
+     446,
+     457,
+     447,
+     450
+    ],
+    "FBtCNN-int8": [
+     450,
+     451,
+     450,
+     449
+    ]
+   },
+   "flips": {
+    "CCNN-int8": [
+     66,
+     1,
+     0,
+     0
+    ],
+    "EEGNet-int8": [
+     32,
+     2,
+     0,
+     0
+    ],
+    "FBtCNN-int8": [
+     6,
+     0,
+     0,
+     0
+    ]
+   },
+   "groups": 30,
+   "groups_with_unequal_quartiles_due_to_ties": 15
+  },
+  {
+   "check": "Figure 2 source (rates and 10,000-sample bootstrap CIs) equals archived r21 figure source",
+   "passed": true,
+   "differences": []
+  },
+  {
+   "check": "Table S13 (normalized output error) equals submitted values",
+   "passed": true,
+   "n_cells": 77,
+   "differences": []
+  },
+  {
+   "check": "normalized output error equals archived r21 summary (relative tolerance 1e-9)",
+   "passed": true,
+   "differences": []
+  },
+  {
+   "check": "Table 5(a) firmware footprint (44 values) equals archived idf.py size evidence",
+   "passed": true,
+   "n_cells": 44,
+   "differences": []
+  },
+  {
+   "check": "Table 5(b) runtime memory (29 values + 4 analytical dashes) equals archived UART/arena logs",
+   "passed": true,
+   "n_cells": 33,
+   "differences": []
+  },
+  {
+   "check": "all seven neural arenas allocated in PSRAM",
+   "passed": true
+  },
+  {
+   "check": "policy resource profile derived from Table 5 evidence equals the profile used by the original policy analysis",
+   "passed": true,
+   "derived": {
+    "CCA": [
+     960.9,
+     null
+    ],
+    "FBCCA": [
+     965.3,
+     null
+    ],
+    "MSI": [
+     961.6,
+     null
+    ],
+    "TRCA": [
+     2743.1,
+     null
+    ],
+    "CCNN-f32": [
+     1164.3,
+     40.6
+    ],
+    "CCNN-int8": [
+     1039.5,
+     15.4
+    ],
+    "ConvCA-f32": [
+     1023.0,
+     275.9
+    ],
+    "EEGNet-f32": [
+     1000.2,
+     163.7
+    ],
+    "EEGNet-int8": [
+     1000.2,
+     76.1
+    ],
+    "FBtCNN-f32": [
+     1711.6,
+     385.5
+    ],
+    "FBtCNN-int8": [
+     1179.4,
+     346.1
+    ]
+   }
+  },
+  {
+   "check": "Table 4 policies (as_described objectives): gates, admissible sets, Pareto sets, selections",
+   "passed": true,
+   "differences": []
+  },
+  {
+   "check": "Table 4 policies (as_executed objectives): gates, admissible sets, Pareto sets, selections",
+   "passed": true,
+   "differences": []
+  },
+  {
+   "check": "policy outcomes identical with and without P95 relative L2 in the objectives",
+   "passed": true
+  },
+  {
+   "check": "selections equal archived r21 deployment_policy_selection",
+   "passed": true
+  },
+  {
+   "check": "5x5 policy sensitivity grid equals archived r21 grid",
+   "passed": true,
+   "differences": []
+  },
+  {
+   "check": "figures regenerated",
+   "passed": true,
+   "files": [
+    "figures/fig_margin_quartile.pdf",
+    "figures/fig_margin_quartile.png",
+    "figures/fig_latency_accuracy_neural.pdf",
+    "figures/fig_latency_accuracy_neural.png",
+    "figures/fig_latency_fidelity_neural.pdf",
+    "figures/fig_latency_fidelity_neural.png"
+   ]
+  }
+ ]
+}

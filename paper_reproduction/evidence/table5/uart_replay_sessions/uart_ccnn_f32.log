@@ -1,0 +1,216 @@
+I (25964) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (25972) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (25991) wifi:<ba-add>idx:0 (ifx:0, <REDACTED_MAC>), tid:0, ssn:1, winSize:64
+I (26030) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (27043) esp_netif_handlers: sta ip: <REDACTED_IP>, mask: 255.255.255.0, gw: <REDACTED_IP>
+I (27043) replay_wifi: got ip: <REDACTED_IP>
+I (27044) replay: listening on port 3333
+I (27047) replay: Available backends:
+I (27051) replay:   [ 6] CCNN-f32
+I (27054) replay:   1 backend(s) ready
+I (27057) replay: Waiting for client connection...
+I (27062) replay_app: replay_tcp_server_task started (internal stack 16384 B, core 0)
+I (27069) main_task: Returned from app_main()
+I (51743) replay: ──────────────────────────────────────
+I (51744) replay: client connected from <REDACTED_IP>:63325
+I (51753) replay: init decoder 6 (CCNN-f32)
+I (51753) replay: RES_PROFILE phase=pre_backend_init backend=CCNN-f32 total_free=8495156 int_free=206815 spiram_free=8320372 int_largest=106496 int_min_ever_boot=201119 spiram_min_ever_boot=7845472
+I (51770) tflm: arena: raw=0x3c121138 aligned=0x3c121140 size=524288 align_ok=1 resolver_was_ready=1
+I (51780) tflm: ctx_create OK: interp=0x3fcb3be8
+I (51784) replay: RES_PROFILE phase=post_backend_init backend=CCNN-f32 total_free=7954256 int_free=206591 spiram_free=7779696 int_largest=106496 int_min_ever_boot=201119 spiram_min_ever_boot=7779696
+I (51801) replay: ──── SESSION START ────────────────────
+I (51810) replay:   backend : CCNN-f32 (id=6)
+I (51814) replay:   norm=1  onset=38  window=512  fs=256  ch=8
+I (51890) replay: RES_PROFILE phase=pre_first_infer backend=CCNN-f32 total_free=7918432 int_free=206591 spiram_free=7743872 int_largest=106496 int_min_ever_boot=201119 spiram_min_ever_boot=7736676
+I (51941) tflm: invoke#1: in_type=1 out_type=1 in_len=1760 out_len=12
+I (51941) tflm: invoke#1: input[0..3] = -0.079396 -0.039534 -0.058586 0.101650
+I (52036) tflm: invoke#1: out[0..3] = -8.438072 -13.019892 -7.285892 -11.031396
+I (52037) replay: RES_PROFILE phase=post_first_infer backend=CCNN-f32 total_free=7918188 int_free=206347 spiram_free=7743872 int_largest=106496 int_min_ever_boot=201119 spiram_min_ever_boot=7736676
+I (52051) replay:   [  1] CCNN-f32 c= 0 t= 0 argmax=10 MISS  178.9 ms
+I (52385) replay:   [  2] CCNN-f32 c= 0 t= 1 argmax= 4 MISS  156.8 ms
+I (52666) replay:   [  3] CCNN-f32 c= 0 t= 2 argmax= 0 OK  156.5 ms
+I (52922) replay:   [  4] CCNN-f32 c= 0 t= 3 argmax=11 MISS  156.5 ms
+I (53275) replay:   [  5] CCNN-f32 c= 0 t= 4 argmax= 9 MISS  157.5 ms
+I (53593) replay:   [  6] CCNN-f32 c= 0 t= 5 argmax= 0 OK  156.7 ms
+I (53847) replay:   [  7] CCNN-f32 c= 0 t= 6 argmax= 0 OK  156.9 ms
+I (54256) replay:   [  8] CCNN-f32 c= 0 t= 7 argmax= 0 OK  157.6 ms
+I (54623) replay:   [  9] CCNN-f32 c= 0 t= 8 argmax= 1 MISS  156.6 ms
+I (54931) replay:   [ 10] CCNN-f32 c= 0 t= 9 argmax= 0 OK  156.4 ms
+I (55223) replay:   [ 11] CCNN-f32 c= 0 t=10 argmax=11 MISS  156.8 ms
+I (55482) replay:   [ 12] CCNN-f32 c= 0 t=11 argmax= 0 OK  156.2 ms
+I (55843) replay:   [ 13] CCNN-f32 c= 0 t=12 argmax= 1 MISS  156.7 ms
+I (56157) replay:   [ 14] CCNN-f32 c= 0 t=13 argmax= 0 OK  156.3 ms
+I (56460) replay:   [ 15] CCNN-f32 c= 0 t=14 argmax= 0 OK  156.9 ms
+I (56715) replay:   [ 16] CCNN-f32 c= 1 t= 0 argmax= 4 MISS  156.4 ms
+I (56987) replay:   [ 17] CCNN-f32 c= 1 t= 1 argmax= 5 MISS  156.5 ms
+I (57276) replay:   [ 18] CCNN-f32 c= 1 t= 2 argmax= 1 OK  156.9 ms
+I (57538) replay:   [ 19] CCNN-f32 c= 1 t= 3 argmax= 1 OK  157.3 ms
+I (57896) replay:   [ 20] CCNN-f32 c= 1 t= 4 argmax= 1 OK  156.3 ms
+I (58198) replay:   [ 21] CCNN-f32 c= 1 t= 5 argmax= 1 OK  157.1 ms
+I (58454) replay:   [ 22] CCNN-f32 c= 1 t= 6 argmax= 1 OK  156.1 ms
+I (58740) replay:   [ 23] CCNN-f32 c= 1 t= 7 argmax= 1 OK  157.4 ms
+I (59138) replay:   [ 24] CCNN-f32 c= 1 t= 8 argmax= 1 OK  156.7 ms
+I (59533) replay:   [ 25] CCNN-f32 c= 1 t= 9 argmax= 1 OK  157.6 ms
+I (59826) replay:   [ 26] CCNN-f32 c= 1 t=10 argmax= 1 OK  156.8 ms
+I (60086) replay:   [ 27] CCNN-f32 c= 1 t=11 argmax= 1 OK  157.3 ms
+I (60331) replay:   [ 28] CCNN-f32 c= 1 t=12 argmax= 1 OK  157.3 ms
+I (60584) replay:   [ 29] CCNN-f32 c= 1 t=13 argmax= 1 OK  156.7 ms
+I (60960) replay:   [ 30] CCNN-f32 c= 1 t=14 argmax= 1 OK  156.4 ms
+I (61213) replay:   [ 31] CCNN-f32 c= 2 t= 0 argmax=10 MISS  156.2 ms
+I (61472) replay:   [ 32] CCNN-f32 c= 2 t= 1 argmax= 2 OK  156.7 ms
+I (61733) replay:   [ 33] CCNN-f32 c= 2 t= 2 argmax=11 MISS  156.4 ms
+I (62093) replay:   [ 34] CCNN-f32 c= 2 t= 3 argmax= 2 OK  157.8 ms
+I (62368) replay:   [ 35] CCNN-f32 c= 2 t= 4 argmax= 2 OK  156.6 ms
+I (62686) replay:   [ 36] CCNN-f32 c= 2 t= 5 argmax= 2 OK  156.9 ms
+I (63010) replay:   [ 37] CCNN-f32 c= 2 t= 6 argmax= 2 OK  156.6 ms
+I (63259) replay:   [ 38] CCNN-f32 c= 2 t= 7 argmax= 2 OK  157.1 ms
+I (63526) replay:   [ 39] CCNN-f32 c= 2 t= 8 argmax= 2 OK  157.7 ms
+I (63777) replay:   [ 40] CCNN-f32 c= 2 t= 9 argmax= 2 OK  157.0 ms
+I (64119) replay:   [ 41] CCNN-f32 c= 2 t=10 argmax= 2 OK  156.3 ms
+I (64436) replay:   [ 42] CCNN-f32 c= 2 t=11 argmax= 2 OK  156.8 ms
+I (64698) replay:   [ 43] CCNN-f32 c= 2 t=12 argmax= 2 OK  156.2 ms
+I (65043) replay:   [ 44] CCNN-f32 c= 2 t=13 argmax= 2 OK  157.3 ms
+I (65385) replay:   [ 45] CCNN-f32 c= 2 t=14 argmax= 2 OK  156.5 ms
+I (65671) replay:   [ 46] CCNN-f32 c= 3 t= 0 argmax= 1 MISS  156.5 ms
+I (65927) replay:   [ 47] CCNN-f32 c= 3 t= 1 argmax= 3 OK  156.5 ms
+I (66192) replay:   [ 48] CCNN-f32 c= 3 t= 2 argmax= 3 OK  156.3 ms
+I (66495) replay:   [ 49] CCNN-f32 c= 3 t= 3 argmax= 3 OK  157.5 ms
+I (66765) replay:   [ 50] CCNN-f32 c= 3 t= 4 argmax= 3 OK  157.1 ms
+I (67110) replay:   [ 51] CCNN-f32 c= 3 t= 5 argmax= 3 OK  156.6 ms
+I (67363) replay:   [ 52] CCNN-f32 c= 3 t= 6 argmax= 3 OK  156.7 ms
+I (67724) replay:   [ 53] CCNN-f32 c= 3 t= 7 argmax= 3 OK  156.3 ms
+I (67974) replay:   [ 54] CCNN-f32 c= 3 t= 8 argmax= 3 OK  156.3 ms
+I (68232) replay:   [ 55] CCNN-f32 c= 3 t= 9 argmax= 3 OK  156.4 ms
+I (68539) replay:   [ 56] CCNN-f32 c= 3 t=10 argmax= 3 OK  157.6 ms
+I (68854) replay:   [ 57] CCNN-f32 c= 3 t=11 argmax= 3 OK  156.6 ms
+I (69161) replay:   [ 58] CCNN-f32 c= 3 t=12 argmax= 3 OK  156.3 ms
+I (69408) replay:   [ 59] CCNN-f32 c= 3 t=13 argmax= 3 OK  156.1 ms
+I (69670) replay:   [ 60] CCNN-f32 c= 3 t=14 argmax= 3 OK  156.8 ms
+I (69917) replay:   [ 61] CCNN-f32 c= 4 t= 0 argmax= 0 MISS  156.5 ms
+I (70172) replay:   [ 62] CCNN-f32 c= 4 t= 1 argmax= 4 OK  156.4 ms
+I (70510) replay:   [ 63] CCNN-f32 c= 4 t= 2 argmax= 4 OK  156.5 ms
+I (70909) replay:   [ 64] CCNN-f32 c= 4 t= 3 argmax= 4 OK  156.6 ms
+I (71161) replay:   [ 65] CCNN-f32 c= 4 t= 4 argmax= 2 MISS  156.4 ms
+I (71512) replay:   [ 66] CCNN-f32 c= 4 t= 5 argmax= 4 OK  156.8 ms
+I (71759) replay:   [ 67] CCNN-f32 c= 4 t= 6 argmax= 4 OK  156.5 ms
+I (72106) replay:   [ 68] CCNN-f32 c= 4 t= 7 argmax= 4 OK  156.7 ms
+I (72357) replay:   [ 69] CCNN-f32 c= 4 t= 8 argmax= 4 OK  156.6 ms
+I (72767) replay:   [ 70] CCNN-f32 c= 4 t= 9 argmax= 4 OK  156.8 ms
+I (73141) replay:   [ 71] CCNN-f32 c= 4 t=10 argmax= 4 OK  156.7 ms
+I (73390) replay:   [ 72] CCNN-f32 c= 4 t=11 argmax= 4 OK  156.6 ms
+I (73761) replay:   [ 73] CCNN-f32 c= 4 t=12 argmax= 4 OK  157.3 ms
+I (74073) replay:   [ 74] CCNN-f32 c= 4 t=13 argmax= 4 OK  156.7 ms
+I (74375) replay:   [ 75] CCNN-f32 c= 4 t=14 argmax= 4 OK  156.8 ms
+I (74674) replay:   [ 76] CCNN-f32 c= 5 t= 0 argmax= 5 OK  156.7 ms
+I (74986) replay:   [ 77] CCNN-f32 c= 5 t= 1 argmax= 5 OK  157.1 ms
+I (75284) replay:   [ 78] CCNN-f32 c= 5 t= 2 argmax= 8 MISS  157.0 ms
+I (75594) replay:   [ 79] CCNN-f32 c= 5 t= 3 argmax= 2 MISS  156.7 ms
+I (75905) replay:   [ 80] CCNN-f32 c= 5 t= 4 argmax= 5 OK  156.7 ms
+I (76155) replay:   [ 81] CCNN-f32 c= 5 t= 5 argmax= 5 OK  156.4 ms
+I (76397) replay:   [ 82] CCNN-f32 c= 5 t= 6 argmax= 5 OK  156.3 ms
+I (76736) replay:   [ 83] CCNN-f32 c= 5 t= 7 argmax= 5 OK  157.1 ms
+I (77023) replay:   [ 84] CCNN-f32 c= 5 t= 8 argmax= 7 MISS  156.8 ms
+I (77345) replay:   [ 85] CCNN-f32 c= 5 t= 9 argmax= 5 OK  156.6 ms
+I (77638) replay:   [ 86] CCNN-f32 c= 5 t=10 argmax= 5 OK  156.6 ms
+I (77967) replay:   [ 87] CCNN-f32 c= 5 t=11 argmax= 5 OK  157.0 ms
+I (78236) replay:   [ 88] CCNN-f32 c= 5 t=12 argmax= 5 OK  157.0 ms
+I (78497) replay:   [ 89] CCNN-f32 c= 5 t=13 argmax= 5 OK  156.7 ms
+I (78749) replay:   [ 90] CCNN-f32 c= 5 t=14 argmax= 5 OK  157.1 ms
+I (79013) replay:   [ 91] CCNN-f32 c= 6 t= 0 argmax= 8 MISS  156.9 ms
+I (79373) replay:   [ 92] CCNN-f32 c= 6 t= 1 argmax= 6 OK  156.5 ms
+I (79697) replay:   [ 93] CCNN-f32 c= 6 t= 2 argmax= 9 MISS  156.5 ms
+I (80020) replay:   [ 94] CCNN-f32 c= 6 t= 3 argmax= 6 OK  157.0 ms
+I (80305) replay:   [ 95] CCNN-f32 c= 6 t= 4 argmax= 6 OK  156.6 ms
+I (80567) replay:   [ 96] CCNN-f32 c= 6 t= 5 argmax= 6 OK  157.2 ms
+I (80827) replay:   [ 97] CCNN-f32 c= 6 t= 6 argmax= 6 OK  156.9 ms
+I (81140) replay:   [ 98] CCNN-f32 c= 6 t= 7 argmax= 6 OK  156.8 ms
+I (81442) replay:   [ 99] CCNN-f32 c= 6 t= 8 argmax= 6 OK  156.5 ms
+I (81731) replay:   [100] CCNN-f32 c= 6 t= 9 argmax= 6 OK  156.2 ms
+I (82001) replay:   [101] CCNN-f32 c= 6 t=10 argmax= 6 OK  156.5 ms
+I (82368) replay:   [102] CCNN-f32 c= 6 t=11 argmax= 6 OK  156.9 ms
+I (82626) replay:   [103] CCNN-f32 c= 6 t=12 argmax= 6 OK  156.5 ms
+I (82980) replay:   [104] CCNN-f32 c= 6 t=13 argmax= 6 OK  156.8 ms
+I (83304) replay:   [105] CCNN-f32 c= 6 t=14 argmax= 6 OK  157.4 ms
+I (83562) replay:   [106] CCNN-f32 c= 7 t= 0 argmax= 7 OK  157.6 ms
+I (83850) replay:   [107] CCNN-f32 c= 7 t= 1 argmax= 8 MISS  156.3 ms
+I (84112) replay:   [108] CCNN-f32 c= 7 t= 2 argmax= 7 OK  156.4 ms
+I (84358) replay:   [109] CCNN-f32 c= 7 t= 3 argmax= 9 MISS  156.8 ms
+I (84718) replay:   [110] CCNN-f32 c= 7 t= 4 argmax= 7 OK  156.5 ms
+I (84969) replay:   [111] CCNN-f32 c= 7 t= 5 argmax= 7 OK  156.7 ms
+I (85330) replay:   [112] CCNN-f32 c= 7 t= 6 argmax= 8 MISS  156.5 ms
+I (85584) replay:   [113] CCNN-f32 c= 7 t= 7 argmax= 7 OK  157.1 ms
+I (85853) replay:   [114] CCNN-f32 c= 7 t= 8 argmax= 7 OK  156.6 ms
+I (86101) replay:   [115] CCNN-f32 c= 7 t= 9 argmax= 7 OK  156.4 ms
+I (86366) replay:   [116] CCNN-f32 c= 7 t=10 argmax= 5 MISS  156.5 ms
+I (86615) replay:   [117] CCNN-f32 c= 7 t=11 argmax= 7 OK  156.7 ms
+I (86874) replay:   [118] CCNN-f32 c= 7 t=12 argmax= 7 OK  156.7 ms
+I (87181) replay:   [119] CCNN-f32 c= 7 t=13 argmax= 7 OK  156.4 ms
+I (87428) replay:   [120] CCNN-f32 c= 7 t=14 argmax= 0 MISS  156.3 ms
+I (87683) replay:   [121] CCNN-f32 c= 8 t= 0 argmax= 8 OK  156.4 ms
+I (88005) replay:   [122] CCNN-f32 c= 8 t= 1 argmax=10 MISS  156.9 ms
+I (88326) replay:   [123] CCNN-f32 c= 8 t= 2 argmax= 8 OK  157.5 ms
+I (88586) replay:   [124] CCNN-f32 c= 8 t= 3 argmax=10 MISS  156.3 ms
+I (88838) replay:   [125] CCNN-f32 c= 8 t= 4 argmax=11 MISS  157.4 ms
+I (89126) replay:   [126] CCNN-f32 c= 8 t= 5 argmax= 8 OK  156.7 ms
+I (89380) replay:   [127] CCNN-f32 c= 8 t= 6 argmax=11 MISS  156.8 ms
+I (89723) replay:   [128] CCNN-f32 c= 8 t= 7 argmax= 8 OK  156.2 ms
+I (90043) replay:   [129] CCNN-f32 c= 8 t= 8 argmax= 8 OK  157.8 ms
+I (90335) replay:   [130] CCNN-f32 c= 8 t= 9 argmax= 8 OK  156.5 ms
+I (90607) replay:   [131] CCNN-f32 c= 8 t=10 argmax= 3 MISS  156.5 ms
+I (90966) replay:   [132] CCNN-f32 c= 8 t=11 argmax= 8 OK  156.4 ms
+I (91247) replay:   [133] CCNN-f32 c= 8 t=12 argmax= 5 MISS  157.1 ms
+I (91563) replay:   [134] CCNN-f32 c= 8 t=13 argmax= 8 OK  156.5 ms
+I (91870) replay:   [135] CCNN-f32 c= 8 t=14 argmax= 8 OK  156.9 ms
+I (92195) replay:   [136] CCNN-f32 c= 9 t= 0 argmax= 6 MISS  157.6 ms
+I (92447) replay:   [137] CCNN-f32 c= 9 t= 1 argmax= 9 OK  156.9 ms
+I (92696) replay:   [138] CCNN-f32 c= 9 t= 2 argmax=10 MISS  156.6 ms
+I (93018) replay:   [139] CCNN-f32 c= 9 t= 3 argmax= 9 OK  156.4 ms
+I (93299) replay:   [140] CCNN-f32 c= 9 t= 4 argmax= 9 OK  157.3 ms
+I (93627) replay:   [141] CCNN-f32 c= 9 t= 5 argmax= 9 OK  156.8 ms
+I (93878) replay:   [142] CCNN-f32 c= 9 t= 6 argmax= 9 OK  156.9 ms
+I (94142) replay:   [143] CCNN-f32 c= 9 t= 7 argmax= 9 OK  156.8 ms
+I (94396) replay:   [144] CCNN-f32 c= 9 t= 8 argmax= 9 OK  156.3 ms
+I (94660) replay:   [145] CCNN-f32 c= 9 t= 9 argmax= 9 OK  157.0 ms
+I (94957) replay:   [146] CCNN-f32 c= 9 t=10 argmax= 3 MISS  156.4 ms
+I (95216) replay:   [147] CCNN-f32 c= 9 t=11 argmax=10 MISS  156.5 ms
+I (95476) replay:   [148] CCNN-f32 c= 9 t=12 argmax= 9 OK  156.5 ms
+I (95723) replay:   [149] CCNN-f32 c= 9 t=13 argmax= 9 OK  156.3 ms
+I (95990) replay:   [150] CCNN-f32 c= 9 t=14 argmax= 3 MISS  156.8 ms
+I (96290) replay:   [151] CCNN-f32 c=10 t= 0 argmax= 6 MISS  157.3 ms
+I (96580) replay:   [152] CCNN-f32 c=10 t= 1 argmax=11 MISS  156.4 ms
+I (96831) replay:   [153] CCNN-f32 c=10 t= 2 argmax= 6 MISS  157.4 ms
+I (97087) replay:   [154] CCNN-f32 c=10 t= 3 argmax=10 OK  156.4 ms
+I (97424) replay:   [155] CCNN-f32 c=10 t= 4 argmax= 2 MISS  156.4 ms
+I (97737) replay:   [156] CCNN-f32 c=10 t= 5 argmax=11 MISS  156.5 ms
+I (98052) replay:   [157] CCNN-f32 c=10 t= 6 argmax=10 OK  157.4 ms
+I (98312) replay:   [158] CCNN-f32 c=10 t= 7 argmax= 2 MISS  157.8 ms
+I (98663) replay:   [159] CCNN-f32 c=10 t= 8 argmax=10 OK  156.4 ms
+I (98948) replay:   [160] CCNN-f32 c=10 t= 9 argmax=10 OK  156.6 ms
+I (99191) replay:   [161] CCNN-f32 c=10 t=10 argmax=10 OK  156.3 ms
+I (99563) replay:   [162] CCNN-f32 c=10 t=11 argmax=10 OK  157.5 ms
+I (99888) replay:   [163] CCNN-f32 c=10 t=12 argmax=10 OK  157.0 ms
+I (100184) replay:   [164] CCNN-f32 c=10 t=13 argmax=10 OK  156.3 ms
+I (100488) replay:   [165] CCNN-f32 c=10 t=14 argmax=11 MISS  157.1 ms
+I (100749) replay:   [166] CCNN-f32 c=11 t= 0 argmax=11 OK  156.9 ms
+I (101005) replay:   [167] CCNN-f32 c=11 t= 1 argmax=10 MISS  156.9 ms
+I (101286) replay:   [168] CCNN-f32 c=11 t= 2 argmax=11 OK  156.4 ms
+I (101606) replay:   [169] CCNN-f32 c=11 t= 3 argmax=10 MISS  156.9 ms
+I (101885) replay:   [170] CCNN-f32 c=11 t= 4 argmax=11 OK  156.6 ms
+I (102232) replay:   [171] CCNN-f32 c=11 t= 5 argmax=11 OK  156.2 ms
+I (102488) replay:   [172] CCNN-f32 c=11 t= 6 argmax=11 OK  156.5 ms
+I (102843) replay:   [173] CCNN-f32 c=11 t= 7 argmax=11 OK  157.1 ms
+I (103160) replay:   [174] CCNN-f32 c=11 t= 8 argmax=11 OK  156.4 ms
+I (103459) replay:   [175] CCNN-f32 c=11 t= 9 argmax=11 OK  156.7 ms
+I (103711) replay:   [176] CCNN-f32 c=11 t=10 argmax=11 OK  156.4 ms
+I (104069) replay:   [177] CCNN-f32 c=11 t=11 argmax=11 OK  157.5 ms
+I (104375) replay:   [178] CCNN-f32 c=11 t=12 argmax= 8 MISS  156.9 ms
+I (104673) replay:   [179] CCNN-f32 c=11 t=13 argmax=11 OK  156.3 ms
+I (104994) replay:   [180] CCNN-f32 c=11 t=14 argmax=11 OK  156.5 ms
+I (105053) replay: ──── SESSION END ──────────────────────
+I (105054) replay: RES_PROFILE phase=session_summary backend=CCNN-f32 int_free_now=206275 spiram_free_now=7779716 sess_baseline_int=206815 sess_min_int=206275 sess_est_peak_drop_int=540 sess_min_spiram=7743872 stack_hwm_words=13808 int_min_ever_boot=201119 note=see_docs
+I (105075) replay:   backend : CCNN-f32
+I (105079) replay:   trials  : 180 total, 180 ok, 0 err
+I (105084) replay:   latency : avg 156.9 ms, min 156.1 ms, max 178.9 ms
+I (105090) replay: ──────────────────────────────────────
+I (105102) replay: cleanup decoder 6 (CCNN-f32)
+I (105107) replay: client disconnected, waiting for next

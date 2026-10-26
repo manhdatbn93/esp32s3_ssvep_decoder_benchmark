@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import numpy as np
 
-from src.classical.cca import cca_scores
-from src.classical.filters import cheby1_filter_bank, ensure_trials_time_channels
+from src.analytical.cca import cca_scores
+from src.analytical.filters import cheby1_filter_bank, ensure_trials_time_channels
 
 
 def pan_weights(n_bands: int) -> np.ndarray:

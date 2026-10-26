@@ -1,0 +1,217 @@
+
+I (8727) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (8731) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (8782) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (8887) wifi:<ba-add>idx:0 (ifx:0, <REDACTED_MAC>), tid:0, ssn:1, winSize:64
+I (9902) esp_netif_handlers: sta ip: <REDACTED_IP>, mask: 255.255.255.0, gw: <REDACTED_IP>
+I (9902) replay_wifi: got ip: <REDACTED_IP>
+I (9903) replay: listening on port 3333
+I (9906) replay: Available backends:
+I (9909) replay:   [ 4] EEGNet-f32
+I (9912) replay:   1 backend(s) ready
+I (9916) replay: Waiting for client connection...
+I (9920) replay_app: replay_tcp_server_task started (internal stack 16384 B, core 0)
+I (9928) main_task: Returned from app_main()
+I (57840) replay: ──────────────────────────────────────
+I (57841) replay: client connected from <REDACTED_IP>:62607
+I (57851) replay: init decoder 4 (EEGNet-f32)
+I (57851) replay: RES_PROFILE phase=pre_backend_init backend=EEGNet-f32 total_free=8487136 int_free=198799 spiram_free=8320368 int_largest=98304 int_min_ever_boot=193103 spiram_min_ever_boot=8115808
+I (57867) tflm: arena: raw=0x3c10113c aligned=0x3c101140 size=262144 align_ok=1 resolver_was_ready=1
+I (57878) tflm: ctx_create OK: interp=0x3fcb5b38
+I (57881) replay: RES_PROFILE phase=post_backend_init backend=EEGNet-f32 total_free=8216560 int_free=198563 spiram_free=8050028 int_largest=98304 int_min_ever_boot=193103 spiram_min_ever_boot=8050028
+I (57898) replay: ──── SESSION START ────────────────────
+I (57907) replay:   backend : EEGNet-f32 (id=4)
+I (57912) replay:   norm=1  onset=38  window=512  fs=256  ch=8
+I (58028) replay: RES_PROFILE phase=pre_first_infer backend=EEGNet-f32 total_free=8180736 int_free=198563 spiram_free=8014204 int_largest=98304 int_min_ever_boot=193103 spiram_min_ever_boot=8006988
+I (58035) tflm: invoke#1: in_type=1 out_type=1 in_len=4096 out_len=12
+I (58041) tflm: invoke#1: input[0..3] = -0.359343 0.376181 0.701181 1.840389
+I (59123) tflm: invoke#1: out[0..3] = -0.771980 -1.055545 0.040100 -1.578977
+I (59124) replay: RES_PROFILE phase=post_first_infer backend=EEGNet-f32 total_free=8180544 int_free=198371 spiram_free=8014204 int_largest=98304 int_min_ever_boot=193103 spiram_min_ever_boot=8006988
+I (59138) replay:   [  1] EEGNet-f32 c= 0 t= 0 argmax=11 MISS  1127.2 ms
+I (60329) replay:   [  2] EEGNet-f32 c= 0 t= 1 argmax= 0 OK  1095.7 ms
+I (61549) replay:   [  3] EEGNet-f32 c= 0 t= 2 argmax= 0 OK  1095.8 ms
+I (62757) replay:   [  4] EEGNet-f32 c= 0 t= 3 argmax=10 MISS  1096.0 ms
+I (64016) replay:   [  5] EEGNet-f32 c= 0 t= 4 argmax= 1 MISS  1095.6 ms
+I (65241) replay:   [  6] EEGNet-f32 c= 0 t= 5 argmax= 0 OK  1095.3 ms
+I (66564) replay:   [  7] EEGNet-f32 c= 0 t= 6 argmax= 0 OK  1095.5 ms
+I (67748) replay:   [  8] EEGNet-f32 c= 0 t= 7 argmax= 0 OK  1095.2 ms
+I (68946) replay:   [  9] EEGNet-f32 c= 0 t= 8 argmax= 4 MISS  1097.7 ms
+I (70154) replay:   [ 10] EEGNet-f32 c= 0 t= 9 argmax= 0 OK  1095.1 ms
+I (71376) replay:   [ 11] EEGNet-f32 c= 0 t=10 argmax= 4 MISS  1094.7 ms
+I (72562) replay:   [ 12] EEGNet-f32 c= 0 t=11 argmax= 0 OK  1094.9 ms
+I (73764) replay:   [ 13] EEGNet-f32 c= 0 t=12 argmax=10 MISS  1095.7 ms
+I (75073) replay:   [ 14] EEGNet-f32 c= 0 t=13 argmax= 6 MISS  1095.1 ms
+I (76265) replay:   [ 15] EEGNet-f32 c= 0 t=14 argmax= 0 OK  1096.1 ms
+I (77527) replay:   [ 16] EEGNet-f32 c= 1 t= 0 argmax= 0 MISS  1095.7 ms
+I (78743) replay:   [ 17] EEGNet-f32 c= 1 t= 1 argmax= 4 MISS  1094.7 ms
+I (79931) replay:   [ 18] EEGNet-f32 c= 1 t= 2 argmax= 1 OK  1094.5 ms
+I (81133) replay:   [ 19] EEGNet-f32 c= 1 t= 3 argmax= 1 OK  1095.9 ms
+I (82438) replay:   [ 20] EEGNet-f32 c= 1 t= 4 argmax= 0 MISS  1096.8 ms
+I (83656) replay:   [ 21] EEGNet-f32 c= 1 t= 5 argmax= 1 OK  1096.2 ms
+I (84895) replay:   [ 22] EEGNet-f32 c= 1 t= 6 argmax= 9 MISS  1095.3 ms
+I (86122) replay:   [ 23] EEGNet-f32 c= 1 t= 7 argmax=11 MISS  1095.0 ms
+I (87356) replay:   [ 24] EEGNet-f32 c= 1 t= 8 argmax= 3 MISS  1095.7 ms
+I (88575) replay:   [ 25] EEGNet-f32 c= 1 t= 9 argmax=10 MISS  1097.9 ms
+I (89766) replay:   [ 26] EEGNet-f32 c= 1 t=10 argmax= 4 MISS  1097.4 ms
+I (90954) replay:   [ 27] EEGNet-f32 c= 1 t=11 argmax= 9 MISS  1098.0 ms
+I (92270) replay:   [ 28] EEGNet-f32 c= 1 t=12 argmax= 1 OK  1098.1 ms
+I (93474) replay:   [ 29] EEGNet-f32 c= 1 t=13 argmax= 9 MISS  1095.4 ms
+I (94655) replay:   [ 30] EEGNet-f32 c= 1 t=14 argmax= 0 MISS  1094.8 ms
+I (95852) replay:   [ 31] EEGNet-f32 c= 2 t= 0 argmax= 2 OK  1095.8 ms
+I (97034) replay:   [ 32] EEGNet-f32 c= 2 t= 1 argmax=10 MISS  1094.3 ms
+I (98314) replay:   [ 33] EEGNet-f32 c= 2 t= 2 argmax= 9 MISS  1095.4 ms
+I (99555) replay:   [ 34] EEGNet-f32 c= 2 t= 3 argmax= 1 MISS  1094.4 ms
+I (100748) replay:   [ 35] EEGNet-f32 c= 2 t= 4 argmax= 4 MISS  1095.7 ms
+I (101930) replay:   [ 36] EEGNet-f32 c= 2 t= 5 argmax= 2 OK  1095.5 ms
+I (103122) replay:   [ 37] EEGNet-f32 c= 2 t= 6 argmax= 0 MISS  1094.8 ms
+I (104345) replay:   [ 38] EEGNet-f32 c= 2 t= 7 argmax= 2 OK  1095.8 ms
+I (105552) replay:   [ 39] EEGNet-f32 c= 2 t= 8 argmax= 2 OK  1094.5 ms
+I (106754) replay:   [ 40] EEGNet-f32 c= 2 t= 9 argmax= 2 OK  1095.3 ms
+I (108047) replay:   [ 41] EEGNet-f32 c= 2 t=10 argmax= 2 OK  1094.6 ms
+I (109293) replay:   [ 42] EEGNet-f32 c= 2 t=11 argmax= 1 MISS  1095.8 ms
+I (110489) replay:   [ 43] EEGNet-f32 c= 2 t=12 argmax= 0 MISS  1094.7 ms
+I (111689) replay:   [ 44] EEGNet-f32 c= 2 t=13 argmax= 5 MISS  1096.3 ms
+I (112938) replay:   [ 45] EEGNet-f32 c= 2 t=14 argmax=10 MISS  1094.8 ms
+I (114182) replay:   [ 46] EEGNet-f32 c= 3 t= 0 argmax= 3 OK  1095.1 ms
+I (115359) replay:   [ 47] EEGNet-f32 c= 3 t= 1 argmax= 0 MISS  1094.5 ms
+I (116666) replay:   [ 48] EEGNet-f32 c= 3 t= 2 argmax= 0 MISS  1094.9 ms
+I (118352) replay:   [ 49] EEGNet-f32 c= 3 t= 3 argmax= 3 OK  1094.7 ms
+I (120336) replay:   [ 50] EEGNet-f32 c= 3 t= 4 argmax= 0 MISS  1095.8 ms
+I (121524) replay:   [ 51] EEGNet-f32 c= 3 t= 5 argmax= 0 MISS  1095.2 ms
+I (122772) replay:   [ 52] EEGNet-f32 c= 3 t= 6 argmax= 3 OK  1097.0 ms
+I (123972) replay:   [ 53] EEGNet-f32 c= 3 t= 7 argmax= 0 MISS  1098.3 ms
+I (125162) replay:   [ 54] EEGNet-f32 c= 3 t= 8 argmax= 3 OK  1098.2 ms
+I (126380) replay:   [ 55] EEGNet-f32 c= 3 t= 9 argmax= 3 OK  1097.5 ms
+I (127587) replay:   [ 56] EEGNet-f32 c= 3 t=10 argmax= 3 OK  1096.1 ms
+I (128828) replay:   [ 57] EEGNet-f32 c= 3 t=11 argmax= 0 MISS  1095.2 ms
+I (130049) replay:   [ 58] EEGNet-f32 c= 3 t=12 argmax= 3 OK  1094.7 ms
+I (131256) replay:   [ 59] EEGNet-f32 c= 3 t=13 argmax= 0 MISS  1094.9 ms
+I (132434) replay:   [ 60] EEGNet-f32 c= 3 t=14 argmax=10 MISS  1096.2 ms
+I (133634) replay:   [ 61] EEGNet-f32 c= 4 t= 0 argmax= 3 MISS  1094.7 ms
+I (134879) replay:   [ 62] EEGNet-f32 c= 4 t= 1 argmax= 2 MISS  1095.7 ms
+I (136192) replay:   [ 63] EEGNet-f32 c= 4 t= 2 argmax= 1 MISS  1095.9 ms
+I (137431) replay:   [ 64] EEGNet-f32 c= 4 t= 3 argmax= 8 MISS  1095.5 ms
+I (138610) replay:   [ 65] EEGNet-f32 c= 4 t= 4 argmax= 2 MISS  1096.1 ms
+I (139807) replay:   [ 66] EEGNet-f32 c= 4 t= 5 argmax= 0 MISS  1094.6 ms
+I (141111) replay:   [ 67] EEGNet-f32 c= 4 t= 6 argmax=10 MISS  1095.0 ms
+I (142345) replay:   [ 68] EEGNet-f32 c= 4 t= 7 argmax= 4 OK  1095.5 ms
+I (143560) replay:   [ 69] EEGNet-f32 c= 4 t= 8 argmax= 4 OK  1094.8 ms
+I (144807) replay:   [ 70] EEGNet-f32 c= 4 t= 9 argmax= 1 MISS  1096.1 ms
+I (146020) replay:   [ 71] EEGNet-f32 c= 4 t=10 argmax= 1 MISS  1094.7 ms
+I (147249) replay:   [ 72] EEGNet-f32 c= 4 t=11 argmax= 1 MISS  1095.9 ms
+I (149784) replay:   [ 73] EEGNet-f32 c= 4 t=12 argmax= 4 OK  1095.8 ms
+I (150964) replay:   [ 74] EEGNet-f32 c= 4 t=13 argmax= 1 MISS  1095.5 ms
+I (152315) replay:   [ 75] EEGNet-f32 c= 4 t=14 argmax= 4 OK  1095.7 ms
+I (153503) replay:   [ 76] EEGNet-f32 c= 5 t= 0 argmax= 2 MISS  1094.7 ms
+I (154691) replay:   [ 77] EEGNet-f32 c= 5 t= 1 argmax=10 MISS  1095.9 ms
+I (155873) replay:   [ 78] EEGNet-f32 c= 5 t= 2 argmax= 8 MISS  1094.8 ms
+I (157086) replay:   [ 79] EEGNet-f32 c= 5 t= 3 argmax=11 MISS  1094.9 ms
+I (158273) replay:   [ 80] EEGNet-f32 c= 5 t= 4 argmax= 8 MISS  1098.2 ms
+I (159452) replay:   [ 81] EEGNet-f32 c= 5 t= 5 argmax= 8 MISS  1098.2 ms
+I (160673) replay:   [ 82] EEGNet-f32 c= 5 t= 6 argmax= 0 MISS  1098.1 ms
+I (161908) replay:   [ 83] EEGNet-f32 c= 5 t= 7 argmax= 8 MISS  1096.7 ms
+I (163098) replay:   [ 84] EEGNet-f32 c= 5 t= 8 argmax= 0 MISS  1095.9 ms
+I (164279) replay:   [ 85] EEGNet-f32 c= 5 t= 9 argmax= 5 OK  1094.7 ms
+I (165588) replay:   [ 86] EEGNet-f32 c= 5 t=10 argmax= 5 OK  1094.9 ms
+I (166812) replay:   [ 87] EEGNet-f32 c= 5 t=11 argmax= 8 MISS  1094.7 ms
+I (167989) replay:   [ 88] EEGNet-f32 c= 5 t=12 argmax=10 MISS  1095.3 ms
+I (169265) replay:   [ 89] EEGNet-f32 c= 5 t=13 argmax= 5 OK  1094.7 ms
+I (170439) replay:   [ 90] EEGNet-f32 c= 5 t=14 argmax= 2 MISS  1094.5 ms
+I (171725) replay:   [ 91] EEGNet-f32 c= 6 t= 0 argmax= 1 MISS  1095.3 ms
+I (172958) replay:   [ 92] EEGNet-f32 c= 6 t= 1 argmax= 0 MISS  1094.6 ms
+I (174140) replay:   [ 93] EEGNet-f32 c= 6 t= 2 argmax= 6 OK  1095.5 ms
+I (175323) replay:   [ 94] EEGNet-f32 c= 6 t= 3 argmax= 6 OK  1094.7 ms
+I (176510) replay:   [ 95] EEGNet-f32 c= 6 t= 4 argmax= 3 MISS  1095.4 ms
+I (177758) replay:   [ 96] EEGNet-f32 c= 6 t= 5 argmax= 3 MISS  1094.9 ms
+I (178990) replay:   [ 97] EEGNet-f32 c= 6 t= 6 argmax= 0 MISS  1095.4 ms
+I (180216) replay:   [ 98] EEGNet-f32 c= 6 t= 7 argmax= 6 OK  1094.9 ms
+I (181399) replay:   [ 99] EEGNet-f32 c= 6 t= 8 argmax= 3 MISS  1095.2 ms
+I (182677) replay:   [100] EEGNet-f32 c= 6 t= 9 argmax= 3 MISS  1094.7 ms
+I (183863) replay:   [101] EEGNet-f32 c= 6 t=10 argmax= 6 OK  1095.4 ms
+I (185136) replay:   [102] EEGNet-f32 c= 6 t=11 argmax= 6 OK  1095.2 ms
+I (186322) replay:   [103] EEGNet-f32 c= 6 t=12 argmax= 6 OK  1095.4 ms
+I (187601) replay:   [104] EEGNet-f32 c= 6 t=13 argmax= 6 OK  1095.6 ms
+I (188827) replay:   [105] EEGNet-f32 c= 6 t=14 argmax= 9 MISS  1095.7 ms
+I (190054) replay:   [106] EEGNet-f32 c= 7 t= 0 argmax= 4 MISS  1094.5 ms
+I (191242) replay:   [107] EEGNet-f32 c= 7 t= 1 argmax= 1 MISS  1094.9 ms
+I (192513) replay:   [108] EEGNet-f32 c= 7 t= 2 argmax= 4 MISS  1097.2 ms
+I (193705) replay:   [109] EEGNet-f32 c= 7 t= 3 argmax= 3 MISS  1098.1 ms
+I (194885) replay:   [110] EEGNet-f32 c= 7 t= 4 argmax=10 MISS  1097.4 ms
+I (196090) replay:   [111] EEGNet-f32 c= 7 t= 5 argmax= 2 MISS  1098.0 ms
+I (197288) replay:   [112] EEGNet-f32 c= 7 t= 6 argmax= 0 MISS  1096.0 ms
+I (198567) replay:   [113] EEGNet-f32 c= 7 t= 7 argmax= 9 MISS  1095.0 ms
+I (199745) replay:   [114] EEGNet-f32 c= 7 t= 8 argmax=10 MISS  1095.3 ms
+I (201036) replay:   [115] EEGNet-f32 c= 7 t= 9 argmax= 1 MISS  1095.4 ms
+I (202238) replay:   [116] EEGNet-f32 c= 7 t=10 argmax= 0 MISS  1097.0 ms
+I (203465) replay:   [117] EEGNet-f32 c= 7 t=11 argmax=10 MISS  1095.8 ms
+I (204657) replay:   [118] EEGNet-f32 c= 7 t=12 argmax= 7 OK  1095.3 ms
+I (205931) replay:   [119] EEGNet-f32 c= 7 t=13 argmax=10 MISS  1094.5 ms
+I (207151) replay:   [120] EEGNet-f32 c= 7 t=14 argmax=10 MISS  1094.9 ms
+I (208408) replay:   [121] EEGNet-f32 c= 8 t= 0 argmax=10 MISS  1094.6 ms
+I (209601) replay:   [122] EEGNet-f32 c= 8 t= 1 argmax= 6 MISS  1097.5 ms
+I (210805) replay:   [123] EEGNet-f32 c= 8 t= 2 argmax= 9 MISS  1095.2 ms
+I (212086) replay:   [124] EEGNet-f32 c= 8 t= 3 argmax=11 MISS  1094.8 ms
+I (213307) replay:   [125] EEGNet-f32 c= 8 t= 4 argmax= 8 OK  1095.5 ms
+I (214530) replay:   [126] EEGNet-f32 c= 8 t= 5 argmax= 0 MISS  1095.5 ms
+I (215721) replay:   [127] EEGNet-f32 c= 8 t= 6 argmax=11 MISS  1096.7 ms
+I (217003) replay:   [128] EEGNet-f32 c= 8 t= 7 argmax= 0 MISS  1095.9 ms
+I (218190) replay:   [129] EEGNet-f32 c= 8 t= 8 argmax=11 MISS  1094.7 ms
+I (219368) replay:   [130] EEGNet-f32 c= 8 t= 9 argmax=11 MISS  1095.7 ms
+I (220677) replay:   [131] EEGNet-f32 c= 8 t=10 argmax= 0 MISS  1095.7 ms
+I (221905) replay:   [132] EEGNet-f32 c= 8 t=11 argmax=11 MISS  1095.7 ms
+I (223087) replay:   [133] EEGNet-f32 c= 8 t=12 argmax=11 MISS  1094.4 ms
+I (224358) replay:   [134] EEGNet-f32 c= 8 t=13 argmax= 5 MISS  1094.8 ms
+I (225541) replay:   [135] EEGNet-f32 c= 8 t=14 argmax=10 MISS  1096.5 ms
+I (226819) replay:   [136] EEGNet-f32 c= 9 t= 0 argmax= 1 MISS  1096.0 ms
+I (228006) replay:   [137] EEGNet-f32 c= 9 t= 1 argmax= 4 MISS  1098.3 ms
+I (229194) replay:   [138] EEGNet-f32 c= 9 t= 2 argmax= 3 MISS  1097.8 ms
+I (230409) replay:   [139] EEGNet-f32 c= 9 t= 3 argmax=10 MISS  1098.4 ms
+I (231634) replay:   [140] EEGNet-f32 c= 9 t= 4 argmax=10 MISS  1095.5 ms
+I (232821) replay:   [141] EEGNet-f32 c= 9 t= 5 argmax= 3 MISS  1095.5 ms
+I (234004) replay:   [142] EEGNet-f32 c= 9 t= 6 argmax= 9 OK  1094.7 ms
+I (235317) replay:   [143] EEGNet-f32 c= 9 t= 7 argmax= 3 MISS  1095.8 ms
+I (236571) replay:   [144] EEGNet-f32 c= 9 t= 8 argmax= 0 MISS  1095.5 ms
+I (237880) replay:   [145] EEGNet-f32 c= 9 t= 9 argmax= 0 MISS  1095.6 ms
+I (239101) replay:   [146] EEGNet-f32 c= 9 t=10 argmax= 9 OK  1094.6 ms
+I (240295) replay:   [147] EEGNet-f32 c= 9 t=11 argmax= 1 MISS  1095.0 ms
+I (241472) replay:   [148] EEGNet-f32 c= 9 t=12 argmax= 1 MISS  1095.1 ms
+I (242690) replay:   [149] EEGNet-f32 c= 9 t=13 argmax= 9 OK  1096.1 ms
+I (243870) replay:   [150] EEGNet-f32 c= 9 t=14 argmax= 0 MISS  1094.7 ms
+I (245152) replay:   [151] EEGNet-f32 c=10 t= 0 argmax= 2 MISS  1094.8 ms
+I (247168) replay:   [152] EEGNet-f32 c=10 t= 1 argmax=10 OK  1095.1 ms
+I (248432) replay:   [153] EEGNet-f32 c=10 t= 2 argmax= 9 MISS  1095.1 ms
+I (249627) replay:   [154] EEGNet-f32 c=10 t= 3 argmax=10 OK  1095.5 ms
+I (250804) replay:   [155] EEGNet-f32 c=10 t= 4 argmax=10 OK  1094.8 ms
+I (252005) replay:   [156] EEGNet-f32 c=10 t= 5 argmax= 4 MISS  1096.4 ms
+I (253237) replay:   [157] EEGNet-f32 c=10 t= 6 argmax= 9 MISS  1094.9 ms
+I (254426) replay:   [158] EEGNet-f32 c=10 t= 7 argmax=10 OK  1094.8 ms
+I (255689) replay:   [159] EEGNet-f32 c=10 t= 8 argmax= 0 MISS  1094.7 ms
+I (256879) replay:   [160] EEGNet-f32 c=10 t= 9 argmax= 3 MISS  1096.0 ms
+I (258059) replay:   [161] EEGNet-f32 c=10 t=10 argmax=10 OK  1094.7 ms
+I (259241) replay:   [162] EEGNet-f32 c=10 t=11 argmax=10 OK  1095.1 ms
+I (260420) replay:   [163] EEGNet-f32 c=10 t=12 argmax= 9 MISS  1095.4 ms
+I (261635) replay:   [164] EEGNet-f32 c=10 t=13 argmax= 2 MISS  1097.3 ms
+I (262811) replay:   [165] EEGNet-f32 c=10 t=14 argmax=10 OK  1098.3 ms
+I (264104) replay:   [166] EEGNet-f32 c=11 t= 0 argmax=11 OK  1098.6 ms
+I (265308) replay:   [167] EEGNet-f32 c=11 t= 1 argmax=11 OK  1098.0 ms
+I (266545) replay:   [168] EEGNet-f32 c=11 t= 2 argmax= 3 MISS  1095.7 ms
+I (267742) replay:   [169] EEGNet-f32 c=11 t= 3 argmax= 3 MISS  1094.5 ms
+I (268922) replay:   [170] EEGNet-f32 c=11 t= 4 argmax=11 OK  1097.1 ms
+I (270120) replay:   [171] EEGNet-f32 c=11 t= 5 argmax=11 OK  1095.8 ms
+I (271363) replay:   [172] EEGNet-f32 c=11 t= 6 argmax=11 OK  1095.8 ms
+I (272565) replay:   [173] EEGNet-f32 c=11 t= 7 argmax= 0 MISS  1094.6 ms
+I (273820) replay:   [174] EEGNet-f32 c=11 t= 8 argmax=11 OK  1095.5 ms
+I (275000) replay:   [175] EEGNet-f32 c=11 t= 9 argmax=11 OK  1095.6 ms
+I (276285) replay:   [176] EEGNet-f32 c=11 t=10 argmax=11 OK  1094.7 ms
+I (278995) replay:   [177] EEGNet-f32 c=11 t=11 argmax=11 OK  1095.3 ms
+I (280579) replay:   [178] EEGNet-f32 c=11 t=12 argmax=11 OK  1094.7 ms
+I (281778) replay:   [179] EEGNet-f32 c=11 t=13 argmax=11 OK  1095.7 ms
+I (283032) replay:   [180] EEGNet-f32 c=11 t=14 argmax= 9 MISS  1094.6 ms
+I (283124) replay: ──── SESSION END ──────────────────────
+I (283125) replay: RES_PROFILE phase=session_summary backend=EEGNet-f32 int_free_now=198271 spiram_free_now=8050068 sess_baseline_int=198799 sess_min_int=198271 sess_est_peak_drop_int=528 sess_min_spiram=8014204 stack_hwm_words=13840 int_min_ever_boot=193103 note=see_docs
+I (283147) replay:   backend : EEGNet-f32
+I (283151) replay:   trials  : 180 total, 180 ok, 0 err
+I (283156) replay:   latency : avg 1095.8 ms, min 1094.3 ms, max 1127.2 ms
+I (283162) replay: ──────────────────────────────────────
+I (283174) replay: cleanup decoder 4 (EEGNet-f32)
+I (283180) replay: client disconnected, waiting for next

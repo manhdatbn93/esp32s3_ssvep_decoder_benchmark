@@ -255,9 +255,9 @@ def preprocess_trial_for_tflite(model_name: str, trial_tc: np.ndarray) -> np.nda
 
 def run_tflite_logits(tflite_path: Path, input_data: np.ndarray) -> np.ndarray:
     """Run one TFLite invoke with export-compatible shape adaptation."""
-    import tensorflow as tf
+    from src.replay.host_interpreter import make_interpreter
 
-    interpreter = tf.lite.Interpreter(model_path=str(tflite_path))
+    interpreter = make_interpreter(tflite_path)
     interpreter.allocate_tensors()
     inp_detail = interpreter.get_input_details()[0]
     out_detail = interpreter.get_output_details()[0]

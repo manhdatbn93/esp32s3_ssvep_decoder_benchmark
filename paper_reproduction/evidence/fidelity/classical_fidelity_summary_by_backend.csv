@@ -1,0 +1,5 @@
+backend,precision_type,n_trials,device_accuracy,argmax_agreement,flip_rate,logit_mae_mean,logit_rmse_mean,max_abs_logit_error_max,max_abs_diff_max,mean_abs_diff_mean,cosine_similarity_mean,latency_ms_mean,latency_ms_std,latency_ms_min,latency_ms_max,artifact_provenance
+CCA,classical,1800,0.80722222,0.98055556,0.019444444,0.0034094922,0.0043925902,0.03059589,0.0305959,0.0034094923,0.99994226,553.47525,1.4291546,545.697,567.726,version_a_device_replay_migrated
+FBCCA,classical,1800,0.83277778,0.98666667,0.013333333,0.0043005704,0.0056192879,0.05593967,0.05593967,0.0043005705,0.99986795,8442.4112,28.969836,8339.088,8538.766,version_a_device_replay_migrated
+MSI,classical,1800,0.75944444,1,0,1.1455833e-07,1.5303096e-07,0.00010479,0.0001048,1.1383333e-07,0.99999981,1035.2268,20.48431,976.265,1113.776,version_a_device_replay_migrated
+TRCA,classical,1800,0.83444444,1,0,3.1485634e-06,4.1955885e-06,7.937e-05,7.936e-05,3.14845e-06,1,13621.749,37.476182,13565.516,13736.14,version_a_device_replay_migrated

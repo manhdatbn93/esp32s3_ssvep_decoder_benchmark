@@ -1,0 +1,211 @@
+I (69291) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (69299) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (69320) wifi:<ba-add>idx:0 (ifx:0, <REDACTED_MAC>), tid:0, ssn:1, winSize:64
+I (69357) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (70341) esp_netif_handlers: sta ip: <REDACTED_IP>, mask: 255.255.255.0, gw: <REDACTED_IP>
+I (70341) replay_wifi: got ip: <REDACTED_IP>
+I (70342) replay: listening on port 3333
+I (70345) replay: Available backends:
+I (70349) replay:   [ 3] TRCA
+I (70351) replay:   1 backend(s) ready
+I (70355) replay: Waiting for client connection...
+I (70359) replay_app: replay_tcp_server_task started (internal stack 16384 B, core 0)
+I (70367) main_task: Returned from app_main()
+I (158355) replay: ──────────────────────────────────────
+I (158356) replay: client connected from <REDACTED_IP>:58307
+I (158376) replay: init decoder 3 (TRCA)
+I (158376) replay: RES_PROFILE phase=pre_backend_init backend=TRCA total_free=8430592 int_free=142255 spiram_free=8320368 int_largest=43008 int_min_ever_boot=136487 spiram_min_ever_boot=8317032
+I (158385) replay: RES_PROFILE phase=post_backend_init backend=TRCA total_free=8430592 int_free=142255 spiram_free=8320368 int_largest=43008 int_min_ever_boot=136487 spiram_min_ever_boot=8317032
+I (158402) replay: ──── SESSION START ────────────────────
+I (158412) replay:   backend : TRCA (id=3)
+I (158415) replay:   norm=1  onset=38  window=512  fs=256  ch=8
+I (158489) replay: RES_PROFILE phase=pre_first_infer backend=TRCA total_free=8394768 int_free=142255 spiram_free=8284544 int_largest=43008 int_min_ever_boot=136487 spiram_min_ever_boot=8277328
+I (172079) replay: RES_PROFILE phase=post_first_infer backend=TRCA total_free=8394804 int_free=142291 spiram_free=8284544 int_largest=43008 int_min_ever_boot=136487 spiram_min_ever_boot=8277328
+I (172086) replay:   [  1] TRCA c= 0 t= 0 argmax= 3 MISS  13614.1 ms
+I (185842) replay:   [  2] TRCA c= 0 t= 1 argmax= 0 OK  13601.2 ms
+I (199573) replay:   [  3] TRCA c= 0 t= 2 argmax= 0 OK  13615.2 ms
+I (213271) replay:   [  4] TRCA c= 0 t= 3 argmax= 8 MISS  13605.9 ms
+I (227086) replay:   [  5] TRCA c= 0 t= 4 argmax= 4 MISS  13601.7 ms
+I (240824) replay:   [  6] TRCA c= 0 t= 5 argmax= 0 OK  13617.1 ms
+I (254549) replay:   [  7] TRCA c= 0 t= 6 argmax= 0 OK  13607.6 ms
+I (268256) replay:   [  8] TRCA c= 0 t= 7 argmax= 0 OK  13606.2 ms
+I (281987) replay:   [  9] TRCA c= 0 t= 8 argmax= 1 MISS  13614.2 ms
+I (295820) replay:   [ 10] TRCA c= 0 t= 9 argmax= 3 MISS  13597.1 ms
+I (309532) replay:   [ 11] TRCA c= 0 t=10 argmax= 0 OK  13606.3 ms
+I (323360) replay:   [ 12] TRCA c= 0 t=11 argmax= 0 OK  13607.8 ms
+I (337063) replay:   [ 13] TRCA c= 0 t=12 argmax= 6 MISS  13604.1 ms
+I (350762) replay:   [ 14] TRCA c= 0 t=13 argmax= 0 OK  13595.5 ms
+I (364470) replay:   [ 15] TRCA c= 0 t=14 argmax= 0 OK  13598.1 ms
+I (378188) replay:   [ 16] TRCA c= 1 t= 0 argmax= 5 MISS  13599.3 ms
+I (391877) replay:   [ 17] TRCA c= 1 t= 1 argmax= 3 MISS  13593.5 ms
+I (405579) replay:   [ 18] TRCA c= 1 t= 2 argmax=10 MISS  13604.2 ms
+I (419279) replay:   [ 19] TRCA c= 1 t= 3 argmax= 1 OK  13610.4 ms
+I (433018) replay:   [ 20] TRCA c= 1 t= 4 argmax= 1 OK  13612.6 ms
+I (446744) replay:   [ 21] TRCA c= 1 t= 5 argmax= 8 MISS  13608.6 ms
+I (460431) replay:   [ 22] TRCA c= 1 t= 6 argmax= 1 OK  13600.5 ms
+I (474175) replay:   [ 23] TRCA c= 1 t= 7 argmax= 9 MISS  13595.6 ms
+I (487905) replay:   [ 24] TRCA c= 1 t= 8 argmax= 0 MISS  13602.0 ms
+I (501638) replay:   [ 25] TRCA c= 1 t= 9 argmax= 1 OK  13597.8 ms
+I (515350) replay:   [ 26] TRCA c= 1 t=10 argmax= 1 OK  13610.3 ms
+I (529049) replay:   [ 27] TRCA c= 1 t=11 argmax= 7 MISS  13599.4 ms
+I (542753) replay:   [ 28] TRCA c= 1 t=12 argmax= 1 OK  13611.4 ms
+I (556466) replay:   [ 29] TRCA c= 1 t=13 argmax= 3 MISS  13609.2 ms
+I (570156) replay:   [ 30] TRCA c= 1 t=14 argmax= 1 OK  13603.5 ms
+I (583845) replay:   [ 31] TRCA c= 2 t= 0 argmax= 8 MISS  13601.4 ms
+I (597568) replay:   [ 32] TRCA c= 2 t= 1 argmax= 1 MISS  13597.0 ms
+I (611265) replay:   [ 33] TRCA c= 2 t= 2 argmax= 7 MISS  13602.0 ms
+I (624964) replay:   [ 34] TRCA c= 2 t= 3 argmax= 2 OK  13603.2 ms
+I (638749) replay:   [ 35] TRCA c= 2 t= 4 argmax= 2 OK  13612.7 ms
+I (652453) replay:   [ 36] TRCA c= 2 t= 5 argmax= 2 OK  13610.2 ms
+I (666148) replay:   [ 37] TRCA c= 2 t= 6 argmax= 8 MISS  13595.5 ms
+I (679914) replay:   [ 38] TRCA c= 2 t= 7 argmax=11 MISS  13609.5 ms
+I (693668) replay:   [ 39] TRCA c= 2 t= 8 argmax= 2 OK  13649.1 ms
+I (707343) replay:   [ 40] TRCA c= 2 t= 9 argmax= 2 OK  13591.6 ms
+I (721067) replay:   [ 41] TRCA c= 2 t=10 argmax= 2 OK  13609.7 ms
+I (734794) replay:   [ 42] TRCA c= 2 t=11 argmax= 9 MISS  13607.9 ms
+I (748494) replay:   [ 43] TRCA c= 2 t=12 argmax= 6 MISS  13606.9 ms
+I (762230) replay:   [ 44] TRCA c= 2 t=13 argmax= 2 OK  13599.4 ms
+I (775921) replay:   [ 45] TRCA c= 2 t=14 argmax= 7 MISS  13592.2 ms
+I (789623) replay:   [ 46] TRCA c= 3 t= 0 argmax= 4 MISS  13603.8 ms
+I (803391) replay:   [ 47] TRCA c= 3 t= 1 argmax= 3 OK  13597.9 ms
+I (817089) replay:   [ 48] TRCA c= 3 t= 2 argmax= 3 OK  13603.4 ms
+I (830771) replay:   [ 49] TRCA c= 3 t= 3 argmax= 3 OK  13596.3 ms
+I (844562) replay:   [ 50] TRCA c= 3 t= 4 argmax= 3 OK  13598.8 ms
+I (858284) replay:   [ 51] TRCA c= 3 t= 5 argmax= 3 OK  13595.4 ms
+I (872007) replay:   [ 52] TRCA c= 3 t= 6 argmax= 3 OK  13604.5 ms
+I (885735) replay:   [ 53] TRCA c= 3 t= 7 argmax= 3 OK  13605.1 ms
+I (899460) replay:   [ 54] TRCA c= 3 t= 8 argmax= 3 OK  13602.2 ms
+I (913279) replay:   [ 55] TRCA c= 3 t= 9 argmax= 0 MISS  13596.3 ms
+I (927012) replay:   [ 56] TRCA c= 3 t=10 argmax= 3 OK  13607.6 ms
+I (940703) replay:   [ 57] TRCA c= 3 t=11 argmax= 2 MISS  13597.3 ms
+I (954420) replay:   [ 58] TRCA c= 3 t=12 argmax= 3 OK  13578.8 ms
+I (968119) replay:   [ 59] TRCA c= 3 t=13 argmax= 9 MISS  13600.9 ms
+I (981800) replay:   [ 60] TRCA c= 3 t=14 argmax= 9 MISS  13594.9 ms
+I (995512) replay:   [ 61] TRCA c= 4 t= 0 argmax= 3 MISS  13617.3 ms
+I (1009226) replay:   [ 62] TRCA c= 4 t= 1 argmax= 4 OK  13597.7 ms
+I (1022957) replay:   [ 63] TRCA c= 4 t= 2 argmax= 3 MISS  13602.0 ms
+I (1036647) replay:   [ 64] TRCA c= 4 t= 3 argmax= 4 OK  13600.1 ms
+I (1050331) replay:   [ 65] TRCA c= 4 t= 4 argmax= 9 MISS  13587.7 ms
+I (1064021) replay:   [ 66] TRCA c= 4 t= 5 argmax= 4 OK  13605.9 ms
+I (1077745) replay:   [ 67] TRCA c= 4 t= 6 argmax= 4 OK  13606.9 ms
+I (1091424) replay:   [ 68] TRCA c= 4 t= 7 argmax= 4 OK  13595.5 ms
+I (1105207) replay:   [ 69] TRCA c= 4 t= 8 argmax= 4 OK  13614.1 ms
+I (1118896) replay:   [ 70] TRCA c= 4 t= 9 argmax=10 MISS  13596.8 ms
+I (1132630) replay:   [ 71] TRCA c= 4 t=10 argmax= 4 OK  13604.2 ms
+I (1146356) replay:   [ 72] TRCA c= 4 t=11 argmax= 4 OK  13603.8 ms
+I (1160047) replay:   [ 73] TRCA c= 4 t=12 argmax= 4 OK  13598.4 ms
+I (1173757) replay:   [ 74] TRCA c= 4 t=13 argmax= 7 MISS  13605.7 ms
+I (1187507) replay:   [ 75] TRCA c= 4 t=14 argmax= 4 OK  13597.4 ms
+I (1201200) replay:   [ 76] TRCA c= 5 t= 0 argmax= 5 OK  13604.0 ms
+I (1214966) replay:   [ 77] TRCA c= 5 t= 1 argmax= 5 OK  13595.5 ms
+I (1228642) replay:   [ 78] TRCA c= 5 t= 2 argmax= 4 MISS  13589.2 ms
+I (1242417) replay:   [ 79] TRCA c= 5 t= 3 argmax= 5 OK  13610.7 ms
+I (1256094) replay:   [ 80] TRCA c= 5 t= 4 argmax= 5 OK  13592.6 ms
+I (1269797) replay:   [ 81] TRCA c= 5 t= 5 argmax= 9 MISS  13599.9 ms
+I (1283607) replay:   [ 82] TRCA c= 5 t= 6 argmax= 5 OK  13589.8 ms
+I (1297316) replay:   [ 83] TRCA c= 5 t= 7 argmax= 5 OK  13603.1 ms
+I (1311020) replay:   [ 84] TRCA c= 5 t= 8 argmax= 7 MISS  13613.6 ms
+I (1324742) replay:   [ 85] TRCA c= 5 t= 9 argmax= 5 OK  13590.1 ms
+I (1338454) replay:   [ 86] TRCA c= 5 t=10 argmax= 5 OK  13598.5 ms
+I (1352181) replay:   [ 87] TRCA c= 5 t=11 argmax= 1 MISS  13599.9 ms
+I (1365898) replay:   [ 88] TRCA c= 5 t=12 argmax= 5 OK  13603.1 ms
+I (1379675) replay:   [ 89] TRCA c= 5 t=13 argmax= 5 OK  13605.2 ms
+I (1393485) replay:   [ 90] TRCA c= 5 t=14 argmax= 5 OK  13606.6 ms
+I (1407193) replay:   [ 91] TRCA c= 6 t= 0 argmax= 1 MISS  13603.3 ms
+I (1420981) replay:   [ 92] TRCA c= 6 t= 1 argmax= 3 MISS  13590.4 ms
+I (1434671) replay:   [ 93] TRCA c= 6 t= 2 argmax= 9 MISS  13595.7 ms
+I (1448366) replay:   [ 94] TRCA c= 6 t= 3 argmax= 6 OK  13597.1 ms
+I (1462042) replay:   [ 95] TRCA c= 6 t= 4 argmax= 1 MISS  13589.1 ms
+I (1475748) replay:   [ 96] TRCA c= 6 t= 5 argmax= 5 MISS  13607.6 ms
+I (1489445) replay:   [ 97] TRCA c= 6 t= 6 argmax= 6 OK  13599.2 ms
+I (1503228) replay:   [ 98] TRCA c= 6 t= 7 argmax= 7 MISS  13601.9 ms
+I (1516937) replay:   [ 99] TRCA c= 6 t= 8 argmax= 6 OK  13616.2 ms
+I (1530667) replay:   [100] TRCA c= 6 t= 9 argmax= 3 MISS  13606.8 ms
+I (1544356) replay:   [101] TRCA c= 6 t=10 argmax= 6 OK  13601.8 ms
+I (1558079) replay:   [102] TRCA c= 6 t=11 argmax= 6 OK  13602.1 ms
+I (1571790) replay:   [103] TRCA c= 6 t=12 argmax= 6 OK  13595.2 ms
+I (1585487) replay:   [104] TRCA c= 6 t=13 argmax= 0 MISS  13602.4 ms
+I (1599307) replay:   [105] TRCA c= 6 t=14 argmax= 4 MISS  13640.5 ms
+I (1613124) replay:   [106] TRCA c= 7 t= 0 argmax= 7 OK  13607.5 ms
+I (1626950) replay:   [107] TRCA c= 7 t= 1 argmax= 5 MISS  13609.5 ms
+I (1640765) replay:   [108] TRCA c= 7 t= 2 argmax= 2 MISS  13611.5 ms
+I (1654584) replay:   [109] TRCA c= 7 t= 3 argmax= 7 OK  13618.1 ms
+I (1668263) replay:   [110] TRCA c= 7 t= 4 argmax= 7 OK  13583.7 ms
+I (1682096) replay:   [111] TRCA c= 7 t= 5 argmax= 7 OK  13596.1 ms
+I (1695858) replay:   [112] TRCA c= 7 t= 6 argmax= 2 MISS  13610.8 ms
+I (1709553) replay:   [113] TRCA c= 7 t= 7 argmax= 7 OK  13601.1 ms
+I (1723295) replay:   [114] TRCA c= 7 t= 8 argmax= 7 OK  13613.0 ms
+I (1737113) replay:   [115] TRCA c= 7 t= 9 argmax= 7 OK  13601.7 ms
+I (1750804) replay:   [116] TRCA c= 7 t=10 argmax= 9 MISS  13600.8 ms
+I (1764556) replay:   [117] TRCA c= 7 t=11 argmax= 7 OK  13610.2 ms
+I (1778301) replay:   [118] TRCA c= 7 t=12 argmax= 7 OK  13587.2 ms
+I (1792100) replay:   [119] TRCA c= 7 t=13 argmax= 7 OK  13606.2 ms
+I (1805811) replay:   [120] TRCA c= 7 t=14 argmax= 0 MISS  13594.6 ms
+I (1819525) replay:   [121] TRCA c= 8 t= 0 argmax= 8 OK  13583.9 ms
+I (1833297) replay:   [122] TRCA c= 8 t= 1 argmax= 5 MISS  13600.7 ms
+I (1847547) replay:   [123] TRCA c= 8 t= 2 argmax= 8 OK  13588.0 ms
+I (1861334) replay:   [124] TRCA c= 8 t= 3 argmax= 8 OK  13612.5 ms
+I (1875036) replay:   [125] TRCA c= 8 t= 4 argmax= 8 OK  13600.5 ms
+I (1888770) replay:   [126] TRCA c= 8 t= 5 argmax= 6 MISS  13605.2 ms
+I (1902498) replay:   [127] TRCA c= 8 t= 6 argmax= 8 OK  13615.0 ms
+I (1916179) replay:   [128] TRCA c= 8 t= 7 argmax= 8 OK  13592.3 ms
+I (1929884) replay:   [129] TRCA c= 8 t= 8 argmax= 8 OK  13607.3 ms
+I (1943648) replay:   [130] TRCA c= 8 t= 9 argmax= 8 OK  13597.9 ms
+I (1957393) replay:   [131] TRCA c= 8 t=10 argmax= 5 MISS  13604.2 ms
+I (1971204) replay:   [132] TRCA c= 8 t=11 argmax= 8 OK  13605.4 ms
+I (1984877) replay:   [133] TRCA c= 8 t=12 argmax= 4 MISS  13587.1 ms
+I (1998584) replay:   [134] TRCA c= 8 t=13 argmax= 8 OK  13607.0 ms
+I (2012354) replay:   [135] TRCA c= 8 t=14 argmax= 8 OK  13591.8 ms
+I (2026060) replay:   [136] TRCA c= 9 t= 0 argmax= 6 MISS  13600.5 ms
+I (2039773) replay:   [137] TRCA c= 9 t= 1 argmax= 2 MISS  13602.4 ms
+I (2053534) replay:   [138] TRCA c= 9 t= 2 argmax= 9 OK  13606.9 ms
+I (2067244) replay:   [139] TRCA c= 9 t= 3 argmax= 9 OK  13607.9 ms
+I (2080953) replay:   [140] TRCA c= 9 t= 4 argmax= 9 OK  13585.4 ms
+I (2094678) replay:   [141] TRCA c= 9 t= 5 argmax= 9 OK  13586.8 ms
+I (2108431) replay:   [142] TRCA c= 9 t= 6 argmax= 9 OK  13614.3 ms
+I (2122122) replay:   [143] TRCA c= 9 t= 7 argmax= 9 OK  13605.9 ms
+I (2135817) replay:   [144] TRCA c= 9 t= 8 argmax=11 MISS  13604.9 ms
+I (2149614) replay:   [145] TRCA c= 9 t= 9 argmax= 9 OK  13596.2 ms
+I (2163408) replay:   [146] TRCA c= 9 t=10 argmax= 3 MISS  13601.9 ms
+I (2177107) replay:   [147] TRCA c= 9 t=11 argmax= 9 OK  13614.7 ms
+I (2190795) replay:   [148] TRCA c= 9 t=12 argmax= 9 OK  13592.3 ms
+I (2204605) replay:   [149] TRCA c= 9 t=13 argmax= 9 OK  13616.1 ms
+I (2218434) replay:   [150] TRCA c= 9 t=14 argmax= 3 MISS  13601.2 ms
+I (2232211) replay:   [151] TRCA c=10 t= 0 argmax= 8 MISS  13589.5 ms
+I (2245991) replay:   [152] TRCA c=10 t= 1 argmax=10 OK  13601.9 ms
+I (2259692) replay:   [153] TRCA c=10 t= 2 argmax= 3 MISS  13592.3 ms
+I (2273491) replay:   [154] TRCA c=10 t= 3 argmax= 5 MISS  13606.7 ms
+I (2287182) replay:   [155] TRCA c=10 t= 4 argmax= 1 MISS  13586.9 ms
+I (2300871) replay:   [156] TRCA c=10 t= 5 argmax= 3 MISS  13595.8 ms
+I (2314566) replay:   [157] TRCA c=10 t= 6 argmax=10 OK  13605.4 ms
+I (2328276) replay:   [158] TRCA c=10 t= 7 argmax= 9 MISS  13593.9 ms
+I (2341964) replay:   [159] TRCA c=10 t= 8 argmax=10 OK  13595.6 ms
+I (2355678) replay:   [160] TRCA c=10 t= 9 argmax= 5 MISS  13613.4 ms
+I (2369369) replay:   [161] TRCA c=10 t=10 argmax=10 OK  13593.0 ms
+I (2383072) replay:   [162] TRCA c=10 t=11 argmax=10 OK  13612.1 ms
+I (2396825) replay:   [163] TRCA c=10 t=12 argmax= 2 MISS  13608.5 ms
+I (2410617) replay:   [164] TRCA c=10 t=13 argmax= 4 MISS  13614.2 ms
+I (2424361) replay:   [165] TRCA c=10 t=14 argmax= 4 MISS  13592.2 ms
+I (2438318) replay:   [166] TRCA c=11 t= 0 argmax= 4 MISS  13598.7 ms
+I (2452098) replay:   [167] TRCA c=11 t= 1 argmax=11 OK  13609.3 ms
+I (2465792) replay:   [168] TRCA c=11 t= 2 argmax= 0 MISS  13592.4 ms
+I (2479540) replay:   [169] TRCA c=11 t= 3 argmax= 6 MISS  13609.5 ms
+I (2493283) replay:   [170] TRCA c=11 t= 4 argmax=11 OK  13628.8 ms
+I (2507069) replay:   [171] TRCA c=11 t= 5 argmax= 8 MISS  13593.5 ms
+I (2520804) replay:   [172] TRCA c=11 t= 6 argmax= 1 MISS  13598.1 ms
+I (2534514) replay:   [173] TRCA c=11 t= 7 argmax=11 OK  13597.6 ms
+I (2548285) replay:   [174] TRCA c=11 t= 8 argmax= 3 MISS  13617.6 ms
+I (2562085) replay:   [175] TRCA c=11 t= 9 argmax= 8 MISS  13608.1 ms
+I (2575915) replay:   [176] TRCA c=11 t=10 argmax= 8 MISS  13594.3 ms
+I (2589615) replay:   [177] TRCA c=11 t=11 argmax=11 OK  13599.8 ms
+I (2603468) replay:   [178] TRCA c=11 t=12 argmax= 8 MISS  13605.1 ms
+I (2617200) replay:   [179] TRCA c=11 t=13 argmax=10 MISS  13600.0 ms
+I (2630888) replay:   [180] TRCA c=11 t=14 argmax= 8 MISS  13590.1 ms
+I (2631063) replay: ──── SESSION END ──────────────────────
+I (2631063) replay: RES_PROFILE phase=session_summary backend=TRCA int_free_now=142035 spiram_free_now=8320408 sess_baseline_int=142255 sess_min_int=142035 sess_est_peak_drop_int=220 sess_min_spiram=8284544 stack_hwm_words=13968 int_min_ever_boot=136487 note=see_docs
+I (2631085) replay:   backend : TRCA
+I (2631088) replay:   trials  : 180 total, 180 ok, 0 err
+I (2631093) replay:   latency : avg 13602.4 ms, min 13578.8 ms, max 13649.1 ms
+I (2631100) replay: ──────────────────────────────────────
+I (2631112) replay: cleanup decoder 3 (TRCA)
+I (2631117) replay: client disconnected, waiting for next

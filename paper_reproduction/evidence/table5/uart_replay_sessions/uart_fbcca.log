@@ -1,0 +1,211 @@
+I (43403) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us
+I (43411) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000
+I (43439) wifi:<ba-add>idx:0 (ifx:0, <REDACTED_MAC>), tid:0, ssn:1, winSize:64
+I (43465) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+I (44468) esp_netif_handlers: sta ip: <REDACTED_IP>, mask: 255.255.255.0, gw: <REDACTED_IP>
+I (44468) replay_wifi: got ip: <REDACTED_IP>
+I (44469) replay: listening on port 3333
+I (44472) replay: Available backends:
+I (44476) replay:   [ 1] FBCCA
+I (44478) replay:   1 backend(s) ready
+I (44482) replay: Waiting for client connection...
+I (44486) replay_app: replay_tcp_server_task started (internal stack 16384 B, core 0)
+I (44494) main_task: Returned from app_main()
+I (72058) replay: ──────────────────────────────────────
+I (72058) replay: client connected from <REDACTED_IP>:59928
+I (72070) replay: init decoder 1 (FBCCA)
+I (72071) replay: RES_PROFILE phase=pre_backend_init backend=FBCCA total_free=8394104 int_free=105767 spiram_free=8320368 int_largest=31744 int_min_ever_boot=100063 spiram_min_ever_boot=8091232
+I (72286) replay: RES_PROFILE phase=post_backend_init backend=FBCCA total_free=8095764 int_free=102343 spiram_free=8025452 int_largest=31744 int_min_ever_boot=100063 spiram_min_ever_boot=8025436
+I (72292) replay: ──── SESSION START ────────────────────
+I (72301) replay:   backend : FBCCA (id=1)
+I (72305) replay:   norm=1  onset=38  window=512  fs=256  ch=8
+I (72403) replay: RES_PROFILE phase=pre_first_infer backend=FBCCA total_free=8059904 int_free=102307 spiram_free=7989628 int_largest=31744 int_min_ever_boot=100063 spiram_min_ever_boot=7982432
+I (80853) replay: RES_PROFILE phase=post_first_infer backend=FBCCA total_free=8059940 int_free=102343 spiram_free=7989628 int_largest=31744 int_min_ever_boot=100063 spiram_min_ever_boot=7982432
+I (80859) replay:   [  1] FBCCA c= 0 t= 0 argmax= 5 MISS  8474.1 ms
+I (89428) replay:   [  2] FBCCA c= 0 t= 1 argmax= 8 MISS  8433.7 ms
+I (98041) replay:   [  3] FBCCA c= 0 t= 2 argmax= 0 OK  8425.8 ms
+I (106605) replay:   [  4] FBCCA c= 0 t= 3 argmax= 0 OK  8434.6 ms
+I (115187) replay:   [  5] FBCCA c= 0 t= 4 argmax= 5 MISS  8442.2 ms
+I (123858) replay:   [  6] FBCCA c= 0 t= 5 argmax= 4 MISS  8427.0 ms
+I (132445) replay:   [  7] FBCCA c= 0 t= 6 argmax= 4 MISS  8426.3 ms
+I (141024) replay:   [  8] FBCCA c= 0 t= 7 argmax= 0 OK  8431.5 ms
+I (149619) replay:   [  9] FBCCA c= 0 t= 8 argmax= 0 OK  8441.2 ms
+I (158192) replay:   [ 10] FBCCA c= 0 t= 9 argmax=10 MISS  8435.6 ms
+I (166754) replay:   [ 11] FBCCA c= 0 t=10 argmax= 4 MISS  8426.6 ms
+I (175355) replay:   [ 12] FBCCA c= 0 t=11 argmax= 4 MISS  8433.0 ms
+I (183923) replay:   [ 13] FBCCA c= 0 t=12 argmax= 0 OK  8431.5 ms
+I (192562) replay:   [ 14] FBCCA c= 0 t=13 argmax= 9 MISS  8430.2 ms
+I (201201) replay:   [ 15] FBCCA c= 0 t=14 argmax= 9 MISS  8435.9 ms
+I (209786) replay:   [ 16] FBCCA c= 1 t= 0 argmax=10 MISS  8440.3 ms
+I (218402) replay:   [ 17] FBCCA c= 1 t= 1 argmax= 6 MISS  8433.6 ms
+I (227081) replay:   [ 18] FBCCA c= 1 t= 2 argmax= 1 OK  8428.5 ms
+I (235684) replay:   [ 19] FBCCA c= 1 t= 3 argmax= 1 OK  8441.9 ms
+I (244303) replay:   [ 20] FBCCA c= 1 t= 4 argmax= 1 OK  8436.3 ms
+I (252880) replay:   [ 21] FBCCA c= 1 t= 5 argmax= 1 OK  8450.0 ms
+I (261493) replay:   [ 22] FBCCA c= 1 t= 6 argmax= 0 MISS  8445.9 ms
+I (270059) replay:   [ 23] FBCCA c= 1 t= 7 argmax= 4 MISS  8438.7 ms
+I (278700) replay:   [ 24] FBCCA c= 1 t= 8 argmax= 1 OK  8441.8 ms
+I (287298) replay:   [ 25] FBCCA c= 1 t= 9 argmax= 1 OK  8440.9 ms
+I (295907) replay:   [ 26] FBCCA c= 1 t=10 argmax= 1 OK  8427.9 ms
+I (304459) replay:   [ 27] FBCCA c= 1 t=11 argmax= 1 OK  8434.6 ms
+I (313090) replay:   [ 28] FBCCA c= 1 t=12 argmax= 0 MISS  8434.5 ms
+I (321724) replay:   [ 29] FBCCA c= 1 t=13 argmax= 1 OK  8446.6 ms
+I (330309) replay:   [ 30] FBCCA c= 1 t=14 argmax= 1 OK  8439.0 ms
+I (338859) replay:   [ 31] FBCCA c= 2 t= 0 argmax= 4 MISS  8424.4 ms
+I (347506) replay:   [ 32] FBCCA c= 2 t= 1 argmax= 3 MISS  8433.2 ms
+I (356404) replay:   [ 33] FBCCA c= 2 t= 2 argmax= 1 MISS  8447.0 ms
+I (365079) replay:   [ 34] FBCCA c= 2 t= 3 argmax= 9 MISS  8439.7 ms
+I (373623) replay:   [ 35] FBCCA c= 2 t= 4 argmax= 1 MISS  8436.0 ms
+I (382177) replay:   [ 36] FBCCA c= 2 t= 5 argmax= 2 OK  8438.2 ms
+I (390735) replay:   [ 37] FBCCA c= 2 t= 6 argmax= 6 MISS  8447.3 ms
+I (399306) replay:   [ 38] FBCCA c= 2 t= 7 argmax= 2 OK  8422.6 ms
+I (407845) replay:   [ 39] FBCCA c= 2 t= 8 argmax= 2 OK  8439.0 ms
+I (416498) replay:   [ 40] FBCCA c= 2 t= 9 argmax= 2 OK  8436.6 ms
+I (425129) replay:   [ 41] FBCCA c= 2 t=10 argmax= 1 MISS  8444.1 ms
+I (433842) replay:   [ 42] FBCCA c= 2 t=11 argmax= 9 MISS  8443.1 ms
+I (442419) replay:   [ 43] FBCCA c= 2 t=12 argmax= 9 MISS  8432.9 ms
+I (450959) replay:   [ 44] FBCCA c= 2 t=13 argmax= 4 MISS  8431.7 ms
+I (459612) replay:   [ 45] FBCCA c= 2 t=14 argmax= 2 OK  8436.1 ms
+I (468231) replay:   [ 46] FBCCA c= 3 t= 0 argmax= 4 MISS  8426.7 ms
+I (476849) replay:   [ 47] FBCCA c= 3 t= 1 argmax= 3 OK  8424.1 ms
+I (485407) replay:   [ 48] FBCCA c= 3 t= 2 argmax= 7 MISS  8430.3 ms
+I (493965) replay:   [ 49] FBCCA c= 3 t= 3 argmax= 3 OK  8447.4 ms
+I (502517) replay:   [ 50] FBCCA c= 3 t= 4 argmax= 3 OK  8421.8 ms
+I (511164) replay:   [ 51] FBCCA c= 3 t= 5 argmax=10 MISS  8433.1 ms
+I (519782) replay:   [ 52] FBCCA c= 3 t= 6 argmax= 3 OK  8423.7 ms
+I (528344) replay:   [ 53] FBCCA c= 3 t= 7 argmax= 3 OK  8454.3 ms
+I (536897) replay:   [ 54] FBCCA c= 3 t= 8 argmax= 3 OK  8426.1 ms
+I (545428) replay:   [ 55] FBCCA c= 3 t= 9 argmax= 3 OK  8424.8 ms
+I (554046) replay:   [ 56] FBCCA c= 3 t=10 argmax= 3 OK  8430.2 ms
+I (562651) replay:   [ 57] FBCCA c= 3 t=11 argmax= 3 OK  8437.1 ms
+I (571246) replay:   [ 58] FBCCA c= 3 t=12 argmax= 3 OK  8417.6 ms
+I (579776) replay:   [ 59] FBCCA c= 3 t=13 argmax= 3 OK  8417.4 ms
+I (588341) replay:   [ 60] FBCCA c= 3 t=14 argmax= 3 OK  8438.9 ms
+I (596965) replay:   [ 61] FBCCA c= 4 t= 0 argmax= 7 MISS  8443.8 ms
+I (605564) replay:   [ 62] FBCCA c= 4 t= 1 argmax= 4 OK  8433.3 ms
+I (614131) replay:   [ 63] FBCCA c= 4 t= 2 argmax= 7 MISS  8433.8 ms
+I (622692) replay:   [ 64] FBCCA c= 4 t= 3 argmax= 6 MISS  8429.3 ms
+I (631254) replay:   [ 65] FBCCA c= 4 t= 4 argmax= 4 OK  8439.4 ms
+I (639981) replay:   [ 66] FBCCA c= 4 t= 5 argmax= 6 MISS  8430.9 ms
+I (648724) replay:   [ 67] FBCCA c= 4 t= 6 argmax= 4 OK  8477.8 ms
+I (657352) replay:   [ 68] FBCCA c= 4 t= 7 argmax= 4 OK  8420.3 ms
+I (665895) replay:   [ 69] FBCCA c= 4 t= 8 argmax=10 MISS  8437.6 ms
+I (674591) replay:   [ 70] FBCCA c= 4 t= 9 argmax= 4 OK  8430.7 ms
+I (683243) replay:   [ 71] FBCCA c= 4 t=10 argmax= 4 OK  8431.2 ms
+I (691880) replay:   [ 72] FBCCA c= 4 t=11 argmax= 1 MISS  8424.0 ms
+I (700491) replay:   [ 73] FBCCA c= 4 t=12 argmax= 4 OK  8446.6 ms
+I (709045) replay:   [ 74] FBCCA c= 4 t=13 argmax= 6 MISS  8433.4 ms
+I (717586) replay:   [ 75] FBCCA c= 4 t=14 argmax= 9 MISS  8435.2 ms
+I (726192) replay:   [ 76] FBCCA c= 5 t= 0 argmax= 9 MISS  8444.1 ms
+I (734777) replay:   [ 77] FBCCA c= 5 t= 1 argmax= 0 MISS  8444.4 ms
+I (743387) replay:   [ 78] FBCCA c= 5 t= 2 argmax= 9 MISS  8432.5 ms
+I (751998) replay:   [ 79] FBCCA c= 5 t= 3 argmax= 9 MISS  8422.2 ms
+I (760554) replay:   [ 80] FBCCA c= 5 t= 4 argmax= 9 MISS  8428.3 ms
+I (769218) replay:   [ 81] FBCCA c= 5 t= 5 argmax= 9 MISS  8461.1 ms
+I (777766) replay:   [ 82] FBCCA c= 5 t= 6 argmax= 0 MISS  8427.4 ms
+I (786373) replay:   [ 83] FBCCA c= 5 t= 7 argmax= 5 OK  8423.0 ms
+I (794995) replay:   [ 84] FBCCA c= 5 t= 8 argmax= 5 OK  8427.4 ms
+I (803582) replay:   [ 85] FBCCA c= 5 t= 9 argmax= 5 OK  8452.5 ms
+I (812202) replay:   [ 86] FBCCA c= 5 t=10 argmax= 9 MISS  8438.4 ms
+I (820798) replay:   [ 87] FBCCA c= 5 t=11 argmax= 5 OK  8433.9 ms
+I (829459) replay:   [ 88] FBCCA c= 5 t=12 argmax= 9 MISS  8437.5 ms
+I (838121) replay:   [ 89] FBCCA c= 5 t=13 argmax= 5 OK  8452.1 ms
+I (846761) replay:   [ 90] FBCCA c= 5 t=14 argmax= 1 MISS  8431.8 ms
+I (855287) replay:   [ 91] FBCCA c= 6 t= 0 argmax= 6 OK  8421.6 ms
+I (863879) replay:   [ 92] FBCCA c= 6 t= 1 argmax= 3 MISS  8431.3 ms
+I (872441) replay:   [ 93] FBCCA c= 6 t= 2 argmax= 1 MISS  8446.0 ms
+I (881010) replay:   [ 94] FBCCA c= 6 t= 3 argmax= 6 OK  8429.8 ms
+I (889579) replay:   [ 95] FBCCA c= 6 t= 4 argmax= 9 MISS  8432.4 ms
+I (898122) replay:   [ 96] FBCCA c= 6 t= 5 argmax= 6 OK  8425.3 ms
+I (906767) replay:   [ 97] FBCCA c= 6 t= 6 argmax= 3 MISS  8440.2 ms
+I (915402) replay:   [ 98] FBCCA c= 6 t= 7 argmax= 6 OK  8424.5 ms
+I (923927) replay:   [ 99] FBCCA c= 6 t= 8 argmax= 6 OK  8418.1 ms
+I (932545) replay:   [100] FBCCA c= 6 t= 9 argmax= 6 OK  8435.3 ms
+I (941107) replay:   [101] FBCCA c= 6 t=10 argmax= 6 OK  8437.5 ms
+I (949727) replay:   [102] FBCCA c= 6 t=11 argmax= 6 OK  8427.7 ms
+I (958293) replay:   [103] FBCCA c= 6 t=12 argmax= 6 OK  8424.1 ms
+I (966827) replay:   [104] FBCCA c= 6 t=13 argmax= 6 OK  8431.0 ms
+I (975387) replay:   [105] FBCCA c= 6 t=14 argmax= 6 OK  8440.1 ms
+I (984045) replay:   [106] FBCCA c= 7 t= 0 argmax= 9 MISS  8435.5 ms
+I (992646) replay:   [107] FBCCA c= 7 t= 1 argmax= 1 MISS  8434.3 ms
+I (1001228) replay:   [108] FBCCA c= 7 t= 2 argmax= 3 MISS  8431.9 ms
+I (1009857) replay:   [109] FBCCA c= 7 t= 3 argmax=10 MISS  8448.7 ms
+I (1018407) replay:   [110] FBCCA c= 7 t= 4 argmax= 9 MISS  8429.4 ms
+I (1026936) replay:   [111] FBCCA c= 7 t= 5 argmax= 1 MISS  8424.0 ms
+I (1035547) replay:   [112] FBCCA c= 7 t= 6 argmax= 7 OK  8425.9 ms
+I (1044128) replay:   [113] FBCCA c= 7 t= 7 argmax= 7 OK  8444.0 ms
+I (1052663) replay:   [114] FBCCA c= 7 t= 8 argmax= 6 MISS  8429.9 ms
+I (1061233) replay:   [115] FBCCA c= 7 t= 9 argmax= 4 MISS  8425.3 ms
+I (1069862) replay:   [116] FBCCA c= 7 t=10 argmax= 7 OK  8439.2 ms
+I (1078422) replay:   [117] FBCCA c= 7 t=11 argmax= 4 MISS  8437.4 ms
+I (1086972) replay:   [118] FBCCA c= 7 t=12 argmax= 7 OK  8419.2 ms
+I (1095526) replay:   [119] FBCCA c= 7 t=13 argmax= 9 MISS  8430.7 ms
+I (1104197) replay:   [120] FBCCA c= 7 t=14 argmax=10 MISS  8429.6 ms
+I (1112770) replay:   [121] FBCCA c= 8 t= 0 argmax=11 MISS  8455.7 ms
+I (1121359) replay:   [122] FBCCA c= 8 t= 1 argmax= 8 OK  8433.1 ms
+I (1129924) replay:   [123] FBCCA c= 8 t= 2 argmax= 1 MISS  8440.0 ms
+I (1138560) replay:   [124] FBCCA c= 8 t= 3 argmax= 5 MISS  8438.0 ms
+I (1147128) replay:   [125] FBCCA c= 8 t= 4 argmax= 3 MISS  8440.4 ms
+I (1155654) replay:   [126] FBCCA c= 8 t= 5 argmax= 8 OK  8422.3 ms
+I (1164272) replay:   [127] FBCCA c= 8 t= 6 argmax= 8 OK  8420.3 ms
+I (1172931) replay:   [128] FBCCA c= 8 t= 7 argmax= 6 MISS  8427.2 ms
+I (1181563) replay:   [129] FBCCA c= 8 t= 8 argmax= 0 MISS  8436.7 ms
+I (1190152) replay:   [130] FBCCA c= 8 t= 9 argmax= 8 OK  8427.3 ms
+I (1198793) replay:   [131] FBCCA c= 8 t=10 argmax= 8 OK  8435.0 ms
+I (1207355) replay:   [132] FBCCA c= 8 t=11 argmax= 8 OK  8428.4 ms
+I (1215980) replay:   [133] FBCCA c= 8 t=12 argmax= 8 OK  8437.8 ms
+I (1224566) replay:   [134] FBCCA c= 8 t=13 argmax= 8 OK  8426.0 ms
+I (1233170) replay:   [135] FBCCA c= 8 t=14 argmax=11 MISS  8426.1 ms
+I (1241770) replay:   [136] FBCCA c= 9 t= 0 argmax= 9 OK  8427.5 ms
+I (1250397) replay:   [137] FBCCA c= 9 t= 1 argmax= 9 OK  8451.2 ms
+I (1258992) replay:   [138] FBCCA c= 9 t= 2 argmax= 9 OK  8424.7 ms
+I (1267587) replay:   [139] FBCCA c= 9 t= 3 argmax= 9 OK  8435.2 ms
+I (1276168) replay:   [140] FBCCA c= 9 t= 4 argmax= 9 OK  8439.3 ms
+I (1284820) replay:   [141] FBCCA c= 9 t= 5 argmax= 9 OK  8439.6 ms
+I (1293365) replay:   [142] FBCCA c= 9 t= 6 argmax=10 MISS  8430.5 ms
+I (1301990) replay:   [143] FBCCA c= 9 t= 7 argmax= 9 OK  8435.9 ms
+I (1310665) replay:   [144] FBCCA c= 9 t= 8 argmax= 9 OK  8430.6 ms
+I (1319209) replay:   [145] FBCCA c= 9 t= 9 argmax= 9 OK  8439.2 ms
+I (1327803) replay:   [146] FBCCA c= 9 t=10 argmax= 9 OK  8427.1 ms
+I (1336351) replay:   [147] FBCCA c= 9 t=11 argmax= 9 OK  8432.5 ms
+I (1345010) replay:   [148] FBCCA c= 9 t=12 argmax= 9 OK  8434.4 ms
+I (1353573) replay:   [149] FBCCA c= 9 t=13 argmax= 9 OK  8445.9 ms
+I (1362128) replay:   [150] FBCCA c= 9 t=14 argmax= 6 MISS  8438.6 ms
+I (1370700) replay:   [151] FBCCA c=10 t= 0 argmax=10 OK  8439.1 ms
+I (1379295) replay:   [152] FBCCA c=10 t= 1 argmax= 9 MISS  8433.2 ms
+I (1387864) replay:   [153] FBCCA c=10 t= 2 argmax= 6 MISS  8443.4 ms
+I (1396494) replay:   [154] FBCCA c=10 t= 3 argmax= 9 MISS  8427.5 ms
+I (1405079) replay:   [155] FBCCA c=10 t= 4 argmax= 9 MISS  8438.5 ms
+I (1413705) replay:   [156] FBCCA c=10 t= 5 argmax=10 OK  8436.2 ms
+I (1422248) replay:   [157] FBCCA c=10 t= 6 argmax= 9 MISS  8443.3 ms
+I (1430814) replay:   [158] FBCCA c=10 t= 7 argmax=10 OK  8436.5 ms
+I (1439381) replay:   [159] FBCCA c=10 t= 8 argmax= 9 MISS  8438.3 ms
+I (1448007) replay:   [160] FBCCA c=10 t= 9 argmax= 9 MISS  8423.5 ms
+I (1456598) replay:   [161] FBCCA c=10 t=10 argmax=10 OK  8436.9 ms
+I (1465175) replay:   [162] FBCCA c=10 t=11 argmax= 7 MISS  8430.4 ms
+I (1473809) replay:   [163] FBCCA c=10 t=12 argmax= 0 MISS  8426.2 ms
+I (1482388) replay:   [164] FBCCA c=10 t=13 argmax=10 OK  8429.1 ms
+I (1490953) replay:   [165] FBCCA c=10 t=14 argmax=10 OK  8438.4 ms
+I (1499537) replay:   [166] FBCCA c=11 t= 0 argmax=11 OK  8439.6 ms
+I (1508089) replay:   [167] FBCCA c=11 t= 1 argmax=10 MISS  8425.6 ms
+I (1516621) replay:   [168] FBCCA c=11 t= 2 argmax=11 OK  8430.6 ms
+I (1525204) replay:   [169] FBCCA c=11 t= 3 argmax=11 OK  8446.0 ms
+I (1533772) replay:   [170] FBCCA c=11 t= 4 argmax= 9 MISS  8425.4 ms
+I (1542444) replay:   [171] FBCCA c=11 t= 5 argmax=11 OK  8424.0 ms
+I (1551051) replay:   [172] FBCCA c=11 t= 6 argmax=11 OK  8487.5 ms
+I (1559616) replay:   [173] FBCCA c=11 t= 7 argmax=11 OK  8442.3 ms
+I (1568197) replay:   [174] FBCCA c=11 t= 8 argmax=11 OK  8431.1 ms
+I (1576766) replay:   [175] FBCCA c=11 t= 9 argmax=11 OK  8437.2 ms
+I (1585347) replay:   [176] FBCCA c=11 t=10 argmax=11 OK  8427.4 ms
+I (1593934) replay:   [177] FBCCA c=11 t=11 argmax=11 OK  8432.7 ms
+I (1602507) replay:   [178] FBCCA c=11 t=12 argmax=11 OK  8433.0 ms
+I (1611129) replay:   [179] FBCCA c=11 t=13 argmax=11 OK  8441.4 ms
+I (1619743) replay:   [180] FBCCA c=11 t=14 argmax=11 OK  8433.3 ms
+I (1619825) replay: ──── SESSION END ──────────────────────
+I (1619825) replay: RES_PROFILE phase=session_summary backend=FBCCA int_free_now=102019 spiram_free_now=8025492 sess_baseline_int=105767 sess_min_int=102019 sess_est_peak_drop_int=3748 sess_min_spiram=7989628 stack_hwm_words=13920 int_min_ever_boot=100063 note=see_docs
+I (1619847) replay:   backend : FBCCA
+I (1619850) replay:   trials  : 180 total, 180 ok, 0 err
+I (1619855) replay:   latency : avg 8434.9 ms, min 8417.4 ms, max 8487.5 ms
+I (1619862) replay: ──────────────────────────────────────
+I (1619874) replay: cleanup decoder 1 (FBCCA)
+I (1619879) replay: client disconnected, waiting for next

@@ -3869,18 +3869,30 @@
     "held_out_subject": "s1",
     "relative_path": "artifacts/reference/tflite/ccnn_f32/fold01/ccnn_float32.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold01",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 175532,
     "sha256": "1808e3646fc38d7ee29d446ffaa6d1c84bea469c6950d59ea66a51651d1488e7",
@@ -3897,18 +3909,30 @@
     "held_out_subject": "s2",
     "relative_path": "artifacts/reference/tflite/ccnn_f32/fold02/ccnn_float32.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold02",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 175532,
     "sha256": "25067c811d3854bab5727a7a2b91ba2aebd4c7a39c2eda7f232dcc979180d600",
@@ -3925,18 +3949,30 @@
     "held_out_subject": "s3",
     "relative_path": "artifacts/reference/tflite/ccnn_f32/fold03/ccnn_float32.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold03",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 175532,
     "sha256": "a472c075bfd07f0dc4e03543df042ed72f010d6d1bd1175b97ba625dbb72eace",
@@ -3953,18 +3989,30 @@
     "held_out_subject": "s4",
     "relative_path": "artifacts/reference/tflite/ccnn_f32/fold04/ccnn_float32.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold04",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 175532,
     "sha256": "e62d5c85557f4a13ad840012d56c81416e27ad8512f5016d7b13deebb876904b",
@@ -3981,18 +4029,30 @@
     "held_out_subject": "s5",
     "relative_path": "artifacts/reference/tflite/ccnn_f32/fold05/ccnn_float32.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold05",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 175532,
     "sha256": "4effc1d35fb6e04e491fce4a6661dd98b2676373a9b66c835bcadcfb5ab2d695",
@@ -4009,18 +4069,30 @@
     "held_out_subject": "s6",
     "relative_path": "artifacts/reference/tflite/ccnn_f32/fold06/ccnn_float32.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold06",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 175532,
     "sha256": "5c1d52e268c1411333920d8588341abd92af9c830a25899caaff9a7f416a1d38",
@@ -4037,18 +4109,30 @@
     "held_out_subject": "s7",
     "relative_path": "artifacts/reference/tflite/ccnn_f32/fold07/ccnn_float32.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold07",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 175532,
     "sha256": "09fe4d1cc01d8ec7aed66e85c416d9694f334c336ccc6b7099a2ce48529c45c5",
@@ -4065,18 +4149,30 @@
     "held_out_subject": "s8",
     "relative_path": "artifacts/reference/tflite/ccnn_f32/fold08/ccnn_float32.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold08",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 175532,
     "sha256": "ea9155cecf10188fefbf00f5cbef30f5c2f5b0df08f356806c9985e93b2843a2",
@@ -4093,18 +4189,30 @@
     "held_out_subject": "s9",
     "relative_path": "artifacts/reference/tflite/ccnn_f32/fold09/ccnn_float32.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold09",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 175532,
     "sha256": "7879286038de56f352b799238be3c98a5798948f275b9594d46ec2a456d9c55d",
@@ -4121,18 +4229,30 @@
     "held_out_subject": "s10",
     "relative_path": "artifacts/reference/tflite/ccnn_f32/fold10/ccnn_float32.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold10",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 175532,
     "sha256": "7b915bebd07af2973abbd6dbc4568bb3a0c513e6fd674b89fff3ed821c7deb73",
@@ -4149,18 +4269,30 @@
     "held_out_subject": "s1",
     "relative_path": "artifacts/reference/tflite/ccnn_int8/fold01/ccnn_int8.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold01",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 47696,
     "sha256": "ded80c00e0cb9c89a708604cdb19f6c11f9bf7b431b97ada92446bebece8300b",
@@ -4177,18 +4309,30 @@
     "held_out_subject": "s2",
     "relative_path": "artifacts/reference/tflite/ccnn_int8/fold02/ccnn_int8.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold02",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 47696,
     "sha256": "d831b8fea62f6d9f63c9b75ef6fb8afb851c0cd7556154cb469f23db1d47fd9c",
@@ -4205,18 +4349,30 @@
     "held_out_subject": "s3",
     "relative_path": "artifacts/reference/tflite/ccnn_int8/fold03/ccnn_int8.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold03",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 47696,
     "sha256": "975776d827071c3d167fbdc0e06a9ef648ca4a187bb2176edcfd31ca9f9b7f0e",
@@ -4233,18 +4389,30 @@
     "held_out_subject": "s4",
     "relative_path": "artifacts/reference/tflite/ccnn_int8/fold04/ccnn_int8.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold04",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 47696,
     "sha256": "75c745c7b6aa508a991fd1237ee3f0dd1a43cc4690597309aa467c389acacacb",
@@ -4261,18 +4429,30 @@
     "held_out_subject": "s5",
     "relative_path": "artifacts/reference/tflite/ccnn_int8/fold05/ccnn_int8.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold05",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 47696,
     "sha256": "9e9844aaa90e8b09f15f0219c48d1f0121c48ddfcb7be330166917f0ee631adf",
@@ -4289,18 +4469,30 @@
     "held_out_subject": "s6",
     "relative_path": "artifacts/reference/tflite/ccnn_int8/fold06/ccnn_int8.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold06",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 47696,
     "sha256": "fe230fa376487694e4fd3be9042594a2642dd33507f0c798cd10c1dfd1706505",
@@ -4317,18 +4509,30 @@
     "held_out_subject": "s7",
     "relative_path": "artifacts/reference/tflite/ccnn_int8/fold07/ccnn_int8.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold07",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 47696,
     "sha256": "1047475f801f892f709e6a013c2cbe9da8b739f81b8f213ea62cbee99ebcd54f",
@@ -4345,18 +4549,30 @@
     "held_out_subject": "s8",
     "relative_path": "artifacts/reference/tflite/ccnn_int8/fold08/ccnn_int8.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold08",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 47696,
     "sha256": "cb2f046e946b2b2d3d2c312a8660a2a3cf145dd20b16850440a68b1f62efc4fe",
@@ -4373,18 +4589,30 @@
     "held_out_subject": "s9",
     "relative_path": "artifacts/reference/tflite/ccnn_int8/fold09/ccnn_int8.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold09",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 47696,
     "sha256": "53c09b62963efcdf566b3377ef68f11e49af9221346817247a8d581da6d2c5e4",
@@ -4401,18 +4629,30 @@
     "held_out_subject": "s10",
     "relative_path": "artifacts/reference/tflite/ccnn_int8/fold10/ccnn_int8.tflite",
     "checkpoint_artifact_id": "ccnn_checkpoint_fold10",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       1,
       8,
       220
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      220,
+      1
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 47696,
     "sha256": "edb51213bd00024661827444acf4fa206da619d28cea1a7afc1715e99cba20fb",
@@ -4429,17 +4669,28 @@
     "held_out_subject": "s1",
     "relative_path": "artifacts/reference/tflite/convca_f32/fold01/convca_float32.tflite",
     "checkpoint_artifact_id": "convca_checkpoint_fold01",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      512,
+      8
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 35164,
     "sha256": "bca9936527e32cdd4493c64c6972c6c2d0708c2040aa0dfdc228dd4b5880a67e",
@@ -4456,17 +4707,28 @@
     "held_out_subject": "s2",
     "relative_path": "artifacts/reference/tflite/convca_f32/fold02/convca_float32.tflite",
     "checkpoint_artifact_id": "convca_checkpoint_fold02",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      512,
+      8
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 35164,
     "sha256": "59feb4129c67154e53466c69146ab961a547c6e01864878ea11ecda83ed5f175",
@@ -4483,17 +4745,28 @@
     "held_out_subject": "s3",
     "relative_path": "artifacts/reference/tflite/convca_f32/fold03/convca_float32.tflite",
     "checkpoint_artifact_id": "convca_checkpoint_fold03",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      512,
+      8
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 35164,
     "sha256": "3070dd444c4f8040b6b6f158cace109964a82f8ca0e5a2c78ae08852e92fa7b2",
@@ -4510,17 +4783,28 @@
     "held_out_subject": "s4",
     "relative_path": "artifacts/reference/tflite/convca_f32/fold04/convca_float32.tflite",
     "checkpoint_artifact_id": "convca_checkpoint_fold04",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      512,
+      8
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 35164,
     "sha256": "0032dc8ae8ccac9cd31442f3d458784dbbb60f55bda8b43bf33f70983b51f3ba",
@@ -4537,17 +4821,28 @@
     "held_out_subject": "s5",
     "relative_path": "artifacts/reference/tflite/convca_f32/fold05/convca_float32.tflite",
     "checkpoint_artifact_id": "convca_checkpoint_fold05",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      512,
+      8
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 35164,
     "sha256": "4f9b1e6892134cb6b0d2820936c48ccd58469e2c877c1f0c904cf09b84f21a8e",
@@ -4564,17 +4859,28 @@
     "held_out_subject": "s6",
     "relative_path": "artifacts/reference/tflite/convca_f32/fold06/convca_float32.tflite",
     "checkpoint_artifact_id": "convca_checkpoint_fold06",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      512,
+      8
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 35164,
     "sha256": "6214c8e5aa36ffda443667b4cd1d49865f8a277aab16add9d35143855a94e75f",
@@ -4591,17 +4897,28 @@
     "held_out_subject": "s7",
     "relative_path": "artifacts/reference/tflite/convca_f32/fold07/convca_float32.tflite",
     "checkpoint_artifact_id": "convca_checkpoint_fold07",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      512,
+      8
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 35164,
     "sha256": "2b18e6d2d5b24de9331a8fe7fd987f7ece8f2ab3cf24353743ab9c30873d899c",
@@ -4618,17 +4935,28 @@
     "held_out_subject": "s8",
     "relative_path": "artifacts/reference/tflite/convca_f32/fold08/convca_float32.tflite",
     "checkpoint_artifact_id": "convca_checkpoint_fold08",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      512,
+      8
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 35164,
     "sha256": "ff1e6ae83f99346b575a548e0cc7fc88f2c77e4432cd4e460fc7fa5a69cfd766",
@@ -4645,17 +4973,28 @@
     "held_out_subject": "s9",
     "relative_path": "artifacts/reference/tflite/convca_f32/fold09/convca_float32.tflite",
     "checkpoint_artifact_id": "convca_checkpoint_fold09",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      512,
+      8
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 35164,
     "sha256": "c5b5f21733633074d5a1b48d97e908aa2d9248ee7f3a8e9ae6064f73768f5d47",
@@ -4672,17 +5011,28 @@
     "held_out_subject": "s10",
     "relative_path": "artifacts/reference/tflite/convca_f32/fold10/convca_float32.tflite",
     "checkpoint_artifact_id": "convca_checkpoint_fold10",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      512,
+      8
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 35164,
     "sha256": "1f4be98b0879991ac989332c711edaf694f8e4d6e93cf294ae859a22c8da88ab",
@@ -4699,17 +5049,28 @@
     "held_out_subject": "s1",
     "relative_path": "artifacts/reference/tflite/eegnet_f32/fold01/eegnet_float32.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold01",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 11792,
     "sha256": "76eab2c93e15bb5f05eba277ae1f7d22a1474e69c3e229dd530dec6f2da4c63a",
@@ -4726,17 +5087,28 @@
     "held_out_subject": "s2",
     "relative_path": "artifacts/reference/tflite/eegnet_f32/fold02/eegnet_float32.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold02",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 11792,
     "sha256": "2625a1b08e69ca7405b8a584ed4ecab440c72a4537eff3f331996fd7bcaf70d2",
@@ -4753,17 +5125,28 @@
     "held_out_subject": "s3",
     "relative_path": "artifacts/reference/tflite/eegnet_f32/fold03/eegnet_float32.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold03",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 11792,
     "sha256": "abe884597a97686ed97ffe19ad3ecc66d2527a31591988c6f9de11b59cb8b209",
@@ -4780,17 +5163,28 @@
     "held_out_subject": "s4",
     "relative_path": "artifacts/reference/tflite/eegnet_f32/fold04/eegnet_float32.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold04",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 11792,
     "sha256": "6f7c069bd58b8848bf603db4e42e1888119193307d121441d50e177e35fdad8a",
@@ -4807,17 +5201,28 @@
     "held_out_subject": "s5",
     "relative_path": "artifacts/reference/tflite/eegnet_f32/fold05/eegnet_float32.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold05",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 11792,
     "sha256": "992a7e677342d6b97a0bc121f668647e4eaa5ba33ac4d27f177edb0d490ad0e6",
@@ -4834,17 +5239,28 @@
     "held_out_subject": "s6",
     "relative_path": "artifacts/reference/tflite/eegnet_f32/fold06/eegnet_float32.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold06",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 11792,
     "sha256": "655dd574310f39c32c9c7006a58bc1e03d2a223e6195d9cad64bd15659c8ebda",
@@ -4861,17 +5277,28 @@
     "held_out_subject": "s7",
     "relative_path": "artifacts/reference/tflite/eegnet_f32/fold07/eegnet_float32.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold07",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 11792,
     "sha256": "f23dd9143f1a645b32025c20ab902c4d0a8c88d8080b5fdf170423ed0e9eb09c",
@@ -4888,17 +5315,28 @@
     "held_out_subject": "s8",
     "relative_path": "artifacts/reference/tflite/eegnet_f32/fold08/eegnet_float32.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold08",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 11792,
     "sha256": "2d69eeb019aa421c812139abdb4f796626b0cf2499a51d915d54dc5a39eda0d7",
@@ -4915,17 +5353,28 @@
     "held_out_subject": "s9",
     "relative_path": "artifacts/reference/tflite/eegnet_f32/fold09/eegnet_float32.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold09",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 11792,
     "sha256": "2d60180684ce886419cabd4b027ced756c257c40584d2064058e009e5654205d",
@@ -4942,17 +5391,28 @@
     "held_out_subject": "s10",
     "relative_path": "artifacts/reference/tflite/eegnet_f32/fold10/eegnet_float32.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold10",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 11792,
     "sha256": "13c7d4583e97c1941c595e271f92ffc77ba38143447c19f9bf641d4f3e156c82",
@@ -4969,17 +5429,28 @@
     "held_out_subject": "s1",
     "relative_path": "artifacts/reference/tflite/eegnet_int8/fold01/eegnet_int8.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold01",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 10984,
     "sha256": "895e85ea4ecd0b91666d18a42917a420ef50d52f5686db170e56dc6c072070df",
@@ -4996,17 +5467,28 @@
     "held_out_subject": "s2",
     "relative_path": "artifacts/reference/tflite/eegnet_int8/fold02/eegnet_int8.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold02",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 10984,
     "sha256": "919598710936d09cc7ddae79d6e37bbd856197baf0bd69009e617c5c0de7034a",
@@ -5023,17 +5505,28 @@
     "held_out_subject": "s3",
     "relative_path": "artifacts/reference/tflite/eegnet_int8/fold03/eegnet_int8.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold03",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 10984,
     "sha256": "ec4c465b877d4a362ac85c75bc81b9a0053db65a085bb861541373b325e315dd",
@@ -5050,17 +5543,28 @@
     "held_out_subject": "s4",
     "relative_path": "artifacts/reference/tflite/eegnet_int8/fold04/eegnet_int8.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold04",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 10984,
     "sha256": "b92d6e026ddca8c2898cda125120e0ad7cd719eeddf713df3c2b2de161cb6bb2",
@@ -5077,17 +5581,28 @@
     "held_out_subject": "s5",
     "relative_path": "artifacts/reference/tflite/eegnet_int8/fold05/eegnet_int8.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold05",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 10984,
     "sha256": "5a5459374f601aec17e8d1d257cd6c71880bb09035d19b21d445eb56d5b14729",
@@ -5104,17 +5619,28 @@
     "held_out_subject": "s6",
     "relative_path": "artifacts/reference/tflite/eegnet_int8/fold06/eegnet_int8.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold06",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 10984,
     "sha256": "ca7fd7e729d062d12b4b5ba1ea5e13f440b69126e3125cb6a7315cf9d5e89353",
@@ -5131,17 +5657,28 @@
     "held_out_subject": "s7",
     "relative_path": "artifacts/reference/tflite/eegnet_int8/fold07/eegnet_int8.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold07",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 10984,
     "sha256": "b60096d90aae334a663f3a8fad54df12a98d9ff37ae51908b33868c06a69e9c2",
@@ -5158,17 +5695,28 @@
     "held_out_subject": "s8",
     "relative_path": "artifacts/reference/tflite/eegnet_int8/fold08/eegnet_int8.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold08",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 10984,
     "sha256": "3b1349c2b11918dd60c3bea3e1e7244f8b12464b7a62b046564bf1db5c78cb9c",
@@ -5185,17 +5733,28 @@
     "held_out_subject": "s9",
     "relative_path": "artifacts/reference/tflite/eegnet_int8/fold09/eegnet_int8.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold09",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 10984,
     "sha256": "d0158d0ecd7aa0f899b0b1eaa8cf5ec8eb4ff8e80ba048e156e3eeada3263348",
@@ -5212,17 +5771,28 @@
     "held_out_subject": "s10",
     "relative_path": "artifacts/reference/tflite/eegnet_int8/fold10/eegnet_int8.tflite",
     "checkpoint_artifact_id": "eegnet_checkpoint_fold10",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       512,
       8
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 10984,
     "sha256": "18ead858ff4cfcdbdf136d0f1693834e4af75c35ea88be822ba9b84d02b76fdb",
@@ -5239,18 +5809,30 @@
     "held_out_subject": "s1",
     "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold01/fbtcnn_float32.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold01",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 737752,
     "sha256": "b3936e141717b8f3a7114f8c4b5df80d80cfa778e04fdaba3926758ebef2e6ab",
@@ -5267,18 +5849,30 @@
     "held_out_subject": "s2",
     "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold02/fbtcnn_float32.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold02",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 737752,
     "sha256": "1d1344489c1c56bbea2b642f9ac17f087d30810fce5a5037bda18313ff2016e9",
@@ -5295,18 +5889,30 @@
     "held_out_subject": "s3",
     "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold03/fbtcnn_float32.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold03",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 737752,
     "sha256": "b9dc5a6accf7a1f5a0c4a69a47ba7a727b3ade5e2957d8717c93a25c6f9cecab",
@@ -5323,18 +5929,30 @@
     "held_out_subject": "s4",
     "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold04/fbtcnn_float32.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold04",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 737752,
     "sha256": "fbc4c4e740afa7c930d87a9392ed7c6fb66a7f43e352da9769c6eb1b8fd32c97",
@@ -5351,18 +5969,30 @@
     "held_out_subject": "s5",
     "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold05/fbtcnn_float32.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold05",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 737752,
     "sha256": "001e434a82463f0cade1369f3d201acc19c5b542ca7facebdb4c1e8ca9858c6c",
@@ -5379,18 +6009,30 @@
     "held_out_subject": "s6",
     "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold06/fbtcnn_float32.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold06",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 737752,
     "sha256": "3b9f5986794b318d2d623e7c4a739b9abe4be6891ebaa0a8df5e0da635b57676",
@@ -5407,18 +6049,30 @@
     "held_out_subject": "s7",
     "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold07/fbtcnn_float32.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold07",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 737752,
     "sha256": "2d19834025833b3e4aa416234767f6585603ecf6758174551b29d1d9160e4b9b",
@@ -5435,18 +6089,30 @@
     "held_out_subject": "s8",
     "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold08/fbtcnn_float32.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold08",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 737752,
     "sha256": "90ef90360935d1a6f6f1a0ac2554464f01c27e879d274cd3b52d58e2ebf224b7",
@@ -5463,18 +6129,30 @@
     "held_out_subject": "s9",
     "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold09/fbtcnn_float32.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold09",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 737752,
     "sha256": "af352f5b77f6a5a47d3d9a983d188da0cbe958287501645926f1badb8648e34d",
@@ -5491,18 +6169,30 @@
     "held_out_subject": "s10",
     "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold10/fbtcnn_float32.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold10",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 737752,
     "sha256": "8da25a654dcf13d4281a74a3e45afbf8a53ee82c43af9b5d247a4fd591f2b93e",
@@ -5519,18 +6209,30 @@
     "held_out_subject": "s1",
     "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold01/fbtcnn_int8.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold01",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 192776,
     "sha256": "56420a9fa98e2a57d9f2f0c3a67f889bae94e70bf308de403f29ea0115cced51",
@@ -5547,18 +6249,30 @@
     "held_out_subject": "s2",
     "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold02/fbtcnn_int8.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold02",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 192776,
     "sha256": "c331dcf13c7b903671d6b74df32b26f0642ba8b5d993b869b9aa539690f68919",
@@ -5575,18 +6289,30 @@
     "held_out_subject": "s3",
     "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold03/fbtcnn_int8.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold03",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 192776,
     "sha256": "64b2a233dead5f379ea1cf0bec853f8ebf915ad15596debc6be9d8d4524707a8",
@@ -5603,18 +6329,30 @@
     "held_out_subject": "s4",
     "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold04/fbtcnn_int8.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold04",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 192776,
     "sha256": "028ec9d4c2ec1c43d7cd53985784e3664f5c36881502b13f18918a423cfb71d0",
@@ -5631,18 +6369,30 @@
     "held_out_subject": "s5",
     "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold05/fbtcnn_int8.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold05",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 192776,
     "sha256": "228534c102d5021d7a163449e63b2b6d6da8c39da5764e06279a3c2286e5d672",
@@ -5659,18 +6409,30 @@
     "held_out_subject": "s6",
     "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold06/fbtcnn_int8.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold06",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 192776,
     "sha256": "47c042fb2c577b025b77a6704d46fa96caf352aad4bae71d4e901782fcd2c0e3",
@@ -5687,18 +6449,30 @@
     "held_out_subject": "s7",
     "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold07/fbtcnn_int8.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold07",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 192776,
     "sha256": "8ee66f0ae72796c0363650f1867130b74c89c5b7c6827aed01d2f866701e32e8",
@@ -5715,18 +6489,30 @@
     "held_out_subject": "s8",
     "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold08/fbtcnn_int8.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold08",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 192776,
     "sha256": "9f3130b45edf9963631b8bf0284da08a1e71ecaedb22da49d395d852e2bc2700",
@@ -5743,18 +6529,30 @@
     "held_out_subject": "s9",
     "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold09/fbtcnn_int8.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold09",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 192776,
     "sha256": "9f3378a025d22aea5ba00af0878f1b18a79c35112bd9c8412ccacad8a9687e1f",
@@ -5771,18 +6569,30 @@
     "held_out_subject": "s10",
     "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold10/fbtcnn_int8.tflite",
     "checkpoint_artifact_id": "fbtcnn_checkpoint_fold10",
-    "input_shape": [
+    "logical_input_shape": [
       1,
       4,
       8,
       512
     ],
-    "output_shape": [
+    "logical_output_shape": [
       1,
       12
     ],
     "input_dtype": "float32",
     "output_dtype": "float32",
+    "tflite_input_shape": [
+      1,
+      8,
+      512,
+      4
+    ],
+    "tflite_input_dtype": "float32",
+    "tflite_output_shape": [
+      1,
+      12
+    ],
+    "tflite_output_dtype": "float32",
     "class_count": 12,
     "file_size_bytes": 192776,
     "sha256": "b856c99021c53c6c38ce0e0a051f801b28dfc69a13734b60237adb83c2980f24",

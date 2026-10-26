@@ -1,0 +1,107 @@
+{
+  "source": "Values transcribed from the submitted OJ-CS manuscript LaTeX source (main text Tables 2-5, Section 5 text, Figure 2 caption, Supplementary Tables S12-S13). Strings are compared with the regenerated values formatted to the printed precision.",
+  "table2_realized_backends": {
+    "columns": ["device_acc_pct", "agreement_pct", "flip_pct", "mean_relative_l2", "cosine_distance", "latency_ms"],
+    "rows": {
+      "CCA": ["80.72", "98.06", "1.94", "0.0106", "5.77e-05", "553.5"],
+      "FBCCA": ["83.28", "98.67", "1.33", "0.0164", "1.32e-04", "8442.4"],
+      "MSI": ["75.94", "100.00", "0.00", "5.84e-05", "1.86e-07", "1035.2"],
+      "TRCA": ["83.44", "100.00", "0.00", "1.51e-05", "2.96e-10", "13621.7"],
+      "CCNN-f32": ["87.22", "100.00", "0.00", "2.02e-05", "2.32e-10", "161.2"],
+      "CCNN-int8": ["86.78", "96.28", "3.72", "0.0677", "2.98e-03", "74.1"],
+      "ConvCA-f32": ["88.11", "100.00", "0.00", "2.20e-07", "2.20e-14", "2118.1"],
+      "EEGNet-f32": ["53.44", "100.00", "0.00", "1.43e-07", "1.04e-14", "1118.8"],
+      "EEGNet-int8": ["50.72", "98.11", "1.89", "0.0174", "2.31e-04", "69.2"],
+      "FBtCNN-f32": ["85.50", "100.00", "0.00", "4.77e-07", "1.09e-13", "12970.0"],
+      "FBtCNN-int8": ["85.28", "99.67", "0.33", "0.0179", "1.66e-04", "2138.9"]
+    }
+  },
+  "table3_two_stage": {
+    "columns": ["stage1_agree_pct", "stage1_flip_pct", "stage2_agree_pct", "stage2_flip_pct", "larger_boundary"],
+    "rows": {
+      "CCNN-f32": ["100.00", "0.00", "100.00", "0.00", "None"],
+      "CCNN-int8": ["98.44", "1.56", "96.28", "3.72", "Stage 2"],
+      "ConvCA-f32": ["100.00", "0.00", "100.00", "0.00", "None"],
+      "EEGNet-f32": ["100.00", "0.00", "100.00", "0.00", "None"],
+      "EEGNet-int8": ["90.11", "9.89", "98.11", "1.89", "Stage 1"],
+      "FBtCNN-f32": ["100.00", "0.00", "100.00", "0.00", "None"],
+      "FBtCNN-int8": ["99.22", "0.78", "99.67", "0.33", "Stage 1"]
+    }
+  },
+  "table_s12_transitions": {
+    "columns": ["preserved", "export_created_retained", "device_created", "checkpoint_restored", "third_class"],
+    "rows": {
+      "CCNN-f32": [1800, 0, 0, 0, 0],
+      "CCNN-int8": [1720, 13, 52, 11, 4],
+      "ConvCA-f32": [1800, 0, 0, 0, 0],
+      "EEGNet-f32": [1800, 0, 0, 0, 0],
+      "EEGNet-int8": [1608, 158, 14, 19, 1],
+      "FBtCNN-f32": [1800, 0, 0, 0, 0],
+      "FBtCNN-int8": [1784, 10, 2, 4, 0]
+    }
+  },
+  "table_s13_normalized_output_error": {
+    "columns": ["mean_relative_l2_error", "median_relative_l2_error", "p95_relative_l2_error", "near_zero_host_norm_count",
+                "mean_cosine_distance", "median_cosine_distance", "p95_cosine_distance"],
+    "rows": {
+      "CCA": ["0.0105971", "0.0101612", "0.0164358", "0", "5.77e-05", "4.75e-05", "1.29e-04"],
+      "FBCCA": ["0.0163896", "0.015631", "0.0257806", "0", "1.32e-04", "1.08e-04", "2.95e-04"],
+      "MSI": ["5.84143e-05", "2.83200e-06", "1.04744e-04", "0", "1.86e-07", "2.18e-12", "2.38e-09"],
+      "TRCA": ["1.51362e-05", "7.17601e-06", "5.61144e-05", "0", "2.96e-10", "2.25e-11", "1.46e-09"],
+      "CCNN-f32": ["2.01697e-05", "1.83724e-05", "3.36863e-05", "0", "2.32e-10", "1.58e-10", "5.43e-10"],
+      "CCNN-int8": ["0.0676917", "0.0543292", "0.16102", "0", "2.98e-03", "1.42e-03", "1.20e-02"],
+      "ConvCA-f32": ["2.19852e-07", "1.97142e-07", "4.01569e-07", "0", "2.20e-14", "1.27e-14", "5.80e-14"],
+      "EEGNet-f32": ["1.42615e-07", "1.21604e-07", "2.99662e-07", "0", "1.04e-14", "5.33e-15", "3.72e-14"],
+      "EEGNet-int8": ["0.0174245", "0.0128445", "0.0495794", "0", "2.31e-04", "6.27e-05", "1.06e-03"],
+      "FBtCNN-f32": ["4.76741e-07", "4.43353e-07", "8.07436e-07", "0", "1.09e-13", "8.14e-14", "2.87e-13"],
+      "FBtCNN-int8": ["0.0178571", "0.0163201", "0.034122", "0", "1.66e-04", "1.05e-04", "5.03e-04"]
+    }
+  },
+  "int8_flips": {
+    "total": 107,
+    "per_backend": {"CCNN-int8": 67, "EEGNet-int8": 34, "FBtCNN-int8": 6},
+    "distinct_trials": 104,
+    "all_three_overlap": 0,
+    "q1_share_pct_1dp": {"CCNN-int8": "98.5", "EEGNet-int8": "94.1", "FBtCNN-int8": "100.0"},
+    "q2_flips": {"CCNN-int8": 1, "EEGNet-int8": 2, "FBtCNN-int8": 0},
+    "q3_q4_flips": 0
+  },
+  "table4_policies": {
+    "P1": {"gates": {"A": 85, "G": 99.5, "L": 250, "S": 1250, "M": 128}, "admissible": ["CCNN-f32"], "pareto": ["CCNN-f32"], "selected": {"P1": "CCNN-f32"}},
+    "P2": {"gates": {"A": 80, "G": 96, "L": 100, "S": 1120, "M": 128}, "admissible": ["CCNN-int8"], "pareto": ["CCNN-int8"], "selected": {"P2": "CCNN-int8"}},
+    "P3": {"gates": {"A": 80, "G": 96, "L": 2500, "S": 1250, "M": 384}, "admissible": ["CCNN-int8", "FBtCNN-int8"], "pareto": ["CCNN-int8", "FBtCNN-int8"], "selected": {"P3": "FBtCNN-int8"}},
+    "P4": {"gates": {"A": 80, "G": 98, "L": 15000, "S": 3000, "TFLM": 0}, "admissible": ["CCA", "FBCCA", "TRCA"], "pareto": ["CCA", "FBCCA", "TRCA"], "selected": {"P4": "CCA"}},
+    "P5": {"gates": {"A": 85, "G": 99.9, "L": 2500, "S": 1250, "M": 320}, "admissible": ["CCNN-f32", "ConvCA-f32"], "pareto": ["CCNN-f32", "ConvCA-f32"], "selected": {"P5-A": "ConvCA-f32", "P5-B": "CCNN-f32"}}
+  },
+  "table5_resources": {
+    "footprint_columns": ["app_kib", "code_kib", "data_kib", "diram_kib"],
+    "footprint": {
+      "CCA": ["960.9", "526.2", "327.0", "231.3"],
+      "CCNN-f32": ["1164.3", "681.4", "375.3", "164.7"],
+      "CCNN-int8": ["1039.5", "681.4", "250.4", "164.7"],
+      "ConvCA-f32": ["1023.0", "678.0", "237.2", "156.6"],
+      "EEGNet-f32": ["1000.2", "678.1", "214.4", "172.6"],
+      "EEGNet-int8": ["1000.2", "678.4", "214.1", "172.6"],
+      "FBCCA": ["965.3", "526.4", "331.2", "263.5"],
+      "FBtCNN-f32": ["1711.6", "679.1", "924.9", "165.2"],
+      "FBtCNN-int8": ["1179.4", "679.1", "392.7", "165.2"],
+      "MSI": ["961.6", "527.2", "326.7", "225.2"],
+      "TRCA": ["2743.1", "524.4", "2111.0", "227.7"]
+    },
+    "runtime_columns": ["heap_drop_kib", "min_free_stack_bytes", "arena_used_kib"],
+    "runtime": {
+      "CCA": ["3.6", "13952", "---"],
+      "CCNN-f32": ["0.5", "13808", "40.6"],
+      "CCNN-int8": ["0.5", "13536", "15.4"],
+      "ConvCA-f32": ["0.4", "13840", "275.9"],
+      "EEGNet-f32": ["0.5", "13840", "163.7"],
+      "EEGNet-int8": ["0.6", "13456", "76.1"],
+      "FBCCA": ["3.7", "13920", "---"],
+      "FBtCNN-f32": ["0.5", "13840", "385.5"],
+      "FBtCNN-int8": ["0.5", "13536", "346.1"],
+      "MSI": ["0.2", "13952", "---"],
+      "TRCA": ["0.2", "13968", "---"]
+    },
+    "arena_region": "PSRAM"
+  }
+}

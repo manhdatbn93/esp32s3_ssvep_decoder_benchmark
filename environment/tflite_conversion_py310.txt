@@ -1,13 +1,15 @@
-# TFLite conversion environment — Python 3.10 only
-# Tested: Python 3.10.11, Windows 10
+# TFLite conversion environment (Python 3.10 only)
+# Tested: Python 3.10.11, Windows 10/11
 #
 # Setup:
 #   py -3.10 -m venv .venv_tflite310
-#   .venv_tflite310\Scripts\pip install -r requirements/tflite_conversion_py310.txt
+#   .venv_tflite310\Scripts\pip install -r environment/tflite_conversion_py310.txt
+#   .venv_tflite310\Scripts\pip install -r environment/requirements-analysis.txt
 #
-# Usage:
-#   $env:TF_ENABLE_ONEDNN_OPTS="0"; $env:PYTHONUTF8="1"
-#   .venv_tflite310\Scripts\python.exe -u -m export.convert_all_tflite
+# Usage (one fold, one backend; writes only under --output):
+#   .venv_tflite310\Scripts\python.exe scripts\export_tflite.py --model eegnet --fold 1 `
+#     --checkpoint artifacts\reference\checkpoints\eegnet\fold01\fold01_best.pt --quantization f32 `
+#     --output artifacts\generated\eegnet\fold01
 
 numpy==1.26.4
 scipy==1.15.3

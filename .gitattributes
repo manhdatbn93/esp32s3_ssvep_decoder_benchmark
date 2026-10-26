@@ -2,5 +2,13 @@ artifacts/reference/**/*.pt filter=lfs diff=lfs merge=lfs -text
 artifacts/reference/**/*.pth filter=lfs diff=lfs merge=lfs -text
 artifacts/reference/**/*.tflite filter=lfs diff=lfs merge=lfs -text
 artifacts/reference/**/*.npz filter=lfs diff=lfs merge=lfs -text
-artifacts/reference/**/*.npz filter=lfs diff=lfs merge=lfs -text
 artifacts/reference/analytical/trca/**/trca_templates_generated.h filter=lfs diff=lfs merge=lfs -text
+
+# Checksummed artifacts and evidence must be checked out byte-for-byte on every platform.
+artifacts/reference/**/*.h -text
+artifacts/reference/**/*.json -text
+artifacts/reference/**/*.sha256 -text
+firmware/replay_fw/sdkconfig.measurement -text
+paper_reproduction/evidence/** -text
+paper_reproduction/reference_outputs/** -text
+paper_reproduction/MANIFEST.sha256 -text

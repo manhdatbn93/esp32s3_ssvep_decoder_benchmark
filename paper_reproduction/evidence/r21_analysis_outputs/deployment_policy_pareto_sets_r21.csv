@@ -1,0 +1,6 @@
+policy_id,policy_name,active_pareto_objectives,n_pareto,pareto_backends
+P1,Interactive high-fidelity neural,device_accuracy_pct:max | agreement_pct:max | p95_relative_l2:min | latency_ms:min | app_kib:min | arena_kib:min,1,CCNN-f32
+P2,Aggressive sub-100-ms neural,device_accuracy_pct:max | agreement_pct:max | latency_ms:min | app_kib:min | arena_kib:min,1,CCNN-int8
+P3,Fidelity-first int8 trade-off,device_accuracy_pct:max | agreement_pct:max | p95_relative_l2:min | latency_ms:min | app_kib:min | arena_kib:min,2,CCNN-int8 | FBtCNN-int8
+P4,Throughput-relaxed analytical no-TFLM,device_accuracy_pct:max | agreement_pct:max | p95_relative_l2:min | latency_ms:min | app_kib:min,3,CCA | FBCCA | TRCA
+P5,High-fidelity f32 trade-off,device_accuracy_pct:max | agreement_pct:max | p95_relative_l2:min | latency_ms:min | app_kib:min | arena_kib:min,2,CCNN-f32 | ConvCA-f32

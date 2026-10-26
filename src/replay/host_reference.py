@@ -33,7 +33,8 @@ import numpy as np
 
 _REPO = Path(__file__).resolve().parents[2]
 _SRC = _REPO / "src"
-for _p in (_REPO, _SRC):
+_REPLAY = Path(__file__).resolve().parent
+for _p in (_REPO, _SRC, _REPLAY):
     if str(_p) not in sys.path:
         sys.path.insert(0, str(_p))
 
@@ -53,6 +54,7 @@ from model_identity import (  # noqa: E402
     identity_from_file,
     log_model_identity,
 )
+from host_interpreter import HOST_REFERENCE_OP_RESOLVER, make_interpreter  # noqa: E402
 
 
 def _preprocess_zscore(trial_tc: np.ndarray) -> np.ndarray:
@@ -382,7 +384,8 @@ class HostReference:
         self._preprocess_fn = _PREPROCESS_FN[family]
         self._family = family
 
-        self._tflite_interp = tf.lite.Interpreter(model_path=str(tflite_path))
+        self.op_resolver = HOST_REFERENCE_OP_RESOLVER
+        self._tflite_interp = make_interpreter(tflite_path, self.op_resolver)
         self._tflite_interp.allocate_tensors()
         self._tflite_path = tflite_path
         self._artifact_path = str(tflite_path)

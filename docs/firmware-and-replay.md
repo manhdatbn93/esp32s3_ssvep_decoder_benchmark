@@ -11,7 +11,7 @@
 
 Validated clean builds used ESP-IDF 5.4.0 and Xtensa GCC 14.2.0. Keep `firmware/replay_fw/dependencies.lock` when you need the pinned component versions from that file (`esp-tflite-micro` 1.3.5, `esp-nn` 1.2.1, `esp-dsp` 1.8.0). Deleting the lock can resolve newer registry versions.
 
-`sdkconfig.defaults` enables 32 MB flash and OPI PSRAM. It does not pin CPU frequency or `-O2`. Successful clean builds with those defaults used the ESP-IDF configure defaults of 160 MHz CPU and the default compiler optimization setting.
+`sdkconfig.defaults` enables 32 MB flash, OPI PSRAM, the custom partition table, 240 MHz, and performance optimization (`-O2`). ESP-IDF uses it when `sdkconfig` is absent. It does not overwrite an existing `sdkconfig`.
 
 ## Measurement profile (`sdkconfig.measurement`)
 
@@ -43,7 +43,7 @@ Scope and limits:
 - The file documents the configuration of the seven neural device replays (70 runs) reported in the paper. The original and public SHA-256 values are recorded in `paper_reproduction/README.md`.
 - The four analytical device replays (CCA, FBCCA, MSI, TRCA; 40 runs) were recorded on 13–21 April 2026 with earlier firmware commits (`24bbad9`, `49f0c55`, `6d808e3`) and later filed under the strict LOSO evidence tree. Their build configuration was not archived, so this file is not claimed to describe them. See `paper_reproduction/README.md`.
 - The firmware-footprint and runtime-memory values in the paper's resource table come from an earlier per-backend profiling snapshot (16–26 April 2026, legacy fold-1 models). The configuration of those April builds was not archived. It is not claimed that the April builds used this file. Definitions and limits are in `paper_reproduction/evidence/table5/README.md`.
-- A clean compile with this profile confirms that a backend builds. It is not a Table 5 measurement and was not flashed. Image size from a new compile is not a substitute for the archived screenshots: the application image embeds the build time, and a configure that starts from `sdkconfig.defaults` uses 160 MHz rather than this profile.
+- A clean compile with this profile confirms that a backend builds. It is not a Table 5 measurement and was not flashed. Image size from a new compile is not a substitute for the archived screenshots: the application image embeds the build time. A configure that starts from `sdkconfig.defaults` also selects 240 MHz and `-O2`, and it is not this full profile.
 
 ## Architecture
 
@@ -113,7 +113,7 @@ Generated-mode staging can consume a user-supplied TFLite path for non-reference
 
 ## Build after staging
 
-Staging writes `firmware/generated/selected_backend.cmake`. The build reads that file and selects the backend and fold from it. Use the measurement profile above. Do not run `idf.py set-target` after copying `sdkconfig.measurement`: that command replaces `sdkconfig` with a 160 MHz default. Delete `build/` when switching backends.
+Staging writes `firmware/generated/selected_backend.cmake`. The build reads that file and selects the backend and fold from it. Use the measurement profile above. Do not run `idf.py set-target` after copying `sdkconfig.measurement`: that command replaces `sdkconfig` with one generated from `sdkconfig.defaults`. Both select 240 MHz and `-O2`. The defaults file is not the measurement profile. Delete `build/` when switching backends.
 
 ```powershell
 # from repository root, after staging
@@ -293,7 +293,7 @@ Copy-Item sdkconfig.measurement sdkconfig -Force
 idf.py build
 ```
 
-Do not run `idf.py set-target` after that copy. It replaces `sdkconfig` with a 160 MHz default, which is not the measurement profile.
+Do not run `idf.py set-target` after that copy. It replaces `sdkconfig` with a file generated from `sdkconfig.defaults`, which is not the measurement profile.
 
 ### Backend or fold mismatch
 

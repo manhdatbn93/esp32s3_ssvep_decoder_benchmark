@@ -59,7 +59,7 @@ copy sdkconfig.measurement sdkconfig
 idf.py build
 ```
 
-`sdkconfig.measurement` is the May neural-replay configuration with the Wi-Fi SSID and password replaced by placeholders. It already selects the ESP32-S3, 240 MHz, and performance optimization. Copy it to the gitignored `sdkconfig` and build. Do not run `idf.py set-target` after that copy: set-target replaces the file with a new default configuration (160 MHz). `sdkconfig.defaults` does not set CPU frequency or optimization. If another backend was configured in the same tree, delete `build/` before the next build. Staging writes only under `firmware/generated/`.
+`sdkconfig.defaults` selects 240 MHz and performance optimization (`-O2`). ESP-IDF applies it when `sdkconfig` is absent and does not reapply it over an existing `sdkconfig`. `sdkconfig.measurement` is the complete May neural-replay configuration, with Wi-Fi placeholders, and it also selects 240 MHz and `-O2`. Copy that file to the gitignored `sdkconfig` and build when reproducing the May firmware environment. Do not run `idf.py set-target` after that copy: set-target replaces the file. If another backend was configured in the same tree, delete `build/` before the next build. Staging writes only under `firmware/generated/`.
 
 Component versions are pinned in `firmware/replay_fw/dependencies.lock` (esp-nn 1.2.1, esp-tflite-micro 1.3.5, esp-dsp 1.8.0). Do not run `idf.py update-dependencies`.
 

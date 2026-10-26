@@ -1,5 +1,10 @@
-# ESP32-S3 target. This file does not set CPU frequency or optimization.
+# ESP32-S3 target. Applied only when sdkconfig does not already exist.
 CONFIG_IDF_TARGET="esp32s3"
+
+# Reference ESP32-S3 performance configuration.
+# CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ=240 is generated from this choice.
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+CONFIG_COMPILER_OPTIMIZATION_PERF=y
 
 # Large app partition (see partitions.csv)
 CONFIG_PARTITION_TABLE_CUSTOM=y

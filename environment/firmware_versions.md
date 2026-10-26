@@ -17,8 +17,8 @@ Pinned component versions from the committed `firmware/replay_fw/dependencies.lo
 
 `firmware/components/dl_backends/idf_component.yml` declares `espressif/esp-tflite-micro` with version `*`. Keep `dependencies.lock` for the pins above. A clean component resolve without the lock file may select newer registry versions.
 
-`firmware/replay_fw/sdkconfig.defaults` sets 32 MB flash, OPI PSRAM, custom partitions, and related replay options. It does not pin CPU frequency or force `-O2`. Successful clean builds that started from those defaults used the ESP-IDF configure defaults of 160 MHz CPU and the default compiler optimization setting.
+`firmware/replay_fw/sdkconfig.defaults` sets 32 MB flash, OPI PSRAM, the custom partition table, 240 MHz, and performance optimization (`-O2`). ESP-IDF applies that file when `sdkconfig` is absent. It does not replace an existing `sdkconfig`.
 
 Confirm versions from the local ESP-IDF install, from `firmware/replay_fw/dependencies.lock`, and from the generated `sdkconfig` before publishing a local binary.
 
-Fold-1 compile checks for all eleven retained MCU backends have been run from this public tree after staging into `firmware/generated/` and copying `sdkconfig.measurement` to `sdkconfig`. Those checks confirm compilation. They are not Table 5 measurements, they were not flashed, and they are not the 160 MHz configure that ESP-IDF writes when `sdkconfig.defaults` is used alone. See `docs/firmware-and-replay.md`.
+Fold-1 compile checks for all eleven retained MCU backends have been run from this public tree after staging into `firmware/generated/` and copying `sdkconfig.measurement` to `sdkconfig`. Those checks confirm compilation under the measurement profile. They were not flashed and they are not Table 5 measurements. A build that starts from `sdkconfig.defaults` also selects 240 MHz and `-O2`, and it is not the full measurement profile. See `docs/firmware-and-replay.md`.

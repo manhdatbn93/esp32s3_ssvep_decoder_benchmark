@@ -7,8 +7,8 @@
 #   copy sdkconfig.measurement sdkconfig
 #   idf.py build
 # Do not run idf.py set-target after that copy. It replaces sdkconfig
-# with a 160 MHz default. sdkconfig.defaults does not set CPU frequency
-# or optimization and is not this profile.
+# with a file generated from sdkconfig.defaults. Both select 240 MHz
+# and -O2. The defaults file is not the full measurement profile.
 # Full instructions: docs/firmware-and-replay.md
 cmake_minimum_required(VERSION 3.16)
 

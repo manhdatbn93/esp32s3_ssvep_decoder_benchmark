@@ -17,7 +17,7 @@ idf.py build
 idf.py -p <PORT> flash monitor
 ```
 
-`sdkconfig.measurement` already selects the ESP32-S3, 240 MHz, and performance optimization. Do not run `idf.py set-target` after the copy: it replaces `sdkconfig` with a 160 MHz default. Enter Wi-Fi credentials locally before flashing. Placeholders compile.
+`sdkconfig.defaults` selects 240 MHz and performance optimization (`-O2`) for a build that has no `sdkconfig` yet. `sdkconfig.measurement` is the complete May neural-replay configuration and also selects 240 MHz and `-O2`. Do not run `idf.py set-target` after copying it: that replaces `sdkconfig`. Enter Wi-Fi credentials locally before flashing. Placeholders compile.
 
 Staging writes only under `firmware/generated/` and does not modify `artifacts/reference/`.
 The build reads `firmware/generated/selected_backend.cmake` and fails clearly when staging is missing.

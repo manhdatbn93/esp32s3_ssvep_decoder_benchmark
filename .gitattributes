@@ -10,5 +10,6 @@ artifacts/reference/**/*.json -text
 artifacts/reference/**/*.sha256 -text
 firmware/replay_fw/sdkconfig.measurement -text
 paper_reproduction/evidence/** -text
+paper_reproduction/expected/** -text
 paper_reproduction/reference_outputs/** -text
 paper_reproduction/MANIFEST.sha256 -text

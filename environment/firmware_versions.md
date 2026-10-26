@@ -21,4 +21,4 @@ Pinned component versions from the committed `firmware/replay_fw/dependencies.lo
 
 Confirm versions from the local ESP-IDF install, from `firmware/replay_fw/dependencies.lock`, and from the generated `sdkconfig` before publishing a local binary.
 
-Fold-1 clean builds for all eleven retained MCU backends have been validated using this public firmware tree after staging into `firmware/generated/`. See `docs/firmware-and-replay.md`.
+Fold-1 compile checks for all eleven retained MCU backends have been run from this public tree after staging into `firmware/generated/` and copying `sdkconfig.measurement` to `sdkconfig`. Those checks confirm compilation. They are not Table 5 measurements, they were not flashed, and they are not the 160 MHz configure that ESP-IDF writes when `sdkconfig.defaults` is used alone. See `docs/firmware-and-replay.md`.

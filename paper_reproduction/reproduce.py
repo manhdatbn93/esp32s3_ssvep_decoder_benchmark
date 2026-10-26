@@ -330,15 +330,18 @@ def main(argv: list[str] | None = None) -> int:
         report.add("figures regenerated", all(p.is_file() and p.stat().st_size > 0 for p in paths),
                    files=[p.relative_to(out).as_posix() for p in paths])
 
-    import matplotlib
-    import numpy
+    environment = {"python": platform.python_version(), "platform": platform.system()}
+    for module in ("numpy", "matplotlib"):
+        try:
+            environment[module] = __import__(module).__version__
+        except ImportError:
+            environment[module] = None
 
     payload = {
         "status": "PASS" if report.passed else "FAIL",
         "n_checks": len(report.checks),
         "n_failed": sum(not c["passed"] for c in report.checks),
-        "environment": {"python": platform.python_version(), "platform": platform.system(),
-                        "numpy": numpy.__version__, "matplotlib": matplotlib.__version__},
+        "environment": environment,
         "checks": report.checks,
     }
     out.mkdir(parents=True, exist_ok=True)

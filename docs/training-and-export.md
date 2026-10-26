@@ -92,6 +92,24 @@ python scripts\evaluate_host.py `
 
 `--method` choices: `cca`, `fbcca`, `msi`, `trca`, `all`.
 
+TRCA has two filter-bank realizations. The default, `deployed_sos`, is the second-order-section filter bank used by the published host reference and by the ESP32-S3 firmware. On the ten held-out subjects it scores 1,502 of 1,800 trials (83.44%) and agrees with the retained device predictions on every trial. `screening_ba` is the historical transfer-function candidate used during method screening. It scores 1,510 of 1,800 trials (83.89%) and is not the result reported for the deployed system.
+
+```powershell
+python scripts\evaluate_host.py `
+  --runtime classical `
+  --method trca `
+  --dataset-root <DATASET_ROOT> `
+  --output-dir outputs\host\trca
+python scripts\evaluate_host.py `
+  --runtime classical `
+  --method trca `
+  --trca-realization screening_ba `
+  --dataset-root <DATASET_ROOT> `
+  --output-dir outputs\host\trca_screening
+```
+
+The first command is the published TRCA evaluation. The second is the historical screening candidate. CCA, FBCCA, and MSI are unchanged.
+
 ### PyTorch (retained checkpoint)
 
 ```powershell

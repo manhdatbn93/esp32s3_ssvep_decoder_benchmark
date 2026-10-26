@@ -7,34 +7,21 @@ unchanged in contract — across a matrix of (subject, backend) pairs.
 
 Workflow per subject:
 
-  1. Optionally rebuild & reflash firmware in embedded/replay_fw with:
-       idf.py -DTARGET_FOLD_SUBJECT_TAG=fold{NN}_test_{sN} build flash
-     (strict protocol; Version A used fold{NN}_val_{sN})
-     (controlled via --build-firmware / --flash / --port)
+  1. Optional --build-firmware looks for the historical embedded/replay_fw
+     directory. That directory is not in this public tree, so the flag does
+     not build the published project. Use docs/firmware-and-replay.md.
   2. For each backend in the deployed subset, call `replay_client.py`
      with the correct raw .mat file for that subject. Outputs go under:
        results/replay_multisubject/<backend>/<tag>_<timestamp>/
      plus the symlink-compatible default that replay_client already writes.
   3. Collect per-run summaries and assemble an aggregate matrix.
 
-The firmware flash step is optional — if you already have the firmware
-built for a given subject (or just want to drive host-only parts), skip
-with --no-build. benchmark strict runs use foldNN_test_sN tags and
-export/strict_loso_inner_val/ artifacts (see replay_fw CMake).
+The public measurement-profile build is docs/firmware-and-replay.md.
+This helper does not stage artifacts or copy sdkconfig.measurement.
 
 Usage (repo root):
 
-  # Host-only plan (no firmware reflash, no device): dry run
-  python tools/replay/run_replay_multisubject.py --dry-run
-
-  # Single subject, single backend (device must be reachable at --host)
-  python tools/replay/run_replay_multisubject.py \\
-      --subjects s1 --backends cca --host BOARD_IP_PLACEHOLDER
-
-  # Full deployed matrix, rebuilding firmware per subject
-  python tools/replay/run_replay_multisubject.py \\
-      --subjects s1 s2 s3 --backends cca fbcca msi trca eegnet_f32 ccnn_f32 \\
-      --host BOARD_IP_PLACEHOLDER --build-firmware --flash --idf-port COM5
+  python src/replay/run_replay_multisubject.py --dry-run
 """
 from __future__ import annotations
 

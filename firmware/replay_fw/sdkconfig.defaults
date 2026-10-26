@@ -1,4 +1,4 @@
-# ESP32-S3 target (fixed for this smoke project)
+# ESP32-S3 target. This file does not set CPU frequency or optimization.
 CONFIG_IDF_TARGET="esp32s3"
 
 # Large app partition (see partitions.csv)
@@ -6,7 +6,7 @@ CONFIG_PARTITION_TABLE_CUSTOM=y
 CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
 CONFIG_PARTITION_TABLE_OFFSET=0x8000
 
-# PSRAM — enable for boards with OPI PSRAM (e.g. N8R8).
+# OPI PSRAM. The published module is ESP32-S3-WROOM-2-N32R8V.
 # Required for DL backends that need large tensor arenas.
 CONFIG_SPIRAM=y
 CONFIG_SPIRAM_MODE_OCT=y
@@ -27,7 +27,7 @@ CONFIG_ESP_TASK_WDT_INIT=n
 # safer and avoids stack smash into heap metadata (TLSF malloc crash after smoke).
 CONFIG_ESP_MAIN_TASK_STACK_SIZE=32768
 
-# UART lines: RES_PROFILE ... (see docs/results/on_device_resource_profile.md)
+# UART RES_PROFILE lines. Field definitions: paper_reproduction/evidence/table5/README.md
 CONFIG_REPLAY_RESOURCE_PROFILE=y
 
 # Skip ~5s embedded vector smoke at boot; go straight to Wi-Fi + TCP replay.

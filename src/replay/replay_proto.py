@@ -1,11 +1,11 @@
 """
 Binary framing for dataset replay — keep in sync with
-embedded/replay_fw/main/replay_proto.h (magic, version, types, struct layouts).
+firmware/replay_fw/main/replay_proto.h (magic, version, types, struct layouts).
 
 Protocol version 2.0 — supports 11 backends (CCA through FBtCNN-int8).
 
-START_ACK may carry an optional replay_model_identity_payload_t (116 B) for
-embedded DL backends (EEGNet f32/int8) so the host can verify firmware model bytes.
+START_ACK may carry a replay_model_identity_payload_t (116 B) for the staged
+backend. The host hard-fails on that payload only for EEGNet-int8.
 """
 from __future__ import annotations
 

@@ -86,8 +86,8 @@ def assert_eegnet_int8_identity(
     if fw_payload is None:
         raise ModelIdentityMismatchError(
             "MODEL_IDENTITY_MISMATCH: firmware sent no START_ACK model identity.\n"
-            "  Rebuild and flash replay_fw with EEGNet-int8 enabled "
-            "(-DTARGET_BACKEND=eegnet_int8 -DTARGET_FOLD_SUBJECT_TAG=fold01_test_s1)."
+            "  Restage EEGNet-int8 for the intended fold, then rebuild and flash. "
+            "See docs/firmware-and-replay.md."
         )
 
     from replay_proto import DecoderID  # local import avoids cycle at module load
@@ -144,7 +144,7 @@ def assert_eegnet_int8_identity(
         f"  fw_last16    = {fw_l16}",
         f"  fw_symbol    = {fw_payload.symbol}",
         f"  fw_tag       = {fw_payload.embed_tag}",
-        "  Rebuild: idf.py fullclean build flash "
-        "(-DTARGET_BACKEND=eegnet_int8 -DTARGET_FOLD_SUBJECT_TAG=fold01_test_s1)",
+        "  Restage EEGNet-int8 for the intended fold, then rebuild and flash. "
+        "See docs/firmware-and-replay.md.",
     ]
     raise ModelIdentityMismatchError("\n".join(lines))

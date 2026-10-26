@@ -18,7 +18,7 @@
   "mac_address": 10,
   "png_top_band_redacted_rows": 40
  },
- "n_files": 404,
+ "n_files": 403,
  "n_transformed": 130,
  "n_freeze_verified": 358,
  "files": [
@@ -4545,15 +4545,6 @@
    "transformed": false,
    "replacements": {},
    "png_metadata_chunks": []
-  },
-  {
-   "source": "<DEV_REPO>/docs/results/on_device_resource_profile.md",
-   "source_sha256": "857b40019cc0d30d8355e0fae849e5b148a88314586924c8526363c971b324ad",
-   "public_path": "table5/lab_note/on_device_resource_profile.md",
-   "public_sha256": "857b40019cc0d30d8355e0fae849e5b148a88314586924c8526363c971b324ad",
-   "transformed": false,
-   "replacements": {},
-   "encoding": "utf-8"
   },
   {
    "source": "<RESOURCE_ROOT>/tensor_arenatxt.txt",

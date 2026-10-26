@@ -11,25 +11,18 @@ python scripts\generate_firmware_artifacts.py `
   --fold 1 `
   --artifact-set reference
 cd firmware\replay_fw
-idf.py set-target esp32s3
+Remove-Item build -Recurse -Force -ErrorAction SilentlyContinue
+Copy-Item sdkconfig.measurement sdkconfig -Force
 idf.py build
 idf.py -p <PORT> flash monitor
 ```
 
+`sdkconfig.measurement` already selects the ESP32-S3, 240 MHz, and performance optimization. Do not run `idf.py set-target` after the copy: it replaces `sdkconfig` with a 160 MHz default. Enter Wi-Fi credentials locally before flashing. Placeholders compile.
+
 Staging writes only under `firmware/generated/` and does not modify `artifacts/reference/`.
 The build reads `firmware/generated/selected_backend.cmake` and fails clearly when staging is missing.
 
-When switching backends, clear a stale CMake `TARGET_BACKEND` cache value:
-
-```powershell
-idf.py fullclean
-idf.py set-target esp32s3
-idf.py build
-```
-
-Or pass the matching backend once, for example `idf.py -DTARGET_BACKEND=msi build`.
-
-Fold-1 clean builds were validated for all eleven retained MCU backends after independent staging. Int8 staging does not require a sibling f32 stage directory.
+When switching backends, delete `build/` and copy `sdkconfig.measurement` again, then `idf.py build`. Int8 staging does not require a sibling f32 stage directory. A successful compile is not a Table 5 measurement.
 
 After flash, the board joins Wi-Fi and listens on TCP port `3333`. Live replay uses `src/replay/replay_client.py` with the held-out subject `.mat` for the staged fold. Example MSI fold-2 smoke:
 

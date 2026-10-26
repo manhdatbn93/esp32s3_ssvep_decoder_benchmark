@@ -91,7 +91,6 @@ R21_OUTPUTS = (
     "review_support/deployment/deployment_policy_exclusions_r21.csv",
     "review_support/deployment/deployment_policy_sensitivity_r21.csv",
 )
-LAB_NOTE = "docs/results/on_device_resource_profile.md"
 TABLE5_BACKEND_FILES = (
     "cca", "ccnn_f32", "ccnn_int8", "convca", "eegnet_f32", "eegnet_int8",
     "fbcca", "fbtcnn_f32", "fbtcnn_int8", "msi", "trca",
@@ -297,8 +296,6 @@ class Builder:
                 "submission_analysis/" + ANALYSIS_PUBLIC_NAMES[name], frozen_rel=None,
             )
 
-        self.copy_text(self.dev_root / LAB_NOTE, "<DEV_REPO>/" + LAB_NOTE,
-                       "table5/lab_note/on_device_resource_profile.md", frozen_rel=None)
         log_dir = self.resource_root / "peak_runtime_log"
         for name in TABLE5_BACKEND_FILES:
             self.copy_binary(log_dir / f"{name}.png", f"<RESOURCE_LOG_DIR>/{name}.png",
@@ -356,7 +353,7 @@ def main(argv: list[str] | None = None) -> int:
             parser.error("--out must not be inside a private source folder")
     if args.clean:
         for sub in ("replay", "fidelity", "submission_analysis", "table5/idf_size_screenshots",
-                    "table5/uart_replay_sessions", "table5/smoke_arena", "table5/lab_note"):
+                    "table5/uart_replay_sessions", "table5/smoke_arena"):
             shutil.rmtree(out / sub, ignore_errors=True)
     builder = Builder(args.dev_root.resolve(), args.resource_root.resolve(), out)
     builder.build()

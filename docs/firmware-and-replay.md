@@ -42,8 +42,8 @@ Scope and limits:
 
 - The file documents the configuration of the seven neural device replays (70 runs) reported in the paper. The original and public SHA-256 values are recorded in `paper_reproduction/README.md`.
 - The four analytical device replays (CCA, FBCCA, MSI, TRCA; 40 runs) were recorded on 13–21 April 2026 with earlier firmware commits (`24bbad9`, `49f0c55`, `6d808e3`) and later filed under the strict LOSO evidence tree. Their build configuration was not archived, so this file is not claimed to describe them. See `paper_reproduction/README.md`.
-- The firmware-footprint and runtime-memory values in the paper's resource table come from an earlier per-backend profiling snapshot (16–26 April 2026, legacy fold-1 models). The configuration of those April builds was not archived. It is not claimed that the April builds used this file. See `paper_reproduction/evidence/table5/PROVENANCE.md`.
-- A clean compile with this profile was confirmed on the public tree for MSI fold 1 and EEGNet-f32 fold 1. Those images are compile checks only. They are not Table 5 measurements and were not flashed. The clean-build sizes listed later in this document were produced with `sdkconfig.defaults` only and must not be read as the paper's resource-table values.
+- The firmware-footprint and runtime-memory values in the paper's resource table come from an earlier per-backend profiling snapshot (16–26 April 2026, legacy fold-1 models). The configuration of those April builds was not archived. It is not claimed that the April builds used this file. Definitions and limits are in `paper_reproduction/evidence/table5/README.md`.
+- A clean compile with this profile confirms that a backend builds. It is not a Table 5 measurement and was not flashed. Image size from a new compile is not a substitute for the archived screenshots: the application image embeds the build time, and a configure that starts from `sdkconfig.defaults` uses 160 MHz rather than this profile.
 
 ## Architecture
 
@@ -111,74 +111,21 @@ python scripts\generate_firmware_artifacts.py `
 
 Generated-mode staging can consume a user-supplied TFLite path for non-reference builds. Generated outputs still belong under ignored staging or export directories, not under `artifacts/reference/`.
 
-## Normal ESP-IDF build
+## Build after staging
 
-Staging writes `firmware/generated/selected_backend.cmake`. The build reads that file and selects the backend and fold tag from it. Do not keep a stale `-DTARGET_BACKEND=...` value from an earlier backend.
-
-Example for MSI fold 2:
+Staging writes `firmware/generated/selected_backend.cmake`. The build reads that file and selects the backend and fold from it. Use the measurement profile above. Do not run `idf.py set-target` after copying `sdkconfig.measurement`: that command replaces `sdkconfig` with a 160 MHz default. Delete `build/` when switching backends.
 
 ```powershell
-# from repository root
-python scripts\generate_firmware_artifacts.py `
-  --backend msi `
-  --fold 2 `
-  --artifact-set reference
-
-cd firmware\replay_fw
-idf.py set-target esp32s3
-idf.py build
-```
-
-If the previous build used a different backend, either pass the matching backend once:
-
-```powershell
-idf.py -DTARGET_BACKEND=msi build
-```
-
-or clear the ESP-IDF/CMake cache before building:
-
-```powershell
-idf.py fullclean
-idf.py set-target esp32s3
-idf.py build
-```
-
-Optional `-DTARGET_BACKEND` is only a consistency check. It must equal the staged backend in `selected_backend.cmake`. Prefer letting staging select the backend and omitting `-DTARGET_BACKEND` after a clean configure.
-
-## Clean validation build
-
-Use this sequence for clean validation or after incompatible configuration changes. It is not required before every incremental rebuild.
-
-```powershell
+# from repository root, after staging
 cd firmware\replay_fw
 Remove-Item build -Recurse -Force -ErrorAction SilentlyContinue
-Remove-Item sdkconfig -Force -ErrorAction SilentlyContinue
-Remove-Item sdkconfig.old -Force -ErrorAction SilentlyContinue
-idf.py set-target esp32s3
+Copy-Item sdkconfig.measurement sdkconfig -Force
 idf.py build
 ```
 
-Fold-1 clean builds were validated for all eleven retained MCU backends. Each backend was staged independently into an empty `firmware/generated/` directory. Reference checksums remained unchanged. Ten-fold firmware compilation was not individually repeated in that pass.
+Optional `-DTARGET_BACKEND` is only a consistency check. It must equal the staged backend. Prefer omitting it.
 
-### Fold-1 clean-build packaging sizes
-
-Fold-1 clean-build `Total image size` from `idf.py size` after successful packaging builds. These are packaging totals only. They can change if ESP-IDF components, `sdkconfig`, or `dependencies.lock` differ. Keep `dependencies.lock` for the pinned stack in `environment/firmware_versions.md`.
-
-| Backend | Total image size (bytes) |
-|---|---:|
-| CCA | 919028 |
-| FBCCA | 923432 |
-| MSI | 919712 |
-| TRCA | 2744000 |
-| EEGNet-f32 | 965220 |
-| EEGNet-int8 | 964920 |
-| CCNN-f32 | 1132240 |
-| CCNN-int8 | 1004400 |
-| ConvCA-f32 | 987484 |
-| FBtCNN-f32 | 1692600 |
-| FBtCNN-int8 | 1147624 |
-
-Confirmatory clean builds that retained `dependencies.lock` reproduced CCA at 919028 bytes and built EEGNet-f32 and EEGNet-int8 at 960696 and 960416 bytes.
+All eleven published backends compile with this profile. A successful compile is a build check. It is not a Table 5 measurement, and this document does not publish image sizes from those compiles.
 
 ## Flash and monitor
 
@@ -325,7 +272,7 @@ This entry point currently prints a placeholder message. It does not aggregate d
 
 Symptom: CMake reports that staged backend metadata is missing.
 
-Action: run `scripts/generate_firmware_artifacts.py` for the intended backend and fold before `idf.py set-target` or `idf.py build`.
+Action: run `scripts/generate_firmware_artifacts.py` for the intended backend and fold before `idf.py build`.
 
 ### Stale build cache after changing backend
 
@@ -340,12 +287,12 @@ Action (pick one):
 idf.py -DTARGET_BACKEND=msi build
 
 # Option B: drop the stale cache and rebuild from staging metadata
-idf.py fullclean
-idf.py set-target esp32s3
+Remove-Item build -Recurse -Force -ErrorAction SilentlyContinue
+Copy-Item sdkconfig.measurement sdkconfig -Force
 idf.py build
 ```
 
-For a full clean validation, also remove `build`, `sdkconfig`, and `sdkconfig.old` as shown above.
+Do not run `idf.py set-target` after that copy. It replaces `sdkconfig` with a 160 MHz default, which is not the measurement profile.
 
 ### Backend or fold mismatch
 

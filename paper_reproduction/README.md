@@ -53,7 +53,7 @@ result.
 |---|---|---|
 | `evidence/replay/<neural backend>/` (70 runs) | Strict LOSO replay, 23-24 May 2026 | `replay_fw` at commit 31fb64b, configuration `firmware/replay_fw/sdkconfig.measurement`; strict LOSO fold models (`artifacts/reference/`) |
 | `evidence/replay/<CCA, FBCCA, MSI, TRCA>/s1` … `s10` (40 runs) | Analytical replay, 13-21 Apr 2026 | `replay_fw` at commits 24bbad9, 49f0c55 and 6d808e3; firmware configuration not archived. The runs were filed under the strict-protocol tree later (marked `version_a_device_replay_migrated` in each `summary.json`). Public folders are named by held-out subject only |
-| `evidence/table5/` | Representative pre-release resource snapshot, 16-26 Apr 2026 | Single-backend builds of uncommitted pre-release firmware, earlier-protocol fold-1 models; see `evidence/table5/PROVENANCE.md` |
+| `evidence/table5/` | Representative pre-release resource snapshot, 16-26 Apr 2026 | Single-backend builds of uncommitted pre-release firmware, earlier-protocol fold-1 models; definitions and limits are in `evidence/table5/README.md` |
 | `evidence/fidelity/` | Host-side fidelity records frozen at submission | - |
 | `evidence/submission_analysis/` | Analysis outputs used for Tables 4 and S13 and Figure 2 at submission | - |
 
@@ -102,9 +102,13 @@ verifies it first.
 - **Archived filenames.** `evidence/submission_analysis/margin_quartile_figure_source.csv`
   is the source of manuscript Figure 2 (margin quartiles). Its filename at
   submission was `figure3_margin_quartile_source_r21.csv`. The contents are unchanged.
-- **Frozen development paths.** `evidence/fidelity/fidelity_report.md` still cites
-  `results/replay/strict_loso_inner_val/...`. That sentence is part of the frozen
-  record and is not rewritten. The public replay files are under `evidence/replay/`.
+- **Archival fidelity notes.** The Markdown files in `evidence/fidelity/`
+  (`fidelity_report.md`, `export_fidelity_report.md`, `int8_flip_case_report.md`,
+  `tflite_operator_audit.md`, `topology_descriptor_report.md`, and
+  `topology_fidelity_interpretation.md`) are frozen commentary. They still cite
+  `results/replay/strict_loso_inner_val/...` and are not rewritten. `reproduce.py`
+  does not read them. Numerical checks use the CSV records in that directory and
+  the trial records under `evidence/replay/`.
 - **Subject order in `evidence/replay/aggregate.csv`.** Rows are stored in lexical
   subject order (`s1`, `s10`, `s2`, …). Analysis code addresses subjects by id,
   not by row position.

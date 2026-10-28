@@ -69,7 +69,7 @@ python scripts/prepare_12jfpm.py \
   --output-dir <DATASET_ROOT>
 ```
 
-Preparation requires the user-supplied raw dataset. Regenerating the paper's tables and figures from the archived device evidence does not; see `paper_reproduction/README.md`.
+Preparation requires the user-supplied raw dataset. Regenerating the paper's tables and figures from the archived device evidence does not. See [paper reproduction](../paper_reproduction/README.md).
 
 ## Validate
 

@@ -21,10 +21,12 @@ Regenerate the benchmark tables and figures from retained evaluation records. Th
 
 ```powershell
 python -m pip install -r paper_reproduction/requirements.txt
+python scripts/verify_reference_artifacts.py
 python paper_reproduction/reproduce.py
+python paper_reproduction/verify_frontend_ablation.py
 ```
 
-A passing run prints `PASS: 24/24 checks passed`. See [paper_reproduction/README.md](paper_reproduction/README.md).
+The three checks verify retained artifacts, regenerate the archived tables and figures, and check the stored frontend comparison. See [paper_reproduction/README.md](paper_reproduction/README.md).
 
 ### B. Host evaluation
 
@@ -49,9 +51,7 @@ Copy-Item sdkconfig.measurement sdkconfig -Force
 idf.py build
 ```
 
-`sdkconfig.defaults` selects 240 MHz and performance optimization (`-O2`). `sdkconfig.measurement` is a retained measurement-oriented build profile, and it also selects 240 MHz and `-O2`. An existing `sdkconfig` takes precedence over the defaults, so ESP-IDF does not reapply `sdkconfig.defaults` on top of it. Do not run `idf.py set-target` after the copy above: that command replaces `sdkconfig`. Delete `build/` before building a different backend in the same tree.
-
-Flashing and replay are in [docs/firmware-and-replay.md](docs/firmware-and-replay.md).
+Copy `sdkconfig.measurement` before building, and do not run `idf.py set-target` afterward. Delete `build/` before building a different backend in the same tree. Flashing and replay are in [docs/firmware-and-replay.md](docs/firmware-and-replay.md).
 
 ## Supported decoders
 
@@ -76,6 +76,7 @@ Flashing and replay are in [docs/firmware-and-replay.md](docs/firmware-and-repla
 | `artifacts/generated/` | Exports created by a local training run |
 | `manifests/loso/` | Leave-one-subject-out fold manifests |
 | `paper_reproduction/` | Regeneration of retained benchmark tables and figures |
+| `analysis/` | Additional checks that do not replace the retained replay |
 | `runs/` | Training checkpoints and logs |
 | `outputs/` | Host and device evaluation outputs |
 | `environment/` | Dependency pins |

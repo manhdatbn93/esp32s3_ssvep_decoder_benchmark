@@ -1,0 +1,92 @@
+[
+  {
+    "held_out_subject": "s1",
+    "fold": 1,
+    "n_calibration": 192,
+    "n_inner_validation": 168,
+    "split_seed": 43,
+    "calibration_inner_overlap": 15,
+    "calibration_test_overlap": 0
+  },
+  {
+    "held_out_subject": "s2",
+    "fold": 2,
+    "n_calibration": 192,
+    "n_inner_validation": 168,
+    "split_seed": 44,
+    "calibration_inner_overlap": 16,
+    "calibration_test_overlap": 0
+  },
+  {
+    "held_out_subject": "s3",
+    "fold": 3,
+    "n_calibration": 192,
+    "n_inner_validation": 168,
+    "split_seed": 45,
+    "calibration_inner_overlap": 22,
+    "calibration_test_overlap": 0
+  },
+  {
+    "held_out_subject": "s4",
+    "fold": 4,
+    "n_calibration": 192,
+    "n_inner_validation": 168,
+    "split_seed": 46,
+    "calibration_inner_overlap": 19,
+    "calibration_test_overlap": 0
+  },
+  {
+    "held_out_subject": "s5",
+    "fold": 5,
+    "n_calibration": 192,
+    "n_inner_validation": 168,
+    "split_seed": 47,
+    "calibration_inner_overlap": 20,
+    "calibration_test_overlap": 0
+  },
+  {
+    "held_out_subject": "s6",
+    "fold": 6,
+    "n_calibration": 192,
+    "n_inner_validation": 168,
+    "split_seed": 48,
+    "calibration_inner_overlap": 26,
+    "calibration_test_overlap": 0
+  },
+  {
+    "held_out_subject": "s7",
+    "fold": 7,
+    "n_calibration": 192,
+    "n_inner_validation": 168,
+    "split_seed": 49,
+    "calibration_inner_overlap": 19,
+    "calibration_test_overlap": 0
+  },
+  {
+    "held_out_subject": "s8",
+    "fold": 8,
+    "n_calibration": 192,
+    "n_inner_validation": 168,
+    "split_seed": 50,
+    "calibration_inner_overlap": 23,
+    "calibration_test_overlap": 0
+  },
+  {
+    "held_out_subject": "s9",
+    "fold": 9,
+    "n_calibration": 192,
+    "n_inner_validation": 168,
+    "split_seed": 51,
+    "calibration_inner_overlap": 27,
+    "calibration_test_overlap": 0
+  },
+  {
+    "held_out_subject": "s10",
+    "fold": 10,
+    "n_calibration": 192,
+    "n_inner_validation": 168,
+    "split_seed": 52,
+    "calibration_inner_overlap": 22,
+    "calibration_test_overlap": 0
+  }
+]

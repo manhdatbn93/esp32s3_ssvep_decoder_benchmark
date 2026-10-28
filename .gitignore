@@ -53,3 +53,4 @@ sdkconfig.old
 !paper_reproduction/**
 paper_reproduction/outputs/
 paper_reproduction/**/__pycache__/
+!analysis/operator_precision_audit/*.csv

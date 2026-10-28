@@ -1,0 +1,74 @@
+{
+  "description": "SHA-256 inventory of the OJ-CS R1.4 frontend ablation reference outputs. This file is excluded from the inventory.",
+  "source_commit": "3d5854621b1d70785153437a7d59505143e636f4",
+  "experiment_timestamp_utc": "2026-10-27T23:15:01.749954+00:00",
+  "original_experiment_manifest_sha256": "876b6b3c4b65d8d2592fcafc8e4f567f554d4ae5e5dc201988ca50c462773c14",
+  "sanitization": "The published EXPERIMENT_MANIFEST.json differs from the execution copy in command[0] only. The machine-local absolute path of run_ablation.py was replaced by the repository-relative path analysis/frontend_ablation/run_ablation.py. The source commit, timestamp, dataset hash, model hashes, toolchain versions, and output checksums were not changed.",
+  "files": [
+    {
+      "filename": "EXPERIMENT_MANIFEST.json",
+      "sha256": "3a1b43fbbc8cbd0f3cb6f08f4f3f51993abddff24d8442ffdef7d7a33ae795d0",
+      "bytes": 32967
+    },
+    {
+      "filename": "flip_trials.csv",
+      "sha256": "c35c4c8525870ca3c18f630ed95c5e290d2401a65d40bc2813ac68c4718ab78b",
+      "bytes": 1461
+    },
+    {
+      "filename": "historical_stage_check.json",
+      "sha256": "e096a19ed14074fc545e9dc4dd1d960099715999c0021fada2761e4fc1e7b4a3",
+      "bytes": 1992
+    },
+    {
+      "filename": "per_trial_diagnostics.csv",
+      "sha256": "5298dfaacf26da6278928e68cb4a0fadbb51b2705d2572df3480f27780f8ed5d",
+      "bytes": 2262929
+    },
+    {
+      "filename": "ptq_frontend_feature_summary.csv",
+      "sha256": "abe4a911f1efc59cc4983d21bff993299ac03fe0b0bdf0a411653b215bf103a8",
+      "bytes": 1947
+    },
+    {
+      "filename": "ptq_overlap.json",
+      "sha256": "5051a057f42311c0bf0e5cc22cf1a7e9b05d74cf3e17d78397c6d0bdd8c15c5b",
+      "bytes": 2135
+    },
+    {
+      "filename": "RESULT_SUMMARY.csv",
+      "sha256": "638a3c1db62b9f42492590e10480ff0386b3c63ad033b38a17c5648c3e70955c",
+      "bytes": 439
+    },
+    {
+      "filename": "SUBJECT_LEVEL_SUMMARY.csv",
+      "sha256": "9e234507d922afee36a67f5e2b890afe2ec78a67c514adb066d69b25ee5b8473",
+      "bytes": 3194
+    },
+    {
+      "filename": "table_a_feature_fidelity.csv",
+      "sha256": "274d902f6244b701f2d38be0c04442ae454cd046b09d93218e499e62bf12b7d4",
+      "bytes": 525
+    },
+    {
+      "filename": "table_b_output_fidelity.csv",
+      "sha256": "259364274d5c8b9054c598575229daff6e9efea1f832228c14e002d7511320f8",
+      "bytes": 383
+    },
+    {
+      "filename": "table_c_top1_stability.csv",
+      "sha256": "638a3c1db62b9f42492590e10480ff0386b3c63ad033b38a17c5648c3e70955c",
+      "bytes": 439
+    },
+    {
+      "filename": "table_d_subject_level.csv",
+      "sha256": "9e234507d922afee36a67f5e2b890afe2ec78a67c514adb066d69b25ee5b8473",
+      "bytes": 3194
+    },
+    {
+      "filename": "table_e_archive_parity.csv",
+      "sha256": "eafaad6853f5463907305aab4669f3dc99ac9200a7de4c5abbfb1bb9906485d2",
+      "bytes": 413
+    }
+  ]
+}

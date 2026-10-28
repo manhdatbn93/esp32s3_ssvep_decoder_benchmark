@@ -336,7 +336,7 @@ def _write_csv(path: Path, rows: list[dict], fields: list[str]) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", default=str(ROOT))
-    parser.add_argument("--out", default=str(Path(__file__).resolve().parent))
+    parser.add_argument("--out", default=str(ROOT / "outputs" / "operator_precision_audit"))
     args = parser.parse_args(argv)
     summaries, rows, errors = audit(Path(args.repo))
     out = Path(args.out)

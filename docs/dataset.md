@@ -1,6 +1,6 @@
 # Dataset setup
 
-The raw 12JFPM dataset is not distributed in this repository. Obtain it from the original release:
+The raw 12JFPM dataset is not distributed in this repository. Obtain it from the original release at <https://github.com/mnakanishi/12JFPM_SSVEP>.
 
 M. Nakanishi, Y. Wang, Y.-T. Wang, Y. Mitsukura, and T.-P. Jung, "A comparison study of canonical correlation analysis based methods for detecting steady-state visual evoked potentials," PLOS ONE, vol. 10, no. 10, e0140703, 2015. doi:10.1371/journal.pone.0140703.
 

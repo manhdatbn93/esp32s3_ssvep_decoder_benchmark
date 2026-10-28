@@ -21,4 +21,4 @@ Pinned component versions from the committed `firmware/replay_fw/dependencies.lo
 
 Confirm versions from the local ESP-IDF install, from `firmware/replay_fw/dependencies.lock`, and from the generated `sdkconfig` before publishing a local binary.
 
-Fold-1 compile checks for all eleven retained MCU backends have been run from this public tree after staging into `firmware/generated/` and copying `sdkconfig.measurement` to `sdkconfig`. Those checks confirm compilation under the measurement profile. They were not flashed and they are not Table 5 measurements. A build that starts from `sdkconfig.defaults` also selects 240 MHz and `-O2`, and it is not the full measurement profile. See `docs/firmware-and-replay.md`.
+A compile that copies `sdkconfig.measurement` to `sdkconfig` confirms that a staged backend builds. It is not a device measurement and it is not a Table 5 result. A build that starts from `sdkconfig.defaults` also selects 240 MHz and `-O2`, and it is not the full measurement profile. See [firmware and replay](../docs/firmware-and-replay.md).

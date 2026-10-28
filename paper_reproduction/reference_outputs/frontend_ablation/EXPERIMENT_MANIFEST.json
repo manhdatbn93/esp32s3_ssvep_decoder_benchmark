@@ -1,0 +1,1169 @@
+{
+  "timestamp_utc": "2026-10-27T23:15:01.749954+00:00",
+  "source_commit": "3d5854621b1d70785153437a7d59505143e636f4",
+  "smoke_test": false,
+  "verify_archive": true,
+  "backends": [
+    "ccnn_f32",
+    "ccnn_int8",
+    "fbtcnn_f32",
+    "fbtcnn_int8"
+  ],
+  "command": [
+    "analysis/frontend_ablation/run_ablation.py",
+    "--dataset-root",
+    "<path>",
+    "--artifact-root",
+    "<path>",
+    "--output-dir",
+    "<path>",
+    "--all-folds",
+    "--verify-archive"
+  ],
+  "dataset": {
+    "name": "12JFPM",
+    "file": "processed.npz",
+    "sha256": "5ffe22a3598d2280ff8770ba4d22acefafff2da8c8632dc213b299a242af964e",
+    "meta": {
+      "n_samples": 1800,
+      "shape_X": [
+        1800,
+        512,
+        8
+      ],
+      "dtype_X": "float32",
+      "onset_sample_0": 38,
+      "window_length": 512,
+      "normalize": "channel_zscore",
+      "subjects": [
+        "s1",
+        "s2",
+        "s3",
+        "s4",
+        "s5",
+        "s6",
+        "s7",
+        "s8",
+        "s9",
+        "s10"
+      ]
+    },
+    "normalization": "processed channel z-score applied once by the dataset builder; ablation does not z-score again",
+    "raw_mat_files": "not present in the local workspaces; processed trials were used"
+  },
+  "interpreter": {
+    "ccnn_f32/fold01": {
+      "sha256": "1808e3646fc38d7ee29d446ffaa6d1c84bea469c6950d59ea66a51651d1488e7",
+      "relative_path": "artifacts/reference/tflite/ccnn_f32/fold01/ccnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_f32/fold02": {
+      "sha256": "25067c811d3854bab5727a7a2b91ba2aebd4c7a39c2eda7f232dcc979180d600",
+      "relative_path": "artifacts/reference/tflite/ccnn_f32/fold02/ccnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_f32/fold03": {
+      "sha256": "a472c075bfd07f0dc4e03543df042ed72f010d6d1bd1175b97ba625dbb72eace",
+      "relative_path": "artifacts/reference/tflite/ccnn_f32/fold03/ccnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_f32/fold04": {
+      "sha256": "e62d5c85557f4a13ad840012d56c81416e27ad8512f5016d7b13deebb876904b",
+      "relative_path": "artifacts/reference/tflite/ccnn_f32/fold04/ccnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_f32/fold05": {
+      "sha256": "4effc1d35fb6e04e491fce4a6661dd98b2676373a9b66c835bcadcfb5ab2d695",
+      "relative_path": "artifacts/reference/tflite/ccnn_f32/fold05/ccnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_f32/fold06": {
+      "sha256": "5c1d52e268c1411333920d8588341abd92af9c830a25899caaff9a7f416a1d38",
+      "relative_path": "artifacts/reference/tflite/ccnn_f32/fold06/ccnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_f32/fold07": {
+      "sha256": "09fe4d1cc01d8ec7aed66e85c416d9694f334c336ccc6b7099a2ce48529c45c5",
+      "relative_path": "artifacts/reference/tflite/ccnn_f32/fold07/ccnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_f32/fold08": {
+      "sha256": "ea9155cecf10188fefbf00f5cbef30f5c2f5b0df08f356806c9985e93b2843a2",
+      "relative_path": "artifacts/reference/tflite/ccnn_f32/fold08/ccnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_f32/fold09": {
+      "sha256": "7879286038de56f352b799238be3c98a5798948f275b9594d46ec2a456d9c55d",
+      "relative_path": "artifacts/reference/tflite/ccnn_f32/fold09/ccnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_f32/fold10": {
+      "sha256": "7b915bebd07af2973abbd6dbc4568bb3a0c513e6fd674b89fff3ed821c7deb73",
+      "relative_path": "artifacts/reference/tflite/ccnn_f32/fold10/ccnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_int8/fold01": {
+      "sha256": "ded80c00e0cb9c89a708604cdb19f6c11f9bf7b431b97ada92446bebece8300b",
+      "relative_path": "artifacts/reference/tflite/ccnn_int8/fold01/ccnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_int8/fold02": {
+      "sha256": "d831b8fea62f6d9f63c9b75ef6fb8afb851c0cd7556154cb469f23db1d47fd9c",
+      "relative_path": "artifacts/reference/tflite/ccnn_int8/fold02/ccnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_int8/fold03": {
+      "sha256": "975776d827071c3d167fbdc0e06a9ef648ca4a187bb2176edcfd31ca9f9b7f0e",
+      "relative_path": "artifacts/reference/tflite/ccnn_int8/fold03/ccnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_int8/fold04": {
+      "sha256": "75c745c7b6aa508a991fd1237ee3f0dd1a43cc4690597309aa467c389acacacb",
+      "relative_path": "artifacts/reference/tflite/ccnn_int8/fold04/ccnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_int8/fold05": {
+      "sha256": "9e9844aaa90e8b09f15f0219c48d1f0121c48ddfcb7be330166917f0ee631adf",
+      "relative_path": "artifacts/reference/tflite/ccnn_int8/fold05/ccnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_int8/fold06": {
+      "sha256": "fe230fa376487694e4fd3be9042594a2642dd33507f0c798cd10c1dfd1706505",
+      "relative_path": "artifacts/reference/tflite/ccnn_int8/fold06/ccnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_int8/fold07": {
+      "sha256": "1047475f801f892f709e6a013c2cbe9da8b739f81b8f213ea62cbee99ebcd54f",
+      "relative_path": "artifacts/reference/tflite/ccnn_int8/fold07/ccnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_int8/fold08": {
+      "sha256": "cb2f046e946b2b2d3d2c312a8660a2a3cf145dd20b16850440a68b1f62efc4fe",
+      "relative_path": "artifacts/reference/tflite/ccnn_int8/fold08/ccnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_int8/fold09": {
+      "sha256": "53c09b62963efcdf566b3377ef68f11e49af9221346817247a8d581da6d2c5e4",
+      "relative_path": "artifacts/reference/tflite/ccnn_int8/fold09/ccnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "ccnn_int8/fold10": {
+      "sha256": "edb51213bd00024661827444acf4fa206da619d28cea1a7afc1715e99cba20fb",
+      "relative_path": "artifacts/reference/tflite/ccnn_int8/fold10/ccnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        220,
+        1
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_f32/fold01": {
+      "sha256": "b3936e141717b8f3a7114f8c4b5df80d80cfa778e04fdaba3926758ebef2e6ab",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold01/fbtcnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_f32/fold02": {
+      "sha256": "1d1344489c1c56bbea2b642f9ac17f087d30810fce5a5037bda18313ff2016e9",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold02/fbtcnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_f32/fold03": {
+      "sha256": "b9dc5a6accf7a1f5a0c4a69a47ba7a727b3ade5e2957d8717c93a25c6f9cecab",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold03/fbtcnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_f32/fold04": {
+      "sha256": "fbc4c4e740afa7c930d87a9392ed7c6fb66a7f43e352da9769c6eb1b8fd32c97",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold04/fbtcnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_f32/fold05": {
+      "sha256": "001e434a82463f0cade1369f3d201acc19c5b542ca7facebdb4c1e8ca9858c6c",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold05/fbtcnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_f32/fold06": {
+      "sha256": "3b9f5986794b318d2d623e7c4a739b9abe4be6891ebaa0a8df5e0da635b57676",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold06/fbtcnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_f32/fold07": {
+      "sha256": "2d19834025833b3e4aa416234767f6585603ecf6758174551b29d1d9160e4b9b",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold07/fbtcnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_f32/fold08": {
+      "sha256": "90ef90360935d1a6f6f1a0ac2554464f01c27e879d274cd3b52d58e2ebf224b7",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold08/fbtcnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_f32/fold09": {
+      "sha256": "af352f5b77f6a5a47d3d9a983d188da0cbe958287501645926f1badb8648e34d",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold09/fbtcnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_f32/fold10": {
+      "sha256": "8da25a654dcf13d4281a74a3e45afbf8a53ee82c43af9b5d247a4fd591f2b93e",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_f32/fold10/fbtcnn_float32.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_int8/fold01": {
+      "sha256": "56420a9fa98e2a57d9f2f0c3a67f889bae94e70bf308de403f29ea0115cced51",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold01/fbtcnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_int8/fold02": {
+      "sha256": "c331dcf13c7b903671d6b74df32b26f0642ba8b5d993b869b9aa539690f68919",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold02/fbtcnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_int8/fold03": {
+      "sha256": "64b2a233dead5f379ea1cf0bec853f8ebf915ad15596debc6be9d8d4524707a8",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold03/fbtcnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_int8/fold04": {
+      "sha256": "028ec9d4c2ec1c43d7cd53985784e3664f5c36881502b13f18918a423cfb71d0",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold04/fbtcnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_int8/fold05": {
+      "sha256": "228534c102d5021d7a163449e63b2b6d6da8c39da5764e06279a3c2286e5d672",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold05/fbtcnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_int8/fold06": {
+      "sha256": "47c042fb2c577b025b77a6704d46fa96caf352aad4bae71d4e901782fcd2c0e3",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold06/fbtcnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_int8/fold07": {
+      "sha256": "8ee66f0ae72796c0363650f1867130b74c89c5b7c6827aed01d2f866701e32e8",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold07/fbtcnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_int8/fold08": {
+      "sha256": "9f3130b45edf9963631b8bf0284da08a1e71ecaedb22da49d395d852e2bc2700",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold08/fbtcnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_int8/fold09": {
+      "sha256": "9f3378a025d22aea5ba00af0878f1b18a79c35112bd9c8412ccacad8a9687e1f",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold09/fbtcnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    },
+    "fbtcnn_int8/fold10": {
+      "sha256": "b856c99021c53c6c38ce0e0a051f801b28dfc69a13734b60237adb83c2980f24",
+      "relative_path": "artifacts/reference/tflite/fbtcnn_int8/fold10/fbtcnn_int8.tflite",
+      "op_resolver": "AUTO",
+      "input_dtype": "float32",
+      "output_dtype": "float32",
+      "input_shape": [
+        1,
+        8,
+        512,
+        4
+      ],
+      "output_shape": [
+        1,
+        12
+      ],
+      "input_quantization": [
+        0.0,
+        0.0
+      ],
+      "output_quantization": [
+        0.0,
+        0.0
+      ],
+      "delegate_objects_exposed": []
+    }
+  },
+  "toolchain": {
+    "python": "3.13.3",
+    "numpy": "2.2.6",
+    "platform": "Windows-11-10.0.26100-SP0",
+    "TF_ENABLE_ONEDNN_OPTS": null
+  },
+  "protected_sha256": {
+    "src/neural/ccnn.py": "684070ade36e9d7bb0b0e61d296cbde06a1aeeeec970d1fa771596154ca0b810",
+    "src/neural/fbtcnn.py": "59a8325257453539649a1d37eba1574bf2c58436d0c87dae202ac2028fe41f21",
+    "src/replay/host_reference.py": "0ee8481571fe3bb611a9bcca0214e30f99f10b0fca9bc91e86d091cef08ab7db",
+    "src/replay/host_interpreter.py": "2828d3bd9c8a7e27a1a0ad2e8080d71bee0dfa6b802260195d44c80785fcae33",
+    "src/evaluation/neural_host.py": "bcaa851fb3070e412f6cb826bdaefeac9a81b164f9fb38e1fb6f6086f03dcc03",
+    "src/export/quantize_int8.py": "7bd4084eb283a1d292d948094e2684798720eaa054dd68f89ed6079005793206",
+    "firmware/components/dl_backends/ccnn_preprocess.c": "74617101035b43436b2c4b35ee6613e8eb7db72e6289e1bbe82d562136afd57d",
+    "firmware/components/dl_backends/fbtcnn_preprocess.c": "a9642b3e478bd329ee19eec400bfeaffd7b5127596dbe2b74a6af55d33e467fc",
+    "paper_reproduction/evidence/fidelity/export_fidelity_per_trial.csv": "d7602e8872aef51a1c24fea30f3810435c2e07af4e37a3a1717ac4d7ef5e47ac",
+    "paper_reproduction/reference_outputs/tables/table3_two_stage_fidelity.csv": "bb7555ccbdabd0880fe1f7ad9463503b1856a252ea5472feb089c57652b1cf40",
+    "tflite/ccnn_f32/fold01": "1808e3646fc38d7ee29d446ffaa6d1c84bea469c6950d59ea66a51651d1488e7",
+    "tflite/ccnn_f32/fold02": "25067c811d3854bab5727a7a2b91ba2aebd4c7a39c2eda7f232dcc979180d600",
+    "tflite/ccnn_f32/fold03": "a472c075bfd07f0dc4e03543df042ed72f010d6d1bd1175b97ba625dbb72eace",
+    "tflite/ccnn_f32/fold04": "e62d5c85557f4a13ad840012d56c81416e27ad8512f5016d7b13deebb876904b",
+    "tflite/ccnn_f32/fold05": "4effc1d35fb6e04e491fce4a6661dd98b2676373a9b66c835bcadcfb5ab2d695",
+    "tflite/ccnn_f32/fold06": "5c1d52e268c1411333920d8588341abd92af9c830a25899caaff9a7f416a1d38",
+    "tflite/ccnn_f32/fold07": "09fe4d1cc01d8ec7aed66e85c416d9694f334c336ccc6b7099a2ce48529c45c5",
+    "tflite/ccnn_f32/fold08": "ea9155cecf10188fefbf00f5cbef30f5c2f5b0df08f356806c9985e93b2843a2",
+    "tflite/ccnn_f32/fold09": "7879286038de56f352b799238be3c98a5798948f275b9594d46ec2a456d9c55d",
+    "tflite/ccnn_f32/fold10": "7b915bebd07af2973abbd6dbc4568bb3a0c513e6fd674b89fff3ed821c7deb73",
+    "tflite/ccnn_int8/fold01": "ded80c00e0cb9c89a708604cdb19f6c11f9bf7b431b97ada92446bebece8300b",
+    "tflite/ccnn_int8/fold02": "d831b8fea62f6d9f63c9b75ef6fb8afb851c0cd7556154cb469f23db1d47fd9c",
+    "tflite/ccnn_int8/fold03": "975776d827071c3d167fbdc0e06a9ef648ca4a187bb2176edcfd31ca9f9b7f0e",
+    "tflite/ccnn_int8/fold04": "75c745c7b6aa508a991fd1237ee3f0dd1a43cc4690597309aa467c389acacacb",
+    "tflite/ccnn_int8/fold05": "9e9844aaa90e8b09f15f0219c48d1f0121c48ddfcb7be330166917f0ee631adf",
+    "tflite/ccnn_int8/fold06": "fe230fa376487694e4fd3be9042594a2642dd33507f0c798cd10c1dfd1706505",
+    "tflite/ccnn_int8/fold07": "1047475f801f892f709e6a013c2cbe9da8b739f81b8f213ea62cbee99ebcd54f",
+    "tflite/ccnn_int8/fold08": "cb2f046e946b2b2d3d2c312a8660a2a3cf145dd20b16850440a68b1f62efc4fe",
+    "tflite/ccnn_int8/fold09": "53c09b62963efcdf566b3377ef68f11e49af9221346817247a8d581da6d2c5e4",
+    "tflite/ccnn_int8/fold10": "edb51213bd00024661827444acf4fa206da619d28cea1a7afc1715e99cba20fb",
+    "tflite/fbtcnn_f32/fold01": "b3936e141717b8f3a7114f8c4b5df80d80cfa778e04fdaba3926758ebef2e6ab",
+    "tflite/fbtcnn_f32/fold02": "1d1344489c1c56bbea2b642f9ac17f087d30810fce5a5037bda18313ff2016e9",
+    "tflite/fbtcnn_f32/fold03": "b9dc5a6accf7a1f5a0c4a69a47ba7a727b3ade5e2957d8717c93a25c6f9cecab",
+    "tflite/fbtcnn_f32/fold04": "fbc4c4e740afa7c930d87a9392ed7c6fb66a7f43e352da9769c6eb1b8fd32c97",
+    "tflite/fbtcnn_f32/fold05": "001e434a82463f0cade1369f3d201acc19c5b542ca7facebdb4c1e8ca9858c6c",
+    "tflite/fbtcnn_f32/fold06": "3b9f5986794b318d2d623e7c4a739b9abe4be6891ebaa0a8df5e0da635b57676",
+    "tflite/fbtcnn_f32/fold07": "2d19834025833b3e4aa416234767f6585603ecf6758174551b29d1d9160e4b9b",
+    "tflite/fbtcnn_f32/fold08": "90ef90360935d1a6f6f1a0ac2554464f01c27e879d274cd3b52d58e2ebf224b7",
+    "tflite/fbtcnn_f32/fold09": "af352f5b77f6a5a47d3d9a983d188da0cbe958287501645926f1badb8648e34d",
+    "tflite/fbtcnn_f32/fold10": "8da25a654dcf13d4281a74a3e45afbf8a53ee82c43af9b5d247a4fd591f2b93e",
+    "tflite/fbtcnn_int8/fold01": "56420a9fa98e2a57d9f2f0c3a67f889bae94e70bf308de403f29ea0115cced51",
+    "tflite/fbtcnn_int8/fold02": "c331dcf13c7b903671d6b74df32b26f0642ba8b5d993b869b9aa539690f68919",
+    "tflite/fbtcnn_int8/fold03": "64b2a233dead5f379ea1cf0bec853f8ebf915ad15596debc6be9d8d4524707a8",
+    "tflite/fbtcnn_int8/fold04": "028ec9d4c2ec1c43d7cd53985784e3664f5c36881502b13f18918a423cfb71d0",
+    "tflite/fbtcnn_int8/fold05": "228534c102d5021d7a163449e63b2b6d6da8c39da5764e06279a3c2286e5d672",
+    "tflite/fbtcnn_int8/fold06": "47c042fb2c577b025b77a6704d46fa96caf352aad4bae71d4e901782fcd2c0e3",
+    "tflite/fbtcnn_int8/fold07": "8ee66f0ae72796c0363650f1867130b74c89c5b7c6827aed01d2f866701e32e8",
+    "tflite/fbtcnn_int8/fold08": "9f3130b45edf9963631b8bf0284da08a1e71ecaedb22da49d395d852e2bc2700",
+    "tflite/fbtcnn_int8/fold09": "9f3378a025d22aea5ba00af0878f1b18a79c35112bd9c8412ccacad8a9687e1f",
+    "tflite/fbtcnn_int8/fold10": "b856c99021c53c6c38ce0e0a051f801b28dfc69a13734b60237adb83c2980f24"
+  },
+  "output_sha256": {
+    "flip_trials.csv": "c35c4c8525870ca3c18f630ed95c5e290d2401a65d40bc2813ac68c4718ab78b",
+    "historical_stage_check.json": "e096a19ed14074fc545e9dc4dd1d960099715999c0021fada2761e4fc1e7b4a3",
+    "per_trial_diagnostics.csv": "5298dfaacf26da6278928e68cb4a0fadbb51b2705d2572df3480f27780f8ed5d",
+    "ptq_frontend_feature_summary.csv": "abe4a911f1efc59cc4983d21bff993299ac03fe0b0bdf0a411653b215bf103a8",
+    "ptq_overlap.json": "5051a057f42311c0bf0e5cc22cf1a7e9b05d74cf3e17d78397c6d0bdd8c15c5b",
+    "RESULT_SUMMARY.csv": "638a3c1db62b9f42492590e10480ff0386b3c63ad033b38a17c5648c3e70955c",
+    "SUBJECT_LEVEL_SUMMARY.csv": "9e234507d922afee36a67f5e2b890afe2ec78a67c514adb066d69b25ee5b8473",
+    "table_a_feature_fidelity.csv": "274d902f6244b701f2d38be0c04442ae454cd046b09d93218e499e62bf12b7d4",
+    "table_b_output_fidelity.csv": "259364274d5c8b9054c598575229daff6e9efea1f832228c14e002d7511320f8",
+    "table_c_top1_stability.csv": "638a3c1db62b9f42492590e10480ff0386b3c63ad033b38a17c5648c3e70955c",
+    "table_d_subject_level.csv": "9e234507d922afee36a67f5e2b890afe2ec78a67c514adb066d69b25ee5b8473",
+    "table_e_archive_parity.csv": "eafaad6853f5463907305aab4669f3dc99ac9200a7de4c5abbfb1bb9906485d2"
+  },
+  "tensorflow": "2.20.0"
+}

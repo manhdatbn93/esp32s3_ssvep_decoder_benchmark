@@ -1,0 +1,76 @@
+{
+  "join": {
+    "stage1_rows": 12600,
+    "joined_rows": 12600,
+    "replay_rows_without_stage1": 0,
+    "stage1_rows_without_replay": 0,
+    "label_or_trial_number_mismatches": 0,
+    "export_host_vs_replay_host_prediction_mismatches": {},
+    "passed": true
+  },
+  "rates": {
+    "CCNN-f32": {
+      "n": 1800,
+      "stage1_count": 1800,
+      "stage2_count": 1800,
+      "chain_count": 1800,
+      "stage1_percent": 100.0,
+      "stage2_percent": 100.0,
+      "chain_percent": 100.0
+    },
+    "CCNN-int8": {
+      "n": 1800,
+      "stage1_count": 1772,
+      "stage2_count": 1733,
+      "chain_count": 1731,
+      "stage1_percent": 98.44444444444444,
+      "stage2_percent": 96.27777777777777,
+      "chain_percent": 96.16666666666667
+    },
+    "ConvCA-f32": {
+      "n": 1800,
+      "stage1_count": 1800,
+      "stage2_count": 1800,
+      "chain_count": 1800,
+      "stage1_percent": 100.0,
+      "stage2_percent": 100.0,
+      "chain_percent": 100.0
+    },
+    "EEGNet-f32": {
+      "n": 1800,
+      "stage1_count": 1800,
+      "stage2_count": 1800,
+      "chain_count": 1800,
+      "stage1_percent": 100.0,
+      "stage2_percent": 100.0,
+      "chain_percent": 100.0
+    },
+    "EEGNet-int8": {
+      "n": 1800,
+      "stage1_count": 1622,
+      "stage2_count": 1766,
+      "chain_count": 1627,
+      "stage1_percent": 90.11111111111111,
+      "stage2_percent": 98.11111111111111,
+      "chain_percent": 90.38888888888889
+    },
+    "FBtCNN-f32": {
+      "n": 1800,
+      "stage1_count": 1800,
+      "stage2_count": 1800,
+      "chain_count": 1800,
+      "stage1_percent": 100.0,
+      "stage2_percent": 100.0,
+      "chain_percent": 100.0
+    },
+    "FBtCNN-int8": {
+      "n": 1800,
+      "stage1_count": 1786,
+      "stage2_count": 1794,
+      "chain_count": 1788,
+      "stage1_percent": 99.22222222222223,
+      "stage2_percent": 99.66666666666667,
+      "chain_percent": 99.33333333333333
+    }
+  }
+}

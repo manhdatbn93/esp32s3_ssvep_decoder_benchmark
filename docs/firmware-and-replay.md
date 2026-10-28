@@ -40,8 +40,8 @@ idf.py menuconfig           # optional, before flashing: set Wi-Fi SSID / passwo
 
 Scope and limits:
 
-- The file documents the configuration of the seven neural device replays (70 runs) reported in the paper. The original and public SHA-256 values are recorded in `paper_reproduction/README.md`.
-- The four analytical device replays (CCA, FBCCA, MSI, TRCA; 40 runs) were recorded on 13–21 April 2026 with earlier firmware commits (`24bbad9`, `49f0c55`, `6d808e3`) and later filed under the strict LOSO evidence tree. Their build configuration was not archived, so this file is not claimed to describe them. See `paper_reproduction/README.md`.
+- The file documents the configuration of the seven neural device replays (70 runs) reported in the paper. The retained file is the public copy of that profile.
+- The four analytical device replays (CCA, FBCCA, MSI, TRCA; 40 runs) were recorded on 13–21 April 2026 with earlier firmware commits (`24bbad9`, `49f0c55`, `6d808e3`) and later filed under the strict LOSO evidence tree. Their build configuration was not archived, so this file is not claimed to describe them. Resource-profile limits are in [the Table 5 records](../paper_reproduction/evidence/table5/README.md).
 - The firmware-footprint and runtime-memory values in the paper's resource table come from an earlier per-backend profiling snapshot (16–26 April 2026, legacy fold-1 models). The configuration of those April builds was not archived. It is not claimed that the April builds used this file. Definitions and limits are in `paper_reproduction/evidence/table5/README.md`.
 - A clean compile with this profile confirms that a backend builds. It is not a Table 5 measurement and was not flashed. Image size from a new compile is not a substitute for the archived screenshots: the application image embeds the build time. A configure that starts from `sdkconfig.defaults` also selects 240 MHz and `-O2`, and it is not this full profile.
 

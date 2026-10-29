@@ -1,0 +1,13 @@
+# Complete host reproduction environment for one Python 3.10 virtual environment.
+# Covers training, TFLite export, host evaluation, and paper reproduction.
+# Package pins stay in the included files.
+#
+# From the repository root:
+#   py -3.10 -m venv .venv
+#   .venv\Scripts\python -m pip install -r environment/requirements-all.txt
+#
+# Paths below are relative to this file.
+
+-r tflite_conversion_py310.txt
+-r requirements-analysis.txt
+-r ../paper_reproduction/requirements.txt

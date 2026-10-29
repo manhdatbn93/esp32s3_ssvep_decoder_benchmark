@@ -143,6 +143,21 @@ def run_trca_loso(
     )
 
 
+_DEFAULT_OUTPUT_DIR = Path("runs/classical_loso_12jfpm")
+
+
+def _resolve_output_dir(cli_output_dir: Path | None, doc: dict | None) -> Path:
+    """Prefer an explicit CLI directory, then YAML output.run_dir, then the default."""
+    if cli_output_dir is not None:
+        return Path(cli_output_dir)
+    output = doc.get("output") if isinstance(doc, dict) else None
+    if isinstance(output, dict):
+        run_dir = output.get("run_dir")
+        if run_dir:
+            return Path(run_dir)
+    return _DEFAULT_OUTPUT_DIR
+
+
 def print_result(r: LOSOResult) -> None:
     print(f"\n{'='*60}")
     print(f"  {r.method.upper()} LOSO — 12JFPM")
@@ -158,7 +173,12 @@ def main() -> None:
     ap.add_argument("--config", type=Path, default=None,
                     help="YAML config (default: configs/analysis/<method>_12jfpm.yaml)")
     ap.add_argument("--npz", type=Path, default=None)
-    ap.add_argument("--output-dir", type=Path, default=Path("runs/classical_loso_12jfpm"))
+    ap.add_argument(
+        "--output-dir",
+        type=Path,
+        default=None,
+        help="Output directory. Overrides YAML output.run_dir when set.",
+    )
     ap.add_argument("--dry-run", action="store_true",
                     help="Load configs and construct method objects only")
     ap.add_argument(
@@ -192,7 +212,9 @@ def main() -> None:
                 _msi_config(doc)
             else:
                 _trca_config(doc)
+            out = _resolve_output_dir(args.output_dir, doc)
             print(f"OK {name}: {path}")
+            print(f"output-dir: {out}")
         return
 
     print("Loading 12JFPM processed data...")
@@ -213,7 +235,7 @@ def main() -> None:
         else:
             result = runners[name](X, y, subjects, doc)
         print_result(result)
-        out = Path(doc.get("output", {}).get("run_dir", args.output_dir))
+        out = _resolve_output_dir(args.output_dir, doc)
         save_results(result, out)
 
 

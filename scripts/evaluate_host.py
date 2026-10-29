@@ -28,6 +28,8 @@ def _classical(args: argparse.Namespace) -> int:
         cmd.extend(["--config", str(args.config)])
     if args.npz:
         cmd.extend(["--npz", str(args.npz)])
+    if args.output_dir is not None:
+        cmd.extend(["--output-dir", str(args.output_dir)])
     if args.dry_run:
         cmd.append("--dry-run")
     if getattr(args, "trca_realization", None):

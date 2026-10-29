@@ -327,7 +327,7 @@ def train_one_fold_strict(
         else:
             no_improve += 1
 
-        if record_epoch_metrics is not None:
+        if epoch_metrics is not None:
             epoch_metrics.append({
                 "epoch": epoch,
                 "inner_val_acc": round(inner_acc, 6),

@@ -23,7 +23,7 @@ Configs: `configs/training/*_12jfpm_strict_loso.yaml`.
 python scripts\run_pipeline.py run --all
 ```
 
-`run --all` trains, exports, evaluates, and then stages firmware backends. `--dry-run` prints that plan and does not run it. `--model` without `--fold` selects all ten folds of that model. The same four phases can be started on their own with `train`, `export`, `evaluate`, and `stage`; those actions are alternatives, not extra steps after `run`. The first non-zero exit stops the remaining models and folds. Staging includes only firmware backends, so SSVEPformer and SSVEPNet are still trained, exported, and evaluated.
+`train --all` plans 60 commands, `export --all` 70, `evaluate --all` 201, `stage --all` 110, and `run --all` 441. `run --all` trains all six neural models, exports the four supported TFLite families, evaluates PyTorch for every neural model, and evaluates TFLite and Stage 1 only for those four families. That evaluation phase ends with one classical LOSO command for CCA, FBCCA, MSI, and TRCA, using the published TRCA `deployed_sos` realization. Staging then copies generated neural backends, then retained classical bundles, into separate directories. Staging does not compile, flash, or replay firmware. `--dry-run` prints this plan and does not run commands, create logs, or write checkpoints, exports, or aggregates. `--model` without `--fold` selects all ten folds of that model and does not add the classical steps. `train`, `export`, `evaluate`, and `stage` are separate actions, not extra steps after `run`. The first non-zero exit stops the remaining work. `run --all` does not resume or skip existing outputs, so running it again can replace checkpoints under `runs/` and TFLite files under `artifacts/generated/`. SSVEPformer and SSVEPNet are trained and evaluated in PyTorch only.
 
 One model and fold, when not using `run --all`:
 
@@ -36,7 +36,7 @@ python scripts\run_pipeline.py stage --model eegnet --fold 1 --precision int8
 
 INT8 export passes `--quantization int8` to `scripts/export_tflite.py`. That script runs the existing post-training quantization. It does not train an int8 model.
 
-SSVEPformer and SSVEPNet export host-side float32 only. `stage` reports them as not deployable and does not call the firmware stager.
+SSVEPformer and SSVEPNet are PyTorch-only in this workflow. `export` and `stage` reject an explicit request for either model. `scripts/export_tflite.py` still contains an experimental float32 converter for them. The pipeline does not call that converter, and the conversion is not a validated reproduction result.
 
 FBtCNN staging needs `fbtcnn_filter_generated.h` beside the TFLite file. `src/export/gen_fbtcnn_filter_header.py` writes that header only to `src/export/12jfpm_fbtcnn_fold01_val_s1/`. The pipeline does not change that generator. It copies the published subject-independent header from `artifacts/reference/preprocessing/fbtcnn/foldNN/` into the export directory, then calls `scripts/generate_firmware_artifacts.py`.
 
@@ -45,9 +45,19 @@ FBtCNN staging needs `fbtcnn_filter_generated.h` beside the TFLite file. `src/ex
 | Checkpoints | `runs/<model>/checkpoints/` |
 | TFLite export | `artifacts/generated/<model>/foldNN/<precision>/` |
 | Host evaluation | `outputs/host/<model>/foldNN/` |
-| Firmware staging | `artifacts/generated/firmware_staging/<model>/foldNN/<precision>/` |
+| Classical LOSO | `outputs/host/classical/` |
+| Neural firmware staging | `artifacts/generated/firmware_staging/<model>/foldNN/<precision>/` |
+| Classical firmware staging | `artifacts/generated/firmware_staging/<method>/foldNN/reference/` |
 
-Host evaluation writes `pytorch`, `tflite_f32`, `tflite_int8`, `stage1_f32`, and `stage1_int8` under the fold directory so each runtime keeps its own `summary.json`. Each firmware staging directory receives one backend. The stager deletes only that directory.
+Host evaluation writes `pytorch` for every neural model. TFLite and Stage 1 directories are added only for precisions that model exports: CCNN, EEGNet, and FBtCNN use `tflite_f32`, `tflite_int8`, `stage1_f32`, and `stage1_int8`; ConvCA uses `tflite_f32` and `stage1_f32` only. Each directory keeps its own `summary.json`. `evaluate --all` and `run --all` append one classical command that writes CCA, FBCCA, MSI, and TRCA under `outputs/host/classical/` with TRCA `deployed_sos`. That command does not stage or flash firmware. `stage --all` and `run --all` then copy each retained classical bundle into its own `reference` directory. Those copies do not modify `artifacts/reference/`. Each firmware staging directory receives one backend. The stager deletes only that directory.
+
+A pipeline fold is trained by a separate command. Its summary is `runs/<model>/training/foldNN.json`, so later folds do not replace earlier ones. Checkpoints stay at `runs/<model>/checkpoints/foldNN_best.pt`. A multi-fold `scripts/train_neural.py` invocation that omits `--fold` still writes `runs/<model>/<model>_12jfpm.json`. The pipeline does not replace that historical file.
+
+When all ten per-fold summaries are present and valid, the pipeline writes `runs/<model>/training/aggregate_10fold.json`. `status` is `COMPLETE` only for folds 1–10 of one model, protocol `strict_loso_inner_val`, held-out subject `sN`, 180 trials per fold, and 1,800 trials in total. Anything short of that is `PARTIAL` or is rejected. The mean and population standard deviation use the fold outer-test accuracies. Missing folds are not invented.
+
+`python scripts/training_summaries.py audit --model eegnet` only reads checkpoints and split manifests. `recover` prints a report. Add `--write` to create `runs/<model>/training/recovered_10fold.json`. That file is not an original training record. Checkpoints do not contain the final epoch, epoch history, training duration, or outer-test predictions. Outer-test accuracy is copied only from an existing PyTorch host summary. The overnight run kept ten checkpoints per model, but its model-level JSON was rewritten by each fold and retains fold 10 only.
+
+An actual run, not `--dry-run`, creates `outputs/pipeline_runs/<run_id>/`. `summary.json` is `RUNNING` while work is in progress, `COMPLETED` only after every planned step succeeds, `FAILED` at the first non-zero step, and `INTERRUPTED` after Ctrl+C. `steps.jsonl` records each step. `logs/` has one file per step and receives stdout and stderr while that command is still running. The terminal prints the absolute log and summary paths on failure. For a step whose newest `steps.jsonl` record is still `RUNNING`, completion is unconfirmed by the pipeline logger. `--dry-run` does not create this directory.
 
 ## Training
 
@@ -209,7 +219,9 @@ Export runs in the pinned conversion environment (`environment/tflite_conversion
 Supported export quantizations:
 
 - CCNN, EEGNet, FBtCNN: `f32` and `int8`
-- ConvCA, SSVEPformer, SSVEPNet: `f32` only
+- ConvCA: `f32` only
+
+The pipeline exports only those four families. SSVEPformer and SSVEPNet remain PyTorch-only here. `scripts/export_tflite.py` still has an experimental float32 converter for them. That converter is not part of `run` or `export`, and it is not a validated reproduction result.
 
 ### Int8 PTQ
 
@@ -283,4 +295,4 @@ The verifier checks:
 - analytical bundle completeness for CCA, FBCCA, MSI, and TRCA
 - FBtCNN preprocessing header completeness
 
-Current verified inventory: 40 checkpoints, 70 TFLite files, 220 reference files covered by checksum verification. These are inventory counts, not benchmark scores.
+Current verified inventory under `artifacts/reference/`: 40 checkpoints, 70 TFLite files, and 220 reference files covered by checksum verification. These are the published reference inventory, not benchmark scores, and not the generated overnight files under `runs/` or `artifacts/generated/`.

@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import importlib.util
+import json
 import sys
 from dataclasses import replace
 from pathlib import Path
@@ -41,12 +42,16 @@ def test_train_all_covers_six_models_and_ten_folds():
 
 
 def test_export_all_uses_supported_precisions():
-    steps = pipeline.build_steps("export", list(pipeline.NEURAL_MODELS), list(pipeline.FOLDS), None)
+    models, folds, precision, notes = pipeline.resolve_selection(
+        "export", all_models=True, model=None, fold=None, precision=None,
+    )
+    steps = pipeline.build_steps("export", models, folds, precision)
     counts: dict[tuple[str, str], int] = {}
     for step in steps:
         model = _flag(step.argv, "--model")
         quant = _flag(step.argv, "--quantization")
         counts[(model, quant)] = counts.get((model, quant), 0) + 1
+        assert model not in pipeline.PYTORCH_ONLY_MODELS
         assert step.argv[1].endswith("scripts/export_tflite.py")
         assert _flag(step.argv, "--checkpoint").endswith(
             f"runs/{model}/checkpoints/fold{_flag(step.argv, '--fold').zfill(2)}_best.pt"
@@ -54,15 +59,16 @@ def test_export_all_uses_supported_precisions():
         assert _flag(step.argv, "--output").endswith(
             f"artifacts/generated/{model}/fold{_flag(step.argv, '--fold').zfill(2)}/{quant}"
         )
-    assert len(steps) == 90
+    assert len(steps) == 70
     for model, precisions in pipeline.EXPORT_PRECISIONS.items():
-        for precision in precisions:
-            assert counts[(model, precision)] == 10
+        for item in precisions:
+            assert counts[(model, item)] == 10
         if "int8" not in precisions:
             assert (model, "int8") not in counts
-    host_only = [step for step in steps if "ssvepformer" in step.label or "ssvepnet" in step.label]
-    assert host_only
-    assert all("not firmware-deployable" in step.label for step in host_only)
+    assert ("ssvepformer", "f32") not in counts
+    assert ("ssvepnet", "f32") not in counts
+    assert pipeline.pytorch_only_note("ssvepformer") in notes
+    assert pipeline.pytorch_only_note("ssvepnet") in notes
     int8 = [step for step in steps if _flag(step.argv, "--quantization") == "int8"]
     assert int8
     assert all("PTQ" in step.label for step in int8)
@@ -221,14 +227,18 @@ def test_cli_selection_and_dry_run(capsys: pytest.CaptureFixture[str]):
 
     assert pipeline.main(["stage", "--all", "--dry-run"]) == 0
     all_out = capsys.readouterr().out
-    assert "ssvepformer: host-side float32 export only" in all_out
-    assert "ssvepnet: host-side float32 export only" in all_out
+    assert "ssvepformer: PyTorch-only" in all_out
+    assert "ssvepnet: PyTorch-only" in all_out
     assert "--backend ssvepformer-f32" not in all_out
     assert "--backend ssvepnet-f32" not in all_out
     assert "--backend convca-int8" not in all_out
     assert "--backend convca-f32" in all_out
     assert "firmware/generated" not in all_out
-    assert "Dry run: 70 command" in all_out
+    assert "--artifact-set reference" in all_out
+    assert "--backend cca" in all_out
+    assert "--backend trca" in all_out
+    assert "artifacts/reference" not in all_out.split("--output ")[-1]
+    assert "Dry run: 110 command" in all_out
 
 
 def test_cli_rejects_invalid_selection():
@@ -238,10 +248,14 @@ def test_cli_rejects_invalid_selection():
         pipeline.main(["export", "--dry-run"])
     with pytest.raises(SystemExit, match="--precision is required"):
         pipeline.main(["stage", "--model", "eegnet", "--fold", "1", "--dry-run"])
-    with pytest.raises(SystemExit, match="not deployable"):
+    with pytest.raises(SystemExit, match="PyTorch-only"):
         pipeline.main(["stage", "--model", "ssvepformer", "--fold", "1", "--precision", "f32"])
-    with pytest.raises(SystemExit, match="not deployable"):
+    with pytest.raises(SystemExit, match="PyTorch-only"):
         pipeline.main(["stage", "--model", "ssvepnet", "--fold", "1", "--precision", "f32"])
+    with pytest.raises(SystemExit, match="PyTorch-only"):
+        pipeline.main(["export", "--model", "ssvepformer", "--fold", "1", "--dry-run"])
+    with pytest.raises(SystemExit, match="experimental converter"):
+        pipeline.main(["export", "--model", "ssvepnet", "--dry-run"])
     with pytest.raises(SystemExit, match="Unsupported precision"):
         pipeline.main(["stage", "--model", "convca", "--fold", "1", "--precision", "int8"])
     with pytest.raises(SystemExit, match="1..10"):
@@ -328,28 +342,94 @@ def test_run_limits_staging_to_supported_backends():
     assert [_flag(step.argv, "--quantization") for step in convca if "--quantization" in step.argv] == ["f32"]
     assert [_flag(step.argv, "--backend") for step in convca if "--backend" in step.argv] == ["convca-f32"]
 
-    host_only, notes = pipeline.build_workflow(["ssvepformer"], [1])
-    assert notes == ["ssvepformer: host-side float32 export only, not deployable on firmware"]
-    assert any(_script_name(step) == "train_neural.py" for step in host_only)
-    assert any(_script_name(step) == "export_tflite.py" for step in host_only)
-    assert any(_script_name(step) == "evaluate_host.py" for step in host_only)
-    assert all(_script_name(step) != "generate_firmware_artifacts.py" for step in host_only)
+    for model in pipeline.PYTORCH_ONLY_MODELS:
+        host_only, notes = pipeline.build_workflow([model], [1])
+        assert notes == [pipeline.pytorch_only_note(model)]
+        assert [_script_name(step) for step in host_only] == [
+            "train_neural.py",
+            "evaluate_host.py",
+        ]
+        assert _flag(host_only[1].argv, "--runtime") == "pytorch"
+        assert "--tflite" not in host_only[1].argv
 
-    steps, all_notes = pipeline.build_workflow(list(pipeline.NEURAL_MODELS), list(pipeline.FOLDS))
-    assert len(steps) == 460
+    models, folds, _, _ = pipeline.resolve_selection(
+        "run", all_models=True, model=None, fold=None, precision=None,
+    )
+    steps, all_notes = pipeline.build_workflow(models, folds, include_classical=True)
+    assert len(steps) == 441
     names = [_script_name(step) for step in steps]
     assert names[:60] == ["train_neural.py"] * 60
-    assert names[60:150] == ["export_tflite.py"] * 90
-    assert names[150:390] == ["evaluate_host.py"] * 240
-    assert names[390:] == ["generate_firmware_artifacts.py"] * 70
+    assert names[60:130] == ["export_tflite.py"] * 70
+    assert names[130:330] == ["evaluate_host.py"] * 200
+    assert names[330] == "evaluate_host.py"
+    assert names[331:401] == ["generate_firmware_artifacts.py"] * 70
+    assert names[401:] == ["generate_firmware_artifacts.py"] * 40
     assert all_notes == [
-        "ssvepformer: host-side float32 export only, not deployable on firmware",
-        "ssvepnet: host-side float32 export only, not deployable on firmware",
+        pipeline.pytorch_only_note("ssvepformer"),
+        pipeline.pytorch_only_note("ssvepnet"),
     ]
-    staged = " ".join(_flag(step.argv, "--backend") for step in steps[390:])
+    exported = {_flag(step.argv, "--model") for step in steps[60:130]}
+    assert exported == set(pipeline.EXPORT_PRECISIONS)
+    neural_eval = steps[130:330]
+    assert sum(_flag(step.argv, "--runtime") == "pytorch" for step in neural_eval) == 60
+    assert sum(_flag(step.argv, "--runtime") == "tflite" for step in neural_eval) == 70
+    assert sum(_flag(step.argv, "--runtime") == "stage1" for step in neural_eval) == 70
+    classical = steps[330]
+    assert _flag(classical.argv, "--runtime") == "classical"
+    assert _flag(classical.argv, "--method") == "all"
+    assert _flag(classical.argv, "--trca-realization") == "deployed_sos"
+    assert _flag(classical.argv, "--output-dir").endswith("outputs/host/classical")
+    assert classical.requires == (pipeline.PROCESSED_NPZ,)
+    neural_stage = steps[331:401]
+    assert {_flag(step.argv, "--artifact-set") for step in neural_stage} == {"generated"}
+    staged = " ".join(_flag(step.argv, "--backend") for step in neural_stage)
     assert "ssvepformer-f32" not in staged
     assert "ssvepnet-f32" not in staged
     assert "convca-int8" not in staged
+    assert "firmware/generated" not in staged
+    reference_stage = steps[401:]
+    assert [(_flag(step.argv, "--backend"), int(_flag(step.argv, "--fold"))) for step in reference_stage] == [
+        (method, fold) for method in pipeline.CLASSICAL_METHODS for fold in pipeline.FOLDS
+    ]
+    assert {_flag(step.argv, "--artifact-set") for step in reference_stage} == {"reference"}
+
+
+def test_evaluate_and_stage_all_include_classical():
+    models, folds, precision, _notes = pipeline.resolve_selection(
+        "evaluate", all_models=True, model=None, fold=None, precision=None,
+    )
+    evaluation = pipeline.build_steps("evaluate", models, folds, precision)
+    evaluation.append(pipeline.classical_step())
+    assert len(evaluation) == 201
+    assert _flag(evaluation[-1].argv, "--runtime") == "classical"
+    assert _flag(evaluation[-1].argv, "--method") == "all"
+    assert _flag(evaluation[-1].argv, "--trca-realization") == "deployed_sos"
+    assert sum(_flag(step.argv, "--runtime") == "classical" for step in evaluation) == 1
+
+    staged_models, staged_folds, staged_precision, _stage_notes = pipeline.resolve_selection(
+        "stage", all_models=True, model=None, fold=None, precision=None,
+    )
+    staged = pipeline.with_classical_reference_staging(
+        pipeline.build_steps("stage", staged_models, staged_folds, staged_precision),
+        staged_folds,
+    )
+    assert len(staged) == 110
+    outputs = [step.output_dir.resolve() for step in staged]
+    assert len(outputs) == len(set(outputs))
+    reference_root = (pipeline.ROOT / "artifacts" / "reference").resolve()
+    generated_root = (pipeline.ROOT / "firmware" / "generated").resolve()
+    for left_index, left in enumerate(outputs):
+        assert left != reference_root
+        assert reference_root not in left.parents
+        assert left != generated_root
+        for right in outputs[left_index + 1 :]:
+            assert left not in right.parents
+            assert right not in left.parents
+    for step in staged[-40:]:
+        backend = _flag(step.argv, "--backend")
+        fold = int(_flag(step.argv, "--fold"))
+        assert step.output_dir == pipeline.reference_staging_dir(backend, fold)
+        assert "artifacts/reference" not in _flag(step.argv, "--output")
 
 
 def test_run_dry_run_and_failure(capsys: pytest.CaptureFixture[str], monkeypatch: pytest.MonkeyPatch):
@@ -372,9 +452,11 @@ def test_run_dry_run_and_failure(capsys: pytest.CaptureFixture[str], monkeypatch
 
     assert pipeline.main(["run", "--model", "ssvepformer", "--fold", "1", "--dry-run"]) == 0
     host_out = capsys.readouterr().out
-    assert "ssvepformer: host-side float32 export only" in host_out
+    assert "ssvepformer: PyTorch-only" in host_out
+    assert "export_tflite.py" not in host_out
     assert "generate_firmware_artifacts.py" not in host_out
-    assert "Dry run: 5 command" in host_out
+    assert "--runtime pytorch" in host_out
+    assert "Dry run: 2 command" in host_out
 
     calls: list[str] = []
 
@@ -403,3 +485,250 @@ def test_missing_fbtcnn_header_stops(monkeypatch: pytest.MonkeyPatch, tmp_path: 
     assert pipeline.execute([step, later], dry_run=False) == 1
     assert calls == []
     assert not (tmp_path / "export").exists()
+
+
+def test_dry_run_does_not_create_a_run_log(monkeypatch: pytest.MonkeyPatch):
+    import pipeline_log
+
+    def boom(*_args, **_kwargs):
+        raise AssertionError("run log created")
+
+    monkeypatch.setattr(pipeline_log.RunLog, "create", boom)
+    assert pipeline.main(["train", "--model", "eegnet", "--fold", "1", "--dry-run"]) == 0
+    assert pipeline.execute(
+        [pipeline.Step("preview", ("python", "scripts/train_neural.py"))],
+        dry_run=True,
+    ) == 0
+
+
+def test_pipeline_log_success_failure_and_interrupt(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    import pipeline_log
+
+    first = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "run", ["run", "--all"], 1)
+    second = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "run", ["run", "--all"], 1)
+    assert first.directory != second.directory
+    assert first.summary["status"] == "RUNNING"
+    assert json.loads(first.summary_path.read_text(encoding="utf-8"))["planned_steps"] == 1
+
+    ok = pipeline.Step(
+        "print ok",
+        (sys.executable, "-c", "print('ok')"),
+        phase="evaluate",
+        model="synthetic",
+    )
+    assert pipeline.execute([ok], dry_run=False, logger=first) == 0
+    summary = json.loads(first.summary_path.read_text(encoding="utf-8"))
+    assert summary["status"] == "COMPLETED"
+    assert summary["completed_steps"] == 1
+    assert summary["failed_steps"] == 0
+    assert summary["remaining_steps"] == 0
+    events = [json.loads(line) for line in first.events_path.read_text(encoding="utf-8").splitlines()]
+    assert [event["status"] for event in events] == ["RUNNING", "COMPLETED"]
+    assert "ok" in (first.directory / events[-1]["log"]).read_text(encoding="utf-8")
+
+    failed = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "export", ["export"], 3)
+    bad = pipeline.Step(
+        "exit 3",
+        (sys.executable, "-c", "import sys; sys.exit(3)"),
+        phase="export",
+        model="eegnet",
+        fold=1,
+        precision="f32",
+    )
+    later = pipeline.Step("later", (sys.executable, "-c", "print('later')"), phase="stage")
+    assert pipeline.execute([ok, bad, later], dry_run=False, logger=failed) == 3
+    failed_summary = json.loads(failed.summary_path.read_text(encoding="utf-8"))
+    assert failed_summary["status"] == "FAILED"
+    assert failed_summary["completed_steps"] == 1
+    assert failed_summary["failed_steps"] == 1
+    assert failed_summary["remaining_steps"] == 1
+    assert failed_summary["first_failed_step_index"] == 2
+    assert failed_summary["failure_exit_code"] == 3
+    assert "later" not in failed.events_path.read_text(encoding="utf-8")
+
+    snow = pipeline.Step(
+        "snowman",
+        (sys.executable, "-c", "import sys; sys.stdout.buffer.write('\u2603'.encode())"),
+        phase="export",
+    )
+    encoded = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "export", ["export"], 1)
+    assert pipeline.execute([snow], dry_run=False, logger=encoded) == 0
+    logged = list((encoded.directory / "logs").glob("*.log"))[0].read_bytes()
+    assert "\u2603".encode() in logged
+
+    binary = pipeline.Step(
+        "binary",
+        (sys.executable, "-c", "import sys; sys.stdout.buffer.write(bytes([255]))"),
+        phase="export",
+    )
+    binary_log = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "export", ["export"], 1)
+    assert pipeline.execute([binary], dry_run=False, logger=binary_log) == 0
+
+    missing = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "export", ["export"], 2)
+    blocked = pipeline.Step("need file", ("python", "scripts/export_tflite.py"), requires=(tmp_path / "missing.pt",))
+    assert pipeline.execute([blocked, later], dry_run=False, logger=missing) == 1
+    assert json.loads(missing.summary_path.read_text(encoding="utf-8"))["status"] == "FAILED"
+    assert (missing.directory / "logs").exists()
+
+    header = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "stage", ["stage"], 1)
+    header_step = pipeline.Step(
+        "header",
+        ("python", "scripts/generate_firmware_artifacts.py"),
+        header_src=tmp_path / "missing.h",
+        header_dst=tmp_path / "out" / "fbtcnn_filter_generated.h",
+        header_when="before",
+        phase="stage",
+        model="fbtcnn",
+    )
+    assert pipeline.execute([header_step], dry_run=False, logger=header) == 1
+    assert not (tmp_path / "out").exists()
+
+    interrupted = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "train", ["train"], 1)
+
+    def raise_interrupt(*_args, **_kwargs):
+        raise KeyboardInterrupt
+
+    monkeypatch.setattr(pipeline_log, "run_logged_process", raise_interrupt)
+    running = pipeline.Step("sleep", (sys.executable, "-c", "print('no')"), phase="train", model="synthetic", fold=1)
+    assert pipeline.execute([running], dry_run=False, logger=interrupted) == 130
+    interrupted_summary = json.loads(interrupted.summary_path.read_text(encoding="utf-8"))
+    assert interrupted_summary["status"] == "INTERRUPTED"
+    statuses = [json.loads(line)["status"] for line in interrupted.events_path.read_text(encoding="utf-8").splitlines()]
+    assert statuses == ["RUNNING", "INTERRUPTED"]
+    assert "COMPLETED" not in statuses
+
+    orphan = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "train", ["train"], 1)
+    orphan.begin_step(1, running)
+    last = json.loads(orphan.events_path.read_text(encoding="utf-8").splitlines()[-1])
+    assert last["status"] == "RUNNING"
+    assert json.loads(orphan.summary_path.read_text(encoding="utf-8"))["status"] == "RUNNING"
+
+
+def test_flushed_output_is_logged_before_child_exits(tmp_path: Path):
+    import threading
+    import time
+
+    import pipeline_log
+
+    script = tmp_path / "slow_print.py"
+    script.write_text(
+        "import sys, time\n"
+        "sys.stdout.buffer.write(b'READY\\n')\n"
+        "sys.stdout.buffer.flush()\n"
+        "time.sleep(1.5)\n"
+        "sys.stdout.buffer.write(b'DONE\\n')\n"
+        "sys.stdout.buffer.flush()\n",
+        encoding="utf-8",
+    )
+    log = tmp_path / "live.log"
+    result: dict[str, int] = {}
+
+    def runner() -> None:
+        result["code"] = pipeline_log.run_logged_process(
+            [sys.executable, str(script)],
+            tmp_path,
+            log,
+        )
+
+    thread = threading.Thread(target=runner)
+    thread.start()
+    seen = False
+    deadline = time.time() + 1.0
+    while time.time() < deadline:
+        if log.is_file() and b"READY" in log.read_bytes():
+            seen = True
+            break
+        time.sleep(0.05)
+    still_running = thread.is_alive()
+    thread.join(timeout=5)
+    assert seen
+    assert still_running
+    assert result["code"] == 0
+    assert b"DONE" in log.read_bytes()
+
+
+def test_subprocess_launch_failure_marks_run_failed(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    import pipeline_log
+
+    def boom(*_args, **_kwargs):
+        raise OSError("simulated launch failure")
+
+    monkeypatch.setattr(pipeline_log.subprocess, "Popen", boom)
+    logger = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "export", ["export"], 1)
+    step = pipeline.Step(
+        "launch",
+        (sys.executable, "-c", "print('should not run')"),
+        phase="export",
+        model="eegnet",
+        fold=1,
+        precision="f32",
+    )
+    assert pipeline.execute([step], dry_run=False, logger=logger) == 1
+    summary = json.loads(logger.summary_path.read_text(encoding="utf-8"))
+    assert summary["status"] == "FAILED"
+    assert summary["completed_steps"] == 0
+    assert summary["first_failed_step_index"] == 1
+    log_text = (logger.directory / summary["failed_log"]).read_text(encoding="utf-8")
+    assert "simulated launch failure" in log_text
+    statuses = [json.loads(line)["status"] for line in logger.events_path.read_text(encoding="utf-8").splitlines()]
+    assert "COMPLETED" not in statuses
+    assert statuses[-1] == "FAILED"
+
+
+def test_unexpected_runtime_error_is_recorded_then_reraised(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    import pipeline_log
+
+    def boom(_step, _log_path):
+        raise RuntimeError("orchestrator broke")
+
+    monkeypatch.setattr(pipeline, "_run_step", boom)
+    logger = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "export", ["export"], 1)
+    step = pipeline.Step("explode", ("python", "export"), phase="export", model="eegnet", fold=1)
+    with pytest.raises(RuntimeError, match="orchestrator broke"):
+        pipeline.execute([step], dry_run=False, logger=logger)
+    summary = json.loads(logger.summary_path.read_text(encoding="utf-8"))
+    assert summary["status"] == "FAILED"
+    assert summary["completed_steps"] == 0
+    log_text = (logger.directory / summary["failed_log"]).read_text(encoding="utf-8")
+    assert "RuntimeError" in log_text
+    assert "Traceback" in log_text
+    statuses = [json.loads(line)["status"] for line in logger.events_path.read_text(encoding="utf-8").splitlines()]
+    assert statuses == ["RUNNING", "FAILED"]
+
+    def hide_failure(*_args, **_kwargs):
+        raise OSError("disk full")
+
+    monkeypatch.setattr(pipeline_log.RunLog, "finish_step", hide_failure)
+    hidden = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "export", ["export"], 1)
+    with pytest.raises(RuntimeError, match="orchestrator broke"):
+        pipeline.execute([step], dry_run=False, logger=hidden)
+
+
+def test_aggregation_failure_is_recorded_then_reraised(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+    import pipeline_log
+
+    def boom(_model):
+        raise RuntimeError("aggregate broke")
+
+    monkeypatch.setattr(pipeline, "_maybe_aggregate", boom)
+    logger = pipeline_log.RunLog.create(tmp_path, pipeline.ROOT, "train", ["train"], 2)
+    step = pipeline.Step(
+        "train synthetic fold 01",
+        (sys.executable, "-c", "print('trained')"),
+        phase="train",
+        model="synthetic",
+        fold=1,
+    )
+    later = pipeline.Step("later", (sys.executable, "-c", "print('later')"), phase="export")
+    with pytest.raises(RuntimeError, match="aggregate broke"):
+        pipeline.execute([step, later], dry_run=False, logger=logger)
+    summary = json.loads(logger.summary_path.read_text(encoding="utf-8"))
+    assert summary["status"] == "FAILED"
+    assert summary["completed_steps"] == 0
+    assert summary["first_failed_step_label"] == step.label
+    log_text = (logger.directory / summary["failed_log"]).read_text(encoding="utf-8")
+    assert "RuntimeError: aggregate broke" in log_text
+    statuses = [json.loads(line)["status"] for line in logger.events_path.read_text(encoding="utf-8").splitlines()]
+    assert "COMPLETED" not in statuses
+    assert statuses[-1] == "FAILED"
+    assert "later" not in logger.events_path.read_text(encoding="utf-8")

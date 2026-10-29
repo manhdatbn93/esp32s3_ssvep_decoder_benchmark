@@ -133,17 +133,20 @@ artifacts/generated/<model>/foldNN/int8/<model>_int8.tflite
 
 EEGNet fold 1 is `artifacts/generated/eegnet/fold01/f32/eegnet_float32.tflite` and `artifacts/generated/eegnet/fold01/int8/eegnet_int8.tflite`.
 
-`scripts/run_pipeline.py stage --all` calls the generator once per supported neural firmware set. `run --all` trains, exports, and evaluates first, then stages that same set. Neither command runs `idf.py`.
+`scripts/run_pipeline.py stage --all` calls the generator once per supported neural firmware set, then once per classical backend and fold with `--artifact-set reference`. `run --all` trains, exports, and evaluates first, including one classical LOSO command, and then stages that same set. Neither command runs `idf.py`.
 
 ```powershell
 python scripts\run_pipeline.py stage --all
 ```
 
-`--all` stages CCNN float32 and int8, ConvCA float32, EEGNet float32 and int8, and FBtCNN float32 and int8, for folds 1–10. SSVEPformer and SSVEPNet are host-side exports and are reported as not deployable. Each result is a separate directory:
+`--all` stages CCNN float32 and int8, ConvCA float32, EEGNet float32 and int8, and FBtCNN float32 and int8, for folds 1–10. It also stages CCA, FBCCA, MSI, and TRCA from the retained reference bundles, one directory per method and fold. SSVEPformer and SSVEPNet are PyTorch-only and are not staged. Each result is a separate directory:
 
 ```text
 artifacts/generated/firmware_staging/<model>/foldNN/<precision>/
+artifacts/generated/firmware_staging/<method>/foldNN/reference/
 ```
+
+The classical `reference` directory is a generated copy. `artifacts/reference/` stays read-only.
 
 The same generator can stage one exported model directly:
 
@@ -186,7 +189,7 @@ All eleven published backends compile with this profile from retained reference 
 
 ### Pipeline staging directory
 
-`run_pipeline.py stage` does not update `firmware/generated/`, and ESP-IDF does not select its per-model directories automatically. Pass the absolute path of one staging directory. Change the model, fold, or precision by choosing another directory under `artifacts/generated/firmware_staging/`.
+`run_pipeline.py stage` does not update `firmware/generated/`, and ESP-IDF does not select its directories automatically. Pass one absolute `EXPORT_ARTIFACT_ROOT`. A generated neural directory is `artifacts/generated/firmware_staging/<model>/foldNN/<precision>/`. A retained classical copy is `artifacts/generated/firmware_staging/<method>/foldNN/reference/`. Either path is one backend. The example below builds EEGNet int8 fold 1. It compiles that staging directory only. It does not flash or replay the board, and it does not show that every generated artifact has been compiled.
 
 ```powershell
 # From repository root, after pipeline staging
@@ -335,8 +338,10 @@ This entry point currently prints a placeholder message. It does not aggregate d
 |---|---|
 | `artifacts/reference/` | Retained read-only artifacts |
 | `artifacts/generated/<model>/foldNN/<precision>/` | Exported TFLite files |
-| `artifacts/generated/firmware_staging/<model>/foldNN/<precision>/` | Pipeline firmware staging, one backend per directory |
-| `runs/` | Training checkpoints and logs |
+| `artifacts/generated/firmware_staging/<model>/foldNN/<precision>/` | Generated neural firmware staging, one backend per directory |
+| `artifacts/generated/firmware_staging/<method>/foldNN/reference/` | Reference classical firmware staging, one backend per directory |
+| `runs/` | Training checkpoints and summaries |
+| `outputs/pipeline_runs/` | Pipeline execution logs |
 | `outputs/host/` | Host evaluation outputs |
 | `outputs/device/` | Device replay outputs when `replay_client.py --outdir` points here |
 | `results/replay/strict_loso_inner_val/` | Default directory when `replay_client.py` saves a run and `--outdir` is omitted |

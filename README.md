@@ -9,7 +9,7 @@ Host and ESP32-S3 workflows for classical and neural steady-state visually evoke
 | CCA, FBCCA, MSI, TRCA | Host evaluation and firmware, with retained analytical bundles |
 | CCNN, EEGNet, FBtCNN | Training, float32 and int8 TFLite export, host evaluation, and firmware |
 | ConvCA | Training, float32 TFLite export, host evaluation, and firmware |
-| SSVEPformer, SSVEPNet | Host training and float32 export only |
+| SSVEPformer, SSVEPNet | Training and PyTorch evaluation only |
 
 Select the model, classical method, precision, and fold with the existing command-line arguments. Fold `N` holds out subject `sN`.
 
@@ -31,14 +31,14 @@ python scripts\setup_dataset.py
 Dataset preparation comes first. Classical evaluation can start from the processed dataset. Neural backends continue through training, export, host evaluation, and firmware staging when that decoder supports them.
 
 1. Prepare 12JFPM. See [docs/dataset.md](docs/dataset.md).
-2. Run the neural workflow. It trains, exports, evaluates, and stages firmware backends that support deployment. It stops at the first failure.
+2. Run the full workflow. `run --all` plans 441 commands: train six neural models, export the four TFLite families, evaluate those models plus one classical LOSO pass, then stage the neural exports and the retained classical bundles. It stops at the first failure and does not resume.
 3. Build, flash, and replay on an ESP32-S3. See [docs/firmware-and-replay.md](docs/firmware-and-replay.md). Replay compares host TFLite with the device. That comparison is Stage 2.
 
 ```powershell
 python scripts\run_pipeline.py run --all
 ```
 
-Add `--dry-run` to preview the planned commands without running them. Model, fold, and single-step selections are in [docs/training-and-export.md](docs/training-and-export.md).
+`--dry-run` prints that plan only. It does not run commands, write logs, or replace checkpoints and exports. An actual run records `outputs/pipeline_runs/<run_id>/`. Counts, logs, and per-fold summaries are in [docs/training-and-export.md](docs/training-and-export.md).
 
 ## Layout
 
@@ -51,7 +51,8 @@ Add `--dry-run` to preview the planned commands without running them. Model, fol
 | `artifacts/reference/` | Retained read-only artifacts |
 | `artifacts/generated/` | Local TFLite exports |
 | `manifests/loso/` | Leave-one-subject-out fold manifests |
-| `runs/` | Training checkpoints and logs |
+| `runs/` | Training checkpoints and per-fold summaries |
+| `outputs/pipeline_runs/` | Pipeline execution logs |
 | `outputs/` | Host and device evaluation outputs |
 | `docs/` | Workflow guides |
 

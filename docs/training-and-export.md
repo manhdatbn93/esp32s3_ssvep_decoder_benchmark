@@ -15,6 +15,37 @@ All six accept raw processed batches shaped `[B, 512, 8]` (batch × time × chan
 
 Configs: `configs/training/*_12jfpm_strict_loso.yaml`.
 
+## Pipeline
+
+`scripts/run_pipeline.py` calls the existing training, export, host-evaluation, and firmware-staging scripts. It does not reimplement those steps.
+
+```powershell
+python scripts\run_pipeline.py train --all
+python scripts\run_pipeline.py export --all
+python scripts\run_pipeline.py evaluate --all
+python scripts\run_pipeline.py train --model eegnet --fold 1
+python scripts\run_pipeline.py export --model eegnet --fold 1
+python scripts\run_pipeline.py evaluate --model eegnet --fold 1
+python scripts\run_pipeline.py stage --model eegnet --fold 1 --precision int8
+```
+
+`--all` selects the six neural models and folds 1–10. `--model` without `--fold` selects all ten folds of that model. `--dry-run` prints the commands and does not run them. The first non-zero exit stops the remaining models and folds.
+
+INT8 export passes `--quantization int8` to `scripts/export_tflite.py`. That script runs the existing post-training quantization. It does not train an int8 model.
+
+SSVEPformer and SSVEPNet export host-side float32 only. `stage` reports them as not deployable and does not call the firmware stager.
+
+FBtCNN staging needs `fbtcnn_filter_generated.h` beside the TFLite file. `src/export/gen_fbtcnn_filter_header.py` writes that header only to `src/export/12jfpm_fbtcnn_fold01_val_s1/`. The pipeline does not change that generator. It copies the published subject-independent header from `artifacts/reference/preprocessing/fbtcnn/foldNN/` into the export directory, then calls `scripts/generate_firmware_artifacts.py`.
+
+| Output | Path |
+|---|---|
+| Checkpoints | `runs/<model>/checkpoints/` |
+| TFLite export | `artifacts/generated/<model>/foldNN/<precision>/` |
+| Host evaluation | `outputs/host/<model>/foldNN/` |
+| Firmware staging | `artifacts/generated/firmware_staging/<model>/foldNN/<precision>/` |
+
+Host evaluation writes `pytorch`, `tflite_f32`, `tflite_int8`, `stage1_f32`, and `stage1_int8` under the fold directory so each runtime keeps its own `summary.json`. Each firmware staging directory receives one backend. The stager deletes only that directory.
+
 ## Training
 
 `--model` selects `ccnn`, `convca`, `eegnet`, `fbtcnn`, `ssvepformer`, or `ssvepnet`. `--fold N` trains the fold whose held-out subject is `sN`. Omit `--fold` to train all ten folds. `--dry-run` resolves the config and exits.

@@ -111,7 +111,7 @@ python scripts\generate_firmware_artifacts.py `
 
 Generated-mode staging takes a user-supplied TFLite file. It does not write under `artifacts/reference/`.
 
-The default staging root is `firmware/generated/`. The command deletes the selected output directory before writing, so do not point `--output` at a directory that holds anything else. One root contains one backend. Use a separate `--output` when float32 and int8 both need to be kept. `--backend` and `--fold` select the staged firmware target. The example below is EEGNet.
+The default staging root is `firmware/generated/`. The command deletes the selected output directory before writing, so do not point `--output` at a directory that holds anything else. One root contains one backend. Use a separate `--output` when float32 and int8 both need to be kept. `scripts/run_pipeline.py stage` calls this command with one directory per model, fold, and precision: `artifacts/generated/firmware_staging/<model>/foldNN/<precision>/`. `--backend` and `--fold` select the staged firmware target. The example below is EEGNet.
 
 ```powershell
 python scripts\generate_firmware_artifacts.py `

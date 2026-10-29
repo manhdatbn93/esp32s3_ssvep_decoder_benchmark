@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import importlib.util
 import sys
+from dataclasses import replace
 from pathlib import Path
 
 import pytest
@@ -284,6 +285,108 @@ def test_missing_input_stops_before_subprocess(monkeypatch: pytest.MonkeyPatch, 
     later = pipeline.Step("later", ("python", "scripts/evaluate_host.py"))
     assert pipeline.execute([step, later], dry_run=False) == 1
     assert calls == []
+
+
+def _script_name(step: pipeline.Step) -> str:
+    return Path(step.argv[1]).name
+
+
+def test_run_eegnet_fold1_follows_phase_order():
+    steps, notes = pipeline.build_workflow(["eegnet"], [1])
+    assert notes == []
+    names = [_script_name(step) for step in steps]
+    assert names == [
+        "train_neural.py",
+        "export_tflite.py",
+        "export_tflite.py",
+        "evaluate_host.py",
+        "evaluate_host.py",
+        "evaluate_host.py",
+        "evaluate_host.py",
+        "evaluate_host.py",
+        "generate_firmware_artifacts.py",
+        "generate_firmware_artifacts.py",
+    ]
+    assert [_flag(step.argv, "--quantization") for step in steps[1:3]] == ["f32", "int8"]
+    assert [_flag(step.argv, "--runtime") for step in steps[3:8]] == [
+        "pytorch",
+        "tflite",
+        "stage1",
+        "tflite",
+        "stage1",
+    ]
+    assert [_flag(step.argv, "--backend") for step in steps[8:]] == ["eegnet-f32", "eegnet-int8"]
+    assert steps[0].argv[1].endswith("scripts/train_neural.py")
+    assert _flag(steps[8].argv, "--output").endswith(
+        "artifacts/generated/firmware_staging/eegnet/fold01/f32"
+    )
+
+
+def test_run_limits_staging_to_supported_backends():
+    convca, convca_notes = pipeline.build_workflow(["convca"], [1])
+    assert convca_notes == []
+    assert [_flag(step.argv, "--quantization") for step in convca if "--quantization" in step.argv] == ["f32"]
+    assert [_flag(step.argv, "--backend") for step in convca if "--backend" in step.argv] == ["convca-f32"]
+
+    host_only, notes = pipeline.build_workflow(["ssvepformer"], [1])
+    assert notes == ["ssvepformer: host-side float32 export only, not deployable on firmware"]
+    assert any(_script_name(step) == "train_neural.py" for step in host_only)
+    assert any(_script_name(step) == "export_tflite.py" for step in host_only)
+    assert any(_script_name(step) == "evaluate_host.py" for step in host_only)
+    assert all(_script_name(step) != "generate_firmware_artifacts.py" for step in host_only)
+
+    steps, all_notes = pipeline.build_workflow(list(pipeline.NEURAL_MODELS), list(pipeline.FOLDS))
+    assert len(steps) == 460
+    names = [_script_name(step) for step in steps]
+    assert names[:60] == ["train_neural.py"] * 60
+    assert names[60:150] == ["export_tflite.py"] * 90
+    assert names[150:390] == ["evaluate_host.py"] * 240
+    assert names[390:] == ["generate_firmware_artifacts.py"] * 70
+    assert all_notes == [
+        "ssvepformer: host-side float32 export only, not deployable on firmware",
+        "ssvepnet: host-side float32 export only, not deployable on firmware",
+    ]
+    staged = " ".join(_flag(step.argv, "--backend") for step in steps[390:])
+    assert "ssvepformer-f32" not in staged
+    assert "ssvepnet-f32" not in staged
+    assert "convca-int8" not in staged
+
+
+def test_run_dry_run_and_failure(capsys: pytest.CaptureFixture[str], monkeypatch: pytest.MonkeyPatch):
+    def fail_call(*_args, **_kwargs):
+        raise AssertionError("subprocess was called")
+
+    def fail_copy(*_args, **_kwargs):
+        raise AssertionError("header was copied")
+
+    monkeypatch.setattr(pipeline.subprocess, "call", fail_call)
+    monkeypatch.setattr(pipeline.shutil, "copy2", fail_copy)
+    assert pipeline.main(["run", "--model", "eegnet", "--fold", "1", "--dry-run"]) == 0
+    out = capsys.readouterr().out
+    assert "Dry run: 10 command" in out
+    train_at = out.index("scripts/train_neural.py")
+    export_at = out.index("scripts/export_tflite.py", train_at)
+    evaluate_at = out.index("scripts/evaluate_host.py", export_at)
+    stage_at = out.index("scripts/generate_firmware_artifacts.py", evaluate_at)
+    assert train_at < export_at < evaluate_at < stage_at
+
+    assert pipeline.main(["run", "--model", "ssvepformer", "--fold", "1", "--dry-run"]) == 0
+    host_out = capsys.readouterr().out
+    assert "ssvepformer: host-side float32 export only" in host_out
+    assert "generate_firmware_artifacts.py" not in host_out
+    assert "Dry run: 5 command" in host_out
+
+    calls: list[str] = []
+
+    def fail_first(argv, cwd):
+        calls.append(Path(argv[1]).name)
+        return 1
+
+    monkeypatch.setattr(pipeline.subprocess, "call", fail_first)
+    steps, _notes = pipeline.build_workflow(["eegnet"], [1])
+    runnable = [replace(step, requires=()) for step in steps]
+    assert pipeline.execute(runnable, dry_run=False) == 1
+    assert calls == ["train_neural.py"]
 
 
 def test_missing_fbtcnn_header_stops(monkeypatch: pytest.MonkeyPatch, tmp_path: Path):

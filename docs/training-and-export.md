@@ -20,16 +20,19 @@ Configs: `configs/training/*_12jfpm_strict_loso.yaml`.
 `scripts/run_pipeline.py` calls the existing training, export, host-evaluation, and firmware-staging scripts. It does not reimplement those steps.
 
 ```powershell
-python scripts\run_pipeline.py train --all
-python scripts\run_pipeline.py export --all
-python scripts\run_pipeline.py evaluate --all
+python scripts\run_pipeline.py run --all
+```
+
+`run --all` trains, exports, evaluates, and then stages firmware backends. `--dry-run` prints that plan and does not run it. `--model` without `--fold` selects all ten folds of that model. The same four phases can be started on their own with `train`, `export`, `evaluate`, and `stage`; those actions are alternatives, not extra steps after `run`. The first non-zero exit stops the remaining models and folds. Staging includes only firmware backends, so SSVEPformer and SSVEPNet are still trained, exported, and evaluated.
+
+One model and fold, when not using `run --all`:
+
+```powershell
 python scripts\run_pipeline.py train --model eegnet --fold 1
 python scripts\run_pipeline.py export --model eegnet --fold 1
 python scripts\run_pipeline.py evaluate --model eegnet --fold 1
 python scripts\run_pipeline.py stage --model eegnet --fold 1 --precision int8
 ```
-
-`--all` selects the six neural models and folds 1–10. `--model` without `--fold` selects all ten folds of that model. `--dry-run` prints the commands and does not run them. The first non-zero exit stops the remaining models and folds.
 
 INT8 export passes `--quantization int8` to `scripts/export_tflite.py`. That script runs the existing post-training quantization. It does not train an int8 model.
 
@@ -157,7 +160,7 @@ Outputs belong under `outputs/host/`. They are local evaluation outputs only.
 
 Stage 1 compares one PyTorch checkpoint with one host TFLite file on the same held-out trials. It does not talk to the board. Stage 2, in [firmware and replay](firmware-and-replay.md), compares host TFLite with ESP32-S3 firmware during replay.
 
-`--model`, `--fold`, and `--precision` select the comparison. The example below is EEGNet fold 1. Running it does not establish results for every model and fold. `--precision f32` and `--precision int8` are separate runs. Point `--tflite` at the matching export.
+`--model`, `--fold`, and `--precision` select the comparison. The example below is EEGNet fold 1 using a newly trained checkpoint and the pipeline float32 export, `artifacts/generated/eegnet/fold01/f32/eegnet_float32.tflite`. The int8 file is `artifacts/generated/eegnet/fold01/int8/eegnet_int8.tflite`. A retained checkpoint is `artifacts/reference/checkpoints/eegnet/fold01/fold01_best.pt`. Running one example does not establish results for every model and fold. `--precision f32` and `--precision int8` are separate runs.
 
 ```powershell
 python scripts\evaluate_host.py `
@@ -167,7 +170,7 @@ python scripts\evaluate_host.py `
   --fold 1 `
   --manifest manifests\loso\fold01.json `
   --checkpoint runs\eegnet\checkpoints\fold01_best.pt `
-  --tflite artifacts\generated\eegnet\fold01\eegnet_float32.tflite `
+  --tflite artifacts\generated\eegnet\fold01\f32\eegnet_float32.tflite `
   --npz data\processed\12JFPM\processed.npz `
   --output-dir outputs\host\eegnet\fold01\stage1_f32
 ```
@@ -184,15 +187,17 @@ Exported-host references (TFLite on host, compared with device outputs) use Tens
 
 ### Float32 export
 
+The pipeline reads `runs/<model>/checkpoints/foldNN_best.pt` and writes `artifacts/generated/<model>/foldNN/<precision>/`. The commands below use that layout for a new EEGNet fold-1 training run. To export a retained checkpoint instead, pass `artifacts\reference\checkpoints\eegnet\fold01\fold01_best.pt`.
+
 ```powershell
 python scripts\export_tflite.py `
   --model eegnet `
   --fold 1 `
-  --checkpoint artifacts\reference\checkpoints\eegnet\fold01\fold01_best.pt `
+  --checkpoint runs\eegnet\checkpoints\fold01_best.pt `
   --dataset-root <DATASET_ROOT> `
   --manifest manifests\loso\fold01.json `
   --quantization f32 `
-  --output artifacts\generated\eegnet\fold01
+  --output artifacts\generated\eegnet\fold01\f32
 ```
 
 Generated exports must be written under `artifacts/generated/`. Export refuses to overwrite `artifacts/reference/`.
@@ -212,11 +217,11 @@ Supported export quantizations:
 python scripts\export_tflite.py `
   --model eegnet `
   --fold 1 `
-  --checkpoint artifacts\reference\checkpoints\eegnet\fold01\fold01_best.pt `
+  --checkpoint runs\eegnet\checkpoints\fold01_best.pt `
   --dataset-root <DATASET_ROOT> `
   --manifest manifests\loso\fold01.json `
   --quantization int8 `
-  --output artifacts\generated\eegnet\int8\fold01
+  --output artifacts\generated\eegnet\fold01\int8
 ```
 
 Representative-dataset PTQ contract (confirmed by the current implementation and `scripts/verify_ptq_isolation.py`):

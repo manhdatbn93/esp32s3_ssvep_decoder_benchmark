@@ -31,20 +31,14 @@ python scripts\setup_dataset.py
 Dataset preparation comes first. Classical evaluation can start from the processed dataset. Neural backends continue through training, export, host evaluation, and firmware staging when that decoder supports them.
 
 1. Prepare 12JFPM. See [docs/dataset.md](docs/dataset.md).
-2. Run the neural pipeline, or call the underlying scripts directly.
-3. Build, flash, and replay on an ESP32-S3. Replay compares host TFLite with the device. That comparison is Stage 2.
+2. Run the neural workflow. It trains, exports, evaluates, and stages firmware backends that support deployment. It stops at the first failure.
+3. Build, flash, and replay on an ESP32-S3. See [docs/firmware-and-replay.md](docs/firmware-and-replay.md). Replay compares host TFLite with the device. That comparison is Stage 2.
 
 ```powershell
-python scripts\run_pipeline.py train --all
-python scripts\run_pipeline.py export --all
-python scripts\run_pipeline.py evaluate --all
-python scripts\run_pipeline.py train --model eegnet --fold 1
-python scripts\run_pipeline.py export --model eegnet --fold 1
-python scripts\run_pipeline.py evaluate --model eegnet --fold 1
-python scripts\run_pipeline.py stage --model eegnet --fold 1 --precision int8
+python scripts\run_pipeline.py run --all
 ```
 
-`--dry-run` prints the planned commands. `--all` covers the six neural models and ten LOSO folds. INT8 export is the existing post-training quantization path. SSVEPformer and SSVEPNet export host-side float32 and are not firmware backends. Paths and per-script flags are in [docs/training-and-export.md](docs/training-and-export.md) and [docs/firmware-and-replay.md](docs/firmware-and-replay.md).
+Add `--dry-run` to preview the planned commands without running them. Model, fold, and single-step selections are in [docs/training-and-export.md](docs/training-and-export.md).
 
 ## Layout
 

@@ -133,7 +133,7 @@ artifacts/generated/<model>/foldNN/int8/<model>_int8.tflite
 
 EEGNet fold 1 is `artifacts/generated/eegnet/fold01/f32/eegnet_float32.tflite` and `artifacts/generated/eegnet/fold01/int8/eegnet_int8.tflite`.
 
-`scripts/run_pipeline.py stage` calls the generator once per supported neural firmware set. It does not run `idf.py`.
+`scripts/run_pipeline.py stage --all` calls the generator once per supported neural firmware set. `run --all` trains, exports, and evaluates first, then stages that same set. Neither command runs `idf.py`.
 
 ```powershell
 python scripts\run_pipeline.py stage --all

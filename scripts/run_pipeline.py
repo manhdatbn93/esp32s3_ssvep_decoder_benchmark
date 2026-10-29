@@ -4,6 +4,7 @@
 This script only builds and runs the existing public commands. It does not
 train, convert, quantize, evaluate, or package firmware itself.
 
+  python scripts/run_pipeline.py run --all
   python scripts/run_pipeline.py train --all
   python scripts/run_pipeline.py export --all
   python scripts/run_pipeline.py evaluate --all
@@ -439,6 +440,28 @@ def build_steps(
     return steps
 
 
+def build_workflow(
+    models: list[str],
+    folds: list[int],
+) -> tuple[list[Step], list[str]]:
+    """Train, export, evaluate, then stage, using the existing step builders."""
+    steps: list[Step] = []
+    for action in ("train", "export", "evaluate"):
+        steps.extend(build_steps(action, models, folds, None))
+    notes: list[str] = []
+    stage_models: list[str] = []
+    for name in models:
+        if name in HOST_ONLY_MODELS:
+            notes.append(
+                f"{name}: host-side float32 export only, not deployable on firmware"
+            )
+            continue
+        stage_models.append(name)
+    if stage_models:
+        steps.extend(build_steps("stage", stage_models, folds, None))
+    return steps, notes
+
+
 def _refuse_nested_staging(steps: list[Step]) -> None:
     staged = [step.output_dir.resolve() for step in steps if step.output_dir and "firmware_staging" in step.output_dir.parts]
     for index, left in enumerate(staged):
@@ -523,10 +546,11 @@ def tflite_from_step(step: Step) -> Path | None:
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Run training, TFLite export, host evaluation, or firmware staging."
+        description="Run training, TFLite export, host evaluation, firmware staging, or all four."
     )
     sub = parser.add_subparsers(dest="action", required=True)
     for name, help_text in (
+        ("run", "Train, export, evaluate, then stage supported firmware backends"),
         ("train", "Train neural models with scripts/train_neural.py"),
         ("export", "Export TFLite with scripts/export_tflite.py"),
         ("evaluate", "Evaluate PyTorch, TFLite, and Stage 1 with scripts/evaluate_host.py"),
@@ -551,16 +575,23 @@ def main(argv: list[str] | None = None) -> int:
         fold=args.fold,
         precision=getattr(args, "precision", None),
     )
+    if args.action == "run":
+        steps, run_notes = build_workflow(models, folds)
+        notes.extend(run_notes)
+    else:
+        steps = build_steps(args.action, models, folds, precision)
     for note in notes:
         print(f"NOTE: {note}")
-    if args.action == "export":
+    if args.action in {"export", "run"}:
         print(
             "INT8 uses the existing PTQ calibration path in scripts/export_tflite.py. "
             "It does not train a separate model."
         )
-    if args.action == "stage":
+    stages_firmware = any(
+        step.argv and step.argv[1].endswith("generate_firmware_artifacts.py") for step in steps
+    )
+    if args.action == "stage" or stages_firmware:
         print("Each staging directory receives one firmware backend.")
-    steps = build_steps(args.action, models, folds, precision)
     if any(step.header_src is not None for step in steps):
         print(
             "FBtCNN filter header: copy the published subject-independent header "

@@ -17,40 +17,17 @@ Configs: `configs/training/*_12jfpm_strict_loso.yaml`.
 
 ## Training
 
-PowerShell (tested dry-run form resolves the config and exits):
+`--model` selects `ccnn`, `convca`, `eegnet`, `fbtcnn`, `ssvepformer`, or `ssvepnet`. `--fold N` trains the fold whose held-out subject is `sN`. Omit `--fold` to train all ten folds. `--dry-run` resolves the config and exits.
 
 ```powershell
 python scripts\train_neural.py `
   --model eegnet `
   --fold 1 `
-  --dataset-root <DATASET_ROOT> `
-  --output-root runs `
-  --dry-run
-```
-
-Full training (requires the prepared dataset):
-
-```powershell
-python scripts\train_neural.py `
-  --model eegnet `
-  --fold 1 `
-  --dataset-root <DATASET_ROOT> `
+  --dataset-root data\processed\12JFPM `
   --output-root runs
 ```
 
-`--model` choices: `ccnn`, `convca`, `eegnet`, `fbtcnn`, `ssvepformer`, `ssvepnet`.
-
-POSIX:
-
-```bash
-python scripts/train_neural.py \
-  --model eegnet \
-  --fold 1 \
-  --dataset-root <DATASET_ROOT> \
-  --output-root runs
-```
-
-Outputs are written under `runs/`. Training refuses to write under `artifacts/reference/`.
+The checkpoint is `runs/<model>/checkpoints/foldNN_best.pt`. Training refuses to write under `artifacts/reference/`. The same flags work with forward slashes.
 
 New training runs may differ from supplied reference checkpoints even when the same seed and config are used.
 
@@ -147,9 +124,9 @@ Outputs belong under `outputs/host/`. They are local evaluation outputs only.
 
 ### Stage 1: checkpoint versus host TFLite
 
-Stage 1 compares one PyTorch checkpoint with one host TFLite file on the same held-out trials. Stage 2, in [firmware and replay](firmware-and-replay.md), compares host TFLite with ESP32-S3 firmware. This section does not run the device.
+Stage 1 compares one PyTorch checkpoint with one host TFLite file on the same held-out trials. It does not talk to the board. Stage 2, in [firmware and replay](firmware-and-replay.md), compares host TFLite with ESP32-S3 firmware during replay.
 
-The comparison below was run for EEGNet fold 1 only. It is not a result for the other models or folds.
+`--model`, `--fold`, and `--precision` select the comparison. The example below is EEGNet fold 1. Running it does not establish results for every model and fold. `--precision f32` and `--precision int8` are separate runs. Point `--tflite` at the matching export.
 
 ```powershell
 python scripts\evaluate_host.py `
@@ -162,19 +139,9 @@ python scripts\evaluate_host.py `
   --tflite artifacts\generated\eegnet\fold01\eegnet_float32.tflite `
   --npz data\processed\12JFPM\processed.npz `
   --output-dir outputs\host\eegnet\fold01\stage1_f32
-python scripts\evaluate_host.py `
-  --runtime stage1 `
-  --model eegnet `
-  --precision int8 `
-  --fold 1 `
-  --manifest manifests\loso\fold01.json `
-  --checkpoint runs\eegnet\checkpoints\fold01_best.pt `
-  --tflite artifacts\generated\eegnet\int8\fold01\eegnet_int8.tflite `
-  --npz data\processed\12JFPM\processed.npz `
-  --output-dir outputs\host\eegnet\fold01\stage1_int8
 ```
 
-Each directory receives `summary.json` and `trial_outputs.npz`. The summary records PyTorch accuracy, TFLite accuracy, top-1 agreement, flip count and dataset-row indices, logit mean absolute error, maximum absolute logit difference, and mean per-trial L2 distance. Both runtimes use the same held-out indices and labels. A fold, subject, or precision mismatch stops the command. Matching accuracies do not by themselves mean every trial agrees; the flip count is the trial-level check.
+The output directory receives `summary.json` and `trial_outputs.npz`. The summary records PyTorch accuracy, TFLite accuracy, top-1 agreement, flip count and dataset-row indices, logit mean absolute error, maximum absolute logit difference, and mean per-trial L2 distance. Both runtimes use the same held-out indices and labels. A fold, subject, or precision mismatch stops the command. Equal accuracies do not by themselves mean every trial agrees. The flip count is that check.
 
 ### TFLite host interpreter
 

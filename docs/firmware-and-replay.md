@@ -109,9 +109,9 @@ python scripts\generate_firmware_artifacts.py `
   --dry-run
 ```
 
-Generated-mode staging can consume a user-supplied TFLite path for non-reference builds. Generated outputs still belong under ignored staging or export directories, not under `artifacts/reference/`.
+Generated-mode staging takes a user-supplied TFLite file. It does not write under `artifacts/reference/`.
 
-The default staging root is `firmware/generated/`. The command deletes that selected directory before writing, so do not point it at a directory that holds anything else. One root contains one backend. Stage float32 and int8 into separate directories when both must be kept:
+The default staging root is `firmware/generated/`. The command deletes the selected output directory before writing, so do not point `--output` at a directory that holds anything else. One root contains one backend. Use a separate `--output` when float32 and int8 both need to be kept. `--backend` and `--fold` select the staged firmware target. The example below is EEGNet.
 
 ```powershell
 python scripts\generate_firmware_artifacts.py `
@@ -128,9 +128,9 @@ python scripts\generate_firmware_artifacts.py `
   --output artifacts\generated\eegnet\int8\fold01\firmware
 ```
 
-Those commands copy the TFLite file and write `selected_backend.cmake`, `selected_backend.json`, `staging_meta.json`, `backend_identity.c`, `backend_identity.h`, and `vectors/smoke_vectors_eegnet.h`. EEGNet float32 is stored as `12jfpm_eegnet_fold01_test_s1/eegnet_float32.tflite`. EEGNet int8 is stored as `12jfpm_eegnet_fold01_test_s1_int8/eegnet_int8.tflite`. The smoke header is a compile stub: `SMOKE_EEGNET_N_VECTORS` is 0 and the vectors are zeros. It is not a numerical smoke test. Staging is not `idf.py build`, and it does not flash or replay the board.
+Each command copies the TFLite file and writes `selected_backend.cmake`, `selected_backend.json`, `staging_meta.json`, `backend_identity.c`, `backend_identity.h`, and a smoke header under `vectors/`. For this fold, float32 is `12jfpm_eegnet_fold01_test_s1/eegnet_float32.tflite` and int8 is `12jfpm_eegnet_fold01_test_s1_int8/eegnet_int8.tflite`. The smoke header is a compile stub. Its vector count is 0 and the vectors are zeros. It is not a numerical smoke test. Staging is not `idf.py build`, and it does not flash or replay the board.
 
-Stage 1 is the host comparison of a PyTorch checkpoint with host TFLite, documented in [training and export](training-and-export.md). Stage 2 is the comparison of that host TFLite result with ESP32-S3 firmware during replay. The EEGNet fold-1 host verification did not run Stage 2.
+Stage 1, in [training and export](training-and-export.md), compares a PyTorch checkpoint with host TFLite. Stage 2 compares that host TFLite result with ESP32-S3 firmware during replay. The staging command does not measure Stage 2.
 
 ## Build after staging
 

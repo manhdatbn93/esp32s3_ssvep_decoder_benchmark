@@ -15,6 +15,16 @@ Select the model, classical method, precision, and fold with the existing comman
 
 ## Getting started
 
+Retained files under `artifacts/reference/` are stored with Git LFS. Clone the repository with Git. A GitHub ZIP download can leave LFS pointer files instead of the binaries, and checksum checks then fail. From a machine with Git LFS:
+
+```powershell
+git lfs install
+git clone https://github.com/manhdatbn93/esp32s3_ssvep_decoder_benchmark.git
+git lfs pull
+```
+
+The reference manifest lists 220 artifacts. After installing dependencies, run `python scripts/verify_reference_artifacts.py`. Training and export create new files under `runs/` and `artifacts/generated/`. They do not regenerate that archived reference set.
+
 The full host workflow uses Python 3.10. From the repository root:
 
 ```powershell

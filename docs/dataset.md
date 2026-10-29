@@ -4,7 +4,13 @@ The raw 12JFPM dataset is not distributed in this repository. Obtain it from the
 
 M. Nakanishi, Y. Wang, Y.-T. Wang, Y. Mitsukura, and T.-P. Jung, "A comparison study of canonical correlation analysis based methods for detecting steady-state visual evoked potentials," PLOS ONE, vol. 10, no. 10, e0140703, 2015. doi:10.1371/journal.pone.0140703.
 
-Provide a local path to that release. Do not commit the raw files.
+Provide a local path to that release, or let the setup command download the missing subject files. Do not commit the raw files.
+
+```powershell
+python scripts\setup_dataset.py
+```
+
+That command looks for `s1.mat` through `s10.mat`, downloads any missing file from the pinned upstream commit, and runs `scripts/prepare_12jfpm.py` when `data/processed/12JFPM/processed.npz` is absent. A valid processed file is reused. An invalid existing file is left in place and the command exits with an error.
 
 ## Expected raw layout
 

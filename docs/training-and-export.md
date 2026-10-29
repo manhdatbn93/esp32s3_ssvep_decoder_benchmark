@@ -78,7 +78,7 @@ Executable YAML fields include `seed`, `data.processed_npz`, `model.*`, `train.*
 
 ## Host evaluation
 
-Three runtimes: `classical`, `pytorch`, `tflite`.
+Runtimes: `classical`, `pytorch`, `tflite`, and `stage1`.
 
 ### Classical
 
@@ -144,6 +144,37 @@ python scripts\evaluate_host.py --runtime tflite --model eegnet --dry-run
 ```
 
 Outputs belong under `outputs/host/`. They are local evaluation outputs only.
+
+### Stage 1: checkpoint versus host TFLite
+
+Stage 1 compares one PyTorch checkpoint with one host TFLite file on the same held-out trials. Stage 2, in [firmware and replay](firmware-and-replay.md), compares host TFLite with ESP32-S3 firmware. This section does not run the device.
+
+The comparison below was run for EEGNet fold 1 only. It is not a result for the other models or folds.
+
+```powershell
+python scripts\evaluate_host.py `
+  --runtime stage1 `
+  --model eegnet `
+  --precision f32 `
+  --fold 1 `
+  --manifest manifests\loso\fold01.json `
+  --checkpoint runs\eegnet\checkpoints\fold01_best.pt `
+  --tflite artifacts\generated\eegnet\fold01\eegnet_float32.tflite `
+  --npz data\processed\12JFPM\processed.npz `
+  --output-dir outputs\host\eegnet\fold01\stage1_f32
+python scripts\evaluate_host.py `
+  --runtime stage1 `
+  --model eegnet `
+  --precision int8 `
+  --fold 1 `
+  --manifest manifests\loso\fold01.json `
+  --checkpoint runs\eegnet\checkpoints\fold01_best.pt `
+  --tflite artifacts\generated\eegnet\int8\fold01\eegnet_int8.tflite `
+  --npz data\processed\12JFPM\processed.npz `
+  --output-dir outputs\host\eegnet\fold01\stage1_int8
+```
+
+Each directory receives `summary.json` and `trial_outputs.npz`. The summary records PyTorch accuracy, TFLite accuracy, top-1 agreement, flip count and dataset-row indices, logit mean absolute error, maximum absolute logit difference, and mean per-trial L2 distance. Both runtimes use the same held-out indices and labels. A fold, subject, or precision mismatch stops the command. Matching accuracies do not by themselves mean every trial agrees; the flip count is the trial-level check.
 
 ### TFLite host interpreter
 

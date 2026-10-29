@@ -111,6 +111,27 @@ python scripts\generate_firmware_artifacts.py `
 
 Generated-mode staging can consume a user-supplied TFLite path for non-reference builds. Generated outputs still belong under ignored staging or export directories, not under `artifacts/reference/`.
 
+The default staging root is `firmware/generated/`. The command deletes that selected directory before writing, so do not point it at a directory that holds anything else. One root contains one backend. Stage float32 and int8 into separate directories when both must be kept:
+
+```powershell
+python scripts\generate_firmware_artifacts.py `
+  --backend eegnet-f32 `
+  --fold 1 `
+  --artifact-set generated `
+  --tflite artifacts\generated\eegnet\fold01\eegnet_float32.tflite `
+  --output artifacts\generated\eegnet\fold01\firmware
+python scripts\generate_firmware_artifacts.py `
+  --backend eegnet-int8 `
+  --fold 1 `
+  --artifact-set generated `
+  --tflite artifacts\generated\eegnet\int8\fold01\eegnet_int8.tflite `
+  --output artifacts\generated\eegnet\int8\fold01\firmware
+```
+
+Those commands copy the TFLite file and write `selected_backend.cmake`, `selected_backend.json`, `staging_meta.json`, `backend_identity.c`, `backend_identity.h`, and `vectors/smoke_vectors_eegnet.h`. EEGNet float32 is stored as `12jfpm_eegnet_fold01_test_s1/eegnet_float32.tflite`. EEGNet int8 is stored as `12jfpm_eegnet_fold01_test_s1_int8/eegnet_int8.tflite`. The smoke header is a compile stub: `SMOKE_EEGNET_N_VECTORS` is 0 and the vectors are zeros. It is not a numerical smoke test. Staging is not `idf.py build`, and it does not flash or replay the board.
+
+Stage 1 is the host comparison of a PyTorch checkpoint with host TFLite, documented in [training and export](training-and-export.md). Stage 2 is the comparison of that host TFLite result with ESP32-S3 firmware during replay. The EEGNet fold-1 host verification did not run Stage 2.
+
 ## Build after staging
 
 Staging writes `firmware/generated/selected_backend.cmake`. The build reads that file and selects the backend and fold from it. Use the measurement profile above. Do not run `idf.py set-target` after copying `sdkconfig.measurement`: that command replaces `sdkconfig` with one generated from `sdkconfig.defaults`. Both select 240 MHz and `-O2`. The defaults file is not the measurement profile. Delete `build/` when switching backends.

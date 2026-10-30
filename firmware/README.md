@@ -19,8 +19,7 @@ idf.py -p <PORT> flash monitor
 
 `sdkconfig.defaults` selects 240 MHz and performance optimization (`-O2`) for a build that has no `sdkconfig` yet. `sdkconfig.measurement` is the retained neural-replay configuration and also selects 240 MHz and `-O2`. Do not run `idf.py set-target` after copying it: that replaces `sdkconfig`. Enter Wi-Fi credentials locally before flashing. Placeholders compile.
 
-Staging writes only under `firmware/generated/` and does not modify `artifacts/reference/`.
-The build reads `firmware/generated/selected_backend.cmake` and fails clearly when staging is missing.
+The command above, which omits `--output`, writes `firmware/generated/` and does not modify `artifacts/reference/`. The build reads `selected_backend.cmake` from that directory unless `-DEXPORT_ARTIFACT_ROOT` selects another staging directory. Pipeline paths are in `docs/firmware-and-replay.md`.
 
 When switching backends, delete `build/` and copy `sdkconfig.measurement` again, then `idf.py build`. Int8 staging does not require a sibling f32 stage directory. A successful compile is not a Table 5 measurement.
 

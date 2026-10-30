@@ -1,10 +1,16 @@
 # Dataset setup
 
-The raw 12JFPM dataset is not distributed in this repository. Obtain it from the original release at <https://github.com/mnakanishi/12JFPM_SSVEP>.
+The raw 12JFPM dataset is not distributed in this repository. The setup command downloads missing subject files from the pinned release at <https://github.com/mnakanishi/12JFPM_SSVEP>.
 
 M. Nakanishi, Y. Wang, Y.-T. Wang, Y. Mitsukura, and T.-P. Jung, "A comparison study of canonical correlation analysis based methods for detecting steady-state visual evoked potentials," PLOS ONE, vol. 10, no. 10, e0140703, 2015. doi:10.1371/journal.pone.0140703.
 
-Provide a local path to that release. Do not commit the raw files.
+Do not commit the raw files.
+
+```powershell
+python scripts\setup_dataset.py
+```
+
+The command looks for `s1.mat` through `s10.mat` under `data/raw/12JFPM/`, including the legacy nested layout used by earlier checkouts. It downloads only missing files, then runs `scripts/prepare_12jfpm.py` when `data/processed/12JFPM/processed.npz` is absent. A valid processed file is reused. An invalid existing MAT or NPZ file is left in place and the command exits with an error.
 
 ## Expected raw layout
 
@@ -43,9 +49,9 @@ Default processed output path: `data/processed/12JFPM/processed.npz` (override w
 
 Contract file: `configs/contracts/12jfpm_fs256_T512_C8_N12.yaml`.
 
-## Prepare
+## Prepare manually
 
-PowerShell:
+Use this when the raw files are already on disk and the output directory should differ from the default. `setup_dataset.py` calls the same preparer.
 
 ```powershell
 python scripts\prepare_12jfpm.py `
@@ -54,22 +60,7 @@ python scripts\prepare_12jfpm.py `
   --output-dir <DATASET_ROOT>
 ```
 
-Optional:
-
-- `--raw-data-root` — folder containing `s1.mat` … `s10.mat` (overrides `data.raw_data_root`)
-- `--output-dir` — processed output directory (writes `processed.npz` and metadata)
-- `--verify-ref` — optional reference NPZ path for preparer verification
-
-POSIX:
-
-```bash
-python scripts/prepare_12jfpm.py \
-  --config configs/protocol/preprocess_12jfpm.yaml \
-  --raw-data-root <RAW_DATA_ROOT> \
-  --output-dir <DATASET_ROOT>
-```
-
-Preparation requires the user-supplied raw dataset. Regenerating the paper's tables and figures from the archived device evidence does not. See [paper reproduction](../paper_reproduction/README.md).
+`--raw-data-root` is the folder containing `s1.mat` through `s10.mat`. `--output-dir` receives `processed.npz` and `meta.json`. `--verify-ref` compares the new NPZ with another processed file. The same flags work with forward slashes. Regenerating archived tables does not need this step. See [paper reproduction](../paper_reproduction/README.md).
 
 ## Validate
 

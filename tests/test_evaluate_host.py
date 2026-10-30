@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
+import pytest
 
 from src.evaluation.neural_host import (
     TFLITE_MODELS,
@@ -26,6 +27,64 @@ def _env() -> dict[str, str]:
     env["PYTHONPATH"] = str(ROOT)
     env["PYTHONUTF8"] = "1"
     return env
+
+
+def test_stage1_metrics_from_aligned_trials():
+    from src.evaluation.neural_host import stage1_fidelity_metrics
+
+    y_true = np.array([0, 1, 1], dtype=np.int64)
+    pytorch_pred = np.array([0, 1, 0], dtype=np.int64)
+    tflite_pred = np.array([0, 0, 0], dtype=np.int64)
+    pytorch_logits = np.array([[2.0, 0.0], [0.0, 3.0], [0.2, 0.1]], dtype=np.float32)
+    tflite_logits = np.array([[2.0, 0.0], [1.0, 0.0], [0.2, 0.1]], dtype=np.float32)
+    indices = np.array([10, 11, 12], dtype=np.int64)
+    metrics = stage1_fidelity_metrics(
+        y_true, pytorch_pred, tflite_pred, pytorch_logits, tflite_logits, indices
+    )
+    assert metrics["n_trials"] == 3
+    assert metrics["pytorch_accuracy"] == round(2 / 3, 6)
+    assert metrics["tflite_accuracy"] == round(1 / 3, 6)
+    assert metrics["top1_agreement"] == round(2 / 3, 6)
+    assert metrics["flip_count"] == 1
+    assert metrics["flip_indices"] == [11]
+    assert metrics["logit_mae"] == round(4 / 6, 6)
+    assert metrics["max_abs_logit_difference"] == 3.0
+    assert metrics["mean_per_trial_l2"] == round(float(np.sqrt(10.0) / 3.0), 6)
+
+
+def test_stage1_metrics_reject_misaligned_trials():
+    from src.evaluation.neural_host import stage1_fidelity_metrics
+
+    with pytest.raises(ValueError, match="misaligned"):
+        stage1_fidelity_metrics(
+            np.array([0, 1]),
+            np.array([0]),
+            np.array([0, 1]),
+            np.zeros((2, 2)),
+            np.zeros((2, 2)),
+            np.array([0, 1]),
+        )
+
+
+def test_stage1_cli_requires_checkpoint_tflite_and_precision():
+    result = subprocess.run(
+        [
+            sys.executable,
+            "scripts/evaluate_host.py",
+            "--runtime",
+            "stage1",
+            "--model",
+            "eegnet",
+            "--fold",
+            "1",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        env=_env(),
+    )
+    assert result.returncode != 0
+    assert "precision" in (result.stderr + result.stdout).lower()
 
 
 def test_classical_dry_run():
@@ -94,3 +153,191 @@ def test_build_model_from_each_config():
         cfg = load_yaml(resolve_config(name))
         model = build_model(name, cfg)
         assert isinstance(model, MODEL_REGISTRY[name])
+
+
+def _output_dirs(stdout: str) -> list[Path]:
+    found = []
+    for line in stdout.splitlines():
+        if line.startswith("output-dir:"):
+            found.append(Path(line.split(":", 1)[1].strip()))
+    return found
+
+
+def _write_cca_config(path: Path, run_dir: Path | None) -> None:
+    text = (
+        "method: cca\n"
+        "cca:\n"
+        "  sampling_rate_hz: 256.0\n"
+        "  n_harmonics: 3\n"
+        "  single_band_hz: [8.0, 55.0]\n"
+        "  butterworth_order: 4\n"
+        "  cca_reg: 1.0e-4\n"
+    )
+    if run_dir is not None:
+        text += f'output:\n  run_dir: "{run_dir.as_posix()}"\n'
+    path.write_text(text, encoding="utf-8")
+
+
+def _run_cmd(args: list[str]) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        args,
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        env=_env(),
+    )
+
+
+def test_classical_output_dir_cli_overrides_yaml(tmp_path):
+    cli_dir = tmp_path / "from_cli"
+    yaml_dir = tmp_path / "from_yaml"
+    cfg = tmp_path / "cca.yaml"
+    _write_cca_config(cfg, yaml_dir)
+    runner = _run_cmd(
+        [
+            sys.executable,
+            "-m",
+            "src.training_entry.run_classical_loso_12jfpm",
+            "--method",
+            "cca",
+            "--config",
+            str(cfg),
+            "--output-dir",
+            str(cli_dir),
+            "--dry-run",
+        ]
+    )
+    assert runner.returncode == 0, runner.stderr
+    assert _output_dirs(runner.stdout) == [cli_dir]
+    host = _run_cmd(
+        [
+            sys.executable,
+            "scripts/evaluate_host.py",
+            "--runtime",
+            "classical",
+            "--method",
+            "cca",
+            "--config",
+            str(cfg),
+            "--output-dir",
+            str(cli_dir),
+            "--dry-run",
+        ]
+    )
+    assert host.returncode == 0, host.stderr + host.stdout
+    assert _output_dirs(host.stdout) == [cli_dir]
+    assert not cli_dir.exists()
+    assert not yaml_dir.exists()
+
+
+def test_classical_output_alias_overrides_yaml(tmp_path):
+    cli_dir = tmp_path / "from_alias"
+    yaml_dir = tmp_path / "from_yaml"
+    cfg = tmp_path / "cca.yaml"
+    _write_cca_config(cfg, yaml_dir)
+    host = _run_cmd(
+        [
+            sys.executable,
+            "scripts/evaluate_host.py",
+            "--runtime",
+            "classical",
+            "--method",
+            "cca",
+            "--config",
+            str(cfg),
+            "--output",
+            str(cli_dir),
+            "--dry-run",
+        ]
+    )
+    assert host.returncode == 0, host.stderr + host.stdout
+    assert _output_dirs(host.stdout) == [cli_dir]
+    assert not cli_dir.exists()
+    assert not yaml_dir.exists()
+
+
+def test_classical_output_dir_uses_yaml_when_cli_omitted(tmp_path):
+    yaml_dir = tmp_path / "from_yaml"
+    cfg = tmp_path / "cca.yaml"
+    _write_cca_config(cfg, yaml_dir)
+    runner = _run_cmd(
+        [
+            sys.executable,
+            "-m",
+            "src.training_entry.run_classical_loso_12jfpm",
+            "--method",
+            "cca",
+            "--config",
+            str(cfg),
+            "--dry-run",
+        ]
+    )
+    assert runner.returncode == 0, runner.stderr
+    assert _output_dirs(runner.stdout) == [yaml_dir]
+    host = _run_cmd(
+        [
+            sys.executable,
+            "scripts/evaluate_host.py",
+            "--runtime",
+            "classical",
+            "--method",
+            "cca",
+            "--config",
+            str(cfg),
+            "--dry-run",
+        ]
+    )
+    assert host.returncode == 0, host.stderr + host.stdout
+    assert _output_dirs(host.stdout) == [yaml_dir]
+    assert not yaml_dir.exists()
+
+
+def test_classical_output_dir_defaults_when_unset(tmp_path):
+    cfg = tmp_path / "cca.yaml"
+    _write_cca_config(cfg, None)
+    default = Path("runs/classical_loso_12jfpm")
+    on_disk = ROOT / default
+    before = on_disk.exists()
+    json_before = (on_disk / "cca_loso_12jfpm.json").exists()
+    runner = _run_cmd(
+        [
+            sys.executable,
+            "-m",
+            "src.training_entry.run_classical_loso_12jfpm",
+            "--method",
+            "cca",
+            "--config",
+            str(cfg),
+            "--dry-run",
+        ]
+    )
+    assert runner.returncode == 0, runner.stderr
+    assert _output_dirs(runner.stdout) == [default]
+    assert on_disk.exists() is before
+    assert (on_disk / "cca_loso_12jfpm.json").exists() is json_before
+
+
+def test_classical_dry_run_creates_no_output_files(tmp_path):
+    cli_dir = tmp_path / "dry"
+    cfg = tmp_path / "cca.yaml"
+    _write_cca_config(cfg, tmp_path / "yaml_unused")
+    before = sorted(p.name for p in tmp_path.iterdir())
+    result = _run_cmd(
+        [
+            sys.executable,
+            "scripts/evaluate_host.py",
+            "--runtime",
+            "classical",
+            "--method",
+            "cca",
+            "--config",
+            str(cfg),
+            "--output-dir",
+            str(cli_dir),
+            "--dry-run",
+        ]
+    )
+    assert result.returncode == 0, result.stderr + result.stdout
+    assert _output_dirs(result.stdout) == [cli_dir]
+    assert sorted(p.name for p in tmp_path.iterdir()) == before
+    assert not cli_dir.exists()

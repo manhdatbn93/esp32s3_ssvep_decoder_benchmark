@@ -380,6 +380,195 @@ def stage_reference(backend: str, fold: int, output: Path, *, verify_checksum: b
     return meta
 
 
+# Firmware embed layouts from firmware/components/dl_backends/CMakeLists.txt.
+_TFLITE_INPUT_SHAPE = {
+    "ccnn": (1, 8, 220, 1),
+    "convca": (1, 512, 8),
+    "eegnet": (1, 8, 512),
+    "fbtcnn": (1, 8, 512, 4),
+}
+_TFLITE_OUTPUT_SHAPE = (1, 12)
+
+
+def _held_out_subject_for_fold(fold: int) -> str:
+    if fold < 1 or fold > 10:
+        raise SystemExit(f"fold must be in 1..10, got {fold}")
+    manifest = ROOT / "manifests" / "loso" / f"fold{fold:02d}.json"
+    if not manifest.is_file():
+        raise SystemExit(f"LOSO manifest missing: {manifest}")
+    doc = json.loads(manifest.read_text(encoding="utf-8"))
+    subject = doc.get("held_out_subject")
+    if not subject:
+        raise SystemExit(f"LOSO manifest has no held_out_subject: {manifest}")
+    return str(subject)
+
+
+def _neural_stage_names(model: str, precision: str, fold: int, subject: str) -> tuple[str, str, str]:
+    tag = _tag(fold, subject)
+    if precision == "int8":
+        return tag, f"12jfpm_{model}_{tag}_int8", f"{model}_int8.tflite"
+    return tag, f"12jfpm_{model}_{tag}", f"{model}_float32.tflite"
+
+
+def _precision_from_inspection(info: dict) -> str:
+    model_class = str(info.get("model_class", ""))
+    if model_class.startswith("float32"):
+        return "f32"
+    if "int8" in model_class:
+        return "int8"
+    raise SystemExit(f"Incompatible TFLite model: unrecognized precision ({model_class})")
+
+
+def _inspect_generated_tflite(path: Path, model: str, precision: str) -> None:
+    try:
+        from src.replay.inspect_tflite import inspect_model
+
+        info = inspect_model(str(path))
+    except SystemExit:
+        raise
+    except ImportError as exc:
+        raise SystemExit(f"TFLite inspection unavailable: {exc}") from exc
+    except Exception as exc:
+        raise SystemExit(f"Incompatible TFLite model: {path} ({exc})") from exc
+    found = _precision_from_inspection(info)
+    if found != precision:
+        raise SystemExit(
+            f"Incompatible TFLite precision for {model}-{precision}: "
+            f"file is {found} ({info.get('model_class')})"
+        )
+    shape = tuple(int(x) for x in info["input_shape"])
+    expected = _TFLITE_INPUT_SHAPE[model]
+    if shape != expected:
+        raise SystemExit(
+            f"Incompatible TFLite model for {model}: input shape {list(shape)}, "
+            f"expected {list(expected)}"
+        )
+    out_shape = tuple(int(x) for x in info["output_shape"])
+    if out_shape != _TFLITE_OUTPUT_SHAPE:
+        raise SystemExit(
+            f"Incompatible TFLite model for {model}: output shape {list(out_shape)}, "
+            f"expected {list(_TFLITE_OUTPUT_SHAPE)}"
+        )
+
+
+def _parse_generated_backend(backend: str) -> tuple[str, str]:
+    key = backend.strip().lower().replace("_", "-")
+    if key in CLASSICAL:
+        raise SystemExit(
+            "Generated analytical bundles are not supported. "
+            "Use --artifact-set reference for classical backends."
+        )
+    if key not in NEURAL_ALIASES:
+        raise SystemExit(f"Unsupported backend for generated staging: {backend}")
+    return NEURAL_ALIASES[key]
+
+
+def _prepare_generated_staging(backend: str, fold: int, tflite: Path | None) -> dict:
+    model, precision = _parse_generated_backend(backend)
+    subject = _held_out_subject_for_fold(fold)
+    if tflite is None:
+        raise SystemExit("--tflite is required for --artifact-set generated")
+    tflite = Path(tflite)
+    if not tflite.is_file():
+        raise SystemExit(f"TFLite model not found: {tflite}")
+    _inspect_generated_tflite(tflite, model, precision)
+    header: Path | None = None
+    if model == "fbtcnn":
+        header = tflite.parent / "fbtcnn_filter_generated.h"
+        if not header.is_file():
+            raise SystemExit(
+                "FBtCNN generated staging requires fbtcnn_filter_generated.h "
+                "in the same directory as the TFLite model"
+            )
+    tag, stage_name, tflite_name = _neural_stage_names(model, precision, fold, subject)
+    display = f"{model}-{precision}"
+    return {
+        "model": model,
+        "precision": precision,
+        "display": display,
+        "idf_backend": IDF_BACKEND[display],
+        "fold": fold,
+        "subject": subject,
+        "tag": tag,
+        "tflite": tflite,
+        "filter_header": header,
+        "stage_name": stage_name,
+        "tflite_name": tflite_name,
+    }
+
+
+def _write_generated_staging(output: Path, spec: dict) -> dict:
+    _refuse_reference_write(output)
+    _clear_generated(output)
+    stage_dir = output / spec["stage_name"]
+    stage_dir.mkdir(parents=True, exist_ok=True)
+    dst = stage_dir / spec["tflite_name"]
+    shutil.copy2(spec["tflite"], dst)
+    staged = [dst.name]
+    header = spec["filter_header"]
+    if header is not None:
+        fdst = stage_dir / header.name
+        shutil.copy2(header, fdst)
+        staged.append(fdst.name)
+    _write_vector_stub(
+        output / "vectors" / f"smoke_vectors_{spec['model']}.h",
+        VECTOR_PREFIX[spec["model"]],
+    )
+    data = dst.read_bytes()
+    digest = _sha256(dst)
+    crc = _crc32_file(dst)
+    first16 = data[:16].ljust(16, b"\0")
+    last16 = data[-16:].rjust(16, b"\0") if data else bytes(16)
+    _write_backend_identity(
+        output,
+        backend=spec["display"],
+        fold=spec["fold"],
+        subject=spec["subject"],
+        kind="neural",
+        digest_hex=digest,
+        crc32=crc,
+        size=len(data),
+        first16=first16,
+        last16=last16,
+    )
+    _write_selected_cmake(
+        output,
+        backend=spec["display"],
+        idf_backend=spec["idf_backend"],
+        fold=spec["fold"],
+        subject=spec["subject"],
+        tag=spec["tag"],
+        kind="neural",
+        stage_subdir=stage_dir.name,
+    )
+    meta = {
+        "artifact_set": "generated",
+        "backend": spec["display"],
+        "idf_backend": spec["idf_backend"],
+        "fold": spec["fold"],
+        "held_out_subject": spec["subject"],
+        "tag": spec["tag"],
+        "kind": "neural",
+        "stage_dir": _rel(stage_dir),
+        "files": staged,
+        "tflite": _rel(dst),
+        "tflite_sha256": digest,
+        "tflite_crc32": f"0x{crc:08x}",
+        "export_artifact_root": _rel(output),
+    }
+    text = json.dumps(meta, indent=2) + "\n"
+    (output / "selected_backend.json").write_text(text, encoding="utf-8")
+    (output / "staging_meta.json").write_text(text, encoding="utf-8")
+    return meta
+
+
+def stage_generated(backend: str, fold: int, tflite: Path | None, output: Path) -> dict:
+    """Stage a user TFLite model using the reference firmware directory layout."""
+    _refuse_reference_write(output)
+    spec = _prepare_generated_staging(backend, fold, tflite)
+    return _write_generated_staging(output, spec)
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--backend", required=True)
@@ -434,14 +623,20 @@ def main() -> None:
         print(f"Set EXPORT_ARTIFACT_ROOT to {args.output} for idf.py build")
         return
 
-    out = args.output / args.backend / f"fold{args.fold:02d}"
-    out.mkdir(parents=True, exist_ok=True)
-    print(f"Output directory: {out}")
-    print("Generated mode expects user-supplied conversion outputs.")
-    if args.checkpoint:
-        print(f"Checkpoint: {args.checkpoint}")
-    if args.tflite:
-        print(f"TFLite: {args.tflite}")
+    spec = _prepare_generated_staging(args.backend, args.fold, args.tflite)
+    stage_path = args.output / spec["stage_name"] / spec["tflite_name"]
+    if args.dry_run:
+        print(
+            f"OK generated {spec['display']} fold{args.fold:02d}: "
+            f"{spec['tflite'].name} held_out={spec['subject']}"
+        )
+        print(f"output-dir: {args.output}")
+        print(f"stage: {stage_path}")
+        return
+    meta = _write_generated_staging(args.output, spec)
+    print(f"Staged generated artifacts to {meta['stage_dir']}")
+    print(f"Wrote {meta['export_artifact_root']}/selected_backend.cmake")
+    print(f"Set EXPORT_ARTIFACT_ROOT to {args.output} for idf.py build")
 
 
 if __name__ == "__main__":

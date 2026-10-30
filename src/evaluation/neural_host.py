@@ -324,9 +324,7 @@ def evaluate_tflite(
 
     held_out = resolve_held_out_subject(fold=fold, manifest=manifest)
     X, y, subjects = load_processed(npz)
-    train_subs = [s for s in SUBJECTS if s != held_out]
-    _, test_m = split_by_subjects(subjects, train_subs, [held_out])
-    indices = np.where(test_m)[0]
+    indices = held_out_trial_indices(subjects, held_out)
 
     preds: list[int] = []
     labels: list[int] = []
@@ -377,6 +375,276 @@ def evaluate_tflite(
             y_true=labels_a,
             y_pred=preds_a,
             logits=np.asarray(logits_rows, dtype=np.float32),
+        )
+        _write_summary(output_dir, summary)
+    return summary
+
+
+def held_out_trial_indices(subjects: np.ndarray, held_out: str) -> np.ndarray:
+    """Dataset row indices for one held-out subject, in processed-file order."""
+    train_subs = [s for s in SUBJECTS if s != held_out]
+    _, test_mask = split_by_subjects(subjects, train_subs, [held_out])
+    return np.where(test_mask)[0]
+
+
+def stage1_fidelity_metrics(
+    y_true: np.ndarray,
+    pytorch_pred: np.ndarray,
+    tflite_pred: np.ndarray,
+    pytorch_logits: np.ndarray,
+    tflite_logits: np.ndarray,
+    indices: np.ndarray,
+) -> dict[str, Any]:
+    """Compare aligned checkpoint and TFLite trial outputs. Raises on misalignment."""
+    y_true = np.asarray(y_true)
+    pytorch_pred = np.asarray(pytorch_pred)
+    tflite_pred = np.asarray(tflite_pred)
+    pytorch_logits = np.asarray(pytorch_logits, dtype=np.float64)
+    tflite_logits = np.asarray(tflite_logits, dtype=np.float64)
+    indices = np.asarray(indices)
+    n = int(y_true.shape[0]) if y_true.ndim == 1 else 0
+    if n == 0:
+        raise ValueError("Stage 1 comparison has no trials")
+    shapes = (
+        y_true.shape,
+        pytorch_pred.shape,
+        tflite_pred.shape,
+        indices.shape,
+    )
+    if any(shape != (n,) for shape in shapes):
+        raise ValueError(f"Stage 1 trial axes are misaligned: {shapes}")
+    if pytorch_logits.shape != tflite_logits.shape or pytorch_logits.ndim != 2:
+        raise ValueError(
+            "Stage 1 logit matrices are misaligned: "
+            f"pytorch {pytorch_logits.shape} tflite {tflite_logits.shape}"
+        )
+    if pytorch_logits.shape[0] != n:
+        raise ValueError(
+            f"Stage 1 logits do not match trial count {n}: {pytorch_logits.shape}"
+        )
+    if not np.isfinite(pytorch_logits).all() or not np.isfinite(tflite_logits).all():
+        raise ValueError("Stage 1 logits contain non-finite values")
+    disagree = pytorch_pred.astype(np.int64) != tflite_pred.astype(np.int64)
+    diff = pytorch_logits - tflite_logits
+    per_trial_l2 = np.linalg.norm(diff, axis=1)
+    pt_correct = int((pytorch_pred.astype(np.int64) == y_true.astype(np.int64)).sum())
+    tf_correct = int((tflite_pred.astype(np.int64) == y_true.astype(np.int64)).sum())
+    agree = int((~disagree).sum())
+    return {
+        "n_trials": n,
+        "pytorch_correct": pt_correct,
+        "tflite_correct": tf_correct,
+        "pytorch_accuracy": round(pt_correct / n, 6),
+        "tflite_accuracy": round(tf_correct / n, 6),
+        "top1_agreement": round(agree / n, 6),
+        "flip_count": int(disagree.sum()),
+        "flip_indices": [int(i) for i in indices[disagree].tolist()],
+        "logit_mae": round(float(np.mean(np.abs(diff))), 6),
+        "max_abs_logit_difference": round(float(np.max(np.abs(diff))), 6),
+        "mean_per_trial_l2": round(float(np.mean(per_trial_l2)), 6),
+    }
+
+
+def _classified_precision(model_class: str) -> str:
+    if model_class.startswith("float32"):
+        return "f32"
+    if "int8" in model_class:
+        return "int8"
+    raise ValueError(f"Unrecognized TFLite precision class: {model_class}")
+
+
+def validate_stage1_metadata(
+    *,
+    checkpoint: Path,
+    tflite: Path,
+    precision: str,
+    fold: int | None,
+    manifest: Path | None,
+    held_out: str,
+) -> None:
+    """Reject fold, subject, or precision mismatches before comparison."""
+    if fold is not None and held_out != f"s{fold}":
+        raise ValueError(
+            f"Held-out subject {held_out} does not match fold {fold}"
+        )
+    if manifest is not None and fold is not None:
+        doc = load_manifest(manifest)
+        if int(doc.get("fold_index", -1)) != int(fold):
+            raise ValueError(
+                f"Manifest fold_index {doc.get('fold_index')} does not match fold {fold}"
+            )
+        if str(doc.get("held_out_subject")) != held_out:
+            raise ValueError(
+                f"Manifest held-out subject {doc.get('held_out_subject')} "
+                f"does not match {held_out}"
+            )
+    if not checkpoint.is_file():
+        raise FileNotFoundError(f"Checkpoint not found: {checkpoint}")
+    if not tflite.is_file():
+        raise FileNotFoundError(f"TFLite artifact not found: {tflite}")
+    ckpt = torch.load(checkpoint, map_location="cpu", weights_only=False)
+    if "fold_idx" in ckpt and fold is not None and int(ckpt["fold_idx"]) != int(fold):
+        raise ValueError(
+            f"Checkpoint fold_idx {ckpt['fold_idx']} does not match fold {fold}"
+        )
+    if "outer_test_subject" in ckpt and str(ckpt["outer_test_subject"]) != held_out:
+        raise ValueError(
+            f"Checkpoint outer_test_subject {ckpt['outer_test_subject']} "
+            f"does not match held-out subject {held_out}"
+        )
+    from src.replay.inspect_tflite import inspect_model
+
+    info = inspect_model(str(tflite))
+    found = _classified_precision(str(info.get("model_class", "")))
+    if found != precision:
+        raise ValueError(
+            f"TFLite precision is {found}, not requested {precision} "
+            f"({info.get('model_class')})"
+        )
+
+
+def _pytorch_trial_outputs(
+    model: torch.nn.Module,
+    X: np.ndarray,
+    y: np.ndarray,
+    indices: np.ndarray,
+    *,
+    batch_size: int,
+    n_classes: int,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    preds: list[np.ndarray] = []
+    labels: list[np.ndarray] = []
+    logits_rows: list[np.ndarray] = []
+    model.eval()
+    with torch.no_grad():
+        for start in range(0, len(indices), batch_size):
+            batch = indices[start:start + batch_size]
+            xb = torch.from_numpy(np.ascontiguousarray(X[batch]))
+            logits = model(xb).detach().cpu().numpy()
+            if logits.ndim != 2 or int(logits.shape[0]) != len(batch) or int(logits.shape[1]) != n_classes:
+                raise RuntimeError(
+                    f"Invalid PyTorch output at rows {int(batch[0])}..{int(batch[-1])}: {logits.shape}"
+                )
+            if not np.isfinite(logits).all():
+                raise RuntimeError(
+                    f"Non-finite PyTorch logits at rows {int(batch[0])}..{int(batch[-1])}"
+                )
+            preds.append(np.argmax(logits, axis=1).astype(np.int64))
+            labels.append(np.asarray(y[batch], dtype=np.int64))
+            logits_rows.append(logits.astype(np.float32))
+    return (
+        np.concatenate(labels),
+        np.concatenate(preds),
+        np.concatenate(logits_rows, axis=0),
+    )
+
+
+def _tflite_trial_outputs(
+    model_name: str,
+    tflite: Path,
+    X: np.ndarray,
+    y: np.ndarray,
+    indices: np.ndarray,
+    *,
+    n_classes: int,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    preds: list[int] = []
+    labels: list[int] = []
+    logits_rows: list[np.ndarray] = []
+    for row in indices:
+        trial = X[int(row)]
+        inp = preprocess_trial_for_tflite(model_name, trial)
+        try:
+            logits = np.asarray(run_tflite_logits(tflite, inp), dtype=np.float32).reshape(-1)
+        except Exception as exc:
+            raise RuntimeError(f"TFLite inference failed at dataset row {int(row)}: {exc}") from exc
+        if logits.shape != (n_classes,) or not np.isfinite(logits).all():
+            raise RuntimeError(
+                f"Invalid TFLite output at dataset row {int(row)}: shape {logits.shape}"
+            )
+        preds.append(int(np.argmax(logits)))
+        labels.append(int(y[int(row)]))
+        logits_rows.append(logits)
+    return (
+        np.asarray(labels, dtype=np.int64),
+        np.asarray(preds, dtype=np.int64),
+        np.stack(logits_rows, axis=0),
+    )
+
+
+def evaluate_stage1(
+    model_name: str,
+    *,
+    checkpoint: Path,
+    tflite: Path,
+    npz: Path,
+    precision: str,
+    fold: int | None = None,
+    manifest: Path | None = None,
+    config: Path | None = None,
+    output_dir: Path | None = None,
+    batch_size: int = 64,
+) -> dict[str, Any]:
+    """Compare one checkpoint with one TFLite file on the same held-out trials."""
+    if model_name not in TFLITE_MODELS:
+        raise ValueError(
+            f"Stage 1 is not supported for {model_name!r}. "
+            f"Supported: {', '.join(sorted(TFLITE_MODELS))}"
+        )
+    if precision not in {"f32", "int8"}:
+        raise ValueError(f"Stage 1 precision must be f32 or int8, got {precision!r}")
+    held_out = resolve_held_out_subject(fold=fold, manifest=manifest)
+    validate_stage1_metadata(
+        checkpoint=checkpoint,
+        tflite=tflite,
+        precision=precision,
+        fold=fold,
+        manifest=manifest,
+        held_out=held_out,
+    )
+    cfg_path = resolve_config(model_name, config)
+    cfg = load_yaml(cfg_path)
+    n_classes = int(cfg["model"]["num_classes"])
+    X, y, subjects = load_processed(npz)
+    indices = held_out_trial_indices(subjects, held_out)
+    if indices.size == 0:
+        raise ValueError(f"No held-out trials for {held_out}")
+    model = prepare_pytorch_model(
+        model_name, cfg, checkpoint, X=X, y=y, subjects=subjects, held_out=held_out
+    )
+    y_pt, pred_pt, logits_pt = _pytorch_trial_outputs(
+        model, X, y, indices, batch_size=batch_size, n_classes=n_classes
+    )
+    y_tf, pred_tf, logits_tf = _tflite_trial_outputs(
+        model_name, tflite, X, y, indices, n_classes=n_classes
+    )
+    if not np.array_equal(y_pt, y_tf):
+        raise ValueError("Stage 1 PyTorch and TFLite labels are not the same trials")
+    metrics = stage1_fidelity_metrics(
+        y_pt, pred_pt, pred_tf, logits_pt, logits_tf, indices
+    )
+    summary = {
+        "runtime": "stage1",
+        "model": model_name,
+        "precision": precision,
+        "held_out_subject": held_out,
+        "fold": fold,
+        "checkpoint": str(checkpoint),
+        "tflite": str(tflite),
+        "npz": str(npz),
+        "config": str(cfg_path),
+        **metrics,
+    }
+    if output_dir is not None:
+        output_dir.mkdir(parents=True, exist_ok=True)
+        np.savez_compressed(
+            output_dir / "trial_outputs.npz",
+            indices=indices.astype(np.int64),
+            y_true=y_pt.astype(np.int64),
+            pytorch_pred=pred_pt.astype(np.int64),
+            tflite_pred=pred_tf.astype(np.int64),
+            pytorch_logits=logits_pt.astype(np.float32),
+            tflite_logits=logits_tf.astype(np.float32),
         )
         _write_summary(output_dir, summary)
     return summary

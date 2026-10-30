@@ -28,6 +28,8 @@ def _classical(args: argparse.Namespace) -> int:
         cmd.extend(["--config", str(args.config)])
     if args.npz:
         cmd.extend(["--npz", str(args.npz)])
+    if args.output_dir is not None:
+        cmd.extend(["--output-dir", str(args.output_dir)])
     if args.dry_run:
         cmd.append("--dry-run")
     if getattr(args, "trca_realization", None):
@@ -181,13 +183,81 @@ def _tflite_run(args: argparse.Namespace) -> int:
     return 0
 
 
+def _stage1_dry_run(args: argparse.Namespace) -> int:
+    from src.evaluation.neural_host import TFLITE_MODELS, resolve_held_out_subject
+
+    model = _resolve_model(args)
+    if not model:
+        raise SystemExit("--model or --backend is required for --runtime stage1")
+    if model not in TFLITE_MODELS:
+        raise SystemExit(f"Stage 1 is not supported for {model}")
+    if args.precision not in {"f32", "int8"}:
+        raise SystemExit("--precision f32 or int8 is required for --runtime stage1")
+    if args.fold is None and args.manifest is None:
+        raise SystemExit("--fold or --manifest is required for --runtime stage1")
+    if not args.checkpoint or not args.checkpoint.is_file():
+        raise SystemExit("--checkpoint must be an existing file for --runtime stage1")
+    if not args.tflite or not args.tflite.is_file():
+        raise SystemExit("--tflite must be an existing file for --runtime stage1")
+    held_out = resolve_held_out_subject(fold=args.fold, manifest=args.manifest)
+    print(f"OK stage1 {model} {args.precision}: held_out={held_out}")
+    print(f"  checkpoint: {args.checkpoint}")
+    print(f"  tflite: {args.tflite}")
+    return 0
+
+
+def _stage1_run(args: argparse.Namespace) -> int:
+    from src.evaluation.neural_host import evaluate_stage1
+
+    model = _resolve_model(args)
+    if not model:
+        raise SystemExit("--model or --backend is required for --runtime stage1")
+    if args.precision not in {"f32", "int8"}:
+        raise SystemExit("--precision f32 or int8 is required for --runtime stage1")
+    if not args.checkpoint:
+        raise SystemExit("--checkpoint is required for --runtime stage1")
+    if not args.tflite:
+        raise SystemExit("--tflite is required for --runtime stage1")
+    if not args.npz:
+        raise SystemExit("--npz is required for --runtime stage1")
+    if args.fold is None and args.manifest is None:
+        raise SystemExit("--fold or --manifest is required for --runtime stage1")
+    out = args.output_dir or Path("outputs/host/stage1") / model / args.precision
+    try:
+        summary = evaluate_stage1(
+            model,
+            checkpoint=args.checkpoint,
+            tflite=args.tflite,
+            npz=args.npz,
+            precision=args.precision,
+            fold=args.fold,
+            manifest=args.manifest,
+            config=args.config,
+            output_dir=out,
+        )
+    except (ValueError, FileNotFoundError, RuntimeError) as exc:
+        raise SystemExit(str(exc)) from exc
+    print(
+        f"stage1 {model} {args.precision}: "
+        f"pytorch_accuracy={summary['pytorch_accuracy']} "
+        f"tflite_accuracy={summary['tflite_accuracy']} "
+        f"top1_agreement={summary['top1_agreement']} "
+        f"flips={summary['flip_count']} "
+        f"logit_mae={summary['logit_mae']} "
+        f"max_abs={summary['max_abs_logit_difference']} "
+        f"mean_l2={summary['mean_per_trial_l2']} "
+        f"n_trials={summary['n_trials']} out={out}"
+    )
+    return 0
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(
         description="Host evaluation for classical, PyTorch, and TFLite backends"
     )
     ap.add_argument(
         "--runtime",
-        choices=["classical", "pytorch", "tflite"],
+        choices=["classical", "pytorch", "tflite", "stage1"],
         default="classical",
         help="Execution backend family",
     )
@@ -270,6 +340,8 @@ def main() -> None:
         raise SystemExit(_pytorch_dry_run(args) if args.dry_run else _pytorch_run(args))
     if args.runtime == "tflite":
         raise SystemExit(_tflite_dry_run(args) if args.dry_run else _tflite_run(args))
+    if args.runtime == "stage1":
+        raise SystemExit(_stage1_dry_run(args) if args.dry_run else _stage1_run(args))
     raise SystemExit(f"Unknown runtime: {args.runtime}")
 
 

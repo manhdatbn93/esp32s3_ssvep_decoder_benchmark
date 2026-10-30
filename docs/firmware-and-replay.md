@@ -47,26 +47,39 @@ Scope and limits:
 
 ## Architecture
 
+Host preparation and the ESP-IDF build are separate steps:
+
+Train → export TFLite float32 / int8 → host evaluation → stage firmware artifacts → build with ESP-IDF → flash and replay.
+
+Staging writes build inputs. It does not compile firmware, flash a board, or replay trials. `idf.py build` does not search `artifacts/generated/` for a model. It reads one staging directory: `firmware/generated/` unless `-DEXPORT_ARTIFACT_ROOT` selects another directory.
+
 ```text
-artifacts/reference/
-  → scripts/generate_firmware_artifacts.py
+reference artifacts
+  → generate_firmware_artifacts.py
   → firmware/generated/
-  → firmware/replay_fw/
   → idf.py build
+
+artifacts/generated/<model>/foldNN/<precision>/*.tflite
+  → run_pipeline.py stage
+  → artifacts/generated/firmware_staging/<model>/foldNN/<precision>/
+  → idf.py -DEXPORT_ARTIFACT_ROOT=<that directory> build
 ```
 
-Staging selects one backend and one fold, verifies the selected reference artifact, and writes only the required firmware build inputs under `firmware/generated/`. Firmware CMake consumes that directory. Reference artifacts remain read-only.
+One staging directory and one firmware build select one backend, one fold, and one precision. `selected_backend.cmake` in that directory sets `SSVEP_IDF_BACKEND` and the fold tag. CMake includes that file from `EXPORT_ARTIFACT_ROOT`. Neural models are embedded with `EMBED_FILES` from the staged `.tflite`. The build does not use a `model_data.h` exporter. The stager also writes `backend_identity.c` and `backend_identity.h`, which the replay component compiles from the same directory.
 
 Typical staged contents:
 
 - `selected_backend.cmake` / `selected_backend.json`
+- `staging_meta.json`
 - `backend_identity.c` / `backend_identity.h`
-- `vectors/` stub headers for optional boot self-check compilation
-- one backend stage directory with analytical headers or the retained TFLite file
+- `vectors/` smoke headers
+- one backend stage directory with analytical headers or one TFLite file
 
-Switching backend or fold requires restaging. Each int8 staging path is self-contained. No sibling f32 stage directory is required. A clean ESP-IDF build is recommended when switching backend families.
+The smoke headers are compile stubs. The vector count is 0 and the vectors are zeros. They are not a numerical check. FBtCNN also needs `fbtcnn_filter_generated.h` in the staged model directory. The direct stager requires that header beside the source TFLite file. `run_pipeline.py` copies the published subject-independent header there before staging. Each int8 directory is self-contained. No sibling float32 directory is required.
 
-CMake fails with a clear error when `selected_backend.cmake` is missing.
+Delete `firmware/replay_fw/build/` when changing backend, fold, precision, or staging directory. Reference artifacts remain read-only. This document does not claim that newly generated staging directories have been compiled or replayed on hardware.
+
+CMake fails with a clear error when `selected_backend.cmake` is missing from the selected `EXPORT_ARTIFACT_ROOT`.
 
 ## Staging commands
 
@@ -109,23 +122,88 @@ python scripts\generate_firmware_artifacts.py `
   --dry-run
 ```
 
-Generated-mode staging can consume a user-supplied TFLite path for non-reference builds. Generated outputs still belong under ignored staging or export directories, not under `artifacts/reference/`.
+Generated-mode staging takes a user-supplied TFLite file. It does not write under `artifacts/reference/`. Omitting `--output` uses `firmware/generated/` and replaces that directory. Point `--output` at one model, fold, and precision only.
+
+Pipeline exports are:
+
+```text
+artifacts/generated/<model>/foldNN/f32/<model>_float32.tflite
+artifacts/generated/<model>/foldNN/int8/<model>_int8.tflite
+```
+
+EEGNet fold 1 is `artifacts/generated/eegnet/fold01/f32/eegnet_float32.tflite` and `artifacts/generated/eegnet/fold01/int8/eegnet_int8.tflite`.
+
+`scripts/run_pipeline.py stage --all` calls the generator once per supported neural firmware set, then once per classical backend and fold with `--artifact-set reference`. `run --all` trains, exports, and evaluates first, including one classical LOSO command, and then stages that same set. Neither command runs `idf.py`.
+
+```powershell
+python scripts\run_pipeline.py stage --all
+```
+
+`--all` stages CCNN float32 and int8, ConvCA float32, EEGNet float32 and int8, and FBtCNN float32 and int8, for folds 1–10. It also stages CCA, FBCCA, MSI, and TRCA from the retained reference bundles, one directory per method and fold. SSVEPformer and SSVEPNet are PyTorch-only and are not staged. Each result is a separate directory:
+
+```text
+artifacts/generated/firmware_staging/<model>/foldNN/<precision>/
+artifacts/generated/firmware_staging/<method>/foldNN/reference/
+```
+
+The classical `reference` directory is a generated copy. `artifacts/reference/` stays read-only.
+
+The same generator can stage one exported model directly:
+
+```powershell
+python scripts\generate_firmware_artifacts.py `
+  --backend eegnet-f32 `
+  --fold 1 `
+  --artifact-set generated `
+  --tflite artifacts\generated\eegnet\fold01\f32\eegnet_float32.tflite `
+  --output artifacts\generated\firmware_staging\eegnet\fold01\f32
+python scripts\generate_firmware_artifacts.py `
+  --backend eegnet-int8 `
+  --fold 1 `
+  --artifact-set generated `
+  --tflite artifacts\generated\eegnet\fold01\int8\eegnet_int8.tflite `
+  --output artifacts\generated\firmware_staging\eegnet\fold01\int8
+```
+
+For this fold, float32 is staged as `12jfpm_eegnet_fold01_test_s1/eegnet_float32.tflite` and int8 as `12jfpm_eegnet_fold01_test_s1_int8/eegnet_int8.tflite`. FBtCNN generated staging fails unless `fbtcnn_filter_generated.h` is beside the TFLite file.
+
+Stage 1, in [training and export](training-and-export.md), compares a PyTorch checkpoint with host TFLite. Stage 2 compares that host TFLite result with ESP32-S3 firmware during replay. The staging command does not measure Stage 2.
 
 ## Build after staging
 
-Staging writes `firmware/generated/selected_backend.cmake`. The build reads that file and selects the backend and fold from it. Use the measurement profile above. Do not run `idf.py set-target` after copying `sdkconfig.measurement`: that command replaces `sdkconfig` with one generated from `sdkconfig.defaults`. Both select 240 MHz and `-O2`. The defaults file is not the measurement profile. Delete `build/` when switching backends.
+Use the measurement profile above. Do not run `idf.py set-target` after copying `sdkconfig.measurement`: that command replaces `sdkconfig` with a file generated from `sdkconfig.defaults`. Both select 240 MHz and `-O2`. The defaults file is not the measurement profile. Delete `build/` when switching staging targets. Optional `-DTARGET_BACKEND` is only a consistency check. It must equal the staged backend. Prefer omitting it.
+
+### Default staging directory
+
+Reference commands, and generated commands that omit `--output`, write `firmware/generated/`. `firmware/replay_fw/CMakeLists.txt` and `firmware/cmake/export_artifact_root.cmake` use that directory when `EXPORT_ARTIFACT_ROOT` is not set.
 
 ```powershell
-# from repository root, after staging
+# from repository root, after staging into firmware\generated
 cd firmware\replay_fw
 Remove-Item build -Recurse -Force -ErrorAction SilentlyContinue
 Copy-Item sdkconfig.measurement sdkconfig -Force
 idf.py build
 ```
 
-Optional `-DTARGET_BACKEND` is only a consistency check. It must equal the staged backend. Prefer omitting it.
+All eleven published backends compile with this profile from retained reference artifacts. A successful compile is a build check. It is not a Table 5 measurement, and this document does not publish image sizes from those compiles.
 
-All eleven published backends compile with this profile. A successful compile is a build check. It is not a Table 5 measurement, and this document does not publish image sizes from those compiles.
+### Pipeline staging directory
+
+`run_pipeline.py stage` does not update `firmware/generated/`, and ESP-IDF does not select its directories automatically. Pass one absolute `EXPORT_ARTIFACT_ROOT`. A generated neural directory is `artifacts/generated/firmware_staging/<model>/foldNN/<precision>/`. A retained classical copy is `artifacts/generated/firmware_staging/<method>/foldNN/reference/`. Either path is one backend. The example below builds EEGNet int8 fold 1. It compiles that staging directory only. It does not flash or replay the board, and it does not show that every generated artifact has been compiled.
+
+```powershell
+# From repository root, after pipeline staging
+cd firmware\replay_fw
+
+$staging = (Resolve-Path ..\..\artifacts\generated\firmware_staging\eegnet\fold01\int8).Path
+
+Remove-Item build -Recurse -Force -ErrorAction SilentlyContinue
+Copy-Item sdkconfig.measurement sdkconfig -Force
+
+idf.py "-DEXPORT_ARTIFACT_ROOT=$staging" build
+```
+
+This builds the EEGNet int8 fold-1 staging set. It does not show that the staged model has been flashed or replayed.
 
 ## Flash and monitor
 
@@ -259,12 +337,15 @@ This entry point currently prints a placeholder message. It does not aggregate d
 | Directory | Role |
 |---|---|
 | `artifacts/reference/` | Retained read-only artifacts |
-| `artifacts/generated/` | New user exports |
-| `runs/` | Training checkpoints and logs |
+| `artifacts/generated/<model>/foldNN/<precision>/` | Exported TFLite files |
+| `artifacts/generated/firmware_staging/<model>/foldNN/<precision>/` | Generated neural firmware staging, one backend per directory |
+| `artifacts/generated/firmware_staging/<method>/foldNN/reference/` | Reference classical firmware staging, one backend per directory |
+| `runs/` | Training checkpoints and summaries |
+| `outputs/pipeline_runs/` | Pipeline execution logs |
 | `outputs/host/` | Host evaluation outputs |
 | `outputs/device/` | Device replay outputs when `replay_client.py --outdir` points here |
 | `results/replay/strict_loso_inner_val/` | Default directory when `replay_client.py` saves a run and `--outdir` is omitted |
-| `firmware/generated/` | Staged firmware build inputs |
+| `firmware/generated/` | Default staging directory when `--output` is omitted |
 | `firmware/replay_fw/build/` | ESP-IDF build output |
 
 ## Troubleshooting
@@ -273,13 +354,13 @@ This entry point currently prints a placeholder message. It does not aggregate d
 
 Symptom: CMake reports that staged backend metadata is missing.
 
-Action: run `scripts/generate_firmware_artifacts.py` for the intended backend and fold before `idf.py build`.
+Action: stage the intended backend and fold before `idf.py build`. A plain `idf.py build` reads `firmware/generated/`. For a pipeline directory, pass `-DEXPORT_ARTIFACT_ROOT` as in the pipeline build example. The selected directory must contain `selected_backend.cmake`.
 
 ### Stale build cache after changing backend
 
 Symptom: CMake reports `TARGET_BACKEND=cca does not match staged backend msi` (or another pair).
 
-Cause: the ESP-IDF/CMake cache still holds an older `-DTARGET_BACKEND` value while `firmware/generated/selected_backend.cmake` was restaged for a different backend.
+Cause: the ESP-IDF/CMake cache still holds an older `-DTARGET_BACKEND` or `EXPORT_ARTIFACT_ROOT` while the selected `selected_backend.cmake` is for a different backend or staging directory.
 
 Action (pick one):
 
@@ -293,11 +374,13 @@ Copy-Item sdkconfig.measurement sdkconfig -Force
 idf.py build
 ```
 
+For a pipeline staging directory, use the `-DEXPORT_ARTIFACT_ROOT` build command instead of plain `idf.py build`.
+
 Do not run `idf.py set-target` after that copy. It replaces `sdkconfig` with a file generated from `sdkconfig.defaults`, which is not the measurement profile.
 
 ### Backend or fold mismatch
 
-Action: restage the intended backend and fold with `scripts/generate_firmware_artifacts.py`, confirm `firmware/generated/selected_backend.cmake` shows the expected `SSVEP_IDF_BACKEND` and fold tag, rebuild, then use matching replay arguments.
+Action: restage the intended backend and fold, confirm `selected_backend.cmake` in the staging root used for the build (`firmware/generated/` by default) shows the expected `SSVEP_IDF_BACKEND` and fold tag, rebuild, then use matching replay arguments.
 
 ### Reference checksum failure
 

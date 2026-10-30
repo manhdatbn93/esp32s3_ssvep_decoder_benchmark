@@ -9,6 +9,7 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_ARTIFACT_ROOT = ROOT / "artifacts" / "reference"
+_LFS_POINTER_PREFIX = b"version https://git-lfs.github.com/spec/v1"
 
 REQUIRED_FIELDS = {
     "artifact_id",
@@ -128,6 +129,13 @@ def _verify_entry(
         raise ValueError(
             f"Held-out subject mismatch for {entry['artifact_id']}: "
             f"manifest={entry['held_out_subject']} loso={expected_subject}"
+        )
+    with path.open("rb") as handle:
+        prefix = handle.read(len(_LFS_POINTER_PREFIX))
+    if prefix == _LFS_POINTER_PREFIX:
+        raise ValueError(
+            f"{entry['artifact_id']} is a Git LFS pointer, not the retained artifact: {path}. "
+            "Clone with Git and run git lfs pull."
         )
     if verify_checksum:
         digest = _sha256(path)

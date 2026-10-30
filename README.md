@@ -27,6 +27,8 @@ The reference manifest lists 220 artifacts. After installing dependencies, run `
 
 The full host workflow uses Python 3.10. From the repository root:
 
+**Python environment:** The complete reproduction workflow was tested and verified using Python 3.10.11. Other Python versions have not been fully validated.
+
 ```powershell
 py -3.10 -m venv .venv
 .venv\Scripts\Activate.ps1
